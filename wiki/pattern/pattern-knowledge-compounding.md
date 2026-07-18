@@ -6,37 +6,17 @@ updated: 2026-07-17
 
 # Pattern: Knowledge compounding (each unit of work makes the next easier)
 
-Treat every completed unit of work as **training data for future work**: harvest its bugs,
-failed tests, and reusable solutions, write them into a **durable, reusable form**, and have
-future work **read that form as grounding**. The result is a lifecycle that *compounds* — each
-feature leaves the codebase and the agents a little smarter, so complexity grows *alongside*
-accumulated knowledge instead of decaying into debt. Compound Engineering's one-liner: **"each
-unit of engineering work should make subsequent units easier — not harder."**
+Treat every completed unit of work as **training data for future work**: harvest its bugs, failed tests, and reusable solutions, write them into a **durable, reusable form**, and have future work **read that form as grounding**. The result is a lifecycle that *compounds* — each feature leaves the codebase and the agents a little smarter, so complexity grows *alongside* accumulated knowledge instead of decaying into debt. Compound Engineering's one-liner: **"each unit of engineering work should make subsequent units easier — not harder."**
 
 Three coupled moves:
 
-1. **Harvest at close.** At iteration end, mine what happened — not just *whether* it shipped
-   (that is [[stage-release]]) but *what was learned*. Compound Engineering runs a research
-   council of sub-agents over the completed work ([[ce-compound]]).
-2. **Externalize into a durable, consumable form.** Write learnings where future work will find
-   them: a machine-consumable corpus ([[artifact-solution-doc]] in `docs/solutions/`), a
-   retrospective's action items, or a human-facing [[artifact-explainer]]. Keep it maintained,
-   not write-only ([[ce-compound-refresh]]).
-3. **Re-inject downstream.** The front of the next loop reads it: [[ce-brainstorm]],
-   [[ce-plan]], and [[ce-code-review]] pull the corpus in (via a `learnings-researcher` persona)
-   so *"the next agent does not have to learn the same lesson from scratch."*
+1. **Harvest at close.** At iteration end, mine what happened — not just *whether* it shipped (that is [[stage-release]]) but *what was learned*. Compound Engineering runs a research council of sub-agents over the completed work ([[ce-compound]]).
+2. **Externalize into a durable, consumable form.** Write learnings where future work will find them: a machine-consumable corpus ([[artifact-solution-doc]] in `docs/solutions/`), a retrospective's action items, or a human-facing [[artifact-explainer]]. Keep it maintained, not write-only ([[ce-compound-refresh]]).
+3. **Re-inject downstream.** The front of the next loop reads it: [[ce-brainstorm]], [[ce-plan]], and [[ce-code-review]] pull the corpus in (via a `learnings-researcher` persona) so *"the next agent does not have to learn the same lesson from scratch."*
 
 ## Why it's distinctive
 
-This is the loop-closing arrow that no other pattern in the wiki supplies. [[pattern-session-handoff]]
-carries context across a *boundary* within one effort; [[pattern-context-engineering]] curates
-the right context *into* a task; [[pattern-living-specification]] compounds *spec* knowledge.
-Knowledge compounding is broader: it compounds **lessons** — the reusable how-and-why — in a
-form later iterations consume automatically. It is the technique behind the canonical
-[[stage-learn]] stage, and the reason a lifecycle can be a *loop* rather than a line. Its most
-novel form is **machine-consumable**: learnings written so the next *agent* reads them without a
-human in the loop, which is why [[stage-learn]] is plausibly the first genuinely new SDLC stage
-the agent era adds.
+This is the loop-closing arrow that no other pattern in the wiki supplies. [[pattern-session-handoff]] carries context across a *boundary* within one effort; [[pattern-context-engineering]] curates the right context *into* a task; [[pattern-living-specification]] compounds *spec* knowledge. Knowledge compounding is broader: it compounds **lessons** — the reusable how-and-why — in a form later iterations consume automatically. It is the technique behind the canonical [[stage-learn]] stage, and the reason a lifecycle can be a *loop* rather than a line. Its most novel form is **machine-consumable**: learnings written so the next *agent* reads them without a human in the loop, which is why [[stage-learn]] is plausibly the first genuinely new SDLC stage the agent era adds.
 
 ## Applied by (backlinks)
 

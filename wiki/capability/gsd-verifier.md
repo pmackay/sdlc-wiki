@@ -14,13 +14,9 @@ updated: 2026-06-27
 
 # gsd-verifier
 
-Specialist sub-agent run sequentially after execution by [[gsd-execute-phase]]. "Performs a
-goal-backward analysis" — working back from the phase goal to confirm the built code
-actually satisfies its requirements.
+Specialist sub-agent run sequentially after execution by [[gsd-execute-phase]]. "Performs a goal-backward analysis" — working back from the phase goal to confirm the built code actually satisfies its requirements.
 
-Distinct from [[gsd-verify-work]], the human-in-the-loop UAT command: gsd-verifier is an
-automated code-level check inside the Execute phase, whereas `/gsd-verify-work` is
-conversational acceptance testing on the running feature.
+Distinct from [[gsd-verify-work]], the human-in-the-loop UAT command: gsd-verifier is an automated code-level check inside the Execute phase, whereas `/gsd-verify-work` is conversational acceptance testing on the running feature.
 
 ## See Also
 - [[gsd-executor]] — produces the code this verifies.

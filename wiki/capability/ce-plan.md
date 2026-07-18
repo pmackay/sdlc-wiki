@@ -14,22 +14,12 @@ updated: 2026-07-04
 
 # /ce-plan
 
-`/ce-plan` — "Bound execution with guardrails, enrich plans with U-IDs and test scenarios, WHAT
-not HOW." Step 2 of the loop and, per Every, the single biggest time sink (~40% of a developer's
-time — the heart of the 80/20 front-load). It takes the requirements from [[ce-brainstorm]] and
-enriches them into an **implementation-ready** plan (`docs/plans/`, [[artifact-plan-md]]):
-uniquely-identified units (U-IDs), test scenarios, and **guardrails** that bound what
-[[ce-work]] may do. Agents research the codebase + commit history + best practices and read the
-compound corpus first, so the plan builds a shared mental model before any code exists.
+`/ce-plan` — "Bound execution with guardrails, enrich plans with U-IDs and test scenarios, WHAT not HOW." Step 2 of the loop and, per Every, the single biggest time sink (~40% of a developer's time — the heart of the 80/20 front-load). It takes the requirements from [[ce-brainstorm]] and enriches them into an **implementation-ready** plan (`docs/plans/`, [[artifact-plan-md]]): uniquely-identified units (U-IDs), test scenarios, and **guardrails** that bound what [[ce-work]] may do. Agents research the codebase + commit history + best practices and read the compound corpus first, so the plan builds a shared mental model before any code exists.
 
-It implements [[stage-plan]] and is the pivot of the WHAT→HOW split: `ce-plan` fixes the WHAT
-(scope, guardrails, success criteria); [[ce-work]] figures out the HOW in code.
+It implements [[stage-plan]] and is the pivot of the WHAT→HOW split: `ce-plan` fixes the WHAT (scope, guardrails, success criteria); [[ce-work]] figures out the HOW in code.
 
 ## Cross-framework equivalents
-Plan cluster: `ce-plan` ↔ [[gsd-plan-phase]] ↔ [[addy-planning]] ↔ [[speckit-plan]] +
-[[speckit-tasks]] — research, design, and decompose into verifiable, dependency-ordered units.
-`ce-plan`'s signature is **guardrails + U-IDs + test scenarios** as the contract handed to
-execution.
+Plan cluster: `ce-plan` ↔ [[gsd-plan-phase]] ↔ [[addy-planning]] ↔ [[speckit-plan]] + [[speckit-tasks]] — research, design, and decompose into verifiable, dependency-ordered units. `ce-plan`'s signature is **guardrails + U-IDs + test scenarios** as the contract handed to execution.
 
 ## See Also
 - [[gsd-plan-phase]] · [[addy-planning]] · [[speckit-plan]] · [[speckit-tasks]] — plan-cluster counterparts.

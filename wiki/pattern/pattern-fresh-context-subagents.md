@@ -6,11 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Fresh-context subagents
 
-Route heavy research and execution work through subagents that each start with a clean
-context window (GSD targets ~200k tokens per executor), while the main session stays lean.
-This directly counters **context rot** — quality degradation as a single agent's context
-window fills. Each subagent gets only "a precisely scoped prompt and the subset of
-artifacts it needs."
+Route heavy research and execution work through subagents that each start with a clean context window (GSD targets ~200k tokens per executor), while the main session stays lean. This directly counters **context rot** — quality degradation as a single agent's context window fills. Each subagent gets only "a precisely scoped prompt and the subset of artifacts it needs."
 
 ## Applied by (backlinks)
 

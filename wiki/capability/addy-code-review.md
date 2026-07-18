@@ -14,18 +14,9 @@ updated: 2026-07-09
 
 # Code Review & Quality
 
-Reviews every change before merge across five axes — correctness, readability, architecture,
-security, and performance — approving when a change definitely improves overall code health
-rather than demanding perfection. Its distinctive machinery is severity-labelled findings
-(Critical / no-prefix Required / Nit / Optional / FYI) so authors can tell what is mandatory
-from what is discretionary, paired with change-sizing norms (~100 lines is reviewable, ~1000
-must be split), splitting strategies (stack, file-group, horizontal, vertical), and review-speed
-expectations (respond within one business day).
+Reviews every change before merge across five axes — correctness, readability, architecture, security, and performance — approving when a change definitely improves overall code health rather than demanding perfection. Its distinctive machinery is severity-labelled findings (Critical / no-prefix Required / Nit / Optional / FYI) so authors can tell what is mandatory from what is discretionary, paired with change-sizing norms (~100 lines is reviewable, ~1000 must be split), splitting strategies (stack, file-group, horizontal, vertical), and review-speed expectations (respond within one business day).
 
-It emits an [[artifact-review-report]] and can delegate the actual reviewing to the
-[[addy-code-reviewer]] persona. The skill applies [[pattern-anti-rationalization]] — its
-rationalization tables and structural-remedy prompts exist to stop reviewers rubber-stamping
-or softening real issues.
+It emits an [[artifact-review-report]] and can delegate the actual reviewing to the [[addy-code-reviewer]] persona. The skill applies [[pattern-anti-rationalization]] — its rationalization tables and structural-remedy prompts exist to stop reviewers rubber-stamping or softening real issues.
 
 ## See Also
 - [[addy-code-reviewer]] — the persona this delegates the review to.

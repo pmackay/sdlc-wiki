@@ -14,11 +14,7 @@ updated: 2026-07-04
 
 # bmad-correct-course
 
-**`bmad-correct-course`** — "Manage significant changes during sprint execution." Owned by
-[[bmad-pm]] (John), it is BMAD's mid-flight re-planning valve: when a discovery or scope change
-lands during implementation, it re-routes the plan — updating epics/stories rather than letting
-the sprint drift. It `implements: [[stage-plan]]` because the underlying activity is
-re-planning, even though it fires inside the implementation phase.
+**`bmad-correct-course`** — "Manage significant changes during sprint execution." Owned by [[bmad-pm]] (John), it is BMAD's mid-flight re-planning valve: when a discovery or scope change lands during implementation, it re-routes the plan — updating epics/stories rather than letting the sprint drift. It `implements: [[stage-plan]]` because the underlying activity is re-planning, even though it fires inside the implementation phase.
 
 ## See Also
 - [[bmad]] — the framework.

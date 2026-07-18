@@ -14,8 +14,7 @@ updated: 2026-07-05
 
 # /unfreeze
 
-`/unfreeze` — clear the edit boundary set by [[gstack-freeze]] (or [[gstack-guard]]), allowing edits
-to all directories again. The release valve for gstack's [[pattern-edit-guardrails]].
+`/unfreeze` — clear the edit boundary set by [[gstack-freeze]] (or [[gstack-guard]]), allowing edits to all directories again. The release valve for gstack's [[pattern-edit-guardrails]].
 
 ## See Also
 - [[gstack-freeze]] — the lock this clears.

@@ -14,16 +14,9 @@ updated: 2026-07-05
 
 # /land-and-deploy
 
-`/land-and-deploy` — the **Release Engineer's** deploy step. **Merge** the PR, **wait for CI and
-deploy**, then **verify production health**. "One command from 'approved' to 'verified in
-production.'" Deploy configuration comes from [[gstack-setup-deploy]] (Fly.io / Render / Vercel / …).
+`/land-and-deploy` — the **Release Engineer's** deploy step. **Merge** the PR, **wait for CI and deploy**, then **verify production health**. "One command from 'approved' to 'verified in production.'" Deploy configuration comes from [[gstack-setup-deploy]] (Fly.io / Render / Vercel / …).
 
-This is what makes gstack distinctive on the delivery side: it is the **first framework here to
-separate deploy from ship** — [[gstack-ship]] opens the PR; `land-and-deploy` merges and pushes it
-to production and confirms it's healthy; [[gstack-canary]] then monitors. That deploy+verify+monitor
-arc is the evidence strengthening the [[stage-release]] `stage-operate` split candidate. Nearest
-relatives elsewhere are Addy's CI/CD ([[addy-ci-cd]]) and feature-flag rollout, but no other
-framework ships an actual deploy command.
+This is what makes gstack distinctive on the delivery side: it is the **first framework here to separate deploy from ship** — [[gstack-ship]] opens the PR; `land-and-deploy` merges and pushes it to production and confirms it's healthy; [[gstack-canary]] then monitors. That deploy+verify+monitor arc is the evidence strengthening the [[stage-release]] `stage-operate` split candidate. Nearest relatives elsewhere are Addy's CI/CD ([[addy-ci-cd]]) and feature-flag rollout, but no other framework ships an actual deploy command.
 
 ## See Also
 - [[gstack-ship]] — opens the PR this merges and deploys.

@@ -14,17 +14,9 @@ updated: 2026-07-04
 
 # /lfg
 
-`/lfg` — "Run full hands-off engineering pipeline from planning through green PR with CI watch."
-Compound Engineering's **autonomous orchestrator**: after a brainstorm, it chains the whole loop
-without supervision — plan → work → simplify → review (with fixes) → test → commit → push → open
-PR → watch CI until green — and returns only when the PR is merge-ready. It runs in worktree
-isolation ([[pattern-worktree-isolation]]) and self-corrects on failures ([[pattern-autonomous-loop]]).
+`/lfg` — "Run full hands-off engineering pipeline from planning through green PR with CI watch." Compound Engineering's **autonomous orchestrator**: after a brainstorm, it chains the whole loop without supervision — plan → work → simplify → review (with fixes) → test → commit → push → open PR → watch CI until green — and returns only when the PR is merge-ready. It runs in worktree isolation ([[pattern-worktree-isolation]]) and self-corrects on failures ([[pattern-autonomous-loop]]).
 
-It spans [[stage-plan]] through [[stage-release]] by delegating to the loop's individual skills,
-so it is documented as a cross-stage orchestrator rather than owning a single stage. It is
-Compound Engineering's counterpart to running the human-checkpointed loop by hand — and the
-closest relative to Addy's `/build auto` and BMAD's [[bmad-quick-dev]] (`dev-auto`) unattended
-paths.
+It spans [[stage-plan]] through [[stage-release]] by delegating to the loop's individual skills, so it is documented as a cross-stage orchestrator rather than owning a single stage. It is Compound Engineering's counterpart to running the human-checkpointed loop by hand — and the closest relative to Addy's `/build auto` and BMAD's [[bmad-quick-dev]] (`dev-auto`) unattended paths.
 
 ## See Also
 - [[ce-plan]] · [[ce-work]] · [[ce-simplify-code]] · [[ce-code-review]] · [[ce-commit-push-pr]] — the loop steps it delegates to.

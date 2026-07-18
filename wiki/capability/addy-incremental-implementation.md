@@ -14,15 +14,9 @@ updated: 2026-07-09
 
 # Incremental Implementation
 
-Build in thin vertical slices instead of one big pass: for each slice **implement → test →
-verify → commit**, then carry forward. Every increment leaves the system compilable and
-testable, changes one logical thing (yielding an [[artifact-atomic-commit]]), and stays
-rollback-friendly. Incomplete work hides behind [[pattern-feature-flags]] with safe,
-conservative defaults so small increments can merge without exposing unfinished features.
+Build in thin vertical slices instead of one big pass: for each slice **implement → test → verify → commit**, then carry forward. Every increment leaves the system compilable and testable, changes one logical thing (yielding an [[artifact-atomic-commit]]), and stays rollback-friendly. Incomplete work hides behind [[pattern-feature-flags]] with safe, conservative defaults so small increments can merge without exposing unfinished features.
 
-It is the execution discipline for any change touching more than one file, applies
-[[pattern-vertical-slice]], and leans on simplicity-first and scope discipline as core rules.
-It implements [[stage-implement]].
+It is the execution discipline for any change touching more than one file, applies [[pattern-vertical-slice]], and leans on simplicity-first and scope discipline as core rules. It implements [[stage-implement]].
 
 ## See Also
 - [[addy-tdd]] — the test half of each slice's verify step.

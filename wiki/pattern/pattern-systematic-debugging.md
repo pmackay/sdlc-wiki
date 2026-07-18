@@ -6,9 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Systematic debugging
 
-Don't guess at fixes. Follow a disciplined loop — **reproduce → minimize → hypothesize →
-instrument → fix** — tracking hypotheses against evidence so each step shrinks the problem
-or rules out a cause.
+Don't guess at fixes. Follow a disciplined loop — **reproduce → minimize → hypothesize → instrument → fix** — tracking hypotheses against evidence so each step shrinks the problem or rules out a cause.
 
 ## Applied by (backlinks)
 

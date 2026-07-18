@@ -14,20 +14,12 @@ updated: 2026-07-04
 
 # /ce-ideate
 
-`/ce-ideate` — "Discover strong, qualified directions worth exploring with conceptual frames
-and adversarial filtering." It diverges into candidate directions using conceptual frames, then
-**adversarially filters** them ([[pattern-adversarial-review]]) so only qualified ideas survive,
-grounding the search in repo + web evidence and the [[artifact-strategy-md|strategy]] and
-compound corpus ([[pattern-source-grounding]]).
+`/ce-ideate` — "Discover strong, qualified directions worth exploring with conceptual frames and adversarial filtering." It diverges into candidate directions using conceptual frames, then **adversarially filters** them ([[pattern-adversarial-review]]) so only qualified ideas survive, grounding the search in repo + web evidence and the [[artifact-strategy-md|strategy]] and compound corpus ([[pattern-source-grounding]]).
 
-It is the **ideation** flavor of [[stage-align]], clustering with BMAD's [[bmad-brainstorming]]
-and Addy's [[addy-idea-refine]] (diverge-then-converge). Compound Engineering's twist is the
-explicit adversarial cut and grounding pass before an idea is allowed forward.
+It is the **ideation** flavor of [[stage-align]], clustering with BMAD's [[bmad-brainstorming]] and Addy's [[addy-idea-refine]] (diverge-then-converge). Compound Engineering's twist is the explicit adversarial cut and grounding pass before an idea is allowed forward.
 
 ## Cross-framework equivalents
-Ideation cluster: `ce-ideate` ↔ [[bmad-brainstorming]] ↔ [[addy-idea-refine]] — all turn a vague
-space into a small set of qualified directions. BMAD's [[bmad-forge-idea]] pressure-tests a
-*single* idea; `ce-ideate`'s adversarial filter is the multi-candidate analogue.
+Ideation cluster: `ce-ideate` ↔ [[bmad-brainstorming]] ↔ [[addy-idea-refine]] — all turn a vague space into a small set of qualified directions. BMAD's [[bmad-forge-idea]] pressure-tests a *single* idea; `ce-ideate`'s adversarial filter is the multi-candidate analogue.
 
 ## See Also
 - [[bmad-brainstorming]] · [[addy-idea-refine]] — ideation-cluster counterparts.

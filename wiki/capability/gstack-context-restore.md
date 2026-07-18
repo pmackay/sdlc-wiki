@@ -14,12 +14,9 @@ updated: 2026-07-05
 
 # /context-restore
 
-`/context-restore` — resume from a context saved earlier by [[gstack-context-save]], **even across
-Conductor workspaces**. Reads the saved decisions/remaining-work and the `WIP:` checkpoint commits
-(their `[gstack-context]` bodies) to reconstruct session state after a crash or a context switch.
+`/context-restore` — resume from a context saved earlier by [[gstack-context-save]], **even across Conductor workspaces**. Reads the saved decisions/remaining-work and the `WIP:` checkpoint commits (their `[gstack-context]` bodies) to reconstruct session state after a crash or a context switch.
 
-The consuming half of gstack's [[pattern-session-handoff]] loop; enables the 10-15-parallel-sprint
-workflow to survive interruptions. Clusters with Matt Pocock's [[mp-handoff]].
+The consuming half of gstack's [[pattern-session-handoff]] loop; enables the 10-15-parallel-sprint workflow to survive interruptions. Clusters with Matt Pocock's [[mp-handoff]].
 
 ## See Also
 - [[gstack-context-save]] — writes the context this restores.

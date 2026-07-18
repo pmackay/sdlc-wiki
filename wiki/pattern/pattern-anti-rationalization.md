@@ -6,18 +6,9 @@ updated: 2026-07-17
 
 # Pattern: Anti-rationalization (excuse/rebuttal tables)
 
-Every process step an agent is tempted to skip is pre-empted by naming the **rationalization**
-("I'll add tests later", "this change is too small to review") and pairing it with a
-documented **rebuttal**. Coupled with a **Red Flags** list of warning signs that something
-has gone wrong. The technique hard-codes discipline into the workflow so the agent cannot
-quietly take the shortest path — the excuse it would reach for is already answered on the page.
+Every process step an agent is tempted to skip is pre-empted by naming the **rationalization** ("I'll add tests later", "this change is too small to review") and pairing it with a documented **rebuttal**. Coupled with a **Red Flags** list of warning signs that something has gone wrong. The technique hard-codes discipline into the workflow so the agent cannot quietly take the shortest path — the excuse it would reach for is already answered on the page.
 
-This is the **co-signature** mechanism of two frameworks. [[addy-agent-skills]] puts the table in
-*every* skill; [[superpowers]] pushes it furthest, escalating the same instinct into **Iron Laws**
-(delete code written before its test; no fix without root-cause; no completion claim without
-evidence), per-skill **Red Flags** "STOP — you're rationalizing" tables, and a bootstrap
-([[sp-using-superpowers]]) that aims the technique at skill *discovery* itself. Both frameworks use it
-to make their skills resist the shortest-path default that motivates the pack.
+This is the **co-signature** mechanism of two frameworks. [[addy-agent-skills]] puts the table in *every* skill; [[superpowers]] pushes it furthest, escalating the same instinct into **Iron Laws** (delete code written before its test; no fix without root-cause; no completion claim without evidence), per-skill **Red Flags** "STOP — you're rationalizing" tables, and a bootstrap ([[sp-using-superpowers]]) that aims the technique at skill *discovery* itself. Both frameworks use it to make their skills resist the shortest-path default that motivates the pack.
 
 ## Applied by (backlinks)
 

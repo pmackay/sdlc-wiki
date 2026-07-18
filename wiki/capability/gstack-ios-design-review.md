@@ -14,12 +14,9 @@ updated: 2026-07-05
 
 # /ios-design-review
 
-`/ios-design-review` — a **designer's-eye visual audit for iOS apps on real hardware**, scored
-against a **10-dimension Apple HIG rubric**. The native-app sibling of the web-facing
-[[gstack-design-review]].
+`/ios-design-review` — a **designer's-eye visual audit for iOS apps on real hardware**, scored against a **10-dimension Apple HIG rubric**. The native-app sibling of the web-facing [[gstack-design-review]].
 
-Sits in gstack's **Review** phase ([[stage-review]]); produces a design review report. No
-cross-framework counterpart — gstack is the only framework here with an iOS/HIG design auditor.
+Sits in gstack's **Review** phase ([[stage-review]]); produces a design review report. No cross-framework counterpart — gstack is the only framework here with an iOS/HIG design auditor.
 
 ## See Also
 - [[gstack-design-review]] — the web-facing design-audit sibling.

@@ -14,18 +14,9 @@ updated: 2026-07-04
 
 # Shipping & Launch
 
-Ships with confidence: every launch reversible, observable, and incremental. It runs a
-multi-section pre-launch [[artifact-launch-checklist]] (code quality, security, performance,
-accessibility, infrastructure, documentation), then a feature-flag lifecycle and staged rollout
-(deploy dark → team → 5% canary → 25/50/100%) governed by explicit advance/hold/roll-back
-thresholds, backed by monitoring and a documented rollback plan. It applies
-[[pattern-feature-flags]] to decouple deployment from release.
+Ships with confidence: every launch reversible, observable, and incremental. It runs a multi-section pre-launch [[artifact-launch-checklist]] (code quality, security, performance, accessibility, infrastructure, documentation), then a feature-flag lifecycle and staged rollout (deploy dark → team → 5% canary → 25/50/100%) governed by explicit advance/hold/roll-back thresholds, backed by monitoring and a documented rollback plan. It applies [[pattern-feature-flags]] to decouple deployment from release.
 
-Its distinctive mechanism is fan-out orchestration: `/ship` spawns the three review personas —
-[[addy-code-reviewer]], [[addy-security-auditor]], and [[addy-test-engineer]] — concurrently,
-then merges their verdicts into a single go/no-go decision with a rollback plan
-([[pattern-parallel-persona-review]]). This clusters it with GSD's ship command,
-[[gsd-ship]], which orchestrates launch the same way.
+Its distinctive mechanism is fan-out orchestration: `/ship` spawns the three review personas — [[addy-code-reviewer]], [[addy-security-auditor]], and [[addy-test-engineer]] — concurrently, then merges their verdicts into a single go/no-go decision with a rollback plan ([[pattern-parallel-persona-review]]). This clusters it with GSD's ship command, [[gsd-ship]], which orchestrates launch the same way.
 
 ## See Also
 - [[gsd-ship]] — the GSD equivalent ship orchestrator.

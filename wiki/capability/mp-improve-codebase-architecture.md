@@ -14,13 +14,9 @@ updated: 2026-07-05
 
 # improve-codebase-architecture
 
-`/improve-codebase-architecture` — a user-invoked engineering skill that scans a codebase
-for **architectural improvements** and presents them as visual HTML reports. The review/
-maintenance answer to failure mode #4 (ball of mud): surface entropy so it can be paid down
-deliberately, steering modules back toward [[pattern-deep-modules]].
+`/improve-codebase-architecture` — a user-invoked engineering skill that scans a codebase for **architectural improvements** and presents them as visual HTML reports. The review/ maintenance answer to failure mode #4 (ball of mud): surface entropy so it can be paid down deliberately, steering modules back toward [[pattern-deep-modules]].
 
-Implements [[stage-review]] in the maintenance sense — auditing built code — rather than
-feature UAT.
+Implements [[stage-review]] in the maintenance sense — auditing built code — rather than feature UAT.
 
 ## See Also
 - [[mp-codebase-design]] — the forward-looking design discipline this audits against.

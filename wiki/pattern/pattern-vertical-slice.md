@@ -6,9 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Vertical slice
 
-Decompose work into units that each cut top-to-bottom through the stack (UI → API → DB) so
-every unit is independently buildable, shippable, and demoable — rather than horizontal
-layers that only deliver value once all are complete.
+Decompose work into units that each cut top-to-bottom through the stack (UI → API → DB) so every unit is independently buildable, shippable, and demoable — rather than horizontal layers that only deliver value once all are complete.
 
 ## Applied by (backlinks)
 

@@ -6,11 +6,7 @@ updated: 2026-07-04
 
 # Pattern: Feature flags (decouple deploy from release)
 
-Gate new behavior behind a flag so code can be **deployed** to production continuously while
-its **release** to users is a separate, controlled decision. Enables safe defaults, staged
-rollouts (percentage ramps), instant rollback (flip the flag, no redeploy), and lets
-unfinished work live on trunk. Flags have a lifecycle — they must be retired once the rollout
-completes, or they become their own [[addy-deprecation]] liability.
+Gate new behavior behind a flag so code can be **deployed** to production continuously while its **release** to users is a separate, controlled decision. Enables safe defaults, staged rollouts (percentage ramps), instant rollback (flip the flag, no redeploy), and lets unfinished work live on trunk. Flags have a lifecycle — they must be retired once the rollout completes, or they become their own [[addy-deprecation]] liability.
 
 ## Applied by (backlinks)
 

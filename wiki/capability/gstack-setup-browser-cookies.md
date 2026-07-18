@@ -14,13 +14,9 @@ updated: 2026-07-05
 
 # /setup-browser-cookies
 
-`/setup-browser-cookies` — the **Session Manager**. Imports cookies from your real browser (Chrome,
-Arc, Brave, Edge) into the headless [[gstack-browse]] session so the agent can test **authenticated
-pages**. Cookies are decrypted in-process (never written to disk in plaintext), the browser DB is
-opened read-only, and first import triggers a Keychain approval dialog.
+`/setup-browser-cookies` — the **Session Manager**. Imports cookies from your real browser (Chrome, Arc, Brave, Edge) into the headless [[gstack-browse]] session so the agent can test **authenticated pages**. Cookies are decrypted in-process (never written to disk in plaintext), the browser DB is opened read-only, and first import triggers a Keychain approval dialog.
 
-An **enabling** capability for authenticated live testing ([[stage-validate]]); one-time setup that
-makes [[gstack-qa]] / [[gstack-design-review]] work behind login walls.
+An **enabling** capability for authenticated live testing ([[stage-validate]]); one-time setup that makes [[gstack-qa]] / [[gstack-design-review]] work behind login walls.
 
 ## See Also
 - [[gstack-browse]] — the session cookies are imported into.

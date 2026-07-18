@@ -6,17 +6,12 @@ updated: 2026-07-09
 
 # Artifact: PRD (Product Requirements Document)
 
-A Product Requirements Document that captures intent and scope as a durable spec before any
-issues or stories are cut from it — the upstream design investment against "ball of mud" drift.
-Two frameworks produce one:
+A Product Requirements Document that captures intent and scope as a durable spec before any issues or stories are cut from it — the upstream design investment against "ball of mud" drift. Two frameworks produce one:
 
 - **BMAD — [[bmad-prd]]**: `prd.md` (+ `addendum.md`), authored by the PM persona ([[bmad-pm]]) on a Fast or Coaching path, with a `.memlog.md` decision/audit trail; length "scales with stakes" ([[pattern-scale-adaptive-planning]]).
 - **Builder Methods — [[bm-prd-creator]]**: a structured interview for **non-technical builders** producing a visual single-file **HTML** PRD (or markdown, or both) plus milestone prompt files; strict *what-not-how* boundary.
 
-> **Matt Pocock no longer produces a PRD (2026-07-09).** MP's former `/to-prd` was renamed to
-> [[mp-to-spec]] and now produces a **spec** ([[artifact-spec-md]]) — "spec" is the single
-> through-line term in v1.1 (the skill still says "you may know this as a PRD"); the two documents
-> remain close counterparts.
+> **Matt Pocock no longer produces a PRD (2026-07-09).** MP's former `/to-prd` was renamed to [[mp-to-spec]] and now produces a **spec** ([[artifact-spec-md]]) — "spec" is the single through-line term in v1.1 (the skill still says "you may know this as a PRD"); the two documents remain close counterparts.
 
 ## Produced by (backlinks)
 - [[bmad-prd]] — the PM's create/update/validate PRD workflow.

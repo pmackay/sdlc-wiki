@@ -14,12 +14,7 @@ updated: 2026-07-04
 
 # bmad-spec
 
-**`bmad-spec`** — "Distill any intent input into the SPEC kernel + companions — the canonical,
-preservation-validated machine contract for downstream work." A cross-phase core skill that
-produces a tight five-field `SPEC.md` (Problem, Capabilities, Constraints, Non-goals, Success
-signal) → [[artifact-spec-md]]. It is the **lightweight spec** used on the [[bmad-quick-dev|Quick-Flow]]
-path when a full [[bmad-prd|PRD]] is more ceremony than the work warrants — BMAD's
-[[pattern-scale-adaptive-planning|scale-adaptive]] bottom rung of the specify stage.
+**`bmad-spec`** — "Distill any intent input into the SPEC kernel + companions — the canonical, preservation-validated machine contract for downstream work." A cross-phase core skill that produces a tight five-field `SPEC.md` (Problem, Capabilities, Constraints, Non-goals, Success signal) → [[artifact-spec-md]]. It is the **lightweight spec** used on the [[bmad-quick-dev|Quick-Flow]] path when a full [[bmad-prd|PRD]] is more ceremony than the work warrants — BMAD's [[pattern-scale-adaptive-planning|scale-adaptive]] bottom rung of the specify stage.
 
 ## See Also
 - [[bmad]] — the framework.

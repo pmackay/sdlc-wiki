@@ -14,20 +14,13 @@ updated: 2026-07-04
 
 # /gsd-discuss-phase
 
-`/gsd-discuss-phase N` — Phase 1 of the GSD loop. "Gather phase context through adaptive
-questioning before planning." Loads project history, scouts the codebase for reusable
-components, identifies unresolved decisions, and guides the user through deep-dives on
-areas of uncertainty. The output locks decisions so that [[gsd-plan-phase]] plans against
-a settled scope.
+`/gsd-discuss-phase N` — Phase 1 of the GSD loop. "Gather phase context through adaptive questioning before planning." Loads project history, scouts the codebase for reusable components, identifies unresolved decisions, and guides the user through deep-dives on areas of uncertainty. The output locks decisions so that [[gsd-plan-phase]] plans against a settled scope.
 
 **Produces:** [[artifact-context-md]] (`{phase}-CONTEXT.md` — locked decisions + scope).
 
-**Flags:** `--all` (discuss all gray areas at once), `--batch` (group related areas),
-`--power` (extended questioning protocol). An assumptions mode delegates to the
-gsd-assumptions-analyzer sub-agent (confidence + consequence mapping).
+**Flags:** `--all` (discuss all gray areas at once), `--batch` (group related areas), `--power` (extended questioning protocol). An assumptions mode delegates to the gsd-assumptions-analyzer sub-agent (confidence + consequence mapping).
 
-Its "adaptive questioning" is GSD's take on [[pattern-grilling]] — the cross-framework
-counterpart of Matt Pocock's [[mp-grill-me]] / [[mp-grill-with-docs]].
+Its "adaptive questioning" is GSD's take on [[pattern-grilling]] — the cross-framework counterpart of Matt Pocock's [[mp-grill-me]] / [[mp-grill-with-docs]].
 
 ## See Also
 - [[gsd-plan-phase]] — consumes the locked context.

@@ -7,36 +7,13 @@ updated: 2026-07-17
 
 # Stage: Release
 
-Canonical lifecycle stage: **finalize validated work and close the iteration** — for most
-frameworks that means packaging, shipping safely, and keeping it healthy in production
-(versioning, integration, deployment, launch, observability, and later
-deprecation/migration); for a spec-first framework it means **folding the completed change
-back into the durable source of truth**. Framework-neutral name (was `stage-ship`, GSD's term).
+Canonical lifecycle stage: **finalize validated work and close the iteration** — for most frameworks that means packaging, shipping safely, and keeping it healthy in production (versioning, integration, deployment, launch, observability, and later deprecation/migration); for a spec-first framework it means **folding the completed change back into the durable source of truth**. Framework-neutral name (was `stage-ship`, GSD's term).
 
 **Derived projection** — evidence is the capabilities that `implements: [[stage-release]]`.
 
-> **No longer single-framework (updated 2026-07-04).** Was the weakest stage (GSD-only); Addy
-> Osmani's Ship phase adds six capabilities spanning git/versioning, CI/CD, launch, observability,
-> documentation, and deprecation, and OpenSpec adds its finalization step — making release a
-> well-evidenced canonical stage. It is now the broadest activity on the delivery side and a
-> candidate to split (see below).
+> **No longer single-framework (updated 2026-07-04).** Was the weakest stage (GSD-only); Addy Osmani's Ship phase adds six capabilities spanning git/versioning, CI/CD, launch, observability, documentation, and deprecation, and OpenSpec adds its finalization step — making release a well-evidenced canonical stage. It is now the broadest activity on the delivery side and a candidate to split (see below).
 
-> **Two flavors of "release" in the evidence.** GSD, Addy, Compound Engineering, and gstack
-> finalize by **shipping to production** (commit, PR, launch checklist, deploy, announce). OpenSpec
-> finalizes by **spec-maintenance** — [[openspec-sync]] merges the change's delta into the living
-> spec and [[openspec-archive]] retires the change — with *no* deploy/CI/observability step at all.
-> Same lifecycle slot (deliver completed, validated work), two different terminal acts.
->
-> **gstack (2026-07-05) pushes the ship-to-prod flavor furthest** — it is the **first framework
-> here to separate deploy from ship as its own command**: [[gstack-ship]] opens the PR,
-> [[gstack-land-and-deploy]] merges + deploys + verifies production health, and [[gstack-canary]]
-> monitors post-deploy. That deploy→verify→operate arc is the new evidence strengthening the
-> `stage-operate` split candidate below.
->
-> A former third flavor — BMAD's **learning close-out** ([[bmad-retrospective]]) — was
-> **promoted out of this stage** on 2026-07-04 into its own [[stage-learn]] once Compound
-> Engineering's [[ce-compound]] gave learning-capture a second framework. Extracting reusable
-> lessons is a distinct activity from delivering the work; see [[stage-learn]].
+> **Two flavors of "release" in the evidence.** GSD, Addy, Compound Engineering, and gstack finalize by **shipping to production** (commit, PR, launch checklist, deploy, announce). OpenSpec finalizes by **spec-maintenance** — [[openspec-sync]] merges the change's delta into the living spec and [[openspec-archive]] retires the change — with *no* deploy/CI/observability step at all. Same lifecycle slot (deliver completed, validated work), two different terminal acts.  **gstack (2026-07-05) pushes the ship-to-prod flavor furthest** — it is the **first framework here to separate deploy from ship as its own command**: [[gstack-ship]] opens the PR, [[gstack-land-and-deploy]] merges + deploys + verifies production health, and [[gstack-canary]] monitors post-deploy. That deploy→verify→operate arc is the new evidence strengthening the `stage-operate` split candidate below.  A former third flavor — BMAD's **learning close-out** ([[bmad-retrospective]]) — was **promoted out of this stage** on 2026-07-04 into its own [[stage-learn]] once Compound Engineering's [[ce-compound]] gave learning-capture a second framework. Extracting reusable lessons is a distinct activity from delivering the work; see [[stage-learn]].
 
 ## Implemented by (backlinks)
 
@@ -81,27 +58,9 @@ Superpowers (ship-to-prod flavor; stops at PR/merge — no deploy):
 - [[sp-finishing-a-development-branch]] — verify tests → detect the workspace → present **exactly four options** (merge locally / push+PR / keep / discard) → execute → clean up the worktree per choice → [[artifact-pull-request]] ([[pattern-trunk-based-development]]). Distinctive for the **decision menu** — it doesn't assume ship-to-prod, it asks.
 
 ## Cross-framework equivalents
-The **finalize / close-out** cluster spans five frameworks: OpenSpec's [[openspec-archive]] ↔
-Addy's [[addy-shipping]] ↔ GSD's [[gsd-ship]] ↔ Compound Engineering's [[ce-commit-push-pr]] ↔
-Superpowers' [[sp-finishing-a-development-branch]] —
-each closes the iteration on a completed unit, but finalizes *different things*: GSD opens and
-tracks a PR, Addy fans out parallel review personas for a go/no-go launch, Compound Engineering
-goes working-changes→PR and (with [[ce-promote]]) announces the launch, OpenSpec merges the
-spec delta and archives the change, and Superpowers presents a **merge/PR/keep/discard decision
-menu** and cleans up its worktree accordingly (like GSD and OpenSpec, it stops at PR/merge with
-**no deploy step**). Addy's other five capabilities (versioning, CI/CD,
-observability, docs, deprecation) still have **no counterpart** in GSD, MP, OpenSpec, Spec Kit,
-or BMAD; OpenSpec's spec-maintenance is unique. Compound Engineering is the closest match to the
-GSD/Addy ship-to-prod flavor. (These are *not* set as `equivalent_to` edges: the terminal acts
-differ too much to cluster as counterparts.) The former **learning close-out** flavor
-([[bmad-retrospective]]) now lives in [[stage-learn]], alongside Compound Engineering's
-[[ce-compound]].
+The **finalize / close-out** cluster spans five frameworks: OpenSpec's [[openspec-archive]] ↔ Addy's [[addy-shipping]] ↔ GSD's [[gsd-ship]] ↔ Compound Engineering's [[ce-commit-push-pr]] ↔ Superpowers' [[sp-finishing-a-development-branch]] — each closes the iteration on a completed unit, but finalizes *different things*: GSD opens and tracks a PR, Addy fans out parallel review personas for a go/no-go launch, Compound Engineering goes working-changes→PR and (with [[ce-promote]]) announces the launch, OpenSpec merges the spec delta and archives the change, and Superpowers presents a **merge/PR/keep/discard decision menu** and cleans up its worktree accordingly (like GSD and OpenSpec, it stops at PR/merge with **no deploy step**). Addy's other five capabilities (versioning, CI/CD, observability, docs, deprecation) still have **no counterpart** in GSD, MP, OpenSpec, Spec Kit, or BMAD; OpenSpec's spec-maintenance is unique. Compound Engineering is the closest match to the GSD/Addy ship-to-prod flavor. (These are *not* set as `equivalent_to` edges: the terminal acts differ too much to cluster as counterparts.) The former **learning close-out** flavor ([[bmad-retrospective]]) now lives in [[stage-learn]], alongside Compound Engineering's [[ce-compound]].
 
-> **Spec Kit ships no release capability (2026-07-04).** Like OpenSpec, Spec Kit stops at the
-> validate loop: [[speckit-converge]] closes the spec↔code gap by re-planning, but there is no
-> deploy / PR / launch / observability command. Its [[speckit-taskstoissues]] pushes tasks to
-> GitHub issues (a [[stage-plan]] tracker bridge), not a release act. So Spec Kit adds no
-> backlink here.
+> **Spec Kit ships no release capability (2026-07-04).** Like OpenSpec, Spec Kit stops at the validate loop: [[speckit-converge]] closes the spec↔code gap by re-planning, but there is no deploy / PR / launch / observability command. Its [[speckit-taskstoissues]] pushes tasks to GitHub issues (a [[stage-plan]] tracker bridge), not a release act. So Spec Kit adds no backlink here.
 
 ## Split candidates
 

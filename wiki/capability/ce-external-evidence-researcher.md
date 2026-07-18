@@ -14,17 +14,9 @@ updated: 2026-07-05
 
 # ce-external-evidence-researcher
 
-An **external-evidence researcher for the verdict skill** ([[ce-pov]]). It gathers *verified*
-external evidence about an external input so the caller can judge it — it **gathers and verifies,
-the caller decides**, never recommending. It discounts stale claims (pricing/maturity/capability
-older than ~12 months without confirmation) and, if neither web-search nor fetch is reachable,
-reports "external research unavailable" and stops (the caller turns that into a "Hold") rather
-than fabricating evidence.
+An **external-evidence researcher for the verdict skill** ([[ce-pov]]). It gathers *verified* external evidence about an external input so the caller can judge it — it **gathers and verifies, the caller decides**, never recommending. It discounts stale claims (pricing/maturity/capability older than ~12 months without confirmation) and, if neither web-search nor fetch is reachable, reports "external research unavailable" and stops (the caller turns that into a "Hold") rather than fabricating evidence.
 
-It is one of [[ce-pov]]'s three grounding scouts — the **external** axis — alongside
-[[ce-project-grounding-scout]] (this codebase) and [[ce-precedent-activity-scout]] (prior
-decisions). It implements [[stage-align]] (evaluate-external-inputs flavor). It is the
-verdict-oriented, evidence-weighted sibling of [[ce-web-researcher]] (which serves ideation).
+It is one of [[ce-pov]]'s three grounding scouts — the **external** axis — alongside [[ce-project-grounding-scout]] (this codebase) and [[ce-precedent-activity-scout]] (prior decisions). It implements [[stage-align]] (evaluate-external-inputs flavor). It is the verdict-oriented, evidence-weighted sibling of [[ce-web-researcher]] (which serves ideation).
 
 ## See Also
 - [[ce-pov]] — the dispatcher (dual-grounded Adopt/Trial/Hold/Reject verdicts).

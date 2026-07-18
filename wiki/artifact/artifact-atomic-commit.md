@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Artifact: Atomic commit
 
-One atomic git commit **per completed task**, created by [[gsd-executor]] during
-[[gsd-execute-phase]]. Because the executor is the only Edit-capable agent and commits one
-task at a time, history stays granular and each change maps back to a planned task in
-[[artifact-plan-md]].
+One atomic git commit **per completed task**, created by [[gsd-executor]] during [[gsd-execute-phase]]. Because the executor is the only Edit-capable agent and commits one task at a time, history stays granular and each change maps back to a planned task in [[artifact-plan-md]].
 
 ## Produced by (backlinks)
 

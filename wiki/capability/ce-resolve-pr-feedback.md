@@ -14,15 +14,9 @@ updated: 2026-07-04
 
 # /ce-resolve-pr-feedback
 
-`/ce-resolve-pr-feedback` — "Evaluate, fix, and reply to PR review feedback in parallel including
-nitpicks." Once a PR is open ([[ce-commit-push-pr]]), this triages each review comment,
-implements the fixes **in parallel**, and posts replies — handling nitpicks as well as
-substantive changes — to drive the PR to merge-ready.
+`/ce-resolve-pr-feedback` — "Evaluate, fix, and reply to PR review feedback in parallel including nitpicks." Once a PR is open ([[ce-commit-push-pr]]), this triages each review comment, implements the fixes **in parallel**, and posts replies — handling nitpicks as well as substantive changes — to drive the PR to merge-ready.
 
-It implements [[stage-release]] as the **pre-merge resolution** step: distinct from
-[[ce-code-review]] (which *generates* internal findings in [[stage-review]]) — this one
-*responds to external human reviewers'* findings on the open PR. No cross-framework counterpart
-is paged; it is a distinctive release-side capability reflecting a PR-centric team workflow.
+It implements [[stage-release]] as the **pre-merge resolution** step: distinct from [[ce-code-review]] (which *generates* internal findings in [[stage-review]]) — this one *responds to external human reviewers'* findings on the open PR. No cross-framework counterpart is paged; it is a distinctive release-side capability reflecting a PR-centric team workflow.
 
 ## See Also
 - [[ce-commit-push-pr]] — opens the PR this resolves feedback on.

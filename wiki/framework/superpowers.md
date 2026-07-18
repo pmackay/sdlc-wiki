@@ -8,51 +8,24 @@ updated: 2026-07-17
 
 # Superpowers
 
-Jesse Vincent's (Prime Radiant) **Superpowers** — *"a complete software development methodology
-for your coding agents, built on top of a set of composable skills and some initial instructions
-that make sure your agent uses them."* A deliberately **small** library — **14 skills, no
-personas, no slash commands** — that nonetheless behaves as an end-to-end methodology because a
-bootstrap skill ([[sp-using-superpowers]]) makes the rest **trigger automatically**: the agent
-checks for a relevant skill before *any* action and, if one applies, *must* use it. MIT; v6.1.1.
+Jesse Vincent's (Prime Radiant) **Superpowers** — *"a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them."* A deliberately **small** library — **14 skills, no personas, no slash commands** — that nonetheless behaves as an end-to-end methodology because a bootstrap skill ([[sp-using-superpowers]]) makes the rest **trigger automatically**: the agent checks for a relevant skill before *any* action and, if one applies, *must* use it. MIT; v6.1.1.
 
-- **Install (Claude Code):** `/plugin install superpowers@claude-plugins-official` (also on the
-  Superpowers marketplace, `obra/superpowers-marketplace`).
-- **Unusually portable.** The same skill set ships to **Claude Code, Antigravity, Codex (App/CLI),
-  Cursor, Factory Droid, GitHub Copilot CLI, Kimi Code, OpenCode, and Pi** — install per harness.
-  Skills carry platform-adaptation refs (`references/codex-tools.md`, `pi-tools.md`,
-  `antigravity-tools.md`) so one library runs across agents.
+- **Install (Claude Code):** `/plugin install superpowers@claude-plugins-official` (also on the Superpowers marketplace, `obra/superpowers-marketplace`).
+- **Unusually portable.** The same skill set ships to **Claude Code, Antigravity, Codex (App/CLI), Cursor, Factory Droid, GitHub Copilot CLI, Kimi Code, OpenCode, and Pi** — install per harness. Skills carry platform-adaptation refs (`references/codex-tools.md`, `pi-tools.md`, `antigravity-tools.md`) so one library runs across agents.
 
-Unlike role-oriented toolkits ([[bmad]], [[gstack]]) or spec-engine frameworks ([[speckit]],
-[[openspec]]), Superpowers ships **no personas, no constitution, and no deploy step**. Its
-identity is **process discipline**: every skill is written as a set of hard rules, Iron Laws,
-"Red Flags," and excuse→rebuttal tables engineered to stop the agent from rationalizing its way
-out of the process — [[pattern-anti-rationalization]] taken to its logical extreme (its co-signature
-alongside [[addy-agent-skills|Addy Osmani's]] skills). Closest sibling here is
-[[matt-pocock-skills]]: both are small, composable, model-invoked skill libraries by individual
-authors — but where Matt's toolkit *refuses to own the process*, Superpowers *does* own it, wiring
-the skills into a mandatory gated pipeline.
+Unlike role-oriented toolkits ([[bmad]], [[gstack]]) or spec-engine frameworks ([[speckit]], [[openspec]]), Superpowers ships **no personas, no constitution, and no deploy step**. Its identity is **process discipline**: every skill is written as a set of hard rules, Iron Laws, "Red Flags," and excuse→rebuttal tables engineered to stop the agent from rationalizing its way out of the process — [[pattern-anti-rationalization]] taken to its logical extreme (its co-signature alongside [[addy-agent-skills|Addy Osmani's]] skills). Closest sibling here is [[matt-pocock-skills]]: both are small, composable, model-invoked skill libraries by individual authors — but where Matt's toolkit *refuses to own the process*, Superpowers *does* own it, wiring the skills into a mandatory gated pipeline.
 
 ## How it works — the mandatory-skill bootstrap
 
-The whole methodology hangs off one rule in [[sp-using-superpowers]], injected at session start
-(and re-injected after compaction): **if there is even a 1% chance a skill applies, you MUST invoke
-it — before any response, clarifying question, or file read.** Process skills (brainstorming,
-systematic-debugging) run first and set the approach; implementation skills follow. This is why a
-14-skill library reads as a methodology: the skills are not suggestions the agent might reach for,
-they are gates it cannot skip.
+The whole methodology hangs off one rule in [[sp-using-superpowers]], injected at session start (and re-injected after compaction): **if there is even a 1% chance a skill applies, you MUST invoke it — before any response, clarifying question, or file read.** Process skills (brainstorming, systematic-debugging) run first and set the approach; implementation skills follow. This is why a 14-skill library reads as a methodology: the skills are not suggestions the agent might reach for, they are gates it cannot skip.
 
 ## The basic workflow (the gated pipeline)
 
-The skills chain into one end-to-end flow, each handing off to the next by name (a
-`**REQUIRED SUB-SKILL:**` marker, never an `@`-link that would burn context):
+The skills chain into one end-to-end flow, each handing off to the next by name (a `**REQUIRED SUB-SKILL:**` marker, never an `@`-link that would burn context):
 
 > [[sp-brainstorming]] *(refine idea → design doc, HARD-GATE before any code)* → [[sp-using-git-worktrees]] *(isolated workspace + clean baseline)* → [[sp-writing-plans]] *(bite-sized 2-5-min tasks, TDD/YAGNI/DRY, zero placeholders)* → [[sp-subagent-driven-development]] **or** [[sp-executing-plans]] *(implement task-by-task)* → [[sp-test-driven-development]] *(RED-GREEN-REFACTOR per task)* → [[sp-requesting-code-review]] *(dispatch reviewer between tasks)* → [[sp-finishing-a-development-branch]] *(merge / PR / keep / discard)*
 
-Running underneath: [[sp-systematic-debugging]] (the "something's broken" entry),
-[[sp-verification-before-completion]] (the gate before *any* "done" claim),
-[[sp-dispatching-parallel-agents]] (fan out on independent problems),
-[[sp-receiving-code-review]] (how to respond to review), and the meta pair
-[[sp-using-superpowers]] (the bootstrap) + [[sp-writing-skills]] (grow the library itself).
+Running underneath: [[sp-systematic-debugging]] (the "something's broken" entry), [[sp-verification-before-completion]] (the gate before *any* "done" claim), [[sp-dispatching-parallel-agents]] (fan out on independent problems), [[sp-receiving-code-review]] (how to respond to review), and the meta pair [[sp-using-superpowers]] (the bootstrap) + [[sp-writing-skills]] (grow the library itself).
 
 ## Four philosophy pillars
 
@@ -63,8 +36,7 @@ Running underneath: [[sp-systematic-debugging]] (the "something's broken" entry)
 
 ## Capabilities
 
-All 14 are **skills** (`SKILL.md` units, model-invoked once the bootstrap is active); there are no
-commands or sub-agent personas. Grouped by function:
+All 14 are **skills** (`SKILL.md` units, model-invoked once the bootstrap is active); there are no commands or sub-agent personas. Grouped by function:
 
 ### Meta / bootstrap
 - [[sp-using-superpowers]] — the session-start rule that forces skill invocation before any action; router + anti-rationalization gate. Counterpart to [[addy-using-agent-skills]] / [[gstack-router]] / [[mp-ask-matt]].

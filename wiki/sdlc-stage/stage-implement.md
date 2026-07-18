@@ -7,10 +7,7 @@ updated: 2026-07-17
 
 # Stage: Implement
 
-Canonical lifecycle stage: **write the code that satisfies the plan** — including building
-it, testing it into existence, and fixing it. Framework-neutral name (was `stage-execute`,
-GSD's term) in standard SDLC vocabulary. Characteristically parallelized and
-context-isolated to avoid degradation at scale.
+Canonical lifecycle stage: **write the code that satisfies the plan** — including building it, testing it into existence, and fixing it. Framework-neutral name (was `stage-execute`, GSD's term) in standard SDLC vocabulary. Characteristically parallelized and context-isolated to avoid degradation at scale.
 
 **Derived projection** — evidence is the capabilities that `implements: [[stage-implement]]`.
 

@@ -6,9 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Throwaway prototype
 
-Build a quick, disposable version — a terminal app or toggleable UI variation — to validate
-a design or de-risk an unknown, then **discard it**. The deliverable is the knowledge
-gained, not the code; keeping the prototype invites it to harden into production by accident.
+Build a quick, disposable version — a terminal app or toggleable UI variation — to validate a design or de-risk an unknown, then **discard it**. The deliverable is the knowledge gained, not the code; keeping the prototype invites it to harden into production by accident.
 
 ## Applied by (backlinks)
 

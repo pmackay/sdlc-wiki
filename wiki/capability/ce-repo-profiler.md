@@ -14,18 +14,9 @@ updated: 2026-07-05
 
 # ce-repo-profiler
 
-A repo-profiling scout that derives the **question-agnostic project profile** — the stable
-orientation (languages, manifests, lockfiles, license, root docs, top-level structure) that
-every repo-grounding skill reuses. It is dispatched only on a **cache miss**; its output is
-written to a shared profile cache and reused across skills and sessions at the same commit. It
-derives *only* agnostic facts — anything question-specific is the caller's job, or the cached
-artifact would be wrong to reuse.
+A repo-profiling scout that derives the **question-agnostic project profile** — the stable orientation (languages, manifests, lockfiles, license, root docs, top-level structure) that every repo-grounding skill reuses. It is dispatched only on a **cache miss**; its output is written to a shared profile cache and reused across skills and sessions at the same commit. It derives *only* agnostic facts — anything question-specific is the caller's job, or the cached artifact would be wrong to reuse.
 
-It is the most widely shared sub-agent in Compound Engineering — nearly every skill
-([[ce-brainstorm]], [[ce-ideate]], [[ce-code-review]], [[ce-compound]], [[ce-debug]],
-[[ce-explain]]) dispatches it — so it is filed under [[stage-align]] as a front-of-loop
-grounding primitive rather than owned by one stage. It embodies [[pattern-context-engineering]]:
-compute the orientation once, cache it, feed it to everything.
+It is the most widely shared sub-agent in Compound Engineering — nearly every skill ([[ce-brainstorm]], [[ce-ideate]], [[ce-code-review]], [[ce-compound]], [[ce-debug]], [[ce-explain]]) dispatches it — so it is filed under [[stage-align]] as a front-of-loop grounding primitive rather than owned by one stage. It embodies [[pattern-context-engineering]]: compute the orientation once, cache it, feed it to everything.
 
 ## See Also
 - [[ce-brainstorm]] — a primary dispatcher (shared across the whole loop via a profile cache).

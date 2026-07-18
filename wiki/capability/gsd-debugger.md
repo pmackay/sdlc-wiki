@@ -14,14 +14,9 @@ updated: 2026-07-04
 
 # gsd-debugger
 
-Specialist sub-agent invoked by `/gsd-debug` that "investigates bugs with persistent session
-state tracking hypotheses and evidence." State persists to `.planning/debug/`, so a
-debugging investigation survives across turns and sessions. Applies
-[[pattern-systematic-debugging]].
+Specialist sub-agent invoked by `/gsd-debug` that "investigates bugs with persistent session state tracking hypotheses and evidence." State persists to `.planning/debug/`, so a debugging investigation survives across turns and sessions. Applies [[pattern-systematic-debugging]].
 
-Its cross-framework counterpart is Matt Pocock's [[mp-diagnosing-bugs]] skill — both run a
-disciplined, evidence-tracking debugging loop rather than guess-and-check (see
-`equivalent_to`).
+Its cross-framework counterpart is Matt Pocock's [[mp-diagnosing-bugs]] skill — both run a disciplined, evidence-tracking debugging loop rather than guess-and-check (see `equivalent_to`).
 
 ## See Also
 - [[mp-diagnosing-bugs]] — the equivalent skill in the other framework.

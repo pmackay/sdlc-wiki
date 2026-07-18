@@ -6,9 +6,7 @@ updated: 2026-07-13
 
 # Pattern: Session handoff
 
-Compact the working context — decisions, current state, next steps — into a durable form so
-a fresh agent or session can resume without re-deriving it. Counters context loss across
-session boundaries and agent transitions.
+Compact the working context — decisions, current state, next steps — into a durable form so a fresh agent or session can resume without re-deriving it. Counters context loss across session boundaries and agent transitions.
 
 ## Applied by (backlinks)
 

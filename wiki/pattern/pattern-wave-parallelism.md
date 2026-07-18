@@ -6,10 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Wave parallelism
 
-Discover task dependencies, group independent tasks into **waves**, and run each wave's
-tasks concurrently (one subagent per task) before advancing to the next wave. Maximizes
-parallelism while respecting dependency order. In GSD, [[gsd-execute-phase]] spawns a
-[[gsd-executor]] per task per wave; `--wave N` runs a single wave for staged rollout.
+Discover task dependencies, group independent tasks into **waves**, and run each wave's tasks concurrently (one subagent per task) before advancing to the next wave. Maximizes parallelism while respecting dependency order. In GSD, [[gsd-execute-phase]] spawns a [[gsd-executor]] per task per wave; `--wave N` runs a single wave for staged rollout.
 
 ## Applied by (backlinks)
 

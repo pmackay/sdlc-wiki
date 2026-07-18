@@ -14,11 +14,7 @@ updated: 2026-07-04
 
 # bmad-prfaq
 
-**`bmad-prfaq`** — "Working Backwards PRFAQ challenge that stress-tests a product concept
-customer-first." Dispatched by [[bmad-analyst]] (menu `WB`), it produces an Amazon-style
-**Press Release + FAQ** (`prfaq-{project}.md`, a variant of [[artifact-product-brief]]):
-you write the launch announcement *first*, then interrogate whether the product could actually
-earn it — an [[pattern-adversarial-review|adversarial]] framing of the align stage.
+**`bmad-prfaq`** — "Working Backwards PRFAQ challenge that stress-tests a product concept customer-first." Dispatched by [[bmad-analyst]] (menu `WB`), it produces an Amazon-style **Press Release + FAQ** (`prfaq-{project}.md`, a variant of [[artifact-product-brief]]): you write the launch announcement *first*, then interrogate whether the product could actually earn it — an [[pattern-adversarial-review|adversarial]] framing of the align stage.
 
 ## See Also
 - [[bmad]] — the framework.

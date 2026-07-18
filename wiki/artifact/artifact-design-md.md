@@ -7,27 +7,14 @@ updated: 2026-07-09
 
 # Artifact: design.md (technical "how")
 
-The **how** of a change — technical approach, architecture decisions with rationale, data
-flow, and component interactions — kept separate from the behavioral spec. Two frameworks
-produce it:
+The **how** of a change — technical approach, architecture decisions with rationale, data flow, and component interactions — kept separate from the behavioral spec. Two frameworks produce it:
 
-- **OpenSpec — `openspec/changes/<name>/design.md`**: third artifact in the chain
-  (`proposal → specs → design → tasks`), sitting between the behavioral [[artifact-spec-delta]]
-  (what) and the [[artifact-plan-md]] (`tasks.md`, the checklist). OpenSpec's specs capture
-  observable behavior only, so implementation choices are deliberately quarantined here.
-- **Spec Kit — `plan.md` + `data-model.md` + `contracts/`**: emitted together by
-  [[speckit-plan]]. `plan.md` is the strategy, `data-model.md` the entities/schema, and
-  `contracts/` the API specs (the [[pattern-contract-first]] surface). Validated against the
-  [[artifact-constitution]] via "Phase -1" gates.
+- **OpenSpec — `openspec/changes/<name>/design.md`**: third artifact in the chain (`proposal → specs → design → tasks`), sitting between the behavioral [[artifact-spec-delta]] (what) and the [[artifact-plan-md]] (`tasks.md`, the checklist). OpenSpec's specs capture observable behavior only, so implementation choices are deliberately quarantined here.
+- **Spec Kit — `plan.md` + `data-model.md` + `contracts/`**: emitted together by [[speckit-plan]]. `plan.md` is the strategy, `data-model.md` the entities/schema, and `contracts/` the API specs (the [[pattern-contract-first]] surface). Validated against the [[artifact-constitution]] via "Phase -1" gates.
 
-- **BMAD — `DESIGN.md` + `EXPERIENCE.md`**: the two-spine UX design spec from [[bmad-ux]]
-  (Sally) — `DESIGN.md` for visual identity, `EXPERIENCE.md` for behavioral logic / information
-  architecture. The *design of the experience* rather than of the system internals.
+- **BMAD — `DESIGN.md` + `EXPERIENCE.md`**: the two-spine UX design spec from [[bmad-ux]] (Sally) — `DESIGN.md` for visual identity, `EXPERIENCE.md` for behavioral logic / information architecture. The *design of the experience* rather than of the system internals.
 
-It is a **per-change design record**: closely related to an [[artifact-adr]] (both capture
-decisions + rationale), but scoped to one change rather than a standing log, and the
-counterpart to the design work GSD folds into [[gsd-planner]] and Addy into [[addy-api-design]].
-The higher-level *system* design contract is BMAD's [[artifact-architecture|architecture spine]].
+It is a **per-change design record**: closely related to an [[artifact-adr]] (both capture decisions + rationale), but scoped to one change rather than a standing log, and the counterpart to the design work GSD folds into [[gsd-planner]] and Addy into [[addy-api-design]]. The higher-level *system* design contract is BMAD's [[artifact-architecture|architecture spine]].
 
 ## Produced by (backlinks)
 - [[openspec-propose]] — authors it after the proposal and spec deltas.

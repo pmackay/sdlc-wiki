@@ -14,14 +14,7 @@ updated: 2026-07-09
 
 # bmad-prd
 
-**`bmad-prd`** — "Create, update, or validate a PRD." BMAD's central spec-authoring workflow,
-owned by [[bmad-pm]]. A consolidated three-intent skill (superseding the deprecated
-create/edit/validate skills) offering a **Fast or Coaching path**, a Decision-Log pattern, and
-a `.memlog.md` "append-only memory and audit trail — every decision, change, and override" —
-BMAD's [[pattern-context-engineering|context-engineering]] applied to the spec itself. Output:
-`prd.md` + `addendum.md` (→ [[artifact-prd]]). Length "scales with stakes"
-([[pattern-scale-adaptive-planning]]). It synthesizes whatever align-stage inputs exist —
-briefs, PRFAQ, research, brainstorming — into structured requirements.
+**`bmad-prd`** — "Create, update, or validate a PRD." BMAD's central spec-authoring workflow, owned by [[bmad-pm]]. A consolidated three-intent skill (superseding the deprecated create/edit/validate skills) offering a **Fast or Coaching path**, a Decision-Log pattern, and a `.memlog.md` "append-only memory and audit trail — every decision, change, and override" — BMAD's [[pattern-context-engineering|context-engineering]] applied to the spec itself. Output: `prd.md` + `addendum.md` (→ [[artifact-prd]]). Length "scales with stakes" ([[pattern-scale-adaptive-planning]]). It synthesizes whatever align-stage inputs exist — briefs, PRFAQ, research, brainstorming — into structured requirements.
 
 ## Cross-framework cluster (specify)
 The fifth framework in the wiki's spec-authoring cluster — write the durable spec before code:
@@ -31,8 +24,7 @@ The fifth framework in the wiki's spec-authoring cluster — write the durable s
 - [[openspec-propose]] — the spec as ADDED/MODIFIED/REMOVED deltas.
 - [[speckit-specify]] — `spec.md` with user stories + `[NEEDS CLARIFICATION]` markers.
 
-BMAD is the cluster's most **facilitated**: the PM coaches the human to each requirement rather
-than drafting the doc ([[pattern-grilling]]).
+BMAD is the cluster's most **facilitated**: the PM coaches the human to each requirement rather than drafting the doc ([[pattern-grilling]]).
 
 ## See Also
 - [[bmad]] — the framework.

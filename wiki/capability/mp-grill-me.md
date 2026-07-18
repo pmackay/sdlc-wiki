@@ -14,11 +14,7 @@ updated: 2026-07-04
 
 # grill-me
 
-`/grill-me` — a user-invoked productivity skill that conducts a **comprehensive interview**
-about a plan or design, asking detailed questions until every decision branch is resolved.
-It targets failure mode #1 ("the agent didn't do what I want") by closing the user↔agent
-communication gap *before* work begins. Runs on the shared [[pattern-grilling]] loop
-([[mp-grilling]]).
+`/grill-me` — a user-invoked productivity skill that conducts a **comprehensive interview** about a plan or design, asking detailed questions until every decision branch is resolved. It targets failure mode #1 ("the agent didn't do what I want") by closing the user↔agent communication gap *before* work begins. Runs on the shared [[pattern-grilling]] loop ([[mp-grilling]]).
 
 ## See Also
 - [[mp-grill-with-docs]] — grilling that also writes a domain model + ADRs.

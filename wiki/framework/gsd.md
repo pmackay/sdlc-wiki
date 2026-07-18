@@ -9,24 +9,15 @@ updated: 2026-07-04
 
 # GSD — Git. Ship. Done.
 
-**GSD** is "a light-weight meta-prompting, context engineering, and spec-driven
-development system for AI coding agents" (Claude Code, OpenCode, Gemini CLI, Codex,
-Copilot, Cursor, Windsurf, and more). Install: `npx @opengsd/gsd-core@latest`.
+**GSD** is "a light-weight meta-prompting, context engineering, and spec-driven development system for AI coding agents" (Claude Code, OpenCode, Gemini CLI, Codex, Copilot, Cursor, Windsurf, and more). Install: `npx @opengsd/gsd-core@latest`.
 
-It solves **context rot** — quality degradation as an agent fills its context window — by
-routing heavy research and execution through fresh-context subagents (see
-[[pattern-fresh-context-subagents]]) while keeping a lean main session. Its whole method
-is spec-driven (see [[pattern-spec-driven-development]]).
+It solves **context rot** — quality degradation as an agent fills its context window — by routing heavy research and execution through fresh-context subagents (see [[pattern-fresh-context-subagents]]) while keeping a lean main session. Its whole method is spec-driven (see [[pattern-spec-driven-development]]).
 
-GSD ships as a three-tool suite. This wiki documents **GSD Core**, the SDLC workflow
-engine. (The others: **GSD Pi**, a standalone autonomous local coding agent with
-worktree-isolated Git and multi-provider routing; **GSD Browser**, native CDP browser
-automation with an MCP server.)
+GSD ships as a three-tool suite. This wiki documents **GSD Core**, the SDLC workflow engine. (The others: **GSD Pi**, a standalone autonomous local coding agent with worktree-isolated Git and multi-provider routing; **GSD Browser**, native CDP browser automation with an MCP server.)
 
 ## The five-phase loop
 
-Each milestone repeats this cycle, one phase per iteration. Each phase is a `command`
-capability that `implements:` a canonical SDLC stage:
+Each milestone repeats this cycle, one phase per iteration. Each phase is a `command` capability that `implements:` a canonical SDLC stage:
 
 | Phase | Command | Stage |
 |-------|---------|-------|
@@ -36,11 +27,7 @@ capability that `implements:` a canonical SDLC stage:
 | Verify  | [[gsd-verify-work]]   | [[stage-validate]] |
 | Ship    | [[gsd-ship]]          | [[stage-release]] |
 
-> **Conflict (source disagreement):** the docs homepage lists the pipeline as
-> *Research → Plan → Execute → Verify → Ship*, but the GitHub README and every detailed
-> doc page list *Discuss → Plan → Execute → Verify → Ship*. This wiki treats **Discuss**
-> as canonical; "Research" on the homepage appears informal (research is a sub-step of
-> Plan, run by [[gsd-phase-researcher]]). See [[stage-align]].
+> **Conflict (source disagreement):** the docs homepage lists the pipeline as *Research → Plan → Execute → Verify → Ship*, but the GitHub README and every detailed doc page list *Discuss → Plan → Execute → Verify → Ship*. This wiki treats **Discuss** as canonical; "Research" on the homepage appears informal (research is a sub-step of Plan, run by [[gsd-phase-researcher]]). See [[stage-align]].
 
 ## Capabilities
 
@@ -66,9 +53,7 @@ The five phase commands, documented here:
 
 ### Sub-agents (specialist agents)
 
-34 specialist agents total. Each "receives a precisely scoped prompt and the subset of
-planning artifacts it needs," running in parallel or sequentially to prevent context
-degradation.
+34 specialist agents total. Each "receives a precisely scoped prompt and the subset of planning artifacts it needs," running in parallel or sequentially to prevent context degradation.
 
 Documented here:
 
@@ -91,8 +76,7 @@ Not yet given dedicated pages:
 
 ## Artifacts produced
 
-All organized under a `.planning/` directory, with `STATE.md` / `CONTEXT.md` for
-cross-session persistence:
+All organized under a `.planning/` directory, with `STATE.md` / `CONTEXT.md` for cross-session persistence:
 
 - [[artifact-context-md]] — locked decisions + scope.
 - [[artifact-plan-md]] — executable task prompts.

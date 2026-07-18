@@ -14,14 +14,9 @@ updated: 2026-07-05
 
 # /skillify
 
-`/skillify` — codify the most recent successful [[gstack-scrape]] flow into a **permanent
-browser-skill on disk**. The per-site domain-skill mechanism: a saved note (e.g. "LinkedIn's Apply
-button lives in an iframe") is quarantined, becomes **active after 3 successful uses**, and can be
-promoted cross-project. Storage lives alongside [[gstack-learn]]'s per-project learnings.
+`/skillify` — codify the most recent successful [[gstack-scrape]] flow into a **permanent browser-skill on disk**. The per-site domain-skill mechanism: a saved note (e.g. "LinkedIn's Apply button lives in an iframe") is quarantined, becomes **active after 3 successful uses**, and can be promoted cross-project. Storage lives alongside [[gstack-learn]]'s per-project learnings.
 
-A learn-stage capability: it turns a one-off successful run into **reusable, compounding capability**
-([[pattern-knowledge-compounding]]) — the browser-automation analogue of writing a solution doc. The
-agent literally gains a new skill each time.
+A learn-stage capability: it turns a one-off successful run into **reusable, compounding capability** ([[pattern-knowledge-compounding]]) — the browser-automation analogue of writing a solution doc. The agent literally gains a new skill each time.
 
 ## See Also
 - [[gstack-scrape]] — the flow this codifies.

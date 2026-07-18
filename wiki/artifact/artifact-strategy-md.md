@@ -7,17 +7,9 @@ updated: 2026-07-04
 
 # Artifact: STRATEGY.md
 
-Compound Engineering's **upstream anchor** — a `STRATEGY.md` created and maintained by
-[[ce-strategy]] that sits *above* the per-feature loop. It states the product/engineering
-strategy and is read as grounding by [[ce-ideate]] (to filter directions), [[ce-brainstorm]] (to
-scope requirements), and [[ce-plan]] (to align work).
+Compound Engineering's **upstream anchor** — a `STRATEGY.md` created and maintained by [[ce-strategy]] that sits *above* the per-feature loop. It states the product/engineering strategy and is read as grounding by [[ce-ideate]] (to filter directions), [[ce-brainstorm]] (to scope requirements), and [[ce-plan]] (to align work).
 
-It is a **standing** document — consulted across many iterations, updated deliberately — which
-makes it structurally akin to Spec Kit's [[artifact-constitution]]: both are durable anchors
-later steps defer to. The difference is scope: the constitution governs *how you build* (code
-principles, mechanically gated), whereas `STRATEGY.md` frames *what/why you build* (product
-direction, read as context). This product-strategy flavor is the evidence behind the
-`stage-govern` split candidate parked on [[stage-align]].
+It is a **standing** document — consulted across many iterations, updated deliberately — which makes it structurally akin to Spec Kit's [[artifact-constitution]]: both are durable anchors later steps defer to. The difference is scope: the constitution governs *how you build* (code principles, mechanically gated), whereas `STRATEGY.md` frames *what/why you build* (product direction, read as context). This product-strategy flavor is the evidence behind the `stage-govern` split candidate parked on [[stage-align]].
 
 ## Produced by (backlinks)
 - [[ce-strategy]] — creates and maintains it.

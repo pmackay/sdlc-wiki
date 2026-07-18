@@ -1,12 +1,8 @@
 # SDLC Stages — Index (execution order)
 
-The eight **canonical, framework-neutral lifecycle stages** synthesized across the frameworks in
-this wiki. Each is a **derived projection** — its content comes from the capabilities that
-`implements:` it (see [CONVENTIONS.md](../CONVENTIONS.md) for the ontology). Listed below in the
-order they typically execute.
+The eight **canonical, framework-neutral lifecycle stages** synthesized across the frameworks in this wiki. Each is a **derived projection** — its content comes from the capabilities that `implements:` it (see [CONVENTIONS.md](../CONVENTIONS.md) for the ontology). Listed below in the order they typically execute.
 
-The lifecycle is a **loop, not a line**: the last stage ([Learn](stage-learn.md)) feeds its output
-back into the front ([Align](stage-align.md)) so each iteration starts ahead of the last.
+The lifecycle is a **loop, not a line**: the last stage ([Learn](stage-learn.md)) feeds its output back into the front ([Align](stage-align.md)) so each iteration starts ahead of the last.
 
 ```mermaid
 flowchart TD
@@ -34,18 +30,9 @@ flowchart TD
 
 ## Notes on ordering
 
-- **Stages 5–6 (Validate ∥ Review) are sibling gates**, not a strict sequence. Both run after
-  [Implement](stage-implement.md) and both must pass before [Release](stage-release.md), but their
-  order varies by framework — Addy runs *Verify → Review*, gstack runs *Review → Test*. They are
-  listed 5 then 6 for a linear read; treat them as parallel quality gates.
-- **Stages 2–3 (Specify → Plan)** were once one stage; `stage-specify` was split out once ≥2
-  frameworks treated authoring the spec as its own step. Some frameworks (e.g. OpenSpec) still fold
-  planning into the specify step.
-- **Stage 8 (Learn) closes the loop.** Its output — a solution corpus, a retrospective, an updated
-  living spec — is read as grounding by [Align](stage-align.md), [Plan](stage-plan.md), and
-  [Review](stage-review.md) at the start of the next iteration.
-- Not every framework implements every stage (e.g. GSD/OpenSpec/Spec Kit ship no
-  [Review](stage-review.md) capability; Spec Kit ships no [Release](stage-release.md) step). A stage
-  page is only as strong as the capabilities that link into it.
+- **Stages 5–6 (Validate ∥ Review) are sibling gates**, not a strict sequence. Both run after [Implement](stage-implement.md) and both must pass before [Release](stage-release.md), but their order varies by framework — Addy runs *Verify → Review*, gstack runs *Review → Test*. They are listed 5 then 6 for a linear read; treat them as parallel quality gates.
+- **Stages 2–3 (Specify → Plan)** were once one stage; `stage-specify` was split out once ≥2 frameworks treated authoring the spec as its own step. Some frameworks (e.g. OpenSpec) still fold planning into the specify step.
+- **Stage 8 (Learn) closes the loop.** Its output — a solution corpus, a retrospective, an updated living spec — is read as grounding by [Align](stage-align.md), [Plan](stage-plan.md), and [Review](stage-review.md) at the start of the next iteration.
+- Not every framework implements every stage (e.g. GSD/OpenSpec/Spec Kit ship no [Review](stage-review.md) capability; Spec Kit ships no [Release](stage-release.md) step). A stage page is only as strong as the capabilities that link into it.
 
 See the global [Knowledge Base Index](../index.md) for the full cross-namespace catalogue.

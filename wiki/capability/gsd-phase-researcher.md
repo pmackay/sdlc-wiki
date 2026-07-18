@@ -14,10 +14,7 @@ updated: 2026-07-09
 
 # gsd-phase-researcher
 
-Specialist sub-agent invoked by [[gsd-plan-phase]] for domain research before planning.
-Runs as **four parallel instances**, each covering one axis — stack, features,
-architecture, pitfalls — in a fresh context window of up to ~200K tokens
-([[pattern-fresh-context-subagents]]).
+Specialist sub-agent invoked by [[gsd-plan-phase]] for domain research before planning. Runs as **four parallel instances**, each covering one axis — stack, features, architecture, pitfalls — in a fresh context window of up to ~200K tokens ([[pattern-fresh-context-subagents]]).
 
 **Produces:** [[artifact-research-md]] (`RESEARCH.md`).
 

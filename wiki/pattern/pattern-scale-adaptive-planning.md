@@ -7,24 +7,14 @@ updated: 2026-07-13
 
 # Pattern: Scale-adaptive planning
 
-Size the *ceremony* to the *work*: a one-line fix skips straight to code, an enterprise system
-runs the full spec → architecture → epics → stories pipeline, and everything in between takes a
-proportionate middle path. Planning depth is a **dial, not a fixed gate** — "Choose your track
-based on planning needs, not story math." This is [[bmad]]'s answer to the tension every
-spec-driven framework faces: rigour that helps big projects becomes dead weight on small ones.
+Size the *ceremony* to the *work*: a one-line fix skips straight to code, an enterprise system runs the full spec → architecture → epics → stories pipeline, and everything in between takes a proportionate middle path. Planning depth is a **dial, not a fixed gate** — "Choose your track based on planning needs, not story math." This is [[bmad]]'s answer to the tension every spec-driven framework faces: rigour that helps big projects becomes dead weight on small ones.
 
 BMAD expresses it two ways across its v6 line:
 
-- **Numeric Levels 0–4** (classic v6) — Single Atomic Change → Small Feature → Medium Project →
-  Complex System → Enterprise Scale, each prescribing which artifacts exist (tech-spec only →
-  PRD → PRD + architecture + just-in-time tech specs).
-- **Stakes-calibrated tracks** (current v6) — **Quick Flow** (skip planning) / **BMad Method**
-  (PRD + architecture + UX) / **Enterprise** (adds Security + DevOps). Solutioning is skipped,
-  optional, or required per track.
+- **Numeric Levels 0–4** (classic v6) — Single Atomic Change → Small Feature → Medium Project → Complex System → Enterprise Scale, each prescribing which artifacts exist (tech-spec only → PRD → PRD + architecture + just-in-time tech specs).
+- **Stakes-calibrated tracks** (current v6) — **Quick Flow** (skip planning) / **BMad Method** (PRD + architecture + UX) / **Enterprise** (adds Security + DevOps). Solutioning is skipped, optional, or required per track.
 
-A close relative is **just-in-time design**: the architecture [[artifact-architecture|spine]]
-fixes only invariants and defers concrete structure to the code, so detail is produced only
-when needed.
+A close relative is **just-in-time design**: the architecture [[artifact-architecture|spine]] fixes only invariants and defers concrete structure to the code, so detail is produced only when needed.
 
 ## Applied by (backlinks)
 

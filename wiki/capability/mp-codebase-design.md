@@ -14,10 +14,7 @@ updated: 2026-07-04
 
 # codebase-design
 
-A **model-invoked** engineering skill that establishes discipline for **designing deep
-modules** — rich functionality behind small interfaces, placed at clean seams (see
-[[pattern-deep-modules]], Ousterhout). One of the "daily design investment" answers to
-failure mode #4 (ball of mud): deliberate interface design prevents architectural entropy.
+A **model-invoked** engineering skill that establishes discipline for **designing deep modules** — rich functionality behind small interfaces, placed at clean seams (see [[pattern-deep-modules]], Ousterhout). One of the "daily design investment" answers to failure mode #4 (ball of mud): deliberate interface design prevents architectural entropy.
 
 ## See Also
 - [[mp-domain-modeling]] — supplies the concepts modules are organized around.

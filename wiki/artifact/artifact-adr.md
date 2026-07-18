@@ -6,9 +6,7 @@ updated: 2026-07-13
 
 # Artifact: ADR (Architecture Decision Record)
 
-A short record of an architectural decision and its rationale. In Matt Pocock's skills, ADRs
-are written **inline during grilling sessions** by [[mp-grill-with-docs]], capturing why a
-choice was made at the moment it is settled.
+A short record of an architectural decision and its rationale. In Matt Pocock's skills, ADRs are written **inline during grilling sessions** by [[mp-grill-with-docs]], capturing why a choice was made at the moment it is settled.
 
 ## Produced by (backlinks)
 

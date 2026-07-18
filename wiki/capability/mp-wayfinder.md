@@ -14,23 +14,9 @@ updated: 2026-07-09
 
 # wayfinder
 
-`/wayfinder` — a user-invoked engineering skill for planning **a huge chunk of work — more than one
-agent session can hold** — as a **shared map of investigation tickets** on the repo's issue tracker,
-resolved one at a time until the way to the **destination** is clear. Naming the destination is the
-first act; the map (a single `wayfinder:map` issue whose child issues are its tickets) is an *index*,
-not a store — it gists each closed decision and links to the ticket that holds it. **Plan, don't do**:
-tickets resolve *decisions*, not deliverables; the pull to just build is the signal you've reached
-the map's edge and should hand off (to [[mp-to-spec]] / [[mp-to-tickets]] / [[mp-implement]]).
+`/wayfinder` — a user-invoked engineering skill for planning **a huge chunk of work — more than one agent session can hold** — as a **shared map of investigation tickets** on the repo's issue tracker, resolved one at a time until the way to the **destination** is clear. Naming the destination is the first act; the map (a single `wayfinder:map` issue whose child issues are its tickets) is an *index*, not a store — it gists each closed decision and links to the ticket that holds it. **Plan, don't do**: tickets resolve *decisions*, not deliverables; the pull to just build is the signal you've reached the map's edge and should hand off (to [[mp-to-spec]] / [[mp-to-tickets]] / [[mp-implement]]).
 
-**New in v1.1 (2026-07-09)** — graduated from `in-progress/` (was `decision-mapping`) into
-`engineering/`. Positioned as a **situational on-ramp** (greenfield project or a feature too big for
-one session), *not* the default entry flow — the grill-led `idea → ship` chain stays the front door.
-Every ticket is classified **HITL** (human-in-the-loop: grilling, prototype) or **AFK** (agent-alone:
-research; `task` either), and blocking prefers the tracker's native dependency links so the frontier
-renders in the tracker UI. It sizes ceremony to work bigger than a single context
-([[pattern-scale-adaptive-planning]]) and advances one fresh session at a time
-([[pattern-fresh-context-subagents]]). No cross-framework counterpart — the investigation-map-for-
-oversized-work framing is unique to MP.
+**New in v1.1 (2026-07-09)** — graduated from `in-progress/` (was `decision-mapping`) into `engineering/`. Positioned as a **situational on-ramp** (greenfield project or a feature too big for one session), *not* the default entry flow — the grill-led `idea → ship` chain stays the front door. Every ticket is classified **HITL** (human-in-the-loop: grilling, prototype) or **AFK** (agent-alone: research; `task` either), and blocking prefers the tracker's native dependency links so the frontier renders in the tracker UI. It sizes ceremony to work bigger than a single context ([[pattern-scale-adaptive-planning]]) and advances one fresh session at a time ([[pattern-fresh-context-subagents]]). No cross-framework counterpart — the investigation-map-for- oversized-work framing is unique to MP.
 
 ## See Also
 - [[mp-to-tickets]] — the sibling for work that *does* fit a normal decomposition; wayfinder feeds into it once the fog clears.

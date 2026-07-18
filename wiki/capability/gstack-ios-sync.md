@@ -14,12 +14,9 @@ updated: 2026-07-05
 
 # /ios-sync
 
-`/ios-sync` — regenerate the iOS **debug bridge** and its typed `@Observable` accessors against the
-latest upstream gstack templates, keeping [[gstack-ios-qa]] working as the app and templates evolve.
+`/ios-sync` — regenerate the iOS **debug bridge** and its typed `@Observable` accessors against the latest upstream gstack templates, keeping [[gstack-ios-qa]] working as the app and templates evolve.
 
-An **enabling** capability for iOS QA rather than a lifecycle step itself (like [[ce-worktree]] under
-implement): it maintains the machinery [[gstack-ios-qa]] / [[gstack-ios-fix]] depend on. The
-teardown counterpart is [[gstack-ios-clean]].
+An **enabling** capability for iOS QA rather than a lifecycle step itself (like [[ce-worktree]] under implement): it maintains the machinery [[gstack-ios-qa]] / [[gstack-ios-fix]] depend on. The teardown counterpart is [[gstack-ios-clean]].
 
 ## See Also
 - [[gstack-ios-qa]] — the QA harness this keeps current.

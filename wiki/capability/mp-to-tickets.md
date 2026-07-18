@@ -14,28 +14,13 @@ updated: 2026-07-09
 
 # to-tickets
 
-`/to-tickets` — a user-invoked engineering skill that breaks a plan, spec, or the current
-conversation into a set of **tracer-bullet tickets** ([[artifact-issue]]), each declaring its
-**blocking edges** (the tickets that must finish first). Each slice cuts a narrow but *complete*
-path through every layer and is sized to fit a single fresh context window ([[pattern-vertical-slice]]).
-The one artifact reads two ways depending on the tracker `/setup-matt-pocock-skills` configured: a
-**local `tickets.md`** writes edges as text and you work it top-to-bottom by hand, or a **real
-tracker** writes them as native blocking links so any ticket whose blockers are done is on the
-frontier and several agents can run at once.
+`/to-tickets` — a user-invoked engineering skill that breaks a plan, spec, or the current conversation into a set of **tracer-bullet tickets** ([[artifact-issue]]), each declaring its **blocking edges** (the tickets that must finish first). Each slice cuts a narrow but *complete* path through every layer and is sized to fit a single fresh context window ([[pattern-vertical-slice]]). The one artifact reads two ways depending on the tracker `/setup-matt-pocock-skills` configured: a **local `tickets.md`** writes edges as text and you work it top-to-bottom by hand, or a **real tracker** writes them as native blocking links so any ticket whose blockers are done is on the frontier and several agents can run at once.
 
-> **Renamed from `/to-issues` and merged with the former `/to-plan` (v1.1, 2026-07-09).** One skill
-> now owns both decomposition and dependency-ordering.
+> **Renamed from `/to-issues` and merged with the former `/to-plan` (v1.1, 2026-07-09).** One skill now owns both decomposition and dependency-ordering.
 
-**Distinctive: wide-refactor handling.** A *wide refactor* (e.g. rename a column) whose blast radius
-breaks thousands of call sites can't land green as a vertical slice, so `to-tickets` sequences it as
-**expand → migrate-in-batches → contract** (add the new form beside the old, migrate call sites in
-blast-radius-sized batches each keeping CI green, then delete the old form) — the exception to
-vertical slicing no other framework here spells out.
+**Distinctive: wide-refactor handling.** A *wide refactor* (e.g. rename a column) whose blast radius breaks thousands of call sites can't land green as a vertical slice, so `to-tickets` sequences it as **expand → migrate-in-batches → contract** (add the new form beside the old, migrate call sites in blast-radius-sized batches each keeping CI green, then delete the old form) — the exception to vertical slicing no other framework here spells out.
 
-MP's member of the cross-framework **decompose** cluster: it slices work into dependency-ordered,
-independently-shippable units, like [[addy-planning]], [[speckit-tasks]], and BMAD's
-[[bmad-create-epics-and-stories]]; [[speckit-taskstoissues]] is the export half Spec Kit splits into
-a second command. Fed by [[mp-to-spec]]; its tickets are then built by [[mp-implement]].
+MP's member of the cross-framework **decompose** cluster: it slices work into dependency-ordered, independently-shippable units, like [[addy-planning]], [[speckit-tasks]], and BMAD's [[bmad-create-epics-and-stories]]; [[speckit-taskstoissues]] is the export half Spec Kit splits into a second command. Fed by [[mp-to-spec]]; its tickets are then built by [[mp-implement]].
 
 ## See Also
 - [[mp-to-spec]] — produces the spec this slices.

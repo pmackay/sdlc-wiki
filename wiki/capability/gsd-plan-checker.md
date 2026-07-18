@@ -14,17 +14,9 @@ updated: 2026-07-04
 
 # gsd-plan-checker
 
-Specialist sub-agent invoked by [[gsd-plan-phase]] that "verifies plans across eight
-dimensions before execution is permitted." Runs sequentially after [[gsd-planner]], driving
-up to three revision cycles — the [[pattern-plan-verification-loop]] — until the plan is
-approved. It is the gate between planning and execution.
+Specialist sub-agent invoked by [[gsd-plan-phase]] that "verifies plans across eight dimensions before execution is permitted." Runs sequentially after [[gsd-planner]], driving up to three revision cycles — the [[pattern-plan-verification-loop]] — until the plan is approved. It is the gate between planning and execution.
 
-Its cross-framework counterparts are Spec Kit's [[speckit-analyze]] and BMAD's
-[[bmad-check-implementation-readiness]] — together promoting [[pattern-plan-verification-loop]]
-to a **three-framework** pattern. The gates check different things: this checker scores a single
-plan on eight quality dimensions, `analyze` checks consistency and coverage *across* spec ↔ plan
-↔ tasks plus constitutional compliance, and BMAD's readiness check verifies *completeness across
-the whole planning set* (PRD + UX + architecture + epics), returning PASS / CONCERNS / FAIL.
+Its cross-framework counterparts are Spec Kit's [[speckit-analyze]] and BMAD's [[bmad-check-implementation-readiness]] — together promoting [[pattern-plan-verification-loop]] to a **three-framework** pattern. The gates check different things: this checker scores a single plan on eight quality dimensions, `analyze` checks consistency and coverage *across* spec ↔ plan ↔ tasks plus constitutional compliance, and BMAD's readiness check verifies *completeness across the whole planning set* (PRD + UX + architecture + epics), returning PASS / CONCERNS / FAIL.
 
 ## See Also
 - [[gsd-planner]] — produces the plan this checks.

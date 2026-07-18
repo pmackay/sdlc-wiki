@@ -14,15 +14,9 @@ updated: 2026-07-04
 
 # Source-Driven Development
 
-Ground every framework- or library-specific decision in official documentation rather than
-memory: **detect** the stack and exact versions from the dependency file, **fetch** the precise
-docs page (not the homepage), **implement** the documented patterns, and **cite** full-URL
-sources for every non-obvious decision. Anything that can't be verified is explicitly flagged
-as unverified — honesty over false confidence.
+Ground every framework- or library-specific decision in official documentation rather than memory: **detect** the stack and exact versions from the dependency file, **fetch** the precise docs page (not the homepage), **implement** the documented patterns, and **cite** full-URL sources for every non-obvious decision. Anything that can't be verified is explicitly flagged as unverified — honesty over false confidence.
 
-The distinctive value is countering plausible-but-outdated training-data patterns that look
-correct but break against current versions. It applies [[pattern-source-grounding]] and
-implements [[stage-implement]].
+The distinctive value is countering plausible-but-outdated training-data patterns that look correct but break against current versions. It applies [[pattern-source-grounding]] and implements [[stage-implement]].
 
 ## See Also
 - [[pattern-source-grounding]] — the underlying pattern.

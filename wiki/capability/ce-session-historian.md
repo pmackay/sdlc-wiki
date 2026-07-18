@@ -14,17 +14,9 @@ updated: 2026-07-05
 
 # ce-session-historian
 
-Extracts **institutional knowledge from coding-agent session history**. Given pre-extracted
-skeleton and error files from the caller's session-history flow, it synthesizes findings about a
-specific problem — what was learned, tried, and decided in prior sessions across Claude Code,
-Codex, Cursor, and Pi. Its scope is **synthesis only** (the caller handles discovery, filtering,
-and per-session extraction).
+Extracts **institutional knowledge from coding-agent session history**. Given pre-extracted skeleton and error files from the caller's session-history flow, it synthesizes findings about a specific problem — what was learned, tried, and decided in prior sessions across Claude Code, Codex, Cursor, and Pi. Its scope is **synthesis only** (the caller handles discovery, filtering, and per-session extraction).
 
-Dispatched by [[ce-compound]], it implements [[stage-learn]]: mining the *record of how the work
-happened* is the raw material of [[pattern-knowledge-compounding]], feeding
-[[artifact-solution-doc]]. It is the past-sessions analogue of [[ce-work-recap-scout]] (which
-gathers recent work for a human explainer) and shares the "distill prior context" spirit of MP's
-[[mp-handoff]].
+Dispatched by [[ce-compound]], it implements [[stage-learn]]: mining the *record of how the work happened* is the raw material of [[pattern-knowledge-compounding]], feeding [[artifact-solution-doc]]. It is the past-sessions analogue of [[ce-work-recap-scout]] (which gathers recent work for a human explainer) and shares the "distill prior context" spirit of MP's [[mp-handoff]].
 
 ## See Also
 - [[ce-compound]] — the dispatcher; [[ce-work-recap-scout]] — the recent-work-recap sibling.

@@ -14,15 +14,9 @@ updated: 2026-07-04
 
 # API & Interface Design
 
-Design interfaces that make the right thing easy and the wrong thing hard. The mechanism is
-**contract-first** (define the typed interface before implementing it — the types are the
-documentation, per [[pattern-contract-first]]), consistent error semantics, and validation at
-system boundaries only while internal code trusts its types. It is governed by **Hyrum's Law**
-(every observable behavior becomes a de facto contract) and the **One-Version Rule** (extend
-rather than fork), pushing addition over modification for backward compatibility.
+Design interfaces that make the right thing easy and the wrong thing hard. The mechanism is **contract-first** (define the typed interface before implementing it — the types are the documentation, per [[pattern-contract-first]]), consistent error semantics, and validation at system boundaries only while internal code trusts its types. It is governed by **Hyrum's Law** (every observable behavior becomes a de facto contract) and the **One-Version Rule** (extend rather than fork), pushing addition over modification for backward compatibility.
 
-It applies [[pattern-deep-modules]] and clusters with Matt Pocock's deep-module design skill.
-It implements [[stage-implement]].
+It applies [[pattern-deep-modules]] and clusters with Matt Pocock's deep-module design skill. It implements [[stage-implement]].
 
 ## See Also
 - [[mp-codebase-design]] — the Matt Pocock equivalent in the design cluster.

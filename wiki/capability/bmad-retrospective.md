@@ -14,19 +14,9 @@ updated: 2026-07-04
 
 # bmad-retrospective
 
-**`bmad-retrospective`** — "Post-epic review to extract lessons and assess success." Owned by
-[[bmad-dev]] and run as a Party-Mode roundtable ([[pattern-persona-agents]]), it closes out a
-completed epic by harvesting lessons and appending action items that later sprints surface —
-[[pattern-knowledge-compounding]] in its **team-process** flavor.
+**`bmad-retrospective`** — "Post-epic review to extract lessons and assess success." Owned by [[bmad-dev]] and run as a Party-Mode roundtable ([[pattern-persona-agents]]), it closes out a completed epic by harvesting lessons and appending action items that later sprints surface — [[pattern-knowledge-compounding]] in its **team-process** flavor.
 
-It implements [[stage-learn]] — the canonical learning-capture stage. It was the wiki's
-original evidence for that activity (long parked as the "learning close-out" flavor of
-[[stage-release]]); when Compound Engineering's [[ce-compound]] became a **second** framework
-treating learning capture as a first-class step, the activity cleared the ≥2-framework bar and
-was promoted out of release into its own stage (2026-07-04). BMAD's is the human-facing
-retrospective; Compound Engineering's is a machine-consumable [[artifact-solution-doc|solution
-corpus]]. Like [[speckit]], BMAD core ships no deploy/PR/observability step — it closes by
-learning, not shipping.
+It implements [[stage-learn]] — the canonical learning-capture stage. It was the wiki's original evidence for that activity (long parked as the "learning close-out" flavor of [[stage-release]]); when Compound Engineering's [[ce-compound]] became a **second** framework treating learning capture as a first-class step, the activity cleared the ≥2-framework bar and was promoted out of release into its own stage (2026-07-04). BMAD's is the human-facing retrospective; Compound Engineering's is a machine-consumable [[artifact-solution-doc|solution corpus]]. Like [[speckit]], BMAD core ships no deploy/PR/observability step — it closes by learning, not shipping.
 
 ## See Also
 - [[bmad]] — the framework.

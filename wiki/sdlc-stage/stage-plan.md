@@ -7,11 +7,7 @@ updated: 2026-07-17
 
 # Stage: Plan
 
-Canonical lifecycle stage: **research, design, and decompose work into verified units** —
-turning an approved specification into an ordered set of implementable, acceptance-checked
-tasks. Name kept in the re-derivation — "plan" is already framework-neutral. The *specify*
-activity (authoring the spec/PRD itself) was **split out** to [[stage-specify]] on the
-2026-07-04 ingest; one candidate (design) remains parked (see [Split candidates](#split-candidates)).
+Canonical lifecycle stage: **research, design, and decompose work into verified units** — turning an approved specification into an ordered set of implementable, acceptance-checked tasks. Name kept in the re-derivation — "plan" is already framework-neutral. The *specify* activity (authoring the spec/PRD itself) was **split out** to [[stage-specify]] on the 2026-07-04 ingest; one candidate (design) remains parked (see [Split candidates](#split-candidates)).
 
 **Derived projection** — evidence is the capabilities that `implements: [[stage-plan]]`.
 
@@ -72,39 +68,15 @@ Superpowers:
 
 - [[sp-writing-plans]] — decompose the approved design into bite-sized (2-5 min) tasks with exact files, complete code, interfaces, and verification steps → [[artifact-plan-md]] ([[pattern-vertical-slice]], [[pattern-test-driven-development]]); distinctive for baking the TDD micro-loop into every task and forbidding placeholders outright.
 
-OpenSpec **folds this in**: [[openspec-propose]] emits [[artifact-design-md]] (`design.md`,
-the *how*) and [[artifact-plan-md]] (`tasks.md`, the numbered checklist) as part of the same
-one-step proposal that authors the spec — so its `implements:` edge points at [[stage-specify]],
-but the design + task-decomposition work lands here. BMAD, by contrast, gives design its own
-**Solutioning phase** (architecture + decomposition), distinct from its Planning/specify phase.
+OpenSpec **folds this in**: [[openspec-propose]] emits [[artifact-design-md]] (`design.md`, the *how*) and [[artifact-plan-md]] (`tasks.md`, the numbered checklist) as part of the same one-step proposal that authors the spec — so its `implements:` edge points at [[stage-specify]], but the design + task-decomposition work lands here. BMAD, by contrast, gives design its own **Solutioning phase** (architecture + decomposition), distinct from its Planning/specify phase.
 
 ## Cross-framework equivalents
-Six frameworks share the **vertical-slice / decompose** technique: Matt's [[mp-to-tickets]] ↔
-GSD's [[gsd-plan-phase]] `--mvp` ↔ Addy's [[addy-planning]] ↔ Spec Kit's [[speckit-tasks]] ↔
-BMAD's [[bmad-create-epics-and-stories]] ↔ Superpowers' [[sp-writing-plans]], clustered at
-[[pattern-vertical-slice]] — Superpowers' is distinctive for the task granularity (each task is the
-smallest unit carrying its own test cycle) and for embedding the TDD steps directly in the plan. The
-**plan-verification** gate is now a **five-framework** cluster: GSD's [[gsd-plan-checker]] ↔
-Spec Kit's [[speckit-analyze]] ↔ BMAD's [[bmad-check-implementation-readiness]] ↔ Compound
-Engineering's [[ce-doc-review]] ↔ gstack's [[gstack-plan-eng-review]]
-([[pattern-plan-verification-loop]]) — CE and **gstack** are distinctive in gating with a
-**parallel persona fan-out** ([[gstack-autoplan]] runs a whole review panel) rather than a single
-multi-dimension checker.
-On design granularity the frameworks diverge: GSD folds design into planning (the
-[[gsd-planner]]) and Addy folds it into the build phase ([[addy-api-design]]), while Matt
-breaks it out into dedicated [[mp-domain-modeling]] / [[mp-codebase-design]] skills and
-Spec Kit emits dedicated design artifacts (`data-model.md` + `contracts/`, the
-[[pattern-contract-first]] surface) within [[speckit-plan]] — same underlying activity,
-different placement (see the design split candidate below).
+Six frameworks share the **vertical-slice / decompose** technique: Matt's [[mp-to-tickets]] ↔ GSD's [[gsd-plan-phase]] `--mvp` ↔ Addy's [[addy-planning]] ↔ Spec Kit's [[speckit-tasks]] ↔ BMAD's [[bmad-create-epics-and-stories]] ↔ Superpowers' [[sp-writing-plans]], clustered at [[pattern-vertical-slice]] — Superpowers' is distinctive for the task granularity (each task is the smallest unit carrying its own test cycle) and for embedding the TDD steps directly in the plan. The **plan-verification** gate is now a **five-framework** cluster: GSD's [[gsd-plan-checker]] ↔ Spec Kit's [[speckit-analyze]] ↔ BMAD's [[bmad-check-implementation-readiness]] ↔ Compound Engineering's [[ce-doc-review]] ↔ gstack's [[gstack-plan-eng-review]] ([[pattern-plan-verification-loop]]) — CE and **gstack** are distinctive in gating with a **parallel persona fan-out** ([[gstack-autoplan]] runs a whole review panel) rather than a single multi-dimension checker. On design granularity the frameworks diverge: GSD folds design into planning (the [[gsd-planner]]) and Addy folds it into the build phase ([[addy-api-design]]), while Matt breaks it out into dedicated [[mp-domain-modeling]] / [[mp-codebase-design]] skills and Spec Kit emits dedicated design artifacts (`data-model.md` + `contracts/`, the [[pattern-contract-first]] surface) within [[speckit-plan]] — same underlying activity, different placement (see the design split candidate below).
 
 ## Split candidates
-One candidate remains parked to split into its own canonical stage **once ≥2 frameworks
-evidence the finer distinction as a distinct phase** (per the re-derivation rules in
-[CONVENTIONS.md](../CONVENTIONS.md)). Review on every ingest.
+One candidate remains parked to split into its own canonical stage **once ≥2 frameworks evidence the finer distinction as a distinct phase** (per the re-derivation rules in [CONVENTIONS.md](../CONVENTIONS.md)). Review on every ingest.
 
-> **Resolved 2026-07-04:** `stage-specify` (author the spec/PRD) was **promoted** to a canonical
-> stage — Addy's [[addy-spec-driven-development]] became the second framework to treat spec
-> authoring as its own step (with Matt's [[mp-to-spec]]), clearing the bar. See [[stage-specify]].
+> **Resolved 2026-07-04:** `stage-specify` (author the spec/PRD) was **promoted** to a canonical stage — Addy's [[addy-spec-driven-development]] became the second framework to treat spec authoring as its own step (with Matt's [[mp-to-spec]]), clearing the bar. See [[stage-specify]].
 
 ### stage-design (design deep modules / architecture)
 - **Distinction:** *design* = shape module boundaries and interfaces; distinct from *decompose into tasks*.

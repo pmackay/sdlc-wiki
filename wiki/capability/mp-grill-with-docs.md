@@ -14,11 +14,7 @@ updated: 2026-06-28
 
 # grill-with-docs
 
-`/grill-with-docs` — a user-invoked engineering skill that runs a grilling session
-([[pattern-grilling]]) **while building a domain model**, updating the project's
-`CONTEXT.md` shared-language glossary ([[artifact-domain-model]]) and recording decisions
-as [[artifact-adr]] inline. It targets failure modes #1 (alignment) and #2 (verbosity):
-shared terminology lets the agent decode project jargon and stay terse.
+`/grill-with-docs` — a user-invoked engineering skill that runs a grilling session ([[pattern-grilling]]) **while building a domain model**, updating the project's `CONTEXT.md` shared-language glossary ([[artifact-domain-model]]) and recording decisions as [[artifact-adr]] inline. It targets failure modes #1 (alignment) and #2 (verbosity): shared terminology lets the agent decode project jargon and stay terse.
 
 ## See Also
 - [[mp-grill-me]] — grilling without the docs side-effects.

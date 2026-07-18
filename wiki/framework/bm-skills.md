@@ -9,9 +9,7 @@ updated: 2026-07-09
 
 # BM Skills
 
-**BM Skills** is Brian Casel's (Builder Methods) open-source **Claude Code plugin marketplace** of small, independent utilities "for builders." Unlike the other entries in this wiki, it is **not a full-SDLC framework** — it makes no attempt to own the process or cover the lifecycle end to end.
-It is a loose, growing collection of self-contained plugins, each holding one skill for a specific area of work. Install via `/plugin marketplace add buildermethods/bm-skills` then
-`/plugin install <skill-name>`.
+**BM Skills** is Brian Casel's (Builder Methods) open-source **Claude Code plugin marketplace** of small, independent utilities "for builders." Unlike the other entries in this wiki, it is **not a full-SDLC framework** — it makes no attempt to own the process or cover the lifecycle end to end. It is a loose, growing collection of self-contained plugins, each holding one skill for a specific area of work. Install via `/plugin marketplace add buildermethods/bm-skills` then `/plugin install <skill-name>`.
 
 Its defining audience is the **non-technical business builder** driving a coding agent: skills propose sensible defaults and explain technical concepts in plain language, favour tappable `AskUserQuestion` decisions (the user is often on mobile), and lock one decision at a time.
 
@@ -19,16 +17,9 @@ Only one of its three skills maps cleanly onto a canonical SDLC stage — the **
 
 ## Capabilities
 
-- [[bm-prd-creator]] — **the focus**: a structured interview that turns a raw idea into a
-  Product Requirements Document (visual HTML / markdown / both) **plus milestone prompt files** to
-  drive a coding agent through implementation. Implements [[stage-specify]]; a member of the
-  cross-framework specify cluster.
-- [[bm-design-system]] — scaffold a complete React + Tailwind v4 **design system** into a codebase:
-  a live `/admin/design-system` reference page, shadcn-style components, and `AGENTS.md`/`CLAUDE.md`
-  guardrails so future agents defer to the system instead of drifting ([[stage-implement]]).
-- [[bm-favicon-creator]] — generate a full favicon set (`.ico` / `icon.svg` / PNGs / apple-touch)
-  from a Lucide icon or SVG and wire the meta tags into the layout. A pure **asset utility** — no
-  lifecycle stage.
+- [[bm-prd-creator]] — **the focus**: a structured interview that turns a raw idea into a Product Requirements Document (visual HTML / markdown / both) **plus milestone prompt files** to drive a coding agent through implementation. Implements [[stage-specify]]; a member of the cross-framework specify cluster.
+- [[bm-design-system]] — scaffold a complete React + Tailwind v4 **design system** into a codebase: a live `/admin/design-system` reference page, shadcn-style components, and `AGENTS.md`/`CLAUDE.md` guardrails so future agents defer to the system instead of drifting ([[stage-implement]]).
+- [[bm-favicon-creator]] — generate a full favicon set (`.ico` / `icon.svg` / PNGs / apple-touch) from a Lucide icon or SVG and wire the meta tags into the layout. A pure **asset utility** — no lifecycle stage.
 
 ## Distinctive contribution
 

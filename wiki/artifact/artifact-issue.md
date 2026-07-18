@@ -6,16 +6,10 @@ updated: 2026-07-05
 
 # Artifact: Tracker issue
 
-An issue on the tracker (GitHub, Linear, or local files) materialised from a plan. Two
-frameworks produce these, from opposite directions:
+An issue on the tracker (GitHub, Linear, or local files) materialised from a plan. Two frameworks produce these, from opposite directions:
 
-- **Matt Pocock — [[mp-to-tickets]]**: *decomposes* a plan/spec into independently-grabbable
-  **tracer-bullet vertical-slice** tickets, each declaring its blocking edges (see
-  [[pattern-vertical-slice]]). Its siblings [[mp-wayfinder]] (investigation tickets) and
-  [[mp-triage]] (agent-ready briefs) also write tracker issues.
-- **Spec Kit — [[speckit-taskstoissues]]**: *exports* an already-decomposed `tasks.md`
-  ([[artifact-plan-md]]) to GitHub issues (one issue per task) — a mechanical bridge, not a
-  decomposition.
+- **Matt Pocock — [[mp-to-tickets]]**: *decomposes* a plan/spec into independently-grabbable **tracer-bullet vertical-slice** tickets, each declaring its blocking edges (see [[pattern-vertical-slice]]). Its siblings [[mp-wayfinder]] (investigation tickets) and [[mp-triage]] (agent-ready briefs) also write tracker issues.
+- **Spec Kit — [[speckit-taskstoissues]]**: *exports* an already-decomposed `tasks.md` ([[artifact-plan-md]]) to GitHub issues (one issue per task) — a mechanical bridge, not a decomposition.
 
 ## Produced by (backlinks)
 - [[mp-to-tickets]] — decomposes plans/specs into tracer-bullet vertical-slice tickets with blocking edges.

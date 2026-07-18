@@ -14,11 +14,7 @@ updated: 2026-07-04
 
 # bmad-product-brief
 
-**`bmad-product-brief`** — "Create, update, or validate a product brief." Dispatched by
-[[bmad-analyst]] (menu `CB`), it produces the [[artifact-product-brief|product brief]]
-(`brief.md` + `addendum.md`) — the **pre-PRD scoping document** that captures the problem,
-audience, and boundaries of a prospective project. The brief is one of the inputs the
-[[bmad-prd]] workflow synthesizes into structured requirements.
+**`bmad-product-brief`** — "Create, update, or validate a product brief." Dispatched by [[bmad-analyst]] (menu `CB`), it produces the [[artifact-product-brief|product brief]] (`brief.md` + `addendum.md`) — the **pre-PRD scoping document** that captures the problem, audience, and boundaries of a prospective project. The brief is one of the inputs the [[bmad-prd]] workflow synthesizes into structured requirements.
 
 ## See Also
 - [[bmad]] — the framework.

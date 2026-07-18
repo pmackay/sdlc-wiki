@@ -14,15 +14,9 @@ updated: 2026-07-05
 
 # /plan-eng-review
 
-`/plan-eng-review` — the **Eng Manager** persona in gstack's plan-review panel. Locks in
-architecture, data flow, edge cases, and tests; forces hidden assumptions into the open with ASCII
-diagrams for data flow / state machines / error paths, a test matrix, failure modes, and security
-concerns. Writes a test plan that [[gstack-qa]] later picks up.
+`/plan-eng-review` — the **Eng Manager** persona in gstack's plan-review panel. Locks in architecture, data flow, edge cases, and tests; forces hidden assumptions into the open with ASCII diagrams for data flow / state machines / error paths, a test matrix, failure modes, and security concerns. Writes a test plan that [[gstack-qa]] later picks up.
 
-This is gstack's member of the **plan-verification** cluster ([[pattern-plan-verification-loop]]) —
-gating the plan on engineering rigor before execution — alongside [[gsd-plan-checker]],
-[[speckit-analyze]], and BMAD's [[bmad-check-implementation-readiness]]. As one of the
-`plan-*-review` persona reviews it also clusters with [[ce-doc-review]].
+This is gstack's member of the **plan-verification** cluster ([[pattern-plan-verification-loop]]) — gating the plan on engineering rigor before execution — alongside [[gsd-plan-checker]], [[speckit-analyze]], and BMAD's [[bmad-check-implementation-readiness]]. As one of the `plan-*-review` persona reviews it also clusters with [[ce-doc-review]].
 
 ## See Also
 - [[gstack-autoplan]] — runs this review as part of the panel.

@@ -9,19 +9,9 @@ updated: 2026-07-13
 
 # nano-spec
 
-**nano-spec** (Tao An, `tao-hpu/nano-spec`, MIT) is a deliberately **minimal, tool-agnostic
-task-specification methodology** for AI-assisted development. Its tagline — *"Spec-driven
-thinking, nano-sized docs"* — is the whole idea: capture just enough written structure to think
-clearly before coding, and no more. Like [[bm-skills]], it is **not a full-SDLC framework**; it
-owns exactly one slice of the lifecycle (authoring a lightweight spec) and leaves the rest to the
-coding agent.
+**nano-spec** (Tao An, `tao-hpu/nano-spec`, MIT) is a deliberately **minimal, tool-agnostic task-specification methodology** for AI-assisted development. Its tagline — *"Spec-driven thinking, nano-sized docs"* — is the whole idea: capture just enough written structure to think clearly before coding, and no more. Like [[bm-skills]], it is **not a full-SDLC framework**; it owns exactly one slice of the lifecycle (authoring a lightweight spec) and leaves the rest to the coding agent.
 
-Its thesis is a **ceremony spectrum**. AI makes it trivial to skip specs (fast but chaotic —
-scope creep, misaligned code, painful handoffs) *or* to over-invest in enterprise-grade
-PRD + design + tech-spec stacks (complete but slower than the build). nano-spec claims the
-middle — the ~80% of tasks "too complex for *just do it*, too simple for enterprise-grade
-specs" — with **four tiny markdown files per task**. It is explicitly *"inspired by
-[Kiro's Spec-Driven Development](https://kiro.dev/docs/specs/), but minimal and practical"*:
+Its thesis is a **ceremony spectrum**. AI makes it trivial to skip specs (fast but chaotic — scope creep, misaligned code, painful handoffs) *or* to over-invest in enterprise-grade PRD + design + tech-spec stacks (complete but slower than the build). nano-spec claims the middle — the ~80% of tasks "too complex for *just do it*, too simple for enterprise-grade specs" — with **four tiny markdown files per task**. It is explicitly *"inspired by [Kiro's Spec-Driven Development](https://kiro.dev/docs/specs/), but minimal and practical"*:
 
 | Approach | Docs | Overhead | Best for |
 |:---|:---:|:---:|:---|
@@ -38,16 +28,11 @@ Every task gets a folder `tasks/{task-name}/` holding the [[artifact-nano-spec-p
 - **doc.md** — *Output.* Key **decisions** (options considered · chosen · rationale), schemas/architecture, open questions ([[artifact-adr]]).
 - **log.md** — *Journey.* Dated Done / In-Progress / Blocked / Notes entries; the handoff and retrospective trail.
 
-*"The documents aren't the point. Clarity is."* — the pack is external memory, a thinking
-framework that happens to produce files.
+*"The documents aren't the point. Clarity is."* — the pack is external memory, a thinking framework that happens to produce files.
 
 ## Capabilities
 
-nano-spec ships **one Claude Code skill** (`SKILL.md`) exposing a single `/nano-spec` command
-with three actions. The same instructions are re-published verbatim as system-prompt configs for
-nine other tools (Codex, Gemini, OpenCode, Antigravity, Cline, Cursor, Windsurf, Trae, GitHub
-Copilot) — the capability is identical; only the invocation differs (native slash-command vs.
-natural-language prompt). Documented here as one page per action for full coverage:
+nano-spec ships **one Claude Code skill** (`SKILL.md`) exposing a single `/nano-spec` command with three actions. The same instructions are re-published verbatim as system-prompt configs for nine other tools (Codex, Gemini, OpenCode, Antigravity, Cline, Cursor, Windsurf, Trae, GitHub Copilot) — the capability is identical; only the invocation differs (native slash-command vs. natural-language prompt). Documented here as one page per action for full coverage:
 
 - [[nano-spec-create]] — **the focus**: generate the 4-document pack from a one-line task description. Implements [[stage-specify]]; the 8th member of the cross-framework specify cluster.
 - [[nano-spec-status]] — read `todo.md` + `log.md` and report progress (done vs. total, blockers, last-log date). A lightweight status read; no canonical stage.
@@ -55,16 +40,7 @@ natural-language prompt). Documented here as one page per action for full covera
 
 ## Distinctive contribution
 
-nano-spec is the specify cluster's **minimalist, tool-neutral** entry. Where the other spec
-authors run facilitated interviews ([[bm-prd-creator]], [[bmad-prd]]), enforce quality gates
-([[speckit-checklist]], [[gstack-codex]]), or maintain a permanent delta-tracked spec
-([[openspec]]), nano-spec's entire value proposition is *subtraction*: a fixed set of four
-short files, ~10-minute setup, no bespoke tooling, portable across ten agents. It is the wiki's
-clearest embodiment of [[pattern-scale-adaptive-planning]] applied at the **methodology** level —
-not a dial inside one framework (as in [[bmad]]/[[gstack]]) but a deliberate, fixed *point* on
-the ceremony spectrum, chosen because most work lives there. Its second distinctive move is
-treating the spec as a **living pack maintained through the build** (`update` + daily `log.md`),
-which doubles as the [[pattern-session-handoff|handoff]] artifact.
+nano-spec is the specify cluster's **minimalist, tool-neutral** entry. Where the other spec authors run facilitated interviews ([[bm-prd-creator]], [[bmad-prd]]), enforce quality gates ([[speckit-checklist]], [[gstack-codex]]), or maintain a permanent delta-tracked spec ([[openspec]]), nano-spec's entire value proposition is *subtraction*: a fixed set of four short files, ~10-minute setup, no bespoke tooling, portable across ten agents. It is the wiki's clearest embodiment of [[pattern-scale-adaptive-planning]] applied at the **methodology** level — not a dial inside one framework (as in [[bmad]]/[[gstack]]) but a deliberate, fixed *point* on the ceremony spectrum, chosen because most work lives there. Its second distinctive move is treating the spec as a **living pack maintained through the build** (`update` + daily `log.md`), which doubles as the [[pattern-session-handoff|handoff]] artifact.
 
 ## Patterns applied
 - [[pattern-spec-driven-development]] — write a spec and drive the agent from it; the core practice ([[nano-spec-create]]).
@@ -76,5 +52,4 @@ which doubles as the [[pattern-session-handoff|handoff]] artifact.
 - [[openspec]] — the opposite pole of spec durability: a permanent, delta-maintained spec vs. nano-spec's per-task throwaway pack.
 - [[speckit]] — the maximalist reference implementation of spec-driven development; nano-spec is the minimalist counterpoint.
 - [[bmad]] · [[gstack]] — where scale-adaptive ceremony is a *dynamic dial*; nano-spec fixes a single point on that same spectrum.
-- [[stage-specify]] — the one canonical stage nano-spec substantively implements.
-</content>
+- [[stage-specify]] — the one canonical stage nano-spec substantively implements. </content>

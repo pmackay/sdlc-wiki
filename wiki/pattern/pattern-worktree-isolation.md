@@ -6,25 +6,13 @@ updated: 2026-07-17
 
 # Pattern: Worktree isolation (each unit of work in its own git worktree)
 
-Run each unit of work in a **dedicated git worktree** — a separate working directory on its own
-branch, sharing one repository — so parallel, experimental, and autonomous work never corrupts
-the mainline or collides with other in-flight units. When a unit is abandoned, its worktree is
-discarded with no trace on the trunk; when it succeeds, it merges cleanly.
+Run each unit of work in a **dedicated git worktree** — a separate working directory on its own branch, sharing one repository — so parallel, experimental, and autonomous work never corrupts the mainline or collides with other in-flight units. When a unit is abandoned, its worktree is discarded with no trace on the trunk; when it succeeds, it merges cleanly.
 
-**Two frameworks** make this a first-class, explicit skill. Compound Engineering ([[ce-worktree]])
-runs [[ce-work]] and the autonomous [[lfg]] loop inside it; Superpowers ([[sp-using-git-worktrees]])
-prefers the harness's *native* worktree tool, falls back to `git worktree`, and verifies a clean
-test baseline before any implementation begins. Other frameworks use worktrees ad hoc; these two
-foreground isolation as a reusable step.
+**Two frameworks** make this a first-class, explicit skill. Compound Engineering ([[ce-worktree]]) runs [[ce-work]] and the autonomous [[lfg]] loop inside it; Superpowers ([[sp-using-git-worktrees]]) prefers the harness's *native* worktree tool, falls back to `git worktree`, and verifies a clean test baseline before any implementation begins. Other frameworks use worktrees ad hoc; these two foreground isolation as a reusable step.
 
 ## Why it's distinctive
 
-This is the **filesystem** counterpart to [[pattern-fresh-context-subagents]] (which isolates an
-agent's *context*): worktree isolation isolates the *files*. It is the safety substrate that
-makes [[pattern-autonomous-loop]] non-destructive — an unattended agent can build, break, and
-retry without risking the developer's working tree — and it enables running multiple units
-concurrently (one product, five worktrees). Other frameworks use git worktrees ad hoc; Compound
-Engineering foregrounds isolation as an explicit, reusable step.
+This is the **filesystem** counterpart to [[pattern-fresh-context-subagents]] (which isolates an agent's *context*): worktree isolation isolates the *files*. It is the safety substrate that makes [[pattern-autonomous-loop]] non-destructive — an unattended agent can build, break, and retry without risking the developer's working tree — and it enables running multiple units concurrently (one product, five worktrees). Other frameworks use git worktrees ad hoc; Compound Engineering foregrounds isolation as an explicit, reusable step.
 
 ## Applied by (backlinks)
 

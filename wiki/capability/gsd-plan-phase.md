@@ -14,25 +14,13 @@ updated: 2026-07-04
 
 # /gsd-plan-phase
 
-`/gsd-plan-phase N` — Phase 2, "the core planning step": research, plan, and verify a
-phase. Runs optional domain research via [[gsd-phase-researcher]] (four parallel
-instances: stack, features, architecture, pitfalls), produces an atomic plan via
-[[gsd-planner]], then enters a verification loop with [[gsd-plan-checker]] (eight
-dimensions, up to three revision cycles) until the plan is approved for execution — see
-[[pattern-plan-verification-loop]].
+`/gsd-plan-phase N` — Phase 2, "the core planning step": research, plan, and verify a phase. Runs optional domain research via [[gsd-phase-researcher]] (four parallel instances: stack, features, architecture, pitfalls), produces an atomic plan via [[gsd-planner]], then enters a verification loop with [[gsd-plan-checker]] (eight dimensions, up to three revision cycles) until the plan is approved for execution — see [[pattern-plan-verification-loop]].
 
-**Produces:** [[artifact-plan-md]] (`{phase}-PLAN.md`, executable task prompts) and
-[[artifact-research-md]] (`RESEARCH.md`, when research runs); `SKELETON.md` in MVP mode on
-Phase 1.
+**Produces:** [[artifact-plan-md]] (`{phase}-PLAN.md`, executable task prompts) and [[artifact-research-md]] (`RESEARCH.md`, when research runs); `SKELETON.md` in MVP mode on Phase 1.
 
-**Flags:** `--mvp` (vertical slices UI→API→DB — see [[pattern-vertical-slice]]), `--tdd`
-(test-first RED-GREEN cycles — see [[pattern-test-driven-development]]), `--gaps` (re-plan to
-close verified gaps). When `/gsd-ui-phase` runs first, also delegates to gsd-ui-researcher /
-gsd-ui-checker.
+**Flags:** `--mvp` (vertical slices UI→API→DB — see [[pattern-vertical-slice]]), `--tdd` (test-first RED-GREEN cycles — see [[pattern-test-driven-development]]), `--gaps` (re-plan to close verified gaps). When `/gsd-ui-phase` runs first, also delegates to gsd-ui-researcher / gsd-ui-checker.
 
-These two flags are where GSD and Matt Pocock's toolkit converge: `--mvp` ↔
-[[mp-to-tickets]] (both cut [[pattern-vertical-slice]] work) and `--tdd` ↔ [[mp-tdd]] (both
-drive [[pattern-test-driven-development]]).
+These two flags are where GSD and Matt Pocock's toolkit converge: `--mvp` ↔ [[mp-to-tickets]] (both cut [[pattern-vertical-slice]] work) and `--tdd` ↔ [[mp-tdd]] (both drive [[pattern-test-driven-development]]).
 
 ## See Also
 - [[gsd-discuss-phase]] — supplies the locked context this plans against.

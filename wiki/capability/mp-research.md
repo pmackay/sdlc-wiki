@@ -14,18 +14,9 @@ updated: 2026-07-09
 
 # research
 
-`/research` — a model-invoked engineering skill that spins up a **background agent** to investigate a
-question against **high-trust primary sources** — official docs, source code, specs, first-party
-APIs, "not a secondary write-up of them" — following every claim back to the source that owns it,
-and captures the findings as a single **cited Markdown file** in the repo ([[artifact-research-md]]).
-"Delegable reading legwork": you keep working while it reads, and get back a document to grill, plan,
-or design against.
+`/research` — a model-invoked engineering skill that spins up a **background agent** to investigate a question against **high-trust primary sources** — official docs, source code, specs, first-party APIs, "not a secondary write-up of them" — following every claim back to the source that owns it, and captures the findings as a single **cited Markdown file** in the repo ([[artifact-research-md]]). "Delegable reading legwork": you keep working while it reads, and get back a document to grill, plan, or design against.
 
-**New in v1.1 (2026-07-09).** It enacts [[pattern-source-grounding]] (cite primary sources, flag the
-unverified) and runs as a [[pattern-fresh-context-subagents|fresh-context background agent]]. Its
-closest cross-framework counterpart is GSD's [[gsd-phase-researcher]] (parallel domain research →
-`RESEARCH.md`); it also relates to BMAD's [[bmad-research]] (align-time market/domain/tech research)
-and the Compound Engineering researcher sub-agents.
+**New in v1.1 (2026-07-09).** It enacts [[pattern-source-grounding]] (cite primary sources, flag the unverified) and runs as a [[pattern-fresh-context-subagents|fresh-context background agent]]. Its closest cross-framework counterpart is GSD's [[gsd-phase-researcher]] (parallel domain research → `RESEARCH.md`); it also relates to BMAD's [[bmad-research]] (align-time market/domain/tech research) and the Compound Engineering researcher sub-agents.
 
 ## See Also
 - [[gsd-phase-researcher]] — GSD's parallel-research counterpart → [[artifact-research-md]].

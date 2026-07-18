@@ -7,21 +7,9 @@ updated: 2026-07-13
 
 # Stage: Specify
 
-Canonical lifecycle stage: **capture what to build and why in a durable specification** — a
-PRD / SPEC.md / spec-delta / requirements artifact — distinct from the *interactive* act of
-resolving decisions ([[stage-align]]) and from decomposing the *how* into executable units
-([[stage-plan]]). The spec is the written contract the rest of the lifecycle plans and builds
-against.
+Canonical lifecycle stage: **capture what to build and why in a durable specification** — a PRD / SPEC.md / spec-delta / requirements artifact — distinct from the *interactive* act of resolving decisions ([[stage-align]]) and from decomposing the *how* into executable units ([[stage-plan]]). The spec is the written contract the rest of the lifecycle plans and builds against.
 
-**Promoted on the 2026-07-04 ingest; reinforced the same day by OpenSpec and Spec Kit.**
-Previously parked as a split candidate on [[stage-plan]] (one vote: Matt Pocock), it cleared
-the ≥2-framework bar when Addy Osmani's `/spec` phase became the second framework to treat
-spec authoring as its own step. **OpenSpec was the third** ([[openspec-propose]]), and
-**Spec Kit is the fourth** ([[speckit-specify]]) and **BMAD the fifth** ([[bmad-prd]]) —
-putting this stage beyond doubt. BMAD reinforces it structurally: its dedicated **Planning
-phase** (PRD + UX) sits between an Analysis phase ([[stage-align]]) and a Solutioning phase
-([[stage-plan]]), treating spec authoring as an explicit, separate phase
-(see [Stage re-derivation](../CONVENTIONS.md#stage-re-derivation-keep-stages-framework-neutral)).
+**Promoted on the 2026-07-04 ingest; reinforced the same day by OpenSpec and Spec Kit.** Previously parked as a split candidate on [[stage-plan]] (one vote: Matt Pocock), it cleared the ≥2-framework bar when Addy Osmani's `/spec` phase became the second framework to treat spec authoring as its own step. **OpenSpec was the third** ([[openspec-propose]]), and **Spec Kit is the fourth** ([[speckit-specify]]) and **BMAD the fifth** ([[bmad-prd]]) — putting this stage beyond doubt. BMAD reinforces it structurally: its dedicated **Planning phase** (PRD + UX) sits between an Analysis phase ([[stage-align]]) and a Solutioning phase ([[stage-plan]]), treating spec authoring as an explicit, separate phase (see [Stage re-derivation](../CONVENTIONS.md#stage-re-derivation-keep-stages-framework-neutral)).
 
 **Derived projection** — evidence is the capabilities that `implements: [[stage-specify]]`.
 
@@ -63,29 +51,10 @@ nano-spec (the eighth framework):
 
 - [[nano-spec-create]] — generate a minimal **4-document pack** ([[artifact-nano-spec-pack]]: README/todo/doc/log) from a one-line description; the specify cluster's minimalist, tool-agnostic entry, positioned as the deliberate middle of a no-spec → nano → full-spec ceremony spectrum ([[pattern-scale-adaptive-planning]]).
 
-GSD **folds this in**: [[gsd-plan-phase]] produces [[artifact-plan-md]] directly and captures
-intent upstream in [[artifact-context-md]], with no separate spec artifact.
+GSD **folds this in**: [[gsd-plan-phase]] produces [[artifact-plan-md]] directly and captures intent upstream in [[artifact-context-md]], with no separate spec artifact.
 
 ## Cross-framework equivalents
-Eight frameworks now converge on **write the spec down before building**: Addy's
-[[addy-spec-driven-development]] ↔ Matt's [[mp-to-spec]] ↔ OpenSpec's [[openspec-propose]] ↔
-Spec Kit's [[speckit-specify]] ↔ BMAD's [[bmad-prd]] ↔ gstack's [[gstack-spec]] ↔ Builder Methods'
-[[bm-prd-creator]] ↔ nano-spec's [[nano-spec-create]] (`equivalent_to`), clustered at
-[[pattern-spec-driven-development]]. BM's is the outlier by *audience*: a non-technical-builder
-interview producing a **visual HTML PRD** + milestone prompts, where the rest assume a developer
-reader. nano-spec is the outlier by *weight*: a fixed **4-file pack** ([[artifact-nano-spec-pack]])
-that deliberately minimizes ceremony — the smallest useful spec, tool-agnostic across ten agents —
-the opposite pole from Spec Kit's / gstack's gated maximalism and OpenSpec's permanent
-delta-maintained spec. gstack adds a **cross-model quality gate**
-([[gstack-codex]] blocks specs below 7/10) — a QA step on the spec analogous to Spec Kit's
-[[speckit-checklist]] but enforced by a second model rather than a checklist artifact.
-They differ in artifact house-format — a root `SPEC.md`, a PRD in the issue tracker, an
-ADDED/MODIFIED/REMOVED [[artifact-spec-delta]] against a living spec, or a per-feature
-`spec.md` — but do the same job. OpenSpec is distinctive in that its spec is **permanent and
-delta-maintained** ([[pattern-living-specification]]) rather than a per-change document.
-Spec Kit adds a distinctive **spec-quality gate**, [[speckit-checklist]] ("unit tests for
-your English"), producing an [[artifact-checklist]] — a QA step on the requirements that no
-other framework here materialises as an artifact.
+Eight frameworks now converge on **write the spec down before building**: Addy's [[addy-spec-driven-development]] ↔ Matt's [[mp-to-spec]] ↔ OpenSpec's [[openspec-propose]] ↔ Spec Kit's [[speckit-specify]] ↔ BMAD's [[bmad-prd]] ↔ gstack's [[gstack-spec]] ↔ Builder Methods' [[bm-prd-creator]] ↔ nano-spec's [[nano-spec-create]] (`equivalent_to`), clustered at [[pattern-spec-driven-development]]. BM's is the outlier by *audience*: a non-technical-builder interview producing a **visual HTML PRD** + milestone prompts, where the rest assume a developer reader. nano-spec is the outlier by *weight*: a fixed **4-file pack** ([[artifact-nano-spec-pack]]) that deliberately minimizes ceremony — the smallest useful spec, tool-agnostic across ten agents — the opposite pole from Spec Kit's / gstack's gated maximalism and OpenSpec's permanent delta-maintained spec. gstack adds a **cross-model quality gate** ([[gstack-codex]] blocks specs below 7/10) — a QA step on the spec analogous to Spec Kit's [[speckit-checklist]] but enforced by a second model rather than a checklist artifact. They differ in artifact house-format — a root `SPEC.md`, a PRD in the issue tracker, an ADDED/MODIFIED/REMOVED [[artifact-spec-delta]] against a living spec, or a per-feature `spec.md` — but do the same job. OpenSpec is distinctive in that its spec is **permanent and delta-maintained** ([[pattern-living-specification]]) rather than a per-change document. Spec Kit adds a distinctive **spec-quality gate**, [[speckit-checklist]] ("unit tests for your English"), producing an [[artifact-checklist]] — a QA step on the requirements that no other framework here materialises as an artifact.
 
 ## See Also
 - [[stage-align]] — the interactive elicitation / exploration that precedes writing the spec.

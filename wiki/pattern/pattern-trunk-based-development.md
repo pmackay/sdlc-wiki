@@ -6,11 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Trunk-based development
 
-Integrate into a single shared trunk continuously via short-lived branches and small, atomic
-commits (~100 lines of change), keeping the trunk always releasable. Each commit is a
-save-point that can be reverted cleanly; unfinished work hides behind [[pattern-feature-flags]]
-rather than long-lived branches. Small changes are faster to review and safer to ship, which
-is the same "faster is safer" logic behind [[pattern-shift-left]].
+Integrate into a single shared trunk continuously via short-lived branches and small, atomic commits (~100 lines of change), keeping the trunk always releasable. Each commit is a save-point that can be reverted cleanly; unfinished work hides behind [[pattern-feature-flags]] rather than long-lived branches. Small changes are faster to review and safer to ship, which is the same "faster is safer" logic behind [[pattern-shift-left]].
 
 ## Applied by (backlinks)
 

@@ -9,42 +9,20 @@ updated: 2026-07-04
 
 # BMAD-METHOD
 
-**BMAD** — "**B**reakthrough **M**ethod for **A**gile **A**I **D**riven Development" (the docs
-also gloss it "Build More Architect Dreams") by **bmad-code-org** — is the wiki's **most
-lifecycle-complete and most role-oriented framework**: an AI-driven agile method built around a
-cast of **named expert personas** (Analyst, PM, Architect, Developer…) who *facilitate* the
-human through a scale-adaptive pipeline from idea to shipped code. Install: `npx bmad-method
-install` (Node.js 20.12+). ~50K★, MIT. Works in Claude Code / Cursor / Copilot, with planning
-also available as Gemini Gems / ChatGPT GPTs ("web bundles").
+**BMAD** — "**B**reakthrough **M**ethod for **A**gile **A**I **D**riven Development" (the docs also gloss it "Build More Architect Dreams") by **bmad-code-org** — is the wiki's **most lifecycle-complete and most role-oriented framework**: an AI-driven agile method built around a cast of **named expert personas** (Analyst, PM, Architect, Developer…) who *facilitate* the human through a scale-adaptive pipeline from idea to shipped code. Install: `npx bmad-method install` (Node.js 20.12+). ~50K★, MIT. Works in Claude Code / Cursor / Copilot, with planning also available as Gemini Gems / ChatGPT GPTs ("web bundles").
 
-Its stated stance is the sharpest articulation in the wiki of *agent-as-collaborator*:
-"traditional AI tools do the thinking for you, producing average results. BMad agents and
-facilitated workflows act as **expert collaborators** who guide you through a structured
-process." Concretely, its workflows enforce a **facilitator** rule — "YOU ARE A FACILITATOR,
-not a content generator; NEVER generate content without user input" — so planning is a
-grilling dialogue (see [[pattern-grilling]]), not autogeneration.
+Its stated stance is the sharpest articulation in the wiki of *agent-as-collaborator*: "traditional AI tools do the thinking for you, producing average results. BMad agents and facilitated workflows act as **expert collaborators** who guide you through a structured process." Concretely, its workflows enforce a **facilitator** rule — "YOU ARE A FACILITATOR, not a content generator; NEVER generate content without user input" — so planning is a grilling dialogue (see [[pattern-grilling]]), not autogeneration.
 
 ## What makes BMAD different
 
-Every other framework here exposes commands or skills; BMAD is the first to organize the whole
-lifecycle around **distinct named personas with persistent character** — Mary the analyst,
-John the PM, Winston the architect, Amelia the engineer — each carrying its own influences and
-principles. That is its signature contribution ([[pattern-persona-agents]]), and it enables
-[[pattern-persona-agents|Party Mode]], where the personas debate a decision as a roundtable.
-Two more distinctions:
+Every other framework here exposes commands or skills; BMAD is the first to organize the whole lifecycle around **distinct named personas with persistent character** — Mary the analyst, John the PM, Winston the architect, Amelia the engineer — each carrying its own influences and principles. That is its signature contribution ([[pattern-persona-agents]]), and it enables [[pattern-persona-agents|Party Mode]], where the personas debate a decision as a roundtable. Two more distinctions:
 
-- **Scale-adaptive ceremony.** BMAD sizes the process to the work — a one-line fix skips
-  straight to code (Quick Flow), an enterprise system runs the full PRD → architecture →
-  epics → stories pipeline. The planning depth is a dial, not a fixed gate ([[pattern-scale-adaptive-planning]]).
-- **Context-engineered story files.** Each unit of work is a self-contained [[artifact-story|story file]]
-  that "embeds architectural decisions, dependency context, and project conventions directly
-  into the implementation artifact," so the dev agent never loses context ([[pattern-context-engineering]]).
+- **Scale-adaptive ceremony.** BMAD sizes the process to the work — a one-line fix skips straight to code (Quick Flow), an enterprise system runs the full PRD → architecture → epics → stories pipeline. The planning depth is a dial, not a fixed gate ([[pattern-scale-adaptive-planning]]).
+- **Context-engineered story files.** Each unit of work is a self-contained [[artifact-story|story file]] that "embeds architectural decisions, dependency context, and project conventions directly into the implementation artifact," so the dev agent never loses context ([[pattern-context-engineering]]).
 
 ## The four-phase lifecycle (+ Quick Flow)
 
-"The BMAD Method follows 4 distinct phases in sequence," plus a parallel Quick Flow track for
-small work. Each phase's output "becomes context for the next." The source tree mirrors the
-phases (`src/bmm-skills/{1-analysis,2-plan-workflows,3-solutioning,4-implementation}/`):
+"The BMAD Method follows 4 distinct phases in sequence," plus a parallel Quick Flow track for small work. Each phase's output "becomes context for the next." The source tree mirrors the phases (`src/bmm-skills/{1-analysis,2-plan-workflows,3-solutioning,4-implementation}/`):
 
 | Phase | Owning persona(s) | Stage |
 |-------|-------------------|-------|
@@ -54,16 +32,13 @@ phases (`src/bmm-skills/{1-analysis,2-plan-workflows,3-solutioning,4-implementat
 | 4. Implementation — build it, one story at a time | [[bmad-dev]] | [[stage-implement]] · [[stage-review]] |
 | Quick Flow *(parallel)* — skip 1–3 for small work | [[bmad-dev]] | [[stage-implement]] |
 
-Like [[speckit]], **BMAD core ships no deploy/ship step**; it closes each epic with a
-[[bmad-retrospective|retrospective]] (a learning close-out, see [[stage-release]]) rather than
-a release to production.
+Like [[speckit]], **BMAD core ships no deploy/ship step**; it closes each epic with a [[bmad-retrospective|retrospective]] (a learning close-out, see [[stage-release]]) rather than a release to production.
 
 ## Capabilities
 
 ### Named agents (personas) — one page each
 
-The six BMM personas ("BMad ships six named agents, each anchored to a phase"). Each is a skill
-(`bmad-agent-*`) invoked by name; each dispatches a menu of workflow skills:
+The six BMM personas ("BMad ships six named agents, each anchored to a phase"). Each is a skill (`bmad-agent-*`) invoked by name; each dispatches a menu of workflow skills:
 
 - [[bmad-analyst]] — **Mary** 📊; Analysis. Brainstorming, research, product briefs, PRFAQ, brownfield docs.
 - [[bmad-tech-writer]] — **Paige** 📚; Analysis. Project documentation, diagrams, doc validation.
@@ -72,11 +47,7 @@ The six BMM personas ("BMad ships six named agents, each anchored to a phase"). 
 - [[bmad-architect]] — **Winston** 🏗️; Solutioning. The architecture spine.
 - [[bmad-dev]] — **Amelia** 💻; Implementation. Story creation, dev, code review, sprints, retros (absorbed the classic SM + QA roles).
 
-> **Conflict (version drift):** classic v4/v5 BMAD shipped separate **Scrum Master (Bob)**,
-> **Product Owner (Sarah)**, **BMad Master**, and **BMad Orchestrator** agents. v6 folds these
-> in — SM/QA duties → the Developer ([[bmad-dev]]), epic breakdown → the PM ([[bmad-pm]]),
-> orchestration → the Party-Mode *skill*. Some secondary sources (e.g. DeepWiki) still list a
-> `sm`/"Bob" agent; the v6 docs are canonical at "six named agents." This wiki follows v6.
+> **Conflict (version drift):** classic v4/v5 BMAD shipped separate **Scrum Master (Bob)**, **Product Owner (Sarah)**, **BMad Master**, and **BMad Orchestrator** agents. v6 folds these in — SM/QA duties → the Developer ([[bmad-dev]]), epic breakdown → the PM ([[bmad-pm]]), orchestration → the Party-Mode *skill*. Some secondary sources (e.g. DeepWiki) still list a `sm`/"Bob" agent; the v6 docs are canonical at "six named agents." This wiki follows v6.
 
 ### Workflow skills — one page each
 
@@ -89,8 +60,7 @@ Grouped by phase; each `implements:` a canonical stage:
 
 ### Core utility skills (mechanisms & tooling — catalogued, not paged)
 
-Cross-phase `core-skills/` that back the paged capabilities rather than performing a lifecycle
-stage themselves:
+Cross-phase `core-skills/` that back the paged capabilities rather than performing a lifecycle stage themselves:
 
 | Skill | Role |
 |-------|------|
@@ -106,8 +76,7 @@ stage themselves:
 
 ### Optional modules (expansion packs — catalogued, not paged)
 
-Only **BMM** (+ shared `core`) installs by default; v6 "separated core functionality from
-domain-specific modules for independent versioning." The rest are optional:
+Only **BMM** (+ shared `core`) installs by default; v6 "separated core functionality from domain-specific modules for independent versioning." The rest are optional:
 
 | Module | Code | What it adds |
 |--------|------|-------------|
@@ -118,9 +87,7 @@ domain-specific modules for independent versioning." The rest are optional:
 | Whiteport Design Studio | `wds` | Design-first UX methodology (Saga, Freya, Mimir) |
 | BMad Loop | `bmad-loop` | Deterministic Python unattended dev loop with adversarial review (no personas) |
 
-> The **TEA** module's Murat is BMAD's answer to a dedicated quality reviewer — it clusters
-> with [[addy-security-auditor]] / [[addy-test-engineer]] on the [[stage-review]] quality-gate
-> side, but ships outside core, so it is catalogued here rather than paged.
+> The **TEA** module's Murat is BMAD's answer to a dedicated quality reviewer — it clusters with [[addy-security-auditor]] / [[addy-test-engineer]] on the [[stage-review]] quality-gate side, but ships outside core, so it is catalogued here rather than paged.
 
 ## Artifacts produced
 

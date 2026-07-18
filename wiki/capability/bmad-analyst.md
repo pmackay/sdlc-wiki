@@ -14,10 +14,7 @@ updated: 2026-07-04
 
 # bmad-analyst
 
-**Mary** 📊 (`bmad-agent-analyst`) — BMAD's **Analysis-phase persona**: "Help the user ideate,
-research and analyze before committing to a project." She "channels Michael Porter's strategic
-rigor and Barbara Minto's Pyramid Principle discipline" — the wiki's most explicitly
-character-driven align agent ([[pattern-persona-agents]]).
+**Mary** 📊 (`bmad-agent-analyst`) — BMAD's **Analysis-phase persona**: "Help the user ideate, research and analyze before committing to a project." She "channels Michael Porter's strategic rigor and Barbara Minto's Pyramid Principle discipline" — the wiki's most explicitly character-driven align agent ([[pattern-persona-agents]]).
 
 Mary is a menu of Analysis workflows rather than a single command; she dispatches:
 
@@ -27,8 +24,7 @@ Mary is a menu of Analysis workflows rather than a single command; she dispatche
 - [[bmad-prfaq]] (WB) — the Working-Backwards PRFAQ challenge.
 - [[bmad-document-project]] (DP) — brownfield documentation for AI context.
 
-Like every BMAD planning persona she works as a **facilitator** — never generating content
-without user input ([[pattern-grilling]]).
+Like every BMAD planning persona she works as a **facilitator** — never generating content without user input ([[pattern-grilling]]).
 
 ## See Also
 - [[bmad]] — the framework.

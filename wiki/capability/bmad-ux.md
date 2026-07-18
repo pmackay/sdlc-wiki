@@ -14,14 +14,12 @@ updated: 2026-07-04
 
 # bmad-ux
 
-**`bmad-ux`** — "Plan UX patterns and design specifications." The Planning-phase workflow owned
-by [[bmad-ux-designer]] (Sally). It produces a **two-spine design spec** → [[artifact-design-md]]:
+**`bmad-ux`** — "Plan UX patterns and design specifications." The Planning-phase workflow owned by [[bmad-ux-designer]] (Sally). It produces a **two-spine design spec** → [[artifact-design-md]]:
 
 - `DESIGN.md` — visual identity (the *look*).
 - `EXPERIENCE.md` — behavioral logic and information architecture (the *feel*).
 
-Splitting visual identity from interaction logic "replaces the legacy approach" of one
-monolithic UX spec, and both feed the architect and developer downstream.
+Splitting visual identity from interaction logic "replaces the legacy approach" of one monolithic UX spec, and both feed the architect and developer downstream.
 
 ## See Also
 - [[bmad]] — the framework.

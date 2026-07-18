@@ -14,11 +14,9 @@ updated: 2026-07-05
 
 # /guard
 
-`/guard` — **full safety mode**: activates [[gstack-careful]] (destructive-command warnings) **and**
-[[gstack-freeze]] (directory-scoped edits) in one command. "Maximum safety for prod work."
+`/guard` — **full safety mode**: activates [[gstack-careful]] (destructive-command warnings) **and** [[gstack-freeze]] (directory-scoped edits) in one command. "Maximum safety for prod work."
 
-The combined form of gstack's [[pattern-edit-guardrails]]; delegates to its two constituent
-guardrails. Clear the freeze half with [[gstack-unfreeze]].
+The combined form of gstack's [[pattern-edit-guardrails]]; delegates to its two constituent guardrails. Clear the freeze half with [[gstack-unfreeze]].
 
 ## See Also
 - [[gstack-careful]] · [[gstack-freeze]] — the two guardrails this combines.

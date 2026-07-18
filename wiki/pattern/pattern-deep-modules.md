@@ -6,9 +6,7 @@ updated: 2026-07-04
 
 # Pattern: Deep modules
 
-John Ousterhout's principle: a good module provides "a lot of functionality accessed through
-a simple interface." Maximize the ratio of capability to interface surface, and place module
-boundaries at clean seams — the antidote to architectural entropy ("ball of mud").
+John Ousterhout's principle: a good module provides "a lot of functionality accessed through a simple interface." Maximize the ratio of capability to interface surface, and place module boundaries at clean seams — the antidote to architectural entropy ("ball of mud").
 
 ## Applied by (backlinks)
 

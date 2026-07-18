@@ -14,15 +14,9 @@ updated: 2026-07-05
 
 # /design-consultation
 
-`/design-consultation` — the **Design Partner**. Builds a **complete design system from scratch**:
-understands your product, researches the design landscape, proposes creative risks, and specifies
-aesthetic, typography, color, layout, spacing, and motion, generating font + color previews and
-realistic product mockups. Output is written as `DESIGN.md` ([[artifact-design-md]]).
+`/design-consultation` — the **Design Partner**. Builds a **complete design system from scratch**: understands your product, researches the design landscape, proposes creative risks, and specifies aesthetic, typography, color, layout, spacing, and motion, generating font + color previews and realistic product mockups. Output is written as `DESIGN.md` ([[artifact-design-md]]).
 
-"Design is at the heart" of gstack's parallel-sprint story: this skill seeds the design system that
-the [[gstack-design-shotgun]] → [[gstack-design-html]] pipeline then explores and realizes. It
-enacts *Search Before Building* ([[pattern-source-grounding]]) by researching the landscape first.
-Its cross-framework counterpart is BMAD's [[bmad-ux]] (the two-spine UX/design spec).
+"Design is at the heart" of gstack's parallel-sprint story: this skill seeds the design system that the [[gstack-design-shotgun]] → [[gstack-design-html]] pipeline then explores and realizes. It enacts *Search Before Building* ([[pattern-source-grounding]]) by researching the landscape first. Its cross-framework counterpart is BMAD's [[bmad-ux]] (the two-spine UX/design spec).
 
 ## See Also
 - [[gstack-design-shotgun]] — explores mockup variants against this system.

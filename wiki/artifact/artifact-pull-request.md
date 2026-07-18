@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Artifact: Pull request
 
-The pull request created on the remote at [[gsd-ship]]: the phase branch is pushed and a
-PR opened with an auto-generated summary, optional cross-AI review triggered, and merge
-tracked. Aggregates the phase's [[artifact-atomic-commit]] history. `--draft` opens it as a
-draft.
+The pull request created on the remote at [[gsd-ship]]: the phase branch is pushed and a PR opened with an auto-generated summary, optional cross-AI review triggered, and merge tracked. Aggregates the phase's [[artifact-atomic-commit]] history. `--draft` opens it as a draft.
 
 ## Produced by (backlinks)
 - [[gsd-ship]]

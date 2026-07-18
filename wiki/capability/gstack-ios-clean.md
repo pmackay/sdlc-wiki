@@ -14,12 +14,9 @@ updated: 2026-07-05
 
 # /ios-clean
 
-`/ios-clean` — a convenience skill that **removes the DebugBridge SPM package and all `#if DEBUG`
-wiring** from an iOS app before a **Release build**, so the QA instrumentation ([[gstack-ios-qa]])
-never ships to production.
+`/ios-clean` — a convenience skill that **removes the DebugBridge SPM package and all `#if DEBUG` wiring** from an iOS app before a **Release build**, so the QA instrumentation ([[gstack-ios-qa]]) never ships to production.
 
-A pre-release cleanup **enabling** capability ([[stage-release]]); the teardown counterpart to
-[[gstack-ios-sync]] (which installs/regenerates the bridge for QA).
+A pre-release cleanup **enabling** capability ([[stage-release]]); the teardown counterpart to [[gstack-ios-sync]] (which installs/regenerates the bridge for QA).
 
 ## See Also
 - [[gstack-ios-sync]] — installs/regenerates the debug bridge this strips.

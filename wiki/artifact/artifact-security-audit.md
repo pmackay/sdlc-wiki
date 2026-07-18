@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Artifact: Security audit report
 
-A vulnerability and threat-model assessment of a change: input handling / injection vectors,
-authentication & authorization (including IDOR), data protection and secrets, dependency CVEs,
-scored against the **OWASP Top 10**. Prioritizes practical, exploitable issues over
-theoretical risk, each with a recommended mitigation.
+A vulnerability and threat-model assessment of a change: input handling / injection vectors, authentication & authorization (including IDOR), data protection and secrets, dependency CVEs, scored against the **OWASP Top 10**. Prioritizes practical, exploitable issues over theoretical risk, each with a recommended mitigation.
 
 ## Produced by (backlinks)
 - [[addy-security]] — the security-and-hardening skill.

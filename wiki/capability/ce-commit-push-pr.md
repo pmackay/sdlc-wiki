@@ -14,20 +14,12 @@ updated: 2026-07-04
 
 # /ce-commit-push-pr
 
-`/ce-commit-push-pr` — "Go from working changes to open PR with adaptive descriptions and three
-workflow modes." The finalize step: commit (via [[ce-commit]]), push, and open a PR whose
-description adapts to the change, offering three workflow modes (e.g. quick vs full). →
-[[artifact-pull-request]].
+`/ce-commit-push-pr` — "Go from working changes to open PR with adaptive descriptions and three workflow modes." The finalize step: commit (via [[ce-commit]]), push, and open a PR whose description adapts to the change, offering three workflow modes (e.g. quick vs full). → [[artifact-pull-request]].
 
-It implements [[stage-release]] and is Compound Engineering's member of the **finalize/ship**
-cluster.
+It implements [[stage-release]] and is Compound Engineering's member of the **finalize/ship** cluster.
 
 ## Cross-framework equivalents
-Finalize cluster: `ce-commit-push-pr` ↔ [[gsd-ship]] ↔ [[addy-shipping]] ↔ [[openspec-archive]] —
-each closes the iteration on completed, validated work. `ce-commit-push-pr` is closest to
-[[gsd-ship]] (branch → PR → track); Addy's adds a launch checklist + persona fan-out, OpenSpec's
-merges a spec delta instead of deploying. Announcing the shipped feature is a separate step,
-[[ce-promote]].
+Finalize cluster: `ce-commit-push-pr` ↔ [[gsd-ship]] ↔ [[addy-shipping]] ↔ [[openspec-archive]] — each closes the iteration on completed, validated work. `ce-commit-push-pr` is closest to [[gsd-ship]] (branch → PR → track); Addy's adds a launch checklist + persona fan-out, OpenSpec's merges a spec delta instead of deploying. Announcing the shipped feature is a separate step, [[ce-promote]].
 
 ## See Also
 - [[gsd-ship]] · [[addy-shipping]] · [[openspec-archive]] — finalize-cluster counterparts.

@@ -6,9 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Test-driven development (red-green-refactor)
 
-Write a failing test first (red), make it pass with the simplest code (green), then refactor
-— repeat. Gives the agent ground-truth feedback before it commits to an implementation, a
-direct answer to "the code doesn't work."
+Write a failing test first (red), make it pass with the simplest code (green), then refactor — repeat. Gives the agent ground-truth feedback before it commits to an implementation, a direct answer to "the code doesn't work."
 
 ## Applied by (backlinks)
 
@@ -43,10 +41,7 @@ Superpowers:
 - [[sp-writing-plans]] — bakes the test-first micro-loop directly into every plan task's steps.
 - [[sp-writing-skills]] — applies red-green-refactor to *skill authoring itself* (baseline subagent failure → write skill → watch it comply).
 
-Now a strong multi-framework cluster. Spec Kit is the strictest by *mechanism* — test-first is
-mandated by [[artifact-constitution|the project constitution]] (Article III) — while Superpowers
-matches its non-negotiability by *rhetoric*: any production code written before its test must be
-deleted and rewritten from the test.
+Now a strong multi-framework cluster. Spec Kit is the strictest by *mechanism* — test-first is mandated by [[artifact-constitution|the project constitution]] (Article III) — while Superpowers matches its non-negotiability by *rhetoric*: any production code written before its test must be deleted and rewritten from the test.
 
 ## See Also
 - [[pattern-systematic-debugging]] — the sibling feedback loop for bugs.

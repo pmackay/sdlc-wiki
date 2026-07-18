@@ -6,11 +6,7 @@ updated: 2026-07-05
 
 # Artifact: Web performance audit (Core Web Vitals scorecard)
 
-A performance assessment scored against **Core Web Vitals**. Two modes: **Quick** (source
-scan; every finding tagged *potential impact*, scorecard marked `not measured`) and **Deep**
-(values backed by Lighthouse / PageSpeed Insights / CrUX / DevTools-trace data). Findings are
-ranked by real or likely user impact, and the **metric-honesty rule** forbids presenting an
-unmeasured value as a measurement.
+A performance assessment scored against **Core Web Vitals**. Two modes: **Quick** (source scan; every finding tagged *potential impact*, scorecard marked `not measured`) and **Deep** (values backed by Lighthouse / PageSpeed Insights / CrUX / DevTools-trace data). Findings are ranked by real or likely user impact, and the **metric-honesty rule** forbids presenting an unmeasured value as a measurement.
 
 ## Produced by (backlinks)
 - [[addy-performance]] — the performance-optimization skill.

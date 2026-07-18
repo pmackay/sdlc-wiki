@@ -14,13 +14,9 @@ updated: 2026-07-04
 
 # bmad-ux-designer
 
-**Sally** 🎨 (`bmad-agent-ux-designer`) — BMAD's **UX persona**: "Turn user needs and the PRD
-into UX design specifications that inform architecture and implementation." She is "grounded in
-Don Norman's human-centered design and Alan Cooper's persona discipline" ([[pattern-persona-agents]]).
+**Sally** 🎨 (`bmad-agent-ux-designer`) — BMAD's **UX persona**: "Turn user needs and the PRD into UX design specifications that inform architecture and implementation." She is "grounded in Don Norman's human-centered design and Alan Cooper's persona discipline" ([[pattern-persona-agents]]).
 
-Sally runs a single Planning workflow, [[bmad-ux]] (CU), which produces a two-spine design
-spec — `DESIGN.md` (visual identity) + `EXPERIENCE.md` (behavioral logic / information
-architecture) → [[artifact-design-md]] — that feeds both the architect and the developer.
+Sally runs a single Planning workflow, [[bmad-ux]] (CU), which produces a two-spine design spec — `DESIGN.md` (visual identity) + `EXPERIENCE.md` (behavioral logic / information architecture) → [[artifact-design-md]] — that feeds both the architect and the developer.
 
 ## See Also
 - [[bmad]] — the framework.

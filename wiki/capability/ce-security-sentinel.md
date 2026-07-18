@@ -14,20 +14,12 @@ updated: 2026-07-05
 
 # ce-security-sentinel
 
-An elite **Application Security Specialist** that thinks like an attacker — *where are the
-vulnerabilities, how could this be exploited?* — and performs comprehensive security audits
-(input validation, auth, secrets, injection, etc.) to find and report vulnerabilities before
-they can be exploited → [[artifact-security-audit]].
+An elite **Application Security Specialist** that thinks like an attacker — *where are the vulnerabilities, how could this be exploited?* — and performs comprehensive security audits (input validation, auth, secrets, injection, etc.) to find and report vulnerabilities before they can be exploited → [[artifact-security-audit]].
 
-It implements [[stage-review]] (security quality gate) and is a **direct** counterpart to
-Addy's [[addy-security-auditor]]. In Compound Engineering it is also dispatched by [[ce-compound]]
-as part of the learning council — on a durable-learning invocation it converts its analysis into
-lesson validation (vulnerability class, exploit path, prevention guidance) rather than a
-standalone audit, feeding [[artifact-solution-doc]].
+It implements [[stage-review]] (security quality gate) and is a **direct** counterpart to Addy's [[addy-security-auditor]]. In Compound Engineering it is also dispatched by [[ce-compound]] as part of the learning council — on a durable-learning invocation it converts its analysis into lesson validation (vulnerability class, exploit path, prevention guidance) rather than a standalone audit, feeding [[artifact-solution-doc]].
 
 ## Cross-framework equivalents
-`ce-security-sentinel` ↔ [[addy-security-auditor]] (`equivalent_to`) — both are attacker-minded
-OWASP security reviewers producing a security audit.
+`ce-security-sentinel` ↔ [[addy-security-auditor]] (`equivalent_to`) — both are attacker-minded OWASP security reviewers producing a security audit.
 
 ## See Also
 - [[addy-security-auditor]] — the direct counterpart persona.

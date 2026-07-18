@@ -7,26 +7,13 @@ updated: 2026-07-05
 
 # Pattern: Autonomous loop (hands-off pipeline to a terminal success gate)
 
-Chain a multi-step workflow **end-to-end without human checkpoints**, self-correcting on failure
-until a **terminal success condition** is met — then stop and hand back. The defining features
-are (a) no between-step approval, (b) a *machine-checkable* stopping gate (CI green, tests pass,
-QA clean) rather than "looks done", and (c) automatic retry/repair when a step fails.
+Chain a multi-step workflow **end-to-end without human checkpoints**, self-correcting on failure until a **terminal success condition** is met — then stop and hand back. The defining features are (a) no between-step approval, (b) a *machine-checkable* stopping gate (CI green, tests pass, QA clean) rather than "looks done", and (c) automatic retry/repair when a step fails.
 
-Compound Engineering's [[lfg]] is the archetype: after a brainstorm it runs plan → work →
-simplify → review-with-fixes → test → commit → push → open PR → **watch CI until green**,
-returning only when the PR is merge-ready. [[ce-dogfood]] applies the same shape scoped to QA:
-hands-off browser testing that **fixes small breakages on its own** and reports what it repaired.
+Compound Engineering's [[lfg]] is the archetype: after a brainstorm it runs plan → work → simplify → review-with-fixes → test → commit → push → open PR → **watch CI until green**, returning only when the PR is merge-ready. [[ce-dogfood]] applies the same shape scoped to QA: hands-off browser testing that **fixes small breakages on its own** and reports what it repaired.
 
 ## Why it's distinctive
 
-Most frameworks here are **human-checkpointed** by design — GSD, Addy, BMAD, Spec Kit stop
-between phases for a human to review. The autonomous loop is the opposite stance: trust the
-guardrails ([[pattern-worktree-isolation]], a bounded [[artifact-plan-md|plan]], a hard success
-gate) enough to remove the human from the inner loop. It trades interactive control for
-throughput, and depends on the *quality of the upstream planning* (the 80/20 front-load) to be
-safe. Nearest relatives: Addy's `/build auto` (runs an approved plan task-by-task without
-per-task approval) and BMAD's [[bmad-quick-dev]] `dev-auto` unattended path — both are narrower,
-single-stage autonomies; `lfg` is the whole lifecycle.
+Most frameworks here are **human-checkpointed** by design — GSD, Addy, BMAD, Spec Kit stop between phases for a human to review. The autonomous loop is the opposite stance: trust the guardrails ([[pattern-worktree-isolation]], a bounded [[artifact-plan-md|plan]], a hard success gate) enough to remove the human from the inner loop. It trades interactive control for throughput, and depends on the *quality of the upstream planning* (the 80/20 front-load) to be safe. Nearest relatives: Addy's `/build auto` (runs an approved plan task-by-task without per-task approval) and BMAD's [[bmad-quick-dev]] `dev-auto` unattended path — both are narrower, single-stage autonomies; `lfg` is the whole lifecycle.
 
 ## Applied by (backlinks)
 

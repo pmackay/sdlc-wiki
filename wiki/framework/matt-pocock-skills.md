@@ -8,30 +8,14 @@ updated: 2026-07-09
 
 # Matt Pocock — Skills for Real Engineers
 
-A curated set of small, composable agent skills by **Matt Pocock** "for real engineering
-work — not 'vibe coding'", sourced from his personal `.claude` directory and designed to
-be adapted ("Hack around with them. Make them your own."). Works with any model and any
-coding agent. Explicitly positioned *against* owning-the-process frameworks: "Approaches like
-GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away
-your control and make bugs in the process hard to resolve." These skills stay small and
-composable instead.
+A curated set of small, composable agent skills by **Matt Pocock** "for real engineering work — not 'vibe coding'", sourced from his personal `.claude` directory and designed to be adapted ("Hack around with them. Make them your own."). Works with any model and any coding agent. Explicitly positioned *against* owning-the-process frameworks: "Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve." These skills stay small and composable instead.
 
 - **Install:** `npx skills@latest add mattpocock/skills`
 - **Configure:** `/setup-matt-pocock-skills` (issue tracker — GitHub/Linear/local files, triage labels, doc paths).
 
-Unlike [[gsd]] — a single end-to-end workflow engine — this is a **loose toolkit of
-independent skills**, each **user-invoked** (typed as a slash command; orchestrates) or
-**model-invoked** (typed *or* auto-reached-for by the agent; holds reusable discipline). A
-user-invoked skill may invoke model-invoked ones, never another user-invoked one.
+Unlike [[gsd]] — a single end-to-end workflow engine — this is a **loose toolkit of independent skills**, each **user-invoked** (typed as a slash command; orchestrates) or **model-invoked** (typed *or* auto-reached-for by the agent; holds reusable discipline). A user-invoked skill may invoke model-invoked ones, never another user-invoked one.
 
-> **Updated to v1.1 (2026-07-09).** The repo grew to ~38 skills across
-> `engineering/`, `productivity/`, `misc/`, and new `deprecated/`, `in-progress/`, and `personal/`
-> folders. Headline changes since the 2026-06-28 ingest: a first-class [[mp-implement]] execute
-> skill; [[mp-code-review]] (two-axis Standards∥Spec, graduated from in-progress); [[mp-research]]
-> (background primary-source research); [[mp-wayfinder]] (plan work too big for one session);
-> [[mp-resolving-merge-conflicts]]; `to-prd`→[[mp-to-spec]] and `to-plan`+`to-issues`→[[mp-to-tickets]];
-> [[mp-tdd]] reshaped to red→green (refactoring moved to [[mp-code-review]]); [[mp-prototype]] now
-> model-invoked; and four deprecations (see below).
+> **Updated to v1.1 (2026-07-09).** The repo grew to ~38 skills across `engineering/`, `productivity/`, `misc/`, and new `deprecated/`, `in-progress/`, and `personal/` folders. Headline changes since the 2026-06-28 ingest: a first-class [[mp-implement]] execute skill; [[mp-code-review]] (two-axis Standards∥Spec, graduated from in-progress); [[mp-research]] (background primary-source research); [[mp-wayfinder]] (plan work too big for one session); [[mp-resolving-merge-conflicts]]; `to-prd`→[[mp-to-spec]] and `to-plan`+`to-issues`→[[mp-to-tickets]]; [[mp-tdd]] reshaped to red→green (refactoring moved to [[mp-code-review]]); [[mp-prototype]] now model-invoked; and four deprecations (see below).
 
 ## The main flow (via [[mp-ask-matt]])
 
@@ -39,10 +23,7 @@ The router [[mp-ask-matt]] frames the skills as **flows**. The main flow — *id
 
 > [[mp-grill-with-docs]] → *(prototype detour bridged by [[mp-handoff]] when a question needs a runnable answer: [[mp-prototype]])* → [[mp-to-spec]] → [[mp-to-tickets]] → [[mp-implement]] *(per ticket, clearing context between each)* → [[mp-code-review]]
 
-Two **on-ramps** merge onto it: [[mp-wayfinder]] (an effort too big for one session) and
-[[mp-diagnosing-bugs]] (the "something's broken" entry). A **vocabulary layer** runs underneath
-([[mp-domain-modeling]], [[mp-codebase-design]]), and [[mp-triage]] feeds the front of the flow with
-agent-ready work.
+Two **on-ramps** merge onto it: [[mp-wayfinder]] (an effort too big for one session) and [[mp-diagnosing-bugs]] (the "something's broken" entry). A **vocabulary layer** runs underneath ([[mp-domain-modeling]], [[mp-codebase-design]]), and [[mp-triage]] feeds the front of the flow with agent-ready work.
 
 ## Four failure modes addressed
 

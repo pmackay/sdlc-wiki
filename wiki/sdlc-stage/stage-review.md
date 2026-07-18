@@ -7,38 +7,15 @@ updated: 2026-07-17
 
 # Stage: Review
 
-Canonical lifecycle stage: **judge that the built software is *good* before it ships** — a
-quality gate over the code and its design, distinct from confirming it *works*
-([[stage-validate]]). Review asks *is it good?* — is it correct under scrutiny, secure,
-performant, simple, well-architected, on-brand — and produces **assessments and fixes**
-(review reports, security/perf audits, simplifications), not a pass/fail on runtime behaviour.
-It runs after the build and typically gates entry to [[stage-release]].
+Canonical lifecycle stage: **judge that the built software is *good* before it ships** — a quality gate over the code and its design, distinct from confirming it *works* ([[stage-validate]]). Review asks *is it good?* — is it correct under scrutiny, secure, performant, simple, well-architected, on-brand — and produces **assessments and fixes** (review reports, security/perf audits, simplifications), not a pass/fail on runtime behaviour. It runs after the build and typically gates entry to [[stage-release]].
 
 **Derived projection** — evidence is the capabilities that `implements: [[stage-review]]`.
 
-> **New stage (split out of [[stage-validate]] on 2026-07-05).** Long the strongest parked split
-> candidate on [[stage-validate]]: *validate* = confirm the software **works** (functional: UAT,
-> runtime/browser tests, spec-conformance); *review* = confirm it is **good** (quality gate).
-> Addy Osmani was the first framework to treat these as **two distinct phases** (a *Verify* phase
-> ∥ a *Review* phase). **gstack cleared the ≥2-framework bar**: its sprint runs a distinct
-> **Review** phase (code [[gstack-review]] + cross-model [[gstack-codex]] + design/DX/security)
-> held separate from a distinct **Test** phase (functional QA [[gstack-qa]]). Two frameworks with
-> the clean Verify∥Review partition → promoted, exactly as [[stage-specify]] was split from
-> [[stage-plan]] and [[stage-learn]] from [[stage-release]]. See
-> [Why a distinct stage](#why-a-distinct-stage-not-a-flavor-of-validate). **Superpowers (2026-07-17)
-> is now a third framework with the partition** — functional [[sp-verification-before-completion]] ∥
-> quality [[sp-requesting-code-review]] — further confirming the split.
+> **New stage (split out of [[stage-validate]] on 2026-07-05).** Long the strongest parked split candidate on [[stage-validate]]: *validate* = confirm the software **works** (functional: UAT, runtime/browser tests, spec-conformance); *review* = confirm it is **good** (quality gate). Addy Osmani was the first framework to treat these as **two distinct phases** (a *Verify* phase ∥ a *Review* phase). **gstack cleared the ≥2-framework bar**: its sprint runs a distinct **Review** phase (code [[gstack-review]] + cross-model [[gstack-codex]] + design/DX/security) held separate from a distinct **Test** phase (functional QA [[gstack-qa]]). Two frameworks with the clean Verify∥Review partition → promoted, exactly as [[stage-specify]] was split from [[stage-plan]] and [[stage-learn]] from [[stage-release]]. See [Why a distinct stage](#why-a-distinct-stage-not-a-flavor-of-validate). **Superpowers (2026-07-17) is now a third framework with the partition** — functional [[sp-verification-before-completion]] ∥ quality [[sp-requesting-code-review]] — further confirming the split.
 
 ## Why a distinct stage, not a flavor of validate
 
-[[stage-validate]] executes the software and observes: does the feature work, do the tests pass,
-does the build match the spec? Review never runs the feature to check behaviour — it **reads the
-artifact and judges its quality**: a reviewer finding a race condition that passes CI, a security
-auditor modelling an exploit, a performance engineer flagging a regression, a simplifier removing
-complexity, an architect checking module boundaries. The two are adjacent (both gate release) but
-categorically different: validate is *empirical* (run it, observe), review is *evaluative* (read
-it, judge). Three frameworks (GSD, OpenSpec, Spec Kit) ship a functional validator but **no**
-quality-review capability at all — the cleanest evidence that the two activities are separable.
+[[stage-validate]] executes the software and observes: does the feature work, do the tests pass, does the build match the spec? Review never runs the feature to check behaviour — it **reads the artifact and judges its quality**: a reviewer finding a race condition that passes CI, a security auditor modelling an exploit, a performance engineer flagging a regression, a simplifier removing complexity, an architect checking module boundaries. The two are adjacent (both gate release) but categorically different: validate is *empirical* (run it, observe), review is *evaluative* (read it, judge). Three frameworks (GSD, OpenSpec, Spec Kit) ship a functional validator but **no** quality-review capability at all — the cleanest evidence that the two activities are separable.
 
 ## Implemented by (backlinks)
 
@@ -100,9 +77,7 @@ The quality-review clusters span the six frameworks that ship a review capabilit
 - **Performance audit:** [[addy-performance]] ↔ [[addy-web-performance-auditor]] ↔ [[ce-optimize]] ↔ [[ce-performance-oracle]] ↔ [[gstack-benchmark]] → [[artifact-perf-audit]] ([[pattern-measure-first]]).
 - **Design / DX review** is a gstack specialty ([[gstack-design-review]], [[gstack-devex-review]], [[gstack-ios-design-review]]) with no cross-framework counterpart — a lens the other frameworks leave to general code review.
 
-Note **GSD, OpenSpec, and Spec Kit ship no review capability** — they validate functionally
-([[gsd-verify-work]], [[openspec-verify]], [[speckit-converge]]) but do not treat quality review
-as a step. Their absence here is what makes review and [[stage-validate]] cleanly separable.
+Note **GSD, OpenSpec, and Spec Kit ship no review capability** — they validate functionally ([[gsd-verify-work]], [[openspec-verify]], [[speckit-converge]]) but do not treat quality review as a step. Their absence here is what makes review and [[stage-validate]] cleanly separable.
 
 ## See Also
 - [[stage-validate]] — the sibling it was split from: validate confirms the software **works**, review confirms it is **good**. Both gate [[stage-release]].

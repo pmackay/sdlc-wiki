@@ -14,14 +14,9 @@ updated: 2026-07-04
 
 # bmad-forge-idea
 
-**`bmad-forge-idea`** — "Pressure-test an idea through persona-driven interrogation until it
-hardens, proves out, or dies cheaply." A cross-phase core skill that applies the wiki's
-[[pattern-adversarial-review]] to a *concept* rather than to code: the idea "either survives
-with earned conviction or dies cheaply." It emits a `forge-report.html` every run, and a
-`forged-idea.md` (→ [[artifact-product-brief]]) when an idea hardens.
+**`bmad-forge-idea`** — "Pressure-test an idea through persona-driven interrogation until it hardens, proves out, or dies cheaply." A cross-phase core skill that applies the wiki's [[pattern-adversarial-review]] to a *concept* rather than to code: the idea "either survives with earned conviction or dies cheaply." It emits a `forge-report.html` every run, and a `forged-idea.md` (→ [[artifact-product-brief]]) when an idea hardens.
 
-This is the align-stage complement to [[bmad-brainstorming]]: brainstorming diverges to
-generate options; forge-idea adversarially converges on one worth building.
+This is the align-stage complement to [[bmad-brainstorming]]: brainstorming diverges to generate options; forge-idea adversarially converges on one worth building.
 
 ## See Also
 - [[bmad]] — the framework.

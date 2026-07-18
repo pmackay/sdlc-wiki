@@ -14,18 +14,9 @@ updated: 2026-07-09
 
 # implement
 
-`/implement` — a user-invoked engineering skill that **builds the work described by a spec or a set
-of tickets**. It drives [[mp-tdd]] where possible at pre-agreed seams, runs typechecking and single
-test files regularly (full suite once at the end), closes out by running [[mp-code-review]], and
-commits to the current branch → [[artifact-atomic-commit]].
+`/implement` — a user-invoked engineering skill that **builds the work described by a spec or a set of tickets**. It drives [[mp-tdd]] where possible at pre-agreed seams, runs typechecking and single test files regularly (full suite once at the end), closes out by running [[mp-code-review]], and commits to the current branch → [[artifact-atomic-commit]].
 
-**New in v1.1 (2026-07-09).** This is the first time Matt Pocock's toolkit has a first-class
-*execute* skill — previously "building" was only the test-first [[mp-tdd]] and throwaway
-[[mp-prototype]]. `implement` makes MP a full member of the cross-framework **execute** cluster:
-walk the plan/tickets unit-by-unit, test-driven — alongside [[gsd-execute-phase]], [[openspec-apply]],
-[[speckit-implement]], [[addy-incremental-implementation]], [[bmad-dev-story]], and [[ce-work]]. It
-is the tail of MP's main flow: `idea → grill → to-spec → to-tickets → implement (per ticket, fresh
-context) → code-review`.
+**New in v1.1 (2026-07-09).** This is the first time Matt Pocock's toolkit has a first-class *execute* skill — previously "building" was only the test-first [[mp-tdd]] and throwaway [[mp-prototype]]. `implement` makes MP a full member of the cross-framework **execute** cluster: walk the plan/tickets unit-by-unit, test-driven — alongside [[gsd-execute-phase]], [[openspec-apply]], [[speckit-implement]], [[addy-incremental-implementation]], [[bmad-dev-story]], and [[ce-work]]. It is the tail of MP's main flow: `idea → grill → to-spec → to-tickets → implement (per ticket, fresh context) → code-review`.
 
 ## See Also
 - [[mp-to-tickets]] — produces the tickets this builds (one per fresh context window).

@@ -9,34 +9,16 @@ updated: 2026-07-05
 
 # Compound Engineering
 
-**Compound Engineering** is Every's methodology (and open-source Claude Code plugin) for coding
-when **AI agents write ~100% of the code**. Its one-line thesis: **"each unit of engineering
-work should make subsequent units easier — not harder."** Where traditional development
-accumulates technical debt, Compound Engineering accumulates *knowledge* — every bug, failed
-test, and problem-solving insight is captured and fed back so future agents avoid the mistake.
-The distinctive move is a **learning loop**: complexity grows *alongside* accumulated AI
-knowledge, so velocity accelerates over time rather than decaying. Authors Dan Shipper & Kieran
-Klaassen report single developers at Every now run **five products** — *"the work of five
-developers a few years ago."* MIT-licensed; portable across Claude Code, Cursor, Codex,
-Copilot, Factory Droid, Kimi, Qwen, OpenCode, Pi, and Antigravity.
+**Compound Engineering** is Every's methodology (and open-source Claude Code plugin) for coding when **AI agents write ~100% of the code**. Its one-line thesis: **"each unit of engineering work should make subsequent units easier — not harder."** Where traditional development accumulates technical debt, Compound Engineering accumulates *knowledge* — every bug, failed test, and problem-solving insight is captured and fed back so future agents avoid the mistake. The distinctive move is a **learning loop**: complexity grows *alongside* accumulated AI knowledge, so velocity accelerates over time rather than decaying. Authors Dan Shipper & Kieran Klaassen report single developers at Every now run **five products** — *"the work of five developers a few years ago."* MIT-licensed; portable across Claude Code, Cursor, Codex, Copilot, Factory Droid, Kimi, Qwen, OpenCode, Pi, and Antigravity.
 
 - **Install (Claude Code):** `/plugin marketplace add EveryInc/compound-engineering-plugin` then `/plugin install compound-engineering`.
 - **Effort allocation:** **~80% planning and review, ~20% work and compounding** — front-load thinking, and the execution + capture are cheap. (`ce-plan` alone is ~40% of a developer's time.)
 
 ## Distinctive contribution: the seventh stage
 
-Compound Engineering is the framework that promotes a **new canonical SDLC stage** in this
-wiki: [[stage-learn]]. Its `/ce-compound` step — *"the money step… the whole point"* — captures
-reusable learnings into a `docs/solutions/` corpus that future `ce-brainstorm`/`ce-plan`/
-`ce-code-review` runs read as grounding. That gave learning-capture a **second framework**
-(alongside BMAD's [[bmad-retrospective]]), clearing the bar to split it out of [[stage-release]].
-See [[pattern-knowledge-compounding]] and [[stage-learn]]. Arguably the first genuinely *new*
-stage the agent era adds — the loop-closing arrow, not a rename of a classic phase.
+Compound Engineering is the framework that promotes a **new canonical SDLC stage** in this wiki: [[stage-learn]]. Its `/ce-compound` step — *"the money step… the whole point"* — captures reusable learnings into a `docs/solutions/` corpus that future `ce-brainstorm`/`ce-plan`/ `ce-code-review` runs read as grounding. That gave learning-capture a **second framework** (alongside BMAD's [[bmad-retrospective]]), clearing the bar to split it out of [[stage-release]]. See [[pattern-knowledge-compounding]] and [[stage-learn]]. Arguably the first genuinely *new* stage the agent era adds — the loop-closing arrow, not a rename of a classic phase.
 
-Where [[gsd]] is an end-to-end workflow *engine* and [[bmad]] is a *persona*-oriented pipeline,
-Compound Engineering is a **loop that feeds itself**: it is the only framework here whose
-lifecycle is explicitly circular, with a dedicated step whose product is consumed by the front
-of the next iteration.
+Where [[gsd]] is an end-to-end workflow *engine* and [[bmad]] is a *persona*-oriented pipeline, Compound Engineering is a **loop that feeds itself**: it is the only framework here whose lifecycle is explicitly circular, with a dedicated step whose product is consumed by the front of the next iteration.
 
 ## The six-step loop (+ autonomous mode)
 
@@ -105,10 +87,7 @@ of the next iteration.
 
 ### Sub-agents (26, each paged)
 
-Compound Engineering skills delegate to a large **shared** cast of sub-agents (each skill's
-`references/agents/`; many, e.g. [[ce-repo-profiler]] and [[ce-learnings-researcher]], are
-dispatched by several skills). Each is paged as a `subtype: sub-agent` capability, filed under
-the stage of its intrinsic activity (grouped below by function).
+Compound Engineering skills delegate to a large **shared** cast of sub-agents (each skill's `references/agents/`; many, e.g. [[ce-repo-profiler]] and [[ce-learnings-researcher]], are dispatched by several skills). Each is paged as a `subtype: sub-agent` capability, filed under the stage of its intrinsic activity (grouped below by function).
 
 **Research / grounding:**
 
@@ -145,10 +124,7 @@ the stage of its intrinsic activity (grouped below by function).
 - [[ce-spec-flow-analyzer]] — surface missing flows/edge-cases pre-implementation ([[stage-plan]]).
 - [[ce-figma-design-sync]] — pixel-perfect Figma↔code sync ([[stage-implement]]).
 
-The [[ce-session-historian]] + [[ce-pattern-recognition-specialist]] + [[ce-security-sentinel]] +
-[[ce-performance-oracle]] + [[ce-best-practices-researcher]] + [[ce-framework-docs-researcher]] +
-[[ce-data-integrity-guardian]] **council** is what powers [[ce-compound]]'s mining of completed
-work into [[artifact-solution-doc|solution docs]].
+The [[ce-session-historian]] + [[ce-pattern-recognition-specialist]] + [[ce-security-sentinel]] + [[ce-performance-oracle]] + [[ce-best-practices-researcher]] + [[ce-framework-docs-researcher]] + [[ce-data-integrity-guardian]] **council** is what powers [[ce-compound]]'s mining of completed work into [[artifact-solution-doc|solution docs]].
 
 ### Review persona lenses (bundled within review skills)
 - `ce-code-review` carries ~16 persona lenses (correctness, security, performance, maintainability, reliability, testing, api-contract, data-migration, adversarial, agent-native, deployment-verification, project-standards, previous-comments, learnings-researcher, + Swift/iOS and frontend-races stack reviewers).

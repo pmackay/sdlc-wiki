@@ -14,14 +14,9 @@ updated: 2026-07-04
 
 # Planning & Task Breakdown
 
-Decompose a spec into small, verifiable tasks. The mechanism is read-only "plan mode" first,
-then map the **dependency graph** and build foundations bottom-up, **slice vertically** so each
-task delivers a working end-to-end path (per [[pattern-vertical-slice]]), and size every task so
-no unit touches more than ~5 files. Each task carries explicit acceptance criteria and a
-verification step; checkpoints fall between phases and a human reviews before implementation.
+Decompose a spec into small, verifiable tasks. The mechanism is read-only "plan mode" first, then map the **dependency graph** and build foundations bottom-up, **slice vertically** so each task delivers a working end-to-end path (per [[pattern-vertical-slice]]), and size every task so no unit touches more than ~5 files. Each task carries explicit acceptance criteria and a verification step; checkpoints fall between phases and a human reviews before implementation.
 
-Output is saved to `tasks/plan.md` (the [[artifact-plan-md]]) and `tasks/todo.md`. It implements
-[[stage-plan]] and is the canonical source the spec skill defers to for slicing mechanics.
+Output is saved to `tasks/plan.md` (the [[artifact-plan-md]]) and `tasks/todo.md`. It implements [[stage-plan]] and is the canonical source the spec skill defers to for slicing mechanics.
 
 ## See Also
 - [[mp-to-tickets]] — the Matt Pocock equivalent breakdown skill.

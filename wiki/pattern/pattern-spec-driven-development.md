@@ -6,20 +6,9 @@ updated: 2026-07-13
 
 # Pattern: Spec-driven development
 
-Drive AI coding agents from explicit, versioned specifications rather than freeform
-prompting: capture decisions, write a plan/spec, execute against it, verify against it.
-GSD's whole five-phase loop is an instance — it pairs spec-driven development with
-meta-prompting and context engineering. [[openspec]] is the wiki's purest instance: its
-name *is* the practice (spec-driven development), and its four principles — fluid, iterative,
-easy, brownfield-first — are the clearest statement of the ethos. [[speckit]] is the wiki's
-**reference implementation** of the idea: GitHub's toolkit whose entire premise is
-"specifications don't serve code — code serves specifications."
+Drive AI coding agents from explicit, versioned specifications rather than freeform prompting: capture decisions, write a plan/spec, execute against it, verify against it. GSD's whole five-phase loop is an instance — it pairs spec-driven development with meta-prompting and context engineering. [[openspec]] is the wiki's purest instance: its name *is* the practice (spec-driven development), and its four principles — fluid, iterative, easy, brownfield-first — are the clearest statement of the ethos. [[speckit]] is the wiki's **reference implementation** of the idea: GitHub's toolkit whose entire premise is "specifications don't serve code — code serves specifications."
 
-Frameworks differ on **how durable the spec is**. GSD, Matt Pocock, and Addy write a
-*per-change* spec/PRD/plan that is executed then left behind — as does nano-spec, whose
-per-task 4-file pack is the most ephemeral instance. OpenSpec sits at the opposite pole: a
-**permanent, self-updating spec** with each change expressed as a delta against it — the
-[[pattern-living-specification]] specialization.
+Frameworks differ on **how durable the spec is**. GSD, Matt Pocock, and Addy write a *per-change* spec/PRD/plan that is executed then left behind — as does nano-spec, whose per-task 4-file pack is the most ephemeral instance. OpenSpec sits at the opposite pole: a **permanent, self-updating spec** with each change expressed as a delta against it — the [[pattern-living-specification]] specialization.
 
 ## Applied by (backlinks)
 

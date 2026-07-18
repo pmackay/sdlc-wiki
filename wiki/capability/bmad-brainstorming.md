@@ -14,10 +14,7 @@ updated: 2026-07-04
 
 # bmad-brainstorming
 
-**`bmad-brainstorming`** — "Facilitate a brainstorming session using diverse creative
-techniques." A cross-phase core skill dispatched by [[bmad-analyst]] (menu `BP`) at the front
-of the lifecycle to turn a vague notion into candidate directions. Runs in facilitator,
-partner, or autonomous modes and emits a `brainstorm.html` keepsake.
+**`bmad-brainstorming`** — "Facilitate a brainstorming session using diverse creative techniques." A cross-phase core skill dispatched by [[bmad-analyst]] (menu `BP`) at the front of the lifecycle to turn a vague notion into candidate directions. Runs in facilitator, partner, or autonomous modes and emits a `brainstorm.html` keepsake.
 
 ## Cross-framework cluster (ideation)
 - [[addy-idea-refine]] — Addy's divergent/convergent ideation turning vague ideas into concrete proposals. Both open [[stage-align]] with structured creativity before any spec is written.

@@ -6,11 +6,7 @@ updated: 2026-07-04
 
 # Pattern: Shift Left
 
-Move quality gates — tests, linting, type checks, security scans — as **early** in the
-lifecycle as possible: into the developer's loop and the CI pipeline rather than a late,
-separate QA phase. Catching a defect where it is introduced is cheaper than catching it
-downstream, so "faster is safer": tight, automated feedback loops let teams ship quickly
-*because* the guardrails run continuously.
+Move quality gates — tests, linting, type checks, security scans — as **early** in the lifecycle as possible: into the developer's loop and the CI pipeline rather than a late, separate QA phase. Catching a defect where it is introduced is cheaper than catching it downstream, so "faster is safer": tight, automated feedback loops let teams ship quickly *because* the guardrails run continuously.
 
 ## Applied by (backlinks)
 

@@ -14,16 +14,9 @@ updated: 2026-07-04
 
 # Interview Me
 
-Extracts what the user *actually* wants rather than what they think they should want,
-by asking **one question at a time — each with a guess attached** — until the agent can
-predict the user's reaction to the next three questions (~95% confidence). The distinctive
-move is the confidence number in the opening hypothesis, which forces honesty about how
-much is still unknown, and the "if you didn't have to justify it to anyone, what would you
-actually want?" probe that cuts through best-practice talk.
+Extracts what the user *actually* wants rather than what they think they should want, by asking **one question at a time — each with a guess attached** — until the agent can predict the user's reaction to the next three questions (~95% confidence). The distinctive move is the confidence number in the opening hypothesis, which forces honesty about how much is still unknown, and the "if you didn't have to justify it to anyone, what would you actually want?" probe that cuts through best-practice talk.
 
-It sits at the very front of the funnel: run before any spec, plan, or code, and hand the
-confirmed statement of intent downstream to [[addy-idea-refine]] or a spec. It implements
-[[stage-align]] and applies the cross-framework [[pattern-grilling]] technique.
+It sits at the very front of the funnel: run before any spec, plan, or code, and hand the confirmed statement of intent downstream to [[addy-idea-refine]] or a spec. It implements [[stage-align]] and applies the cross-framework [[pattern-grilling]] technique.
 
 ## See Also
 - [[mp-grill-me]] — the Matt Pocock equivalent in the grilling cluster.

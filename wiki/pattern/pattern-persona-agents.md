@@ -7,22 +7,9 @@ updated: 2026-07-05
 
 # Pattern: Persona agents (named role experts)
 
-Organize the lifecycle around a cast of **distinct named expert personas**, one per role, each
-with a persistent character — a name, an icon, named influences, and stated principles — that
-"shape decisions across all dispatched workflows." Rather than invoking a neutral "planning
-command," you talk to *Mary the analyst* or *Winston the architect*, and the persona colours
-how the work is done. This is [[bmad]]'s signature contribution: six named agents
-(Mary/Paige/John/Sally/Winston/Amelia) anchor its four phases. **[[gstack]] is the second
-framework** built the same way — its whole toolkit is a cast of role specialists (a CEO, an eng
-manager, a senior designer, a DX lead, a staff engineer, a QA lead, a chief security officer, an
-SRE, a release engineer) invoked as slash-commands.
+Organize the lifecycle around a cast of **distinct named expert personas**, one per role, each with a persistent character — a name, an icon, named influences, and stated principles — that "shape decisions across all dispatched workflows." Rather than invoking a neutral "planning command," you talk to *Mary the analyst* or *Winston the architect*, and the persona colours how the work is done. This is [[bmad]]'s signature contribution: six named agents (Mary/Paige/John/Sally/Winston/Amelia) anchor its four phases. **[[gstack]] is the second framework** built the same way — its whole toolkit is a cast of role specialists (a CEO, an eng manager, a senior designer, a DX lead, a staff engineer, a QA lead, a chief security officer, an SRE, a release engineer) invoked as slash-commands.
 
-The payoff beyond flavour is **multi-perspective tension**. BMAD's **Party Mode** summons
-several personas into one roundtable where "the personas hold different priorities. The
-Architect guards the design, the PM guards scope, the Dev guards what's actually buildable" —
-and can spawn "a separate agent for each persona every substantive round" so "no single mind
-colors them all." That makes persona-agents a substrate for honest tradeoff decisions,
-pre-mortems, and reviews.
+The payoff beyond flavour is **multi-perspective tension**. BMAD's **Party Mode** summons several personas into one roundtable where "the personas hold different priorities. The Architect guards the design, the PM guards scope, the Dev guards what's actually buildable" — and can spawn "a separate agent for each persona every substantive round" so "no single mind colors them all." That makes persona-agents a substrate for honest tradeoff decisions, pre-mortems, and reviews.
 
 ## Applied by (backlinks)
 

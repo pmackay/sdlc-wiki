@@ -14,13 +14,9 @@ updated: 2026-07-04
 
 # diagnosing-bugs
 
-A **model-invoked** engineering skill that runs a structured debugging loop:
-**reproduce → minimize → hypothesize → instrument → fix** (see
-[[pattern-systematic-debugging]]). A feedback-loop answer to failure mode #3: don't guess,
-shrink the problem and test hypotheses against evidence.
+A **model-invoked** engineering skill that runs a structured debugging loop: **reproduce → minimize → hypothesize → instrument → fix** (see [[pattern-systematic-debugging]]). A feedback-loop answer to failure mode #3: don't guess, shrink the problem and test hypotheses against evidence.
 
-Its cross-framework counterpart is GSD's [[gsd-debugger]] sub-agent, which tracks
-hypotheses and evidence in persistent session state — see `equivalent_to`.
+Its cross-framework counterpart is GSD's [[gsd-debugger]] sub-agent, which tracks hypotheses and evidence in persistent session state — see `equivalent_to`.
 
 ## See Also
 - [[gsd-debugger]] — GSD's equivalent debugging capability.

@@ -14,15 +14,11 @@ updated: 2026-07-04
 
 # /gsd-ship
 
-`/gsd-ship N` — Phase 5. "Create a pull request and prepare the phase for merge." Pushes
-the phase branch, creates a PR with an auto-generated summary, triggers optional review
-(e.g. `/gsd-review` cross-AI feedback), tracks merge completion, then archives the phase
-so the loop proceeds to the next one.
+`/gsd-ship N` — Phase 5. "Create a pull request and prepare the phase for merge." Pushes the phase branch, creates a PR with an auto-generated summary, triggers optional review (e.g. `/gsd-review` cross-AI feedback), tracks merge completion, then archives the phase so the loop proceeds to the next one.
 
 **Produces:** [[artifact-pull-request]] on the remote repository.
 
-**Flags:** `--draft` (open PR as draft, not ready-for-review). Branch granularity follows
-the configured Git branching strategy (none / phase / milestone).
+**Flags:** `--draft` (open PR as draft, not ready-for-review). Branch granularity follows the configured Git branching strategy (none / phase / milestone).
 
 ## See Also
 - [[gsd-verify-work]] — must pass before shipping.

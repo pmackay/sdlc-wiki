@@ -14,17 +14,9 @@ updated: 2026-07-05
 
 # ce-web-researcher
 
-An **external web researcher** that turns open-ended queries into a focused, structured external
-grounding digest — prior art, adjacent solutions, market signals, and cross-domain analogies the
-calling agent cannot get from the local codebase or org memory. Output is a compact synthesis,
-not raw results: what the outside world already knows and where the strongest leverage points
-are.
+An **external web researcher** that turns open-ended queries into a focused, structured external grounding digest — prior art, adjacent solutions, market signals, and cross-domain analogies the calling agent cannot get from the local codebase or org memory. Output is a compact synthesis, not raw results: what the outside world already knows and where the strongest leverage points are.
 
-Dispatched by [[ce-ideate]] to convert external research into idea-generation inputs, so it
-implements [[stage-align]] ([[pattern-source-grounding]]). It is the external-axis grounding
-scout, alongside [[ce-slack-researcher]] (org) and [[ce-repo-profiler]] (project); the
-verdict-skill [[ce-pov]] uses the more evidence-weighted [[ce-external-evidence-researcher]] for
-the same axis.
+Dispatched by [[ce-ideate]] to convert external research into idea-generation inputs, so it implements [[stage-align]] ([[pattern-source-grounding]]). It is the external-axis grounding scout, alongside [[ce-slack-researcher]] (org) and [[ce-repo-profiler]] (project); the verdict-skill [[ce-pov]] uses the more evidence-weighted [[ce-external-evidence-researcher]] for the same axis.
 
 ## See Also
 - [[ce-ideate]] — the primary dispatcher (grounded idea discovery).

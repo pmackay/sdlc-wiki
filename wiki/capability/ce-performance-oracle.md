@@ -14,20 +14,12 @@ updated: 2026-07-05
 
 # ce-performance-oracle
 
-The **Performance Oracle** — a performance-optimization expert covering algorithmic complexity,
-database optimization, memory management, caching, and scalability. Its mission is to identify
-bottlenecks before they hit production → [[artifact-perf-audit]].
+The **Performance Oracle** — a performance-optimization expert covering algorithmic complexity, database optimization, memory management, caching, and scalability. Its mission is to identify bottlenecks before they hit production → [[artifact-perf-audit]].
 
-It implements [[stage-review]] (performance quality gate) and is a **direct** counterpart to
-Addy's [[addy-web-performance-auditor]] (and clusters with the [[ce-optimize]] ↔
-[[addy-performance]] pair, [[pattern-measure-first]]). Like [[ce-security-sentinel]], it is also
-a [[ce-compound]] council member: on a durable-learning invocation it converts perf analysis into
-lesson validation (bottleneck class, proving measurements, scaling assumptions) for
-[[artifact-solution-doc]].
+It implements [[stage-review]] (performance quality gate) and is a **direct** counterpart to Addy's [[addy-web-performance-auditor]] (and clusters with the [[ce-optimize]] ↔ [[addy-performance]] pair, [[pattern-measure-first]]). Like [[ce-security-sentinel]], it is also a [[ce-compound]] council member: on a durable-learning invocation it converts perf analysis into lesson validation (bottleneck class, proving measurements, scaling assumptions) for [[artifact-solution-doc]].
 
 ## Cross-framework equivalents
-`ce-performance-oracle` ↔ [[addy-web-performance-auditor]] (`equivalent_to`) — both are
-measure-first performance auditors producing a perf scorecard.
+`ce-performance-oracle` ↔ [[addy-web-performance-auditor]] (`equivalent_to`) — both are measure-first performance auditors producing a perf scorecard.
 
 ## See Also
 - [[addy-web-performance-auditor]] — the direct counterpart persona.

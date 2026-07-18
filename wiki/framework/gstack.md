@@ -8,21 +8,11 @@ updated: 2026-07-05
 
 # gstack
 
-**gstack** is Garry Tan's (President & CEO of Y Combinator) open-source, MIT-licensed toolkit that
-**turns Claude Code into a virtual engineering team** — "a CEO who rethinks the product, an eng
-manager who locks architecture, a designer who catches AI slop, a reviewer who finds production
-bugs, a QA lead who opens a real browser, a security officer who runs OWASP + STRIDE audits, and a
-release engineer who ships the PR." It is the **largest framework in this wiki**: ~54 skills (all
-slash-commands, all Markdown) plus standalone CLIs, organized around a full **sprint**:
+**gstack** is Garry Tan's (President & CEO of Y Combinator) open-source, MIT-licensed toolkit that **turns Claude Code into a virtual engineering team** — "a CEO who rethinks the product, an eng manager who locks architecture, a designer who catches AI slop, a reviewer who finds production bugs, a QA lead who opens a real browser, a security officer who runs OWASP + STRIDE audits, and a release engineer who ships the PR." It is the **largest framework in this wiki**: ~54 skills (all slash-commands, all Markdown) plus standalone CLIs, organized around a full **sprint**:
 
 > **Think → Plan → Build → Review → Test → Ship → Reflect**
 
-"gstack is a process, not a collection of tools. The skills run in the order a sprint runs" — each
-skill feeds outputs into the next (`/office-hours` writes a design doc `/plan-ceo-review` reads;
-`/plan-eng-review` writes a test plan `/qa` picks up; `/review` catches bugs `/ship` verifies). It is
-built for founders/CTOs/tech-leads who still ship, is engineered for **10–15 parallel sprints** (via
-[Conductor](https://conductor.build)), and works across 10 coding agents (Claude Code, Codex, Cursor,
-Factory, …). Install: `git clone … ~/.claude/skills/gstack && ./setup`.
+"gstack is a process, not a collection of tools. The skills run in the order a sprint runs" — each skill feeds outputs into the next (`/office-hours` writes a design doc `/plan-ceo-review` reads; `/plan-eng-review` writes a test plan `/qa` picks up; `/review` catches bugs `/ship` verifies). It is built for founders/CTOs/tech-leads who still ship, is engineered for **10–15 parallel sprints** (via [Conductor](https://conductor.build)), and works across 10 coding agents (Claude Code, Codex, Cursor, Factory, …). Install: `git clone … ~/.claude/skills/gstack && ./setup`.
 
 - **Root router:** [[gstack-router]] — the `gstack` skill dispatches work to the right specialist skill (its counterpart is Addy's [[addy-using-agent-skills]]).
 - **Builder ethos (injected into every workflow preamble):** *Boil the Ocean* (completeness is near-free with AI — do the complete thing), *Search Before Building* (three layers of knowledge; the "eureka" is zigging where others zag → [[pattern-source-grounding]]), *User Sovereignty* (models recommend, users decide — the generation-verification loop, Karpathy's "Iron Man suit").

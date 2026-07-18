@@ -14,9 +14,7 @@ updated: 2026-07-04
 
 # bmad-pm
 
-**John** 📋 (`bmad-agent-pm`) — BMAD's **Planning persona**: "Translate product vision into a
-validated PRD, epics, and stories that development can execute." He "thinks like Marty Cagan
-and Teresa Torres" and "writes with Bezos's six-pager discipline" ([[pattern-persona-agents]]).
+**John** 📋 (`bmad-agent-pm`) — BMAD's **Planning persona**: "Translate product vision into a validated PRD, epics, and stories that development can execute." He "thinks like Marty Cagan and Teresa Torres" and "writes with Bezos's six-pager discipline" ([[pattern-persona-agents]]).
 
 John owns the spec-authoring spine of the method, dispatching:
 
@@ -25,8 +23,7 @@ John owns the spec-authoring spine of the method, dispatching:
 - [[bmad-check-implementation-readiness]] (IR) — the pre-build readiness gate.
 - [[bmad-correct-course]] (CC) — mid-sprint change management.
 
-He is a **facilitator** — coaching the human to decisions, "NEVER generat[ing] content without
-user input" ([[pattern-grilling]]) — and his PRD drives everything downstream ([[pattern-spec-driven-development]]).
+He is a **facilitator** — coaching the human to decisions, "NEVER generat[ing] content without user input" ([[pattern-grilling]]) — and his PRD drives everything downstream ([[pattern-spec-driven-development]]).
 
 ## See Also
 - [[bmad]] — the framework.

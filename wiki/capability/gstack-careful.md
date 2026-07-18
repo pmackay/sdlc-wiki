@@ -14,14 +14,9 @@ updated: 2026-07-05
 
 # /careful
 
-`/careful` — **safety guardrails**. Warns before **destructive commands** — `rm -rf`, `DROP TABLE`,
-force-push, `git reset --hard` — using inline advisory prose; the user can override any warning.
-Say "be careful" to activate.
+`/careful` — **safety guardrails**. Warns before **destructive commands** — `rm -rf`, `DROP TABLE`, force-push, `git reset --hard` — using inline advisory prose; the user can override any warning. Say "be careful" to activate.
 
-One of gstack's four safety power-tools implementing [[pattern-edit-guardrails]] — the confirm-
-before-you-destroy half (the scope-lock half is [[gstack-freeze]]; [[gstack-guard]] combines both).
-This enacts the *User Sovereignty* ethos: the agent surfaces the risk and lets the human decide.
-No cross-framework counterpart — explicit, toggleable safety guardrails are a gstack signature.
+One of gstack's four safety power-tools implementing [[pattern-edit-guardrails]] — the confirm- before-you-destroy half (the scope-lock half is [[gstack-freeze]]; [[gstack-guard]] combines both). This enacts the *User Sovereignty* ethos: the agent surfaces the risk and lets the human decide. No cross-framework counterpart — explicit, toggleable safety guardrails are a gstack signature.
 
 ## See Also
 - [[gstack-freeze]] — the directory-scope-lock guardrail.

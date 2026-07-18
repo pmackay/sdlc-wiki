@@ -9,40 +9,20 @@ updated: 2026-07-04
 
 # Spec Kit
 
-**Spec Kit** is **GitHub's** open-source toolkit for **Spec-Driven Development (SDD)** — the
-methodology that "flips the script on traditional software development" by making
-specifications *executable* rather than advisory: the spec is the primary artifact, and
-"code becomes its expression in a particular language and framework." Install via the
-`specify` CLI (`uv`/`uvx`, Python 3.11+): `specify init my-project --integration copilot`.
-Works with 30+ AI coding agents ("switch freely between agents… No lock-in"), offline, and
-cross-platform. It is by far the largest-community framework in this wiki (106K+ stars,
-200+ contributors, 105 community extensions).
+**Spec Kit** is **GitHub's** open-source toolkit for **Spec-Driven Development (SDD)** — the methodology that "flips the script on traditional software development" by making specifications *executable* rather than advisory: the spec is the primary artifact, and "code becomes its expression in a particular language and framework." Install via the `specify` CLI (`uv`/`uvx`, Python 3.11+): `specify init my-project --integration copilot`. Works with 30+ AI coding agents ("switch freely between agents… No lock-in"), offline, and cross-platform. It is by far the largest-community framework in this wiki (106K+ stars, 200+ contributors, 105 community extensions).
 
 ## What makes Spec Kit different
 
-Spec Kit is the wiki's **most explicit, most tool-heavy instance of spec-driven
-development** (see [[pattern-spec-driven-development]]) — the reference implementation of
-the idea the other frameworks share. Two things set it apart:
+Spec Kit is the wiki's **most explicit, most tool-heavy instance of spec-driven development** (see [[pattern-spec-driven-development]]) — the reference implementation of the idea the other frameworks share. Two things set it apart:
 
-- **A project constitution as governing law.** Alone among the frameworks here, Spec Kit
-  makes a set of **immutable project-wide principles** (`.specify/memory/constitution.md`) a
-  first-class, up-front artifact that *every* downstream plan and analysis is gated against
-  (see [[pattern-project-constitution]]). Where [[gsd]]/[[matt-pocock-skills]]/[[addy-agent-skills]]
-  embed principles inside individual skills, Spec Kit externalizes them into one versioned
-  document with numbered "articles."
-- **A rich packaged ecosystem.** Extensions, presets, and role-based bundles let teams
-  reshape the workflow and enforce org standards — a distribution/customization layer no
-  other framework here ships.
+- **A project constitution as governing law.** Alone among the frameworks here, Spec Kit makes a set of **immutable project-wide principles** (`.specify/memory/constitution.md`) a first-class, up-front artifact that *every* downstream plan and analysis is gated against (see [[pattern-project-constitution]]). Where [[gsd]]/[[matt-pocock-skills]]/[[addy-agent-skills]] embed principles inside individual skills, Spec Kit externalizes them into one versioned document with numbered "articles."
+- **A rich packaged ecosystem.** Extensions, presets, and role-based bundles let teams reshape the workflow and enforce org standards — a distribution/customization layer no other framework here ships.
 
-Unlike [[openspec]]'s single **living specification**, Spec Kit keeps a **per-feature spec**
-under `specs/<feature>/` (regenerated as intent changes) rather than merging change deltas
-into one durable spec — though its "bidirectional feedback" philosophy (production learnings
-become new requirements) points at the same evolve-the-spec goal.
+Unlike [[openspec]]'s single **living specification**, Spec Kit keeps a **per-feature spec** under `specs/<feature>/` (regenerated as intent changes) rather than merging change deltas into one durable spec — though its "bidirectional feedback" philosophy (production learnings become new requirements) points at the same evolve-the-spec goal.
 
 ## The workflow (Spec → Plan → Tasks → Implement)
 
-Each phase produces a Markdown artifact that feeds the next ("structured context instead of
-ad-hoc prompts"). Commands are namespaced `/speckit.*`. Each `implements:` a canonical stage:
+Each phase produces a Markdown artifact that feeds the next ("structured context instead of ad-hoc prompts"). Commands are namespaced `/speckit.*`. Each `implements:` a canonical stage:
 
 | Command | Role | Stage |
 |---------|------|-------|

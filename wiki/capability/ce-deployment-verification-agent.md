@@ -14,16 +14,9 @@ updated: 2026-07-05
 
 # ce-deployment-verification-agent
 
-A **Deployment Verification Agent** that produces concrete, executable checklists for risky data
-deployments so engineers aren't guessing at launch time: identify data invariants, write
-read-only SQL verification queries, document destructive steps (backfills, batching), and define
-monitoring + rollback + stop/go criteria. On planning invocations it emits **launch-readiness
-requirements** to fold into the plan.
+A **Deployment Verification Agent** that produces concrete, executable checklists for risky data deployments so engineers aren't guessing at launch time: identify data invariants, write read-only SQL verification queries, document destructive steps (backfills, batching), and define monitoring + rollback + stop/go criteria. On planning invocations it emits **launch-readiness requirements** to fold into the plan.
 
-Dispatched by [[ce-plan]], it implements [[stage-plan]] and produces a [[artifact-launch-checklist]]
-(the same artifact Addy's [[addy-shipping]] emits at ship time) — Compound Engineering computes it
-*at plan time*, an instance of the 80/20 front-load ([[pattern-shift-left]]). It pairs with
-[[ce-data-migration-reviewer]].
+Dispatched by [[ce-plan]], it implements [[stage-plan]] and produces a [[artifact-launch-checklist]] (the same artifact Addy's [[addy-shipping]] emits at ship time) — Compound Engineering computes it *at plan time*, an instance of the 80/20 front-load ([[pattern-shift-left]]). It pairs with [[ce-data-migration-reviewer]].
 
 ## See Also
 - [[ce-plan]] — the dispatcher.

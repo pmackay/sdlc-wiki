@@ -8,21 +8,12 @@ updated: 2026-07-04
 
 # Addy Osmani — Agent Skills
 
-**Production-grade engineering skills for AI coding agents** by **Addy Osmani** — a pack of
-24 skills, 4 review personas, and 8 slash commands that encode the workflows and quality
-gates senior engineers use, organized around the **whole product lifecycle**. MIT-licensed;
-distributed as a Claude Code plugin and portable across Cursor, Gemini CLI, Antigravity,
-OpenCode, Windsurf, Copilot, Kiro, and Codex.
+**Production-grade engineering skills for AI coding agents** by **Addy Osmani** — a pack of 24 skills, 4 review personas, and 8 slash commands that encode the workflows and quality gates senior engineers use, organized around the **whole product lifecycle**. MIT-licensed; distributed as a Claude Code plugin and portable across Cursor, Gemini CLI, Antigravity, OpenCode, Windsurf, Copilot, Kiro, and Codex.
 
 - **Install (Claude Code):** `/plugin marketplace add addyosmani/agent-skills` then `/plugin install agent-skills@addy-agent-skills`.
 - **Design thesis:** agents default to the shortest path (skipping specs, tests, security) — skills impose senior-engineering discipline. Bakes in *Software Engineering at Google* concepts: Hyrum's Law, the Beyoncé Rule, the test pyramid, change sizing, review-speed norms, Chesterton's Fence, trunk-based development, Shift Left, code-as-liability.
 
-Where [[gsd]] is a single end-to-end workflow engine and [[matt-pocock-skills]] is a loose
-personal toolkit, Agent Skills is a **lifecycle-complete, phase-structured** pack: slash
-commands map 1:1 to six phases, a meta-skill ([[addy-using-agent-skills]]) routes work to the
-right skill, and every skill carries an **anti-rationalization** table and **Red Flags**
-([[pattern-anti-rationalization]]). It is the broadest framework in this wiki — the first to
-give the [[stage-release]] stage substantial multi-capability evidence.
+Where [[gsd]] is a single end-to-end workflow engine and [[matt-pocock-skills]] is a loose personal toolkit, Agent Skills is a **lifecycle-complete, phase-structured** pack: slash commands map 1:1 to six phases, a meta-skill ([[addy-using-agent-skills]]) routes work to the right skill, and every skill carries an **anti-rationalization** table and **Red Flags** ([[pattern-anti-rationalization]]). It is the broadest framework in this wiki — the first to give the [[stage-release]] stage substantial multi-capability evidence.
 
 ## Distinctive mechanisms
 
@@ -43,12 +34,7 @@ give the [[stage-release]] stage substantial multi-capability evidence.
 | **Review** | `/review`, `/code-simplify`, `/webperf` | [[addy-code-review]], [[addy-code-simplification]], [[addy-security]], [[addy-performance]] | [[stage-review]] |
 | **Ship** | `/ship` | [[addy-shipping]] + fan-out personas | [[stage-release]] |
 
-> **Note on Verify vs Review.** Addy was the first framework to cleanly separate *does it work*
-> (Verify — testing, debugging) from *is it good* (Review — code review, security, performance,
-> simplification). This partition — confirmed by gstack as a second framework (2026-07-05) —
-> **promoted [[stage-review]] out of [[stage-validate]]**: Addy's Review phase (plus its `/ship`
-> persona fan-out) implements [[stage-review]]; its Verify capability [[addy-browser-testing]]
-> stays in [[stage-validate]].
+> **Note on Verify vs Review.** Addy was the first framework to cleanly separate *does it work* (Verify — testing, debugging) from *is it good* (Review — code review, security, performance, simplification). This partition — confirmed by gstack as a second framework (2026-07-05) — **promoted [[stage-review]] out of [[stage-validate]]**: Addy's Review phase (plus its `/ship` persona fan-out) implements [[stage-review]]; its Verify capability [[addy-browser-testing]] stays in [[stage-validate]].
 
 ## Capabilities
 
@@ -106,8 +92,7 @@ give the [[stage-release]] stage substantial multi-capability evidence.
 
 ### Commands (thin phase entrypoints, catalogued here)
 
-Each command invokes the skill(s) above and is documented in the phase table; they carry no
-independent workflow beyond skill activation, so they are not given separate capability pages.
+Each command invokes the skill(s) above and is documented in the phase table; they carry no independent workflow beyond skill activation, so they are not given separate capability pages.
 
 - `/spec`, `/plan`, `/build` (+ `auto`), `/test`, `/review`, `/code-simplify`, `/webperf`, `/ship`.
 

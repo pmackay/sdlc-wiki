@@ -14,18 +14,9 @@ updated: 2026-07-05
 
 # ce-learnings-researcher
 
-A domain-agnostic **institutional-knowledge researcher** that finds and distills applicable
-past learnings from the team's knowledge base *before* new work begins — bug learnings,
-architecture patterns, design patterns, tooling decisions, conventions, and workflow
-discoveries are all first-class. Its work helps callers avoid re-discovering what the team
-already learned.
+A domain-agnostic **institutional-knowledge researcher** that finds and distills applicable past learnings from the team's knowledge base *before* new work begins — bug learnings, architecture patterns, design patterns, tooling decisions, conventions, and workflow discoveries are all first-class. Its work helps callers avoid re-discovering what the team already learned.
 
-It is the **consuming side** of [[pattern-knowledge-compounding]]: it reads the
-[[artifact-solution-doc|`docs/solutions/` corpus]] that [[ce-compound]] writes and re-injects
-relevant lessons into new work. Dispatched by [[ce-ideate]], [[ce-code-review]], and other
-front-of-loop skills, it is the concrete mechanism by which learnings captured in
-[[stage-learn]] flow back into [[stage-align]] — the arrow that closes the compounding loop. No
-cross-framework counterpart: it is unique to Compound Engineering's loop.
+It is the **consuming side** of [[pattern-knowledge-compounding]]: it reads the [[artifact-solution-doc|`docs/solutions/` corpus]] that [[ce-compound]] writes and re-injects relevant lessons into new work. Dispatched by [[ce-ideate]], [[ce-code-review]], and other front-of-loop skills, it is the concrete mechanism by which learnings captured in [[stage-learn]] flow back into [[stage-align]] — the arrow that closes the compounding loop. No cross-framework counterpart: it is unique to Compound Engineering's loop.
 
 ## See Also
 - [[ce-compound]] — writes the corpus this agent reads back in ([[stage-learn]] → [[stage-align]]).

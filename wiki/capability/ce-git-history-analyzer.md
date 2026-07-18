@@ -14,15 +14,9 @@ updated: 2026-07-05
 
 # ce-git-history-analyzer
 
-A **Git History Analyzer** — archaeological analysis of a repository. It traces file evolution
-(`git log --follow`), code origins (`git blame -w -C -C -C`), identifies major refactorings and
-renames, and surfaces patterns in history that inform current decisions. It uses native
-search/read tools for non-git exploration and shell only for git, one command per call.
+A **Git History Analyzer** — archaeological analysis of a repository. It traces file evolution (`git log --follow`), code origins (`git blame -w -C -C -C`), identifies major refactorings and renames, and surfaces patterns in history that inform current decisions. It uses native search/read tools for non-git exploration and shell only for git, one command per call.
 
-Dispatched by [[ce-plan]] (history as planning context), it implements [[stage-plan]]
-([[pattern-context-engineering]]). It complements [[ce-repo-profiler]] (static project profile)
-with the *temporal* dimension — how the code got to where it is — and overlaps in spirit with the
-essay's "agents research the codebase and commit history" during planning.
+Dispatched by [[ce-plan]] (history as planning context), it implements [[stage-plan]] ([[pattern-context-engineering]]). It complements [[ce-repo-profiler]] (static project profile) with the *temporal* dimension — how the code got to where it is — and overlaps in spirit with the essay's "agents research the codebase and commit history" during planning.
 
 ## See Also
 - [[ce-plan]] — the dispatcher.

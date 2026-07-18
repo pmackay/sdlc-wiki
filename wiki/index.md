@@ -1,7 +1,6 @@
 # Knowledge Base Index
 
-Schema & ontology: see [CONVENTIONS.md](CONVENTIONS.md). Sections mirror the five ontology
-namespaces.
+Schema & ontology: see [CONVENTIONS.md](CONVENTIONS.md). Sections mirror the five ontology namespaces.
 
 ## framework
 Complete SDLC agent toolkits / methodologies (e.g. GSD, SpecKit, OpenSpec).

@@ -7,18 +7,9 @@ updated: 2026-07-17
 
 # Artifact: skill doc (SKILL.md)
 
-A reusable **skill definition** — a `SKILL.md` file (plus any supporting reference files, scripts, or
-prompt templates in its directory) that captures a proven technique, pattern, or reference so future
-agents can discover and apply it. Written by [[sp-writing-skills]] via its TDD-for-documentation loop:
-YAML frontmatter with `name` + a *when-to-use-only* `description`, then a body optimized for discovery
-(keyword coverage, cross-references, flowcharts only where a decision is non-obvious).
+A reusable **skill definition** — a `SKILL.md` file (plus any supporting reference files, scripts, or prompt templates in its directory) that captures a proven technique, pattern, or reference so future agents can discover and apply it. Written by [[sp-writing-skills]] via its TDD-for-documentation loop: YAML frontmatter with `name` + a *when-to-use-only* `description`, then a body optimized for discovery (keyword coverage, cross-references, flowcharts only where a decision is non-obvious).
 
-What makes it distinctive is that it is **executable process knowledge**: unlike a
-[[artifact-solution-doc]] (a lesson agents *read* as grounding) or an [[artifact-adr]] (a one-time
-decision record), a skill doc *changes what the agent can do* — once in the library it triggers
-automatically (via [[sp-using-superpowers]]) and is followed as a gated procedure. It is the unit that
-makes the [[superpowers]] library **grow itself**, the [[pattern-knowledge-compounding|capability-
-compounding]] output of [[stage-learn]].
+What makes it distinctive is that it is **executable process knowledge**: unlike a [[artifact-solution-doc]] (a lesson agents *read* as grounding) or an [[artifact-adr]] (a one-time decision record), a skill doc *changes what the agent can do* — once in the library it triggers automatically (via [[sp-using-superpowers]]) and is followed as a gated procedure. It is the unit that makes the [[superpowers]] library **grow itself**, the [[pattern-knowledge-compounding|capability- compounding]] output of [[stage-learn]].
 
 ## Produced by (backlinks)
 - [[sp-writing-skills]] — authors/edits a skill, test-first against subagent pressure scenarios.

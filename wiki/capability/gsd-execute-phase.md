@@ -14,17 +14,11 @@ updated: 2026-07-09
 
 # /gsd-execute-phase
 
-`/gsd-execute-phase N` — Phase 3. "Execute all plans in a phase with wave-based
-parallelization." Discovers task dependencies, groups them into parallel execution waves
-(see [[pattern-wave-parallelism]]), spawns a [[gsd-executor]] subagent per task in a wave
-— each in a clean ~200k-token context ([[pattern-fresh-context-subagents]]) — and collects
-results. [[gsd-verifier]] runs a goal-backward analysis afterward.
+`/gsd-execute-phase N` — Phase 3. "Execute all plans in a phase with wave-based parallelization." Discovers task dependencies, groups them into parallel execution waves (see [[pattern-wave-parallelism]]), spawns a [[gsd-executor]] subagent per task in a wave — each in a clean ~200k-token context ([[pattern-fresh-context-subagents]]) — and collects results. [[gsd-verifier]] runs a goal-backward analysis afterward.
 
-**Produces:** [[artifact-atomic-commit]] — one atomic git commit per completed task
-(gsd-executor is the only agent with Edit tool access).
+**Produces:** [[artifact-atomic-commit]] — one atomic git commit per completed task (gsd-executor is the only agent with Edit tool access).
 
-**Flags:** `--wave N` (execute only Wave N; staged rollout), `--interactive` (sequential
-inline execution with user checkpoints).
+**Flags:** `--wave N` (execute only Wave N; staged rollout), `--interactive` (sequential inline execution with user checkpoints).
 
 ## See Also
 - [[gsd-plan-phase]] — produces the plan this executes.

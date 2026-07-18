@@ -6,16 +6,9 @@ updated: 2026-07-17
 
 # Pattern: Adversarial fresh-context review
 
-Subject a non-trivial decision to a review that starts from a **clean context** and is
-prompted to *disprove* it, rather than confirm it. The loop is
-**CLAIM → EXTRACT → DOUBT → RECONCILE → STOP**: state the claim, extract the assumptions it
-rests on, actively try to break each one, reconcile the survivors, and stop once the decision
-either holds or is replaced. Optionally escalates to a different model for a second opinion
-when the user authorizes it.
+Subject a non-trivial decision to a review that starts from a **clean context** and is prompted to *disprove* it, rather than confirm it. The loop is **CLAIM → EXTRACT → DOUBT → RECONCILE → STOP**: state the claim, extract the assumptions it rests on, actively try to break each one, reconcile the survivors, and stop once the decision either holds or is replaced. Optionally escalates to a different model for a second opinion when the user authorizes it.
 
-Because the reviewer has no stake in the original reasoning (fresh context), it catches the
-confident-but-wrong outputs that self-review rationalizes away. Applied in-flight, while stakes
-are still cheap to correct.
+Because the reviewer has no stake in the original reasoning (fresh context), it catches the confident-but-wrong outputs that self-review rationalizes away. Applied in-flight, while stakes are still cheap to correct.
 
 ## Applied by (backlinks)
 
@@ -28,10 +21,7 @@ BMAD:
 - [[bmad-code-review]] — parallel review layers under a "the reviewer must find issues. No 'looks good' allowed" mandate; "zero findings triggers a halt."
 - [[bmad-forge-idea]] — the same distrust aimed at a *concept*: pressure-test it "until it hardens, proves out, or dies cheaply."
 
-A second framework promotes this from an Addy-only technique to a **two-framework** pattern.
-Addy runs an in-flight *doubt loop* over a decision; BMAD runs *hunter layers* over a diff (and
-over an idea). Both share the honest caveat that an AI told to find problems will manufacture
-them — so, in BMAD's words, "human filtering remains the essential final step."
+A second framework promotes this from an Addy-only technique to a **two-framework** pattern. Addy runs an in-flight *doubt loop* over a decision; BMAD runs *hunter layers* over a diff (and over an idea). Both share the honest caveat that an AI told to find problems will manufacture them — so, in BMAD's words, "human filtering remains the essential final step."
 
 Compound Engineering:
 

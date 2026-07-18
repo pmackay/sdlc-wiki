@@ -14,14 +14,9 @@ updated: 2026-07-04
 
 # /ce-test-xcode
 
-`/ce-test-xcode` — "Build and test iOS apps on simulator using XcodeBuildMCP with screenshots
-and logs." The native-mobile counterpart to [[ce-test-browser]]: builds the iOS app and runs it
-on the simulator via **XcodeBuildMCP**, capturing screenshots and logs as runtime evidence.
+`/ce-test-xcode` — "Build and test iOS apps on simulator using XcodeBuildMCP with screenshots and logs." The native-mobile counterpart to [[ce-test-browser]]: builds the iOS app and runs it on the simulator via **XcodeBuildMCP**, capturing screenshots and logs as runtime evidence.
 
-It implements [[stage-validate]] on the functional side for iOS targets. No cross-framework
-counterpart is paged — it is the wiki's only native-iOS validation capability, and reflects
-Compound Engineering's use at Every to run multiple products including native apps (per the
-essay's "MCP-simulate-actual-usage" technique).
+It implements [[stage-validate]] on the functional side for iOS targets. No cross-framework counterpart is paged — it is the wiki's only native-iOS validation capability, and reflects Compound Engineering's use at Every to run multiple products including native apps (per the essay's "MCP-simulate-actual-usage" technique).
 
 ## See Also
 - [[ce-test-browser]] — the web sibling (agent-browser); [[ce-dogfood]] — hands-off browser QA.

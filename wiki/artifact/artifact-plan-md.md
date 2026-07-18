@@ -6,10 +6,7 @@ updated: 2026-07-13
 
 # Artifact: PLAN.md (executable plan)
 
-`{phase}-PLAN.md` — the phase plan as a set of **executable task prompts**, written by
-[[gsd-planner]] under [[gsd-plan-phase]] and gated by [[gsd-plan-checker]] before
-execution. Each task becomes a unit of work for a [[gsd-executor]] in an execution wave.
-In MVP mode on Phase 1 a `SKELETON.md` is produced alongside it.
+`{phase}-PLAN.md` — the phase plan as a set of **executable task prompts**, written by [[gsd-planner]] under [[gsd-plan-phase]] and gated by [[gsd-plan-checker]] before execution. Each task becomes a unit of work for a [[gsd-executor]] in an execution wave. In MVP mode on Phase 1 a `SKELETON.md` is produced alongside it.
 
 ## Produced by (backlinks)
 

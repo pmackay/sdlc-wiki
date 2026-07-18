@@ -6,10 +6,7 @@ updated: 2026-07-17
 
 # Pattern: Grilling (elicitation interview loop)
 
-Before acting, interrogate the human: ask pointed questions and keep going until every
-decision branch is resolved. Closes the user↔agent communication gap that otherwise
-produces work the user didn't want. The loop is reusable and composable — other skills
-invoke it rather than re-implementing question-asking.
+Before acting, interrogate the human: ask pointed questions and keep going until every decision branch is resolved. Closes the user↔agent communication gap that otherwise produces work the user didn't want. The loop is reusable and composable — other skills invoke it rather than re-implementing question-asking.
 
 ## Applied by (backlinks)
 
@@ -36,11 +33,7 @@ BMAD:
 - [[bmad-pm]] · [[bmad-analyst]] — the persona **facilitator** stance: "YOU ARE A FACILITATOR, not a content generator; NEVER generate content without user input."
 - [[bmad-prd]] — a Coaching path that interrogates the human to each requirement rather than drafting the doc.
 
-A fifth framework joins the cluster. BMAD's twist is that grilling is not a dedicated interview
-*skill* but the default *stance of every planning persona* — the agents refuse to invent
-content, so the whole planning phase is an elicitation dialogue. Spec Kit inverts the usual
-order: it drafts the spec first ([[speckit-specify]]) with ambiguities flagged, then grills to
-resolve them — versus grilling *before* the spec exists.
+A fifth framework joins the cluster. BMAD's twist is that grilling is not a dedicated interview *skill* but the default *stance of every planning persona* — the agents refuse to invent content, so the whole planning phase is an elicitation dialogue. Spec Kit inverts the usual order: it drafts the spec first ([[speckit-specify]]) with ambiguities flagged, then grills to resolve them — versus grilling *before* the spec exists.
 
 Compound Engineering:
 

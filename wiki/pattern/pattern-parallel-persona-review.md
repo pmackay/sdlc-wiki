@@ -6,12 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Parallel persona review (fan-out / merge)
 
-Spawn several **specialist reviewer personas** concurrently — each a fresh-context subagent
-with a single lens (code quality, security, test coverage, performance) — then **merge** their
-independent reports into one decision. The personas share no state and impose no ordering,
-which is exactly what makes parallel execution safe and useful. A firm rule keeps it acyclic:
-**personas never invoke personas** (subagents can't spawn subagents), so the fan-out is one
-level deep and the merge is done by the orchestrator.
+Spawn several **specialist reviewer personas** concurrently — each a fresh-context subagent with a single lens (code quality, security, test coverage, performance) — then **merge** their independent reports into one decision. The personas share no state and impose no ordering, which is exactly what makes parallel execution safe and useful. A firm rule keeps it acyclic: **personas never invoke personas** (subagents can't spawn subagents), so the fan-out is one level deep and the merge is done by the orchestrator.
 
 ## Applied by (backlinks)
 
@@ -23,9 +18,7 @@ BMAD:
 
 - [[bmad-code-review]] — fans several single-lens layers (Blind Hunter, Edge Case Hunter, Acceptance Auditor) over one diff in parallel, then triages. BMAD's Party-Mode subagent mode is the same fan-out for open decisions rather than review.
 
-A second framework promotes this from an Addy-only technique to a **two-framework** pattern.
-Addy fans out *specialist role* personas at ship time (quality/security/tests); BMAD fans out
-*adversarial hunter* layers over a single code change.
+A second framework promotes this from an Addy-only technique to a **two-framework** pattern. Addy fans out *specialist role* personas at ship time (quality/security/tests); BMAD fans out *adversarial hunter* layers over a single code change.
 
 Compound Engineering:
 

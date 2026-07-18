@@ -7,17 +7,9 @@ updated: 2026-07-04
 
 # Artifact: brainstorm doc
 
-Compound Engineering's front-of-loop artifact — a **requirements-only unified plan** under
-`docs/brainstorms/`, produced by [[ce-brainstorm]] from a collaborative Q&A dialogue. It captures
-**what** something should become — goals, constraints, requirements — and deliberately **omits
-HOW** (implementation is [[ce-plan]]'s job). It is grounded in the [[artifact-strategy-md|strategy]]
-and prior `docs/solutions/` learnings.
+Compound Engineering's front-of-loop artifact — a **requirements-only unified plan** under `docs/brainstorms/`, produced by [[ce-brainstorm]] from a collaborative Q&A dialogue. It captures **what** something should become — goals, constraints, requirements — and deliberately **omits HOW** (implementation is [[ce-plan]]'s job). It is grounded in the [[artifact-strategy-md|strategy]] and prior `docs/solutions/` learnings.
 
-The requirements-only discipline is the point: keeping the brainstorm free of implementation lets
-[[ce-plan]] own the clean WHAT→HOW enrichment downstream. It is the Compound Engineering
-counterpart to GSD's decision-capture [[artifact-context-md]] and, at the requirements level, to
-[[artifact-prd]]/[[artifact-spec-md]] — but lighter and earlier, a dialogue output rather than a
-formal spec.
+The requirements-only discipline is the point: keeping the brainstorm free of implementation lets [[ce-plan]] own the clean WHAT→HOW enrichment downstream. It is the Compound Engineering counterpart to GSD's decision-capture [[artifact-context-md]] and, at the requirements level, to [[artifact-prd]]/[[artifact-spec-md]] — but lighter and earlier, a dialogue output rather than a formal spec.
 
 ## Produced by (backlinks)
 - [[ce-brainstorm]] — the dialogue that writes it.

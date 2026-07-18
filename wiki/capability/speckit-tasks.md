@@ -13,14 +13,9 @@ updated: 2026-07-04
 
 # speckit-tasks
 
-**`/speckit.tasks`** — "Generate actionable task lists for implementation." Converts the
-plan into an executable task list (`tasks.md`, an instance of [[artifact-plan-md]]). Inputs:
-`plan.md` (required), plus optional `data-model.md`, `contracts/`, and `research.md`.
+**`/speckit.tasks`** — "Generate actionable task lists for implementation." Converts the plan into an executable task list (`tasks.md`, an instance of [[artifact-plan-md]]). Inputs: `plan.md` (required), plus optional `data-model.md`, `contracts/`, and `research.md`.
 
-It derives concrete tasks from API contracts, entities, and test scenarios; marks
-independent tasks **`[P]`** for parallelization; sequences dependent work; and prioritizes
-**test-first ordering** — contract tests before integration tests before unit tests, in
-keeping with the constitution's non-negotiable TDD.
+It derives concrete tasks from API contracts, entities, and test scenarios; marks independent tasks **`[P]`** for parallelization; sequences dependent work; and prioritizes **test-first ordering** — contract tests before integration tests before unit tests, in keeping with the constitution's non-negotiable TDD.
 
 ## Cross-framework cluster (decompose)
 
@@ -30,9 +25,7 @@ Clusters with the frameworks that break a plan/spec into discrete, orderable uni
 - [[addy-planning]] — decompose a spec into small, verifiable, dependency-ordered tasks.
 - [[bmad-create-epics-and-stories]] — decompose requirements into epics of context-rich stories.
 
-The `[P]` parallel markers echo GSD's dependency-ordered [[pattern-wave-parallelism|wave
-parallelism]], though Spec Kit expresses parallelism as per-task flags rather than explicit
-waves.
+The `[P]` parallel markers echo GSD's dependency-ordered [[pattern-wave-parallelism|wave parallelism]], though Spec Kit expresses parallelism as per-task flags rather than explicit waves.
 
 ## See Also
 - [[speckit]] — the framework.

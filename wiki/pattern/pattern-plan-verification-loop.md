@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Plan verification loop
 
-Before any execution, run the generated plan through an automated checker across multiple
-quality dimensions, revising until it passes — a gate that prevents flawed plans from
-reaching code. In GSD, [[gsd-plan-checker]] verifies plans across **eight dimensions** with
-up to **three revision cycles** inside [[gsd-plan-phase]].
+Before any execution, run the generated plan through an automated checker across multiple quality dimensions, revising until it passes — a gate that prevents flawed plans from reaching code. In GSD, [[gsd-plan-checker]] verifies plans across **eight dimensions** with up to **three revision cycles** inside [[gsd-plan-phase]].
 
 ## Applied by (backlinks)
 
@@ -26,10 +23,7 @@ BMAD:
 
 - [[bmad-check-implementation-readiness]] — cross-document completeness gate over the whole planning set (PRD + UX + architecture + epics), returning PASS / CONCERNS / FAIL before any story is built.
 
-A third framework promotes this to a **three-framework** pattern. The gates differ in what they
-check: GSD scores a *single plan* on eight quality dimensions, Spec Kit checks *consistency and
-coverage across multiple artifacts* (spec ↔ plan ↔ tasks) plus constitutional compliance, and
-BMAD checks *completeness across the full planning document set* before implementation.
+A third framework promotes this to a **three-framework** pattern. The gates differ in what they check: GSD scores a *single plan* on eight quality dimensions, Spec Kit checks *consistency and coverage across multiple artifacts* (spec ↔ plan ↔ tasks) plus constitutional compliance, and BMAD checks *completeness across the full planning document set* before implementation.
 
 Compound Engineering:
 

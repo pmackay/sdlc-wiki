@@ -14,13 +14,9 @@ updated: 2026-06-28
 
 # handoff
 
-`/handoff` — a user-invoked productivity skill that **compacts a conversation into a
-handoff document** ([[artifact-handoff-doc]]) so a fresh agent (or session) can pick up
-without losing context. Applies [[pattern-session-handoff]].
+`/handoff` — a user-invoked productivity skill that **compacts a conversation into a handoff document** ([[artifact-handoff-doc]]) so a fresh agent (or session) can pick up without losing context. Applies [[pattern-session-handoff]].
 
-Cross-cutting: it serves any lifecycle stage rather than one, so it carries no `implements:`
-edge. GSD addresses the same need structurally with `STATE.md` / `CONTEXT.md` persistence
-and `pause-work` / `resume-work` — clustered at [[pattern-session-handoff]].
+Cross-cutting: it serves any lifecycle stage rather than one, so it carries no `implements:` edge. GSD addresses the same need structurally with `STATE.md` / `CONTEXT.md` persistence and `pause-work` / `resume-work` — clustered at [[pattern-session-handoff]].
 
 ## See Also
 - [[gsd]] — GSD's built-in session-handoff mechanism.

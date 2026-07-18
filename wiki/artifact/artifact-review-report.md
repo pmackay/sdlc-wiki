@@ -6,10 +6,7 @@ updated: 2026-07-09
 
 # Artifact: Code review report
 
-A structured review of a change across **five axes** — correctness, readability,
-architecture, security, performance — with findings pinned to `file:line`, categorized by
-severity (Critical / Important / Suggestion, or Nit / Optional / FYI), and paired with fix
-recommendations. The go/no-go signal a change needs before it merges.
+A structured review of a change across **five axes** — correctness, readability, architecture, security, performance — with findings pinned to `file:line`, categorized by severity (Critical / Important / Suggestion, or Nit / Optional / FYI), and paired with fix recommendations. The go/no-go signal a change needs before it merges.
 
 ## Produced by (backlinks)
 - [[addy-code-review]] — the `/review` skill workflow.

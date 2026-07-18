@@ -14,14 +14,9 @@ updated: 2026-07-05
 
 # /make-pdf
 
-`/make-pdf` — the **Publisher**. Turns any markdown file into a **publication-quality document**:
-mermaid and excalidraw fences render as vector diagrams (fully offline), images scale to the page
-and never truncate, wide diagrams get their own landscape page. `--to html` emits one self-contained
-file; `--to docx` a Word doc.
+`/make-pdf` — the **Publisher**. Turns any markdown file into a **publication-quality document**: mermaid and excalidraw fences render as vector diagrams (fully offline), images scale to the page and never truncate, wide diagrams get their own landscape page. `--to html` emits one self-contained file; `--to docx` a Word doc.
 
-A **cross-cutting utility** with no single lifecycle stage — an output/export tool used across the
-lifecycle (specs, plans, reports, docs). No `implements:` edge. Pairs with [[gstack-diagram]] for
-diagram rendering.
+A **cross-cutting utility** with no single lifecycle stage — an output/export tool used across the lifecycle (specs, plans, reports, docs). No `implements:` edge. Pairs with [[gstack-diagram]] for diagram rendering.
 
 ## See Also
 - [[gstack-diagram]] — produces the diagram sources this renders.

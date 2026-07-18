@@ -14,16 +14,9 @@ updated: 2026-07-04
 
 # /ce-product-pulse
 
-`/ce-product-pulse` — "Generate single-page time-windowed report on usage, performance, errors,
-followups for timeline tracking." A post-release observability/analytics report: for a given
-time window it consolidates usage, performance, errors, and open follow-ups into a single-page
-snapshot for timeline tracking.
+`/ce-product-pulse` — "Generate single-page time-windowed report on usage, performance, errors, followups for timeline tracking." A post-release observability/analytics report: for a given time window it consolidates usage, performance, errors, and open follow-ups into a single-page snapshot for timeline tracking.
 
-It implements [[stage-release]] on the **operate/monitor** side — keeping shipped work healthy
-and visible. It relates to Addy's [[addy-observability]] (which owns logging/metrics/alerting);
-`ce-product-pulse` is the *reporting* layer over that signal, and its output feeds [[ce-sweep]]
-and the next [[stage-align]] cycle. It touches the `stage-operate/maintain` watch-item parked on
-[[stage-release]].
+It implements [[stage-release]] on the **operate/monitor** side — keeping shipped work healthy and visible. It relates to Addy's [[addy-observability]] (which owns logging/metrics/alerting); `ce-product-pulse` is the *reporting* layer over that signal, and its output feeds [[ce-sweep]] and the next [[stage-align]] cycle. It touches the `stage-operate/maintain` watch-item parked on [[stage-release]].
 
 ## See Also
 - [[addy-observability]] — the metrics/alerting layer this reports over.

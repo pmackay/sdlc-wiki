@@ -14,22 +14,12 @@ updated: 2026-07-04
 
 # /ce-brainstorm
 
-`/ce-brainstorm` — "Define what something should become through collaborative dialogue and
-requirements-only unified plans." Step 1 of the Compound Engineering loop: a Q&A dialogue that
-converges on **what** to build (deliberately **requirements-only** — no HOW) and writes a
-unified plan to `docs/brainstorms/` → [[artifact-brainstorm-md]]. It reads the
-[[artifact-strategy-md|strategy]] and the `docs/solutions/` compound corpus first, so prior
-learnings shape the conversation ([[pattern-knowledge-compounding]] on the consuming side).
+`/ce-brainstorm` — "Define what something should become through collaborative dialogue and requirements-only unified plans." Step 1 of the Compound Engineering loop: a Q&A dialogue that converges on **what** to build (deliberately **requirements-only** — no HOW) and writes a unified plan to `docs/brainstorms/` → [[artifact-brainstorm-md]]. It reads the [[artifact-strategy-md|strategy]] and the `docs/solutions/` compound corpus first, so prior learnings shape the conversation ([[pattern-knowledge-compounding]] on the consuming side).
 
-It is the front of the loop and sits in the **grilling / elicitation** cluster of
-[[stage-align]]. The requirements-only discipline is what lets [[ce-plan]] later own the WHAT→HOW
-enrichment cleanly.
+It is the front of the loop and sits in the **grilling / elicitation** cluster of [[stage-align]]. The requirements-only discipline is what lets [[ce-plan]] later own the WHAT→HOW enrichment cleanly.
 
 ## Cross-framework equivalents
-Grilling/align cluster: `ce-brainstorm` ↔ [[addy-interview-me]] ↔ [[mp-grill-me]] ↔
-[[gsd-discuss-phase]] ↔ [[speckit-clarify]] — all interrogate to resolve intent before building
-([[pattern-grilling]]). `ce-brainstorm`'s output is a requirements plan (like [[gsd-discuss-phase]]'s
-CONTEXT.md), distinguishing it from pure ideation ([[ce-ideate]]).
+Grilling/align cluster: `ce-brainstorm` ↔ [[addy-interview-me]] ↔ [[mp-grill-me]] ↔ [[gsd-discuss-phase]] ↔ [[speckit-clarify]] — all interrogate to resolve intent before building ([[pattern-grilling]]). `ce-brainstorm`'s output is a requirements plan (like [[gsd-discuss-phase]]'s CONTEXT.md), distinguishing it from pure ideation ([[ce-ideate]]).
 
 ## See Also
 - [[addy-interview-me]] · [[mp-grill-me]] · [[gsd-discuss-phase]] · [[speckit-clarify]] — grilling-cluster counterparts.

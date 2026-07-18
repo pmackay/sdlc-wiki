@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Context engineering (right context, right time)
 
-Deliberately curate what an agent sees: rules files, packed context, and MCP integrations that
-supply the relevant code, types, and conventions at the moment they are needed — no more, no
-less. Treats the context window as a managed resource rather than a dumping ground, so output
-quality stays high and degradation (drift, forgotten constraints) is caught and reset.
+Deliberately curate what an agent sees: rules files, packed context, and MCP integrations that supply the relevant code, types, and conventions at the moment they are needed — no more, no less. Treats the context window as a managed resource rather than a dumping ground, so output quality stays high and degradation (drift, forgotten constraints) is caught and reset.
 
 ## Applied by (backlinks)
 
@@ -23,10 +20,7 @@ BMAD:
 - [[bmad-dev-story]] — implements from that self-contained context, so it can run fresh.
 - [[bmad-prd]] — maintains a `.memlog.md` append-only decision/audit trail as durable run context.
 
-A second framework promotes this from an Addy-only technique to a **two-framework** pattern.
-Addy curates context *at invocation* (rules files, packing, MCP); BMAD engineers it *into the
-work unit* — the story file, `project-context.md`, and `.memlog.md` carry the context forward so
-each agent starts fully briefed. Context engineering is arguably BMAD's organizing principle.
+A second framework promotes this from an Addy-only technique to a **two-framework** pattern. Addy curates context *at invocation* (rules files, packing, MCP); BMAD engineers it *into the work unit* — the story file, `project-context.md`, and `.memlog.md` carry the context forward so each agent starts fully briefed. Context engineering is arguably BMAD's organizing principle.
 
 Compound Engineering:
 

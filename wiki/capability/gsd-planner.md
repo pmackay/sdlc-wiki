@@ -14,12 +14,9 @@ updated: 2026-06-27
 
 # gsd-planner
 
-Specialist sub-agent invoked by [[gsd-plan-phase]] that "creates atomic execution plans
-with task definitions and acceptance criteria." Runs on an Opus-tier model in a fresh
-context, reading planning artifacts only.
+Specialist sub-agent invoked by [[gsd-plan-phase]] that "creates atomic execution plans with task definitions and acceptance criteria." Runs on an Opus-tier model in a fresh context, reading planning artifacts only.
 
-**Produces:** [[artifact-plan-md]] (`{phase}-PLAN.md`, executable task prompts), which then
-passes through [[gsd-plan-checker]] before execution.
+**Produces:** [[artifact-plan-md]] (`{phase}-PLAN.md`, executable task prompts), which then passes through [[gsd-plan-checker]] before execution.
 
 ## See Also
 - [[gsd-phase-researcher]] — supplies research inputs.

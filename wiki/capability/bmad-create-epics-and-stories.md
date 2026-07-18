@@ -14,18 +14,14 @@ updated: 2026-07-04
 
 # bmad-create-epics-and-stories
 
-**`bmad-create-epics-and-stories`** — "Break requirements into epics and user stories." The
-Solutioning decomposition workflow owned by [[bmad-pm]], turning the PRD + architecture into an
-`epics.md` of epics containing [[artifact-story|user stories]] — BMAD's decomposition into
-independently shippable [[pattern-vertical-slice|vertical slices]].
+**`bmad-create-epics-and-stories`** — "Break requirements into epics and user stories." The Solutioning decomposition workflow owned by [[bmad-pm]], turning the PRD + architecture into an `epics.md` of epics containing [[artifact-story|user stories]] — BMAD's decomposition into independently shippable [[pattern-vertical-slice|vertical slices]].
 
 ## Cross-framework cluster (decompose)
 - [[mp-to-tickets]] — break a plan/PRD into vertical-slice issues.
 - [[addy-planning]] — decompose the spec into small, verifiable, dependency-ordered tasks.
 - [[speckit-tasks]] — decompose the plan into a `[P]`-parallelizable, test-first task list.
 
-BMAD's output is richer than a task list: each story is a self-contained context bundle (see
-[[bmad-create-story]] and [[artifact-story]]).
+BMAD's output is richer than a task list: each story is a self-contained context bundle (see [[bmad-create-story]] and [[artifact-story]]).
 
 ## See Also
 - [[bmad]] — the framework.

@@ -14,19 +14,12 @@ updated: 2026-07-04
 
 # /ce-debug
 
-`/ce-debug` — "Find root causes systematically through causal chains, predictions, and post-fix
-polish." Reproduce the failure, build a **causal chain** to the root cause, make explicit
-**predictions** to confirm the hypothesis before changing code, apply the fix, then polish
-(guard against regression). The prediction step is its signature: it forces falsifiable
-hypotheses rather than shotgun edits.
+`/ce-debug` — "Find root causes systematically through causal chains, predictions, and post-fix polish." Reproduce the failure, build a **causal chain** to the root cause, make explicit **predictions** to confirm the hypothesis before changing code, apply the fix, then polish (guard against regression). The prediction step is its signature: it forces falsifiable hypotheses rather than shotgun edits.
 
-It implements [[stage-implement]] (diagnose-and-fix work) and joins the wiki's **debugging**
-cluster via [[pattern-systematic-debugging]].
+It implements [[stage-implement]] (diagnose-and-fix work) and joins the wiki's **debugging** cluster via [[pattern-systematic-debugging]].
 
 ## Cross-framework equivalents
-Debugging cluster: `ce-debug` ↔ [[gsd-debugger]] ↔ [[mp-diagnosing-bugs]] ↔ [[addy-debugging]] —
-all systematic reproduce→localize→hypothesize→fix→guard loops. `ce-debug`'s distinctive step is
-**explicit predictions** that must be confirmed before the fix lands.
+Debugging cluster: `ce-debug` ↔ [[gsd-debugger]] ↔ [[mp-diagnosing-bugs]] ↔ [[addy-debugging]] — all systematic reproduce→localize→hypothesize→fix→guard loops. `ce-debug`'s distinctive step is **explicit predictions** that must be confirmed before the fix lands.
 
 ## See Also
 - [[gsd-debugger]] · [[mp-diagnosing-bugs]] · [[addy-debugging]] — debugging-cluster counterparts.

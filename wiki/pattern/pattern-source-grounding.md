@@ -6,10 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Source grounding (cite official docs)
 
-Ground every framework/library decision in **official documentation**: look it up, cite the
-source, and explicitly flag anything that could not be verified as unverified. Counters the
-model's tendency to emit plausible-but-outdated API patterns from training data. The output
-carries its provenance, so a reviewer can check the citation rather than trust the assertion.
+Ground every framework/library decision in **official documentation**: look it up, cite the source, and explicitly flag anything that could not be verified as unverified. Counters the model's tendency to emit plausible-but-outdated API patterns from training data. The output carries its provenance, so a reviewer can check the citation rather than trust the assertion.
 
 ## Applied by (backlinks)
 

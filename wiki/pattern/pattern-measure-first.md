@@ -6,11 +6,7 @@ updated: 2026-07-05
 
 # Pattern: Measure first (profile before optimizing)
 
-Never optimize on a hunch. Take a measurement — a profile, a bundle analysis, a Core Web
-Vitals reading — locate the actual bottleneck, then fix that and re-measure to confirm the
-win. Findings without measurement are labeled **potential impact**, never presented as fact
-(the metric-honesty rule). Prevents speculative complexity that trades readability for
-imaginary performance.
+Never optimize on a hunch. Take a measurement — a profile, a bundle analysis, a Core Web Vitals reading — locate the actual bottleneck, then fix that and re-measure to confirm the win. Findings without measurement are labeled **potential impact**, never presented as fact (the metric-honesty rule). Prevents speculative complexity that trades readability for imaginary performance.
 
 ## Applied by (backlinks)
 

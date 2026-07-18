@@ -8,36 +8,20 @@ updated: 2026-07-04
 
 # OpenSpec
 
-**OpenSpec** is "spec-driven development (SDD) for AI coding assistants" by **Fission AI** —
-a lightweight specification framework that aligns human developers and AI coding assistants
-on requirements *before* implementation, "without rigid ceremony." Install:
-`npm install -g @fission-ai/openspec@latest` (Node.js 20.19.0+), then `openspec init`. Works
-with 30+ AI assistants via slash commands.
+**OpenSpec** is "spec-driven development (SDD) for AI coding assistants" by **Fission AI** — a lightweight specification framework that aligns human developers and AI coding assistants on requirements *before* implementation, "without rigid ceremony." Install: `npm install -g @fission-ai/openspec@latest` (Node.js 20.19.0+), then `openspec init`. Works with 30+ AI assistants via slash commands.
 
-Its four principles are the wiki's clearest statement of the spec-driven ethos (see
-[[pattern-spec-driven-development]]): **fluid not rigid** (no phase gates), **iterative not
-waterfall**, **easy not complex**, and — distinctively — **brownfield-first** (built for
-existing codebases, not just greenfield).
+Its four principles are the wiki's clearest statement of the spec-driven ethos (see [[pattern-spec-driven-development]]): **fluid not rigid** (no phase gates), **iterative not waterfall**, **easy not complex**, and — distinctively — **brownfield-first** (built for existing codebases, not just greenfield).
 
 ## What makes OpenSpec different
 
-Every other framework in this wiki treats the spec/plan as a *per-change* artifact that is
-written, executed, and then left behind. OpenSpec instead keeps a **living specification**
-as the durable source of truth and expresses each change as a **delta** against it (see
-[[pattern-living-specification]]). Two consequences distinguish it:
+Every other framework in this wiki treats the spec/plan as a *per-change* artifact that is written, executed, and then left behind. OpenSpec instead keeps a **living specification** as the durable source of truth and expresses each change as a **delta** against it (see [[pattern-living-specification]]). Two consequences distinguish it:
 
-- **The spec is permanent, the change is temporary.** `openspec/specs/` describes how the
-  system *currently* behaves; a change lives in `openspec/changes/<name>/` only until it is
-  archived, at which point its delta is merged back into the living spec.
-- **Its "release" is spec-maintenance, not deployment.** OpenSpec has no
-  deploy / CI / observability capabilities (unlike [[gsd]] or [[addy-agent-skills]]). Its
-  finalization step ([[openspec-sync]] + [[openspec-archive]]) folds the delta into the
-  source-of-truth spec — closing the loop rather than shipping to production.
+- **The spec is permanent, the change is temporary.** `openspec/specs/` describes how the system *currently* behaves; a change lives in `openspec/changes/<name>/` only until it is archived, at which point its delta is merged back into the living spec.
+- **Its "release" is spec-maintenance, not deployment.** OpenSpec has no deploy / CI / observability capabilities (unlike [[gsd]] or [[addy-agent-skills]]). Its finalization step ([[openspec-sync]] + [[openspec-archive]]) folds the delta into the source-of-truth spec — closing the loop rather than shipping to production.
 
 ## The workflow (three phases + finalization)
 
-OpenSpec organizes work around exploration → proposal → implementation, then finalization.
-Each command `implements:` a canonical SDLC stage:
+OpenSpec organizes work around exploration → proposal → implementation, then finalization. Each command `implements:` a canonical SDLC stage:
 
 | Phase | Command | Stage |
 |-------|---------|-------|
@@ -48,9 +32,7 @@ Each command `implements:` a canonical SDLC stage:
 | Finalization — merge deltas | [[openspec-sync]] | [[stage-release]] |
 | Finalization — archive | [[openspec-archive]] | [[stage-release]] |
 
-The proposal step is deliberately *fluid*: `/opsx:propose` generates all four planning
-artifacts (proposal → specs → design → tasks) in one shot, so a single capability spans both
-[[stage-specify]] and [[stage-plan]] rather than gating them into separate phases.
+The proposal step is deliberately *fluid*: `/opsx:propose` generates all four planning artifacts (proposal → specs → design → tasks) in one shot, so a single capability spans both [[stage-specify]] and [[stage-plan]] rather than gating them into separate phases.
 
 ## Capabilities
 
@@ -66,9 +48,7 @@ Documented here, one page each:
 
 ### Commands — expanded profile (thin wrappers, catalogued not paged)
 
-Enabled via `openspec config profile` then `openspec update`. These are artifact-generation
-control variants of `propose`/`archive` plus a tutorial — thin wrappers over the paged
-capabilities, so they are catalogued here rather than given separate pages:
+Enabled via `openspec config profile` then `openspec update`. These are artifact-generation control variants of `propose`/`archive` plus a tutorial — thin wrappers over the paged capabilities, so they are catalogued here rather than given separate pages:
 
 | Command | Role | Relates to |
 |---------|------|-----------|
@@ -79,11 +59,9 @@ capabilities, so they are catalogued here rather than given separate pages:
 | `/opsx:bulk-archive` | Archive several completed changes at once, resolving spec conflicts | batch [[openspec-archive]] |
 | `/opsx:onboard` | Interactive 15–30 min guided tutorial on the real codebase | teaches the whole loop |
 
-> `/opsx:verify` ships in the expanded profile but is paged as [[openspec-verify]] because it
-> is the framework's only [[stage-validate]] capability and clusters cross-framework.
+> `/opsx:verify` ships in the expanded profile but is paged as [[openspec-verify]] because it is the framework's only [[stage-validate]] capability and clusters cross-framework.
 
-The legacy `/openspec:proposal` / `/openspec:apply` / `/openspec:archive` commands are
-**deprecated** in favour of the `/opsx:` set.
+The legacy `/openspec:proposal` / `/openspec:apply` / `/openspec:archive` commands are **deprecated** in favour of the `/opsx:` set.
 
 ### Terminal CLI (tooling, not lifecycle capabilities)
 
@@ -114,10 +92,8 @@ Organized under `openspec/`, split across the living spec and the per-change fol
 
 ## Key features
 
-- **Stores (Beta)** — separate planning repositories shared across teams via Git, for
-  cross-repo feature coordination and centralized requirement ownership.
-- **Multi-tool** — 30+ assistants; syntax varies (`/opsx:` for Claude Code / Copilot,
-  `/opsx-` for Cursor / Windsurf, `/skill:openspec-` for Kimi CLI / Trae).
+- **Stores (Beta)** — separate planning repositories shared across teams via Git, for cross-repo feature coordination and centralized requirement ownership.
+- **Multi-tool** — 30+ assistants; syntax varies (`/opsx:` for Claude Code / Copilot, `/opsx-` for Cursor / Windsurf, `/skill:openspec-` for Kimi CLI / Trae).
 
 ## See Also
 - [[compound-engineering]] — Every's compounding loop; [[openspec-apply]] ↔ [[ce-work]], [[openspec-archive]] ↔ [[ce-commit-push-pr]]. OpenSpec's [[pattern-living-specification]] (fold the change into the spec via [[openspec-sync]]) is a *spec-level* cousin of CE's [[pattern-knowledge-compounding]] — noted on the new [[stage-learn]] stage.
