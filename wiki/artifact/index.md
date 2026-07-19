@@ -111,7 +111,7 @@ flowchart TD
 
 The overview above compresses everything into one loop. Below, each stage gets its own diagram laid out in the shape that fits its artifacts — a hub where several documents are variants of one canonical spec, a pipeline where research feeds design feeds tasks, a fan-in where three reports converge on a go/no-go. Solid arrows are `produces` / `feeds` / `gates`; dotted arrows are `counterpart` / `variant` resemblances. **Dashed rounded nodes** are boundary artifacts owned by an adjacent stage, shown only to place the stage in context.
 
-### 1 · Align — *what to build and why*
+### 1 · [Align](../sdlc-stage/stage-align.md) — *what to build and why*
 
 Two standing anchors that persist across iterations, and four decision/scope docs that feed the spec and plan. The GSD and Matt Pocock frameworks both write a `CONTEXT.md`, but they are different artifacts — the dotted edge flags the clash.
 
@@ -140,7 +140,7 @@ flowchart LR
     class oPRD,oPLAN,oDES bound
 ```
 
-### 2 · Specify — *the written contract*
+### 2 · [Specify](../sdlc-stage/stage-specify.md) — *the written contract*
 
 A hub: five frameworks write the same slot as slightly different documents, all variants of one canonical `spec`. OpenSpec is the outlier — it splits the spec into a `proposal` (why/what) plus a behavioral `spec delta`.
 
@@ -158,7 +158,7 @@ flowchart LR
     class oPLAN,oDES bound
 ```
 
-### 3 · Plan — *research, design, decompose*
+### 3 · [Plan](../sdlc-stage/stage-plan.md) — *research, design, decompose*
 
 A pipeline from investigation to executable units. Research and architecture feed the design; the design derives the task list; the task list becomes issues or context-rich stories that implementation consumes.
 
@@ -178,7 +178,7 @@ flowchart LR
     class oCMT bound
 ```
 
-### 4 · Implement — *write the code*
+### 4 · [Implement](../sdlc-stage/stage-implement.md) — *write the code*
 
 Disposable UI mockups converge with the plan/story into the one durable output of this stage: an atomic commit per completed task, which then flows into validation and release.
 
@@ -193,7 +193,7 @@ flowchart LR
     class iDES,iPLAN,oUAT,oPR bound
 ```
 
-### 5 · Validate — *does it work?*
+### 5 · [Validate](../sdlc-stage/stage-validate.md) — *does it work?*
 
 A single functional gate with a repair loop: UAT diagnoses gaps, the gaps become fix plans that re-enter implementation, and only a pass releases the change.
 
@@ -206,7 +206,7 @@ flowchart LR
     class vCMT,oPR bound
 ```
 
-### 6 · Review — *is it good?*
+### 6 · [Review](../sdlc-stage/stage-review.md) — *is it good?*
 
 A fan-in: three sibling assessment reports run in parallel over the change and converge into the release go/no-go decision.
 
@@ -224,7 +224,7 @@ flowchart LR
     class rCMT,gate bound
 ```
 
-### 7 · Release — *deliver it*
+### 7 · [Release](../sdlc-stage/stage-release.md) — *deliver it*
 
 Commits, UAT pass, and the review reports converge on the pull request and launch checklist; shipping produces the changelog and the how-to-use documentation, then hands off to Learn.
 
@@ -242,7 +242,7 @@ flowchart LR
     class reCMT,reUAT,reRPT,oLEARN bound
 ```
 
-### 8 · Learn — *harvest reusable lessons*
+### 8 · [Learn](../sdlc-stage/stage-learn.md) — *harvest reusable lessons*
 
 A hub around the agent-facing solution doc, with human-facing siblings, that closes the loop: its outputs ground the next iteration's Align, Plan, and Review.
 
