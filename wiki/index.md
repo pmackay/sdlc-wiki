@@ -265,7 +265,7 @@ Canonical lifecycle stages — derived projections synthesized from `implements:
 | [stage-learn](sdlc-stage/stage-learn.md) | **The 7th stage.** Harvest reusable learnings from completed work and fold them into a durable form future iterations read as grounding — the loop-closing arrow. **Four frameworks**: agent-grounding corpus (CE / gstack) vs team retrospective (BMAD / gstack) vs **capability-compounding** (gstack-skillify / Superpowers writing-skills). Plausibly the first genuinely *new* SDLC stage the agent era adds. | 2026-07-17 |
 
 ## artifact
-Concrete outputs capabilities produce (commits, specs, plans, …).
+Concrete outputs capabilities produce (commits, specs, plans, …). See the **[visual artifact index](artifact/index.md)** — a whole-lifecycle flow overview plus one per-stage diagram showing how these artifacts relate and lead into one another.
 
 | Article | Summary | Updated |
 |---------|---------|---------|

@@ -267,3 +267,10 @@
 - index.md: +superpowers framework row, +14 capability rows, +pattern-evidence-before-claims row, +artifact-skill-doc row; updated 7 stage rows, 11 pattern tally rows, and artifacts design-md/plan-md/pull-request/review-report/atomic-commit.
 - Stage count unchanged: **8** — align · specify · plan · implement · validate · review · release · learn.
 - Dangling-wikilink check: clean (below).
+
+## [2026-07-19] docs | artifact index — visual map of the 34 artifacts
+- Not an ingest: no new source, no ontology/edge changes. Added a reader-facing index for the `artifact/` namespace (the namespace had none; only `sdlc-stage/` did).
+- NEW `wiki/artifact/index.md`: a whole-lifecycle **flow overview** Mermaid diagram of all 34 artifacts grouped by producing stage (solid `leads-to/feeds/gates` edges + dotted `grounds-next-loop` back-edges), then a **stage-by-stage detail** section — one Mermaid per SDLC stage, each in the layout that fits its artifacts (Align two-cluster · Specify hub-around-`spec` · Plan pipeline · Implement converge · Validate repair-loop · Review fan-in · Release converge/diverge · Learn hub + loop-back). Boundary artifacts from adjacent stages shown as dashed rounded nodes for context. Closes with a stage-ordered table of all 34 (Obsidian wikilinks) + See Also.
+- Each of the 8 stage-detail section headings links to its stage page (`../sdlc-stage/stage-<x>.md`); all 8 targets verified.
+- `index.md`: `## artifact` intro now links the new **[visual artifact index](artifact/index.md)**.
+- All 9 Mermaid blocks validated via `@mermaid-js/mermaid-cli`; artifact wikilinks + stage links resolve. Dangling-wikilink check: clean.
