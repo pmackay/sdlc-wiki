@@ -32,21 +32,33 @@ flowchart TD
 
 How completely each framework covers the eight stages, derived from the `implements:` edges of its capabilities (rows ordered by lifecycle coverage, most complete first).
 
-**Legend:** 🟢 native — a dedicated step (named phase or several capabilities) · 🟡 partial — one or two capabilities, not a distinct phase · 🔗 folded in — the activity happens inside an adjacent stage, no standalone step · ➖ none — no capability for this stage.
+**Legend:** 🟢 native — a dedicated step (named phase or several capabilities) · 🟡 partial — one or two capabilities, not a distinct phase · 🔗 folded in — the activity happens inside an adjacent stage, no standalone step · ➖ none — no capability for this stage. The final **Off-stage** column is a *count*, not a support level: how many of the framework's capabilities map to no lifecycle stage at all (enumerated in [Off-stage capabilities](#off-stage-capabilities) below).
 
-| Framework | Align | Specify | Plan | Implement | Validate | Review | Release | Learn |
-|-----------|:-----:|:-------:|:----:|:---------:|:--------:|:------:|:-------:|:-----:|
-| [gstack](../framework/gstack.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-| [compound-engineering](../framework/compound-engineering.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-| [superpowers](../framework/superpowers.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 |
-| [addy-agent-skills](../framework/addy-agent-skills.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | ➖ |
-| [gsd](../framework/gsd.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ |
-| [openspec](../framework/openspec.md) | 🟢 | 🟢 | 🔗 | 🟢 | 🟢 | ➖ | 🟢<sup>†</sup> | ➖ |
-| [bmad](../framework/bmad.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟡 | ➖ | 🟡 |
-| [matt-pocock-skills](../framework/matt-pocock-skills.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | ➖ |
-| [speckit](../framework/speckit.md) | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | ➖ | ➖ | ➖ |
-| [bm-skills](../framework/bm-skills.md) | ➖ | 🟡 | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ |
-| [nano-spec](../framework/nano-spec.md) | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
+| Framework | Align | Specify | Plan | Implement | Validate | Review | Release | Learn | Off-stage |
+|-----------|:-----:|:-------:|:----:|:---------:|:--------:|:------:|:-------:|:-----:|:---------:|
+| [gstack](../framework/gstack.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 5 |
+| [compound-engineering](../framework/compound-engineering.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | — |
+| [superpowers](../framework/superpowers.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 1 |
+| [addy-agent-skills](../framework/addy-agent-skills.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | ➖ | 1 |
+| [gsd](../framework/gsd.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | — |
+| [openspec](../framework/openspec.md) | 🟢 | 🟢 | 🔗 | 🟢 | 🟢 | ➖ | 🟢<sup>†</sup> | ➖ | — |
+| [bmad](../framework/bmad.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟡 | ➖ | 🟡 | — |
+| [matt-pocock-skills](../framework/matt-pocock-skills.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | ➖ | 2 |
+| [speckit](../framework/speckit.md) | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | ➖ | ➖ | ➖ | — |
+| [bm-skills](../framework/bm-skills.md) | ➖ | 🟡 | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | 1 |
+| [nano-spec](../framework/nano-spec.md) | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | 2 |
+
+### Off-stage capabilities
+
+The **12 capabilities** that map to no lifecycle stage — cross-cutting tooling that runs *around* the pipeline rather than advancing it. Grouped by kind:
+
+- **Routing / dispatch & bootstrap** — the one near-universal off-stage capability (four frameworks, all `equivalent_to`-linked): [[addy-using-agent-skills]], [[mp-ask-matt]], [[gstack-router]], [[sp-using-superpowers]] ("which skill fits?" meta-skills; the Superpowers one doubles as the mandatory-skill-invocation bootstrap).
+- **Session & context continuity** — [[mp-handoff]] (compact a conversation into a handoff doc so a fresh session resumes without re-deriving context). *(gstack's [[gstack-context-save]] / [[gstack-context-restore]] do the same job but the wiki files them under Implement.)*
+- **Spec-pack state ops** — [[nano-spec-status]], [[nano-spec-update]] (report on / mutate an existing [[artifact-nano-spec-pack|nano-spec pack]] rather than advancing a step).
+- **Publishing & diagrams** — [[gstack-diagram]] (Diagram Maker), [[gstack-make-pdf]] (markdown → publication-quality PDF).
+- **Tooling & self-maintenance** — [[gstack-benchmark-models]] (cross-model benchmark of gstack's own skills), [[gstack-upgrade]] (self-updater), [[bm-favicon-creator]] (favicon asset generator).
+
+**The pattern:** the five frameworks that *own the whole process* (GSD, OpenSpec, Spec Kit, BMAD, Compound Engineering) keep **everything** on the lifecycle — zero off-stage capabilities. The toolkit / marketplace-style ones (gstack, Matt Pocock, nano-spec, BM Skills — and Addy/Superpowers with their routers) ship standalone utilities alongside the pipeline. gstack alone accounts for 5 of the 12, consistent with it being the largest, most "virtual-engineering-team" framework here.
 
 <sup>†</sup> OpenSpec's Release is a **spec-merge** (`archive`), not a code deploy — gstack is the only framework here with a genuine deploy step. Folded (🔗) cases: GSD, Superpowers, and Compound Engineering capture the *what* inside Align/Plan rather than a separate spec; OpenSpec bundles design + task-decomposition into its `propose` (specify) step. BM Skills and nano-spec are deliberately point tools, not full-SDLC frameworks.
 
