@@ -115,7 +115,43 @@
     "showAttachments": false,
     "hideUnresolved": false,
     "collapse-color-groups": true,
-    "colorGroups": [],
+    "colorGroups": [
+      {
+        "query": "[\"type\":stage",
+        "color": {
+          "a": 1,
+          "rgb": 14048348
+        }
+      },
+      {
+        "query": "[\"type\":artifact",
+        "color": {
+          "a": 1,
+          "rgb": 14069084
+        }
+      },
+      {
+        "query": "[\"type\":pattern",
+        "color": {
+          "a": 1,
+          "rgb": 11392604
+        }
+      },
+      {
+        "query": "[\"type\":sdlc-stage",
+        "color": {
+          "a": 1,
+          "rgb": 6084188
+        }
+      },
+      {
+        "query": "[\"type\":capability",
+        "color": {
+          "a": 1,
+          "rgb": 990960
+        }
+      }
+    ],
     "collapse-display": true,
     "showArrow": false,
     "textFadeMultiplier": 0,
@@ -126,7 +162,7 @@
     "repelStrength": 10,
     "linkStrength": 1,
     "linkDistance": 250,
-    "scale": 1,
+    "scale": 0.5585652560298842,
     "close": false
   },
   "openInNewTab": false,
