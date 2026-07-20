@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Plan", matt-pocock-skills: "to-tickets / design / research / wayfinder", addy-agent-skills: "Plan / task breakdown", openspec: "propose (design.md + tasks.md)", speckit: "plan + tasks + analyze", bmad: "Solutioning (architecture + epics/stories) + sprint/story prep", compound-engineering: "plan (guardrails) + doc-review", gstack: "plan reviews (CEO/eng/design/DX) + autoplan + design-consultation", superpowers: "writing-plans" }
+aka: { gsd: "Plan", matt-pocock-skills: "to-tickets / design / research", addy-agent-skills: "Plan / task breakdown", openspec: "propose (design.md + tasks.md)", speckit: "plan + tasks + analyze", bmad: "Solutioning (architecture + epics/stories) + sprint/story prep", compound-engineering: "plan (guardrails) + doc-review", gstack: "plan reviews (CEO/eng/design/DX) + autoplan + design-consultation", superpowers: "writing-plans" }
 sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+updated: 2026-07-20
 ---
 
 # Stage: Plan
@@ -26,7 +26,6 @@ Matt Pocock — Skills for Real Engineers:
 - [[mp-domain-modeling]] — build the domain model → [[artifact-domain-model]].
 - [[mp-codebase-design]] — design deep modules ([[pattern-deep-modules]]).
 - [[mp-research]] — background primary-source investigation → [[artifact-research-md]] (v1.1; counterpart to [[gsd-phase-researcher]]).
-- [[mp-wayfinder]] — plan work too big for one session as a shared investigation-ticket map → [[artifact-issue]] (v1.1; [[pattern-scale-adaptive-planning]]).
 
 Addy Osmani — Agent Skills:
 

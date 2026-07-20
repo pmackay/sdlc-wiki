@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming" }
+aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage / wayfinder", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming" }
 sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+updated: 2026-07-20
 ---
 
 # Stage: Align
@@ -25,6 +25,7 @@ Matt Pocock — Skills for Real Engineers:
 - [[mp-grilling]] — the reusable interview loop.
 - [[mp-grill-with-docs]] — grilling that also writes a domain model + ADRs.
 - [[mp-triage]] — move issues/PRs through a triage state machine → agent-ready briefs (intake flavor; v1.1); the intake counterpart to Compound Engineering's [[ce-sweep]].
+- [[mp-wayfinder]] — map an oversized effort (greenfield / bigger than one session) as a tracker map of investigation tickets that resolve *decisions* until the destination is clear, then hand off to [[mp-to-spec]] / [[mp-to-tickets]] (decision-mapping flavor; v1.1). *Plan, don't do* — it shapes what to build, upstream of the spec, so it aligns rather than plans.
 
 Addy Osmani — Agent Skills:
 

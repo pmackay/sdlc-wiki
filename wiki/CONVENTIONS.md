@@ -2,6 +2,33 @@
 
 This wiki documents software-development-lifecycle (SDLC) agent **frameworks** and the **capabilities** they ship (commands, skills, sub-agents), then synthesizes the common lifecycle that emerges across them. It is built and maintained with the `karpathy-llm-wiki` skill: `raw/` holds immutable sources, `wiki/` holds compiled articles. This file is the **schema layer** for `wiki/` — read it before any ingest.
 
+## The ontology at a glance
+
+Five node types, six relationship edges. **`capability` is the hub**: every stored edge originates from a capability page's frontmatter. The other four types carry no forward edges — their relationships are the inverse (backlink) views. `sdlc-stage` is special: it stores nothing and is a **derived projection**, synthesized from the `implements:` backlinks pointing at it (the dashed edge). `implements:` drives that synthesis; `equivalent_to:` (capability ↔ capability, across frameworks) drives cross-framework clustering.
+
+```mermaid
+flowchart LR
+    FW([framework])
+    CAP[capability]
+    STG(sdlc-stage)
+    ART[/artifact/]
+    PAT[\pattern\]
+
+    CAP -->|belongs_to| FW
+    CAP -->|implements| STG
+    CAP -->|produces| ART
+    CAP -->|applies| PAT
+    CAP -->|delegates_to| CAP
+    CAP -->|equivalent_to| CAP
+
+    STG -.->|derived projection: synthesized<br/>from implements backlinks| CAP
+
+    classDef derived stroke-dasharray:4 4;
+    class STG derived;
+```
+
+Solid arrows are stored edges (`[[wikilinks]]` in capability frontmatter); the dashed arrow is the derived synthesis, not a stored field. The [Node types](#node-types--topic-namespaces) and [Relationship vocabulary](#relationship-vocabulary) tables below define each box and label precisely.
+
 ## Node types (= topic namespaces)
 
 The wiki's one-level topic directories map 1:1 to the five ontology node types:

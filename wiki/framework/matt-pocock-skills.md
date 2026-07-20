@@ -39,13 +39,13 @@ Two **on-ramps** merge onto it: [[mp-wayfinder]] (an effort too big for one sess
 - [[mp-grilling]] — the reusable interview loop underneath the grill skills (v1.1: confirmation gate + facts-vs-decisions).
 - [[mp-grill-with-docs]] — grilling that also builds a domain model + ADRs.
 - [[mp-triage]] — move issues/PRs through a triage state machine → agent-ready briefs (intake).
+- [[mp-wayfinder]] — map an oversized effort as a shared **investigation-ticket map** on the tracker, resolving *decisions* until the destination is clear (situational on-ramp; upstream of the spec).
 
 ### Skills — specify
 - [[mp-to-spec]] — synthesize the conversation into a **spec** (formerly `to-prd`) on the issue tracker; sketches testing seams; no interview.
 
 ### Skills — plan (decompose, design, research)
 - [[mp-to-tickets]] — break a plan/spec into **tracer-bullet tickets** with blocking edges (formerly `to-issues`+`to-plan`); handles wide refactors via expand–contract.
-- [[mp-wayfinder]] — plan work too big for one session as a shared **investigation-ticket map** on the tracker.
 - [[mp-research]] — background agent investigating **primary sources** → cited Markdown ([[artifact-research-md]]).
 - [[mp-domain-modeling]] — build/sharpen the project domain model + ubiquitous language (v1.1: absorbed the deprecated `ubiquitous-language`).
 - [[mp-codebase-design]] — shared vocabulary for designing **deep modules** at clean seams.

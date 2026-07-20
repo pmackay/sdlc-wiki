@@ -281,3 +281,16 @@
 - Updated all wikilinks/backlinks (9 pages): index.md (row + domain-model clash note prose), framework/gsd.md, capability/gsd-discuss-phase.md (produces: + body), sdlc-stage/stage-specify.md, sdlc-stage/stage-align.md, artifact/artifact-spec-md.md, artifact/artifact-brainstorm-md.md, artifact/artifact-domain-model.md (reciprocal clash note), artifact/index.md.
 - Reciprocal naming-conflict callouts and the Align-stage `same filename, different artifact` dotted edge left intact. Historical log entries above retain the old slug as-written.
 - Dangling-wikilink check: clean.
+
+## [2026-07-20] docs | CONVENTIONS.md — ontology-at-a-glance Mermaid diagram
+- Not an ingest: no new source, no ontology/edge changes. Added a visual summary of the schema itself at the top of `CONVENTIONS.md` (before the Node types table), since the diagram depicts the meta-model the conventions define — not the concrete articles the `index.md` files list.
+- NEW `## The ontology at a glance` section: a Mermaid flowchart showing the 5 node types (framework/capability/sdlc-stage/artifact/pattern) and 6 stored edges (belongs_to/implements/produces/applies/delegates_to/equivalent_to), all originating from `capability` as the hub; plus a dashed derived-projection edge (sdlc-stage synthesized from implements-backlinks). Distinct node shapes per type; solid = stored frontmatter edge, dashed = derived. Cross-links to the Node types + Relationship vocabulary tables.
+- Diagram validated via `@mermaid-js/mermaid-cli` (renders clean).
+
+## [2026-07-20] edit | reclassify mp-wayfinder: stage-plan → stage-align
+- Not an ingest: no new source. Corrected one capability's `implements:` edge. mp-wayfinder maps an oversized effort as a tracker of *investigation tickets that resolve decisions* ("Plan, don't do — tickets resolve decisions, not deliverables") and hands its output to mp-to-spec / mp-to-tickets. Since mp-to-spec IS stage-specify, wayfinder must sit upstream of the spec — i.e. it shapes *what to build* (stage-align), not decompose-the-how (stage-plan). Fits stage-align's definition (align on what to build and why; capture/lock decisions) as a large-scale decision-mapping flavor.
+- `capability/mp-wayfinder.md`: `implements` stage-plan → stage-align; See Also stage link + rationale; updated date.
+- `sdlc-stage/stage-plan.md`: removed the mp-wayfinder backlink; dropped `wayfinder` from the matt-pocock-skills `aka`; updated date.
+- `sdlc-stage/stage-align.md`: added mp-wayfinder backlink (decision-mapping flavor) under Matt Pocock; added `wayfinder` to the matt-pocock-skills `aka`; updated date.
+- `framework/matt-pocock-skills.md`: moved mp-wayfinder from the "Skills — plan" group to "Skills — align / elicitation & intake".
+- `index.md`: mp-wayfinder row now reads "(align)"; updated date. Framework-count on both stages unchanged (MP already counted on each). No stage added/removed/renamed. artifact-issue.md left as-is (stage-neutral; wayfinder still produces tracker issues).

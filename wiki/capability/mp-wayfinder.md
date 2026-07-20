@@ -2,14 +2,14 @@
 type: capability
 subtype: skill
 belongs_to: "[[matt-pocock-skills]]"
-implements: "[[stage-plan]]"
+implements: "[[stage-align]]"
 delegates_to: []
 produces: ["[[artifact-issue]]"]
 applies: ["[[pattern-scale-adaptive-planning]]", "[[pattern-fresh-context-subagents]]"]
 equivalent_to: []
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-07-09
+updated: 2026-07-20
 ---
 
 # wayfinder
@@ -22,4 +22,4 @@ updated: 2026-07-09
 - [[mp-to-tickets]] — the sibling for work that *does* fit a normal decomposition; wayfinder feeds into it once the fog clears.
 - [[mp-grill-with-docs]] · [[mp-grill-me]] — the front-door grill skills that signpost *up* to wayfinder when an effort is too big to hold.
 - [[bmad-sprint-planning]] — BMAD's large-work backlog mapping (a loose relative).
-- [[stage-plan]] — the canonical stage this implements.
+- [[stage-align]] — the canonical stage this implements (it resolves *decisions* about what to build, upstream of the spec; [[mp-to-spec]] then writes the spec in [[stage-specify]]).
