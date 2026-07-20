@@ -1,0 +1,87 @@
+name: Publish wiki to GitHub Pages (Quartz)
+
+# B-lean integration: this repo stays ~pure Markdown. The workflow fetches
+# Quartz at build time, uses wiki/ as the content folder, and deploys the
+# built site to GitHub Pages. Deploy only happens on main; pushes to other
+# branches build-only (validation).
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  QUARTZ_REF: v5 # Quartz branch/tag to build against (pin to a tag for full reproducibility)
+  BASE_URL: pmackay.github.io/sdlc-wiki # no protocol; includes the project subpath
+  PAGE_TITLE: "SDLC Agent-Skill Wiki"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout wiki repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so Quartz can derive per-page git dates
+
+      - name: Fetch Quartz
+        run: git clone --depth 1 --branch "$QUARTZ_REF" https://github.com/jackyzha0/quartz.git quartz-build
+
+      - name: Use wiki/ as Quartz content
+        run: |
+          rm -rf quartz-build/content
+          mkdir -p quartz-build/content
+          cp -R wiki/. quartz-build/content/
+
+      - name: Configure Quartz (baseUrl, title, analytics)
+        working-directory: quartz-build
+        run: |
+          cp quartz.config.default.yaml quartz.config.yaml
+          yq -i '
+            .configuration.baseUrl = strenv(BASE_URL) |
+            .configuration.pageTitle = strenv(PAGE_TITLE) |
+            .configuration.analytics = null
+          ' quartz.config.yaml
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: quartz-build
+        run: npm ci
+
+      - name: Install Quartz plugins
+        working-directory: quartz-build
+        run: npx quartz plugin install
+
+      - name: Build site
+        working-directory: quartz-build
+        run: npx quartz build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz-build/public
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
