@@ -49,7 +49,8 @@ jobs:
           yq -i '
             .configuration.baseUrl = strenv(BASE_URL) |
             .configuration.pageTitle = strenv(PAGE_TITLE) |
-            .configuration.analytics = null
+            .configuration.analytics = null |
+            (.plugins[] | select(.source == "github:quartz-community/cname").enabled) = false
           ' quartz.config.yaml
 
       - name: Setup Node
