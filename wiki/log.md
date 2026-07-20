@@ -294,3 +294,8 @@
 - `sdlc-stage/stage-align.md`: added mp-wayfinder backlink (decision-mapping flavor) under Matt Pocock; added `wayfinder` to the matt-pocock-skills `aka`; updated date.
 - `framework/matt-pocock-skills.md`: moved mp-wayfinder from the "Skills — plan" group to "Skills — align / elicitation & intake".
 - `index.md`: mp-wayfinder row now reads "(align)"; updated date. Framework-count on both stages unchanged (MP already counted on each). No stage added/removed/renamed. artifact-issue.md left as-is (stage-neutral; wayfinder still produces tracker issues).
+
+## [2026-07-20] docs | SDLC index — framework × stage support matrix
+- Not an ingest: no new source, no ontology/edge changes. Added a second table to `sdlc-stage/index.md`: 11 frameworks (rows) × 8 canonical stages (columns), each cell an emoji support level. Derived mechanically from the `implements:` edges of every capability (framework = belongs_to, stage = implements), then graded.
+- Legend: 🟢 native (dedicated step / several capabilities) · 🟡 partial (1–2 caps, not a distinct phase) · 🔗 folded into an adjacent stage · ➖ none. Rows ordered by lifecycle coverage (gstack/CE/Superpowers full-8 at top → nano-spec point-tool at bottom).
+- Footnote captures nuance the emoji can't: OpenSpec Release = spec-merge not deploy (gstack the only real deploy); folded cases (GSD/Superpowers/CE fold specify into Align/Plan; OpenSpec folds plan into propose); BM Skills + nano-spec are deliberate point tools. Consistent with the existing Note that GSD/OpenSpec/Spec Kit ship no Review and Spec Kit no Release.

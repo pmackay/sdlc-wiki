@@ -28,6 +28,28 @@ flowchart TD
 | 7 | [Release](stage-release.md) | *Deliver it* — finalize, ship, deploy, and keep it healthy in production | Ship · sync+archive · commit-push-pr · ship+land-and-deploy+canary |
 | 8 | [Learn](stage-learn.md) | *What did we learn?* — harvest reusable lessons that seed the next iteration | retrospective · compound · Reflect (retro + learn) |
 
+## Framework × stage support matrix
+
+How completely each framework covers the eight stages, derived from the `implements:` edges of its capabilities (rows ordered by lifecycle coverage, most complete first).
+
+**Legend:** 🟢 native — a dedicated step (named phase or several capabilities) · 🟡 partial — one or two capabilities, not a distinct phase · 🔗 folded in — the activity happens inside an adjacent stage, no standalone step · ➖ none — no capability for this stage.
+
+| Framework | Align | Specify | Plan | Implement | Validate | Review | Release | Learn |
+|-----------|:-----:|:-------:|:----:|:---------:|:--------:|:------:|:-------:|:-----:|
+| [gstack](../framework/gstack.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| [compound-engineering](../framework/compound-engineering.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| [superpowers](../framework/superpowers.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 |
+| [addy-agent-skills](../framework/addy-agent-skills.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | ➖ |
+| [gsd](../framework/gsd.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ |
+| [openspec](../framework/openspec.md) | 🟢 | 🟢 | 🔗 | 🟢 | 🟢 | ➖ | 🟢<sup>†</sup> | ➖ |
+| [bmad](../framework/bmad.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟡 | ➖ | 🟡 |
+| [matt-pocock-skills](../framework/matt-pocock-skills.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | ➖ |
+| [speckit](../framework/speckit.md) | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | ➖ | ➖ | ➖ |
+| [bm-skills](../framework/bm-skills.md) | ➖ | 🟡 | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ |
+| [nano-spec](../framework/nano-spec.md) | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
+
+<sup>†</sup> OpenSpec's Release is a **spec-merge** (`archive`), not a code deploy — gstack is the only framework here with a genuine deploy step. Folded (🔗) cases: GSD, Superpowers, and Compound Engineering capture the *what* inside Align/Plan rather than a separate spec; OpenSpec bundles design + task-decomposition into its `propose` (specify) step. BM Skills and nano-spec are deliberately point tools, not full-SDLC frameworks.
+
 ## Notes on ordering
 
 - **Stages 5–6 (Validate ∥ Review) are sibling gates**, not a strict sequence. Both run after [Implement](stage-implement.md) and both must pass before [Release](stage-release.md), but their order varies by framework — Addy runs *Verify → Review*, gstack runs *Review → Test*. They are listed 5 then 6 for a linear read; treat them as parallel quality gates.
