@@ -13,7 +13,7 @@ A structured specification written **before any code** — the durable contract 
 - **BMAD — `SPEC.md`** (the "SPEC kernel", from [[bmad-spec]]): a tight five-field machine contract — Problem, Capabilities, Constraints, Non-goals, Success signal — used as the lightweight [[pattern-scale-adaptive-planning|Quick-Flow]] alternative to a full PRD.
 - **Matt Pocock — the spec from [[mp-to-spec]]** (v1.1): synthesized from the conversation (no interview), leads with a Problem Statement, sketches testing **seams**, and is published to the issue tracker with a `ready-for-agent` label. "Spec" is MP's single through-line term (was `to-prd`).
 
-Upstream of planning it is a counterpart to GSD's [[artifact-context-md]] and to the fuller [[artifact-prd]] (BMAD) — same job (capture what & why durably), different house format. OpenSpec's [[artifact-spec-delta]] is the odd one out: a *delta* against a living spec rather than a whole rewritten document.
+Upstream of planning it is a counterpart to GSD's [[artifact-phase-context]] and to the fuller [[artifact-prd]] (BMAD) — same job (capture what & why durably), different house format. OpenSpec's [[artifact-spec-delta]] is the odd one out: a *delta* against a living spec rather than a whole rewritten document.
 
 ## Produced by (backlinks)
 - [[addy-spec-driven-development]] — authors the six-area `SPEC.md`.

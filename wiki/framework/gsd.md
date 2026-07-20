@@ -78,7 +78,7 @@ Not yet given dedicated pages:
 
 All organized under a `.planning/` directory, with `STATE.md` / `CONTEXT.md` for cross-session persistence:
 
-- [[artifact-context-md]] — locked decisions + scope.
+- [[artifact-phase-context]] — locked decisions + scope.
 - [[artifact-plan-md]] — executable task prompts.
 - [[artifact-research-md]] — parallel domain research output.
 - [[artifact-uat-md]] — UAT results + diagnosed gaps.

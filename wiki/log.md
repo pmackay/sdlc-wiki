@@ -274,3 +274,10 @@
 - Each of the 8 stage-detail section headings links to its stage page (`../sdlc-stage/stage-<x>.md`); all 8 targets verified.
 - `index.md`: `## artifact` intro now links the new **[visual artifact index](artifact/index.md)**.
 - All 9 Mermaid blocks validated via `@mermaid-js/mermaid-cli`; artifact wikilinks + stage links resolve. Dangling-wikilink check: clean.
+
+## [2026-07-20] refactor | rename artifact-context-md → artifact-phase-context (naming symmetry)
+- Not an ingest: no new source. Resolved a slug asymmetry around the cross-framework `CONTEXT.md` clash. GSD's phase-context artifact was slugged by filename (`artifact-context-md`) while MP's was slugged by meaning (`artifact-domain-model`), implying the GSD page "owned" the canonical name when neither does.
+- Renamed `wiki/artifact/artifact-context-md.md` → `artifact-phase-context.md` (git mv); H1 retitled `CONTEXT.md (phase context)` → `Phase context (CONTEXT.md)` to mirror `Domain model (CONTEXT.md)` (meaning-first). Both `CONTEXT.md` artifacts are now filed by what they *are*; the colliding filename belongs to neither slug.
+- Updated all wikilinks/backlinks (9 pages): index.md (row + domain-model clash note prose), framework/gsd.md, capability/gsd-discuss-phase.md (produces: + body), sdlc-stage/stage-specify.md, sdlc-stage/stage-align.md, artifact/artifact-spec-md.md, artifact/artifact-brainstorm-md.md, artifact/artifact-domain-model.md (reciprocal clash note), artifact/index.md.
+- Reciprocal naming-conflict callouts and the Align-stage `same filename, different artifact` dotted edge left intact. Historical log entries above retain the old slug as-written.
+- Dangling-wikilink check: clean.

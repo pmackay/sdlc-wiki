@@ -17,7 +17,7 @@ This page is a **derived projection** — its evidence is the capabilities that 
 
 GSD:
 
-- [[gsd-discuss-phase]] — adaptive questioning, codebase scouting, decision capture → [[artifact-context-md]].
+- [[gsd-discuss-phase]] — adaptive questioning, codebase scouting, decision capture → [[artifact-phase-context]].
 
 Matt Pocock — Skills for Real Engineers:
 

@@ -267,7 +267,7 @@ flowchart LR
 | Align | [[artifact-constitution\|constitution]] | Spec Kit | Immutable project-wide governing principles that later phases are mechanically gated against. |
 | Align | [[artifact-product-brief\|product brief]] | BMAD | Pre-PRD scoping doc (problem/audience/boundaries); variants PRFAQ and forged-idea. |
 | Align | [[artifact-brainstorm-md\|brainstorm doc]] | Compound Engineering | Requirements-only unified plan (WHAT, not HOW) from a collaborative Q&A dialogue. |
-| Align | [[artifact-context-md\|CONTEXT.md (phase)]] | GSD | Locked decisions and scope guidance for a phase; feeds planning. |
+| Align | [[artifact-phase-context\|CONTEXT.md (phase)]] | GSD | Locked decisions and scope guidance for a phase; feeds planning. |
 | Align | [[artifact-domain-model\|domain model]] | Matt Pocock | Shared-language glossary (`CONTEXT.md`) mapping jargon to precise concepts. |
 | Specify | [[artifact-spec-md\|SPEC.md / spec.md]] | Addy · Spec Kit · BMAD · MP | The durable written spec the lifecycle plans and builds against. |
 | Specify | [[artifact-prd\|PRD]] | BMAD · Builder Methods | Fuller product-requirements document; intent and scope before issues/stories are cut. |

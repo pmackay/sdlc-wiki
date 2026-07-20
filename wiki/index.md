@@ -269,7 +269,7 @@ Concrete outputs capabilities produce (commits, specs, plans, …). See the **[v
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [artifact-context-md](artifact/artifact-context-md.md) | GSD `{phase}-CONTEXT.md` — locked decisions + scope (name clashes with MP domain-model). | 2026-06-28 |
+| [artifact-phase-context](artifact/artifact-phase-context.md) | GSD `{phase}-CONTEXT.md` — locked decisions + scope (name clashes with MP domain-model). | 2026-07-20 |
 | [artifact-plan-md](artifact/artifact-plan-md.md) | `{phase}-PLAN.md` — executable task prompts (GSD); also Addy `tasks/plan.md`+`todo.md`; OpenSpec/SpecKit `tasks.md`; CE guardrail plans; BM `milestones/N/prompt.md` build prompts; nano-spec `todo.md`; Superpowers bite-sized `docs/superpowers/plans/…` from [[sp-writing-plans]]. | 2026-07-17 |
 | [artifact-research-md](artifact/artifact-research-md.md) | `RESEARCH.md` — domain/tech research output (GSD parallel researchers; SpecKit `research.md`; BMAD Analysis-phase research; MP `mp-research` background primary-source agent). | 2026-07-09 |
 | [artifact-uat-md](artifact/artifact-uat-md.md) | `{phase}-UAT.md` — UAT results + diagnosed gaps. | 2026-06-27 |
@@ -278,7 +278,7 @@ Concrete outputs capabilities produce (commits, specs, plans, …). See the **[v
 | [artifact-prd](artifact/artifact-prd.md) | Product Requirements Document — the durable requirements spec (BMAD `bmad-prd` + BM Skills `bm-prd-creator`; MP's former `to-prd` now produces a spec → artifact-spec-md). | 2026-07-09 |
 | [artifact-issue](artifact/artifact-issue.md) | Tracker issue from a plan/spec — MP `to-tickets` (tracer-bullet + blocking edges), `wayfinder` (investigation tickets), `triage` (agent-ready briefs); SpecKit exports `tasks.md`; gstack-spec files a deduped issue. | 2026-07-09 |
 | [artifact-adr](artifact/artifact-adr.md) | Architecture Decision Record — MP (during grilling), Addy (at decision/ship time), and nano-spec (`doc.md` Key Decisions). | 2026-07-13 |
-| [artifact-domain-model](artifact/artifact-domain-model.md) | MP `CONTEXT.md` — shared-language glossary (name clashes with GSD context-md). | 2026-06-28 |
+| [artifact-domain-model](artifact/artifact-domain-model.md) | MP `CONTEXT.md` — shared-language glossary (name clashes with GSD phase-context). | 2026-06-28 |
 | [artifact-handoff-doc](artifact/artifact-handoff-doc.md) | Compacted handoff document for agent/session transitions (MP). | 2026-06-28 |
 | [artifact-spec-md](artifact/artifact-spec-md.md) | The spec document written before code — Addy `SPEC.md` + SpecKit `spec.md` + BMAD SPEC kernel + gstack five-phase spec (Codex-gated) + MP `to-spec` (v1.1, seams-first); counterpart to artifact-prd. | 2026-07-09 |
 | [artifact-review-report](artifact/artifact-review-report.md) | Code review report — Addy five-axis + BMAD adversarial + CE persona + gstack (review/codex/design/devex) + MP two-axis (Standards∥Spec) + Superpowers ([[sp-requesting-code-review]] severity-labelled) findings. | 2026-07-17 |

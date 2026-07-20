@@ -1,10 +1,10 @@
 ---
 type: artifact
 sources: "Open GSD docs (2026)"
-updated: 2026-06-27
+updated: 2026-07-20
 ---
 
-# Artifact: CONTEXT.md (phase context)
+# Artifact: Phase context (CONTEXT.md)
 
 `{phase}-CONTEXT.md` — the locked decisions and scope guidance for a phase, written by [[gsd-discuss-phase]] and consumed by [[gsd-plan-phase]]. Lives under the `.planning/` directory. (Distinct from the session-memory `CONTEXT.md` GSD uses for cross-session persistence.)
 
