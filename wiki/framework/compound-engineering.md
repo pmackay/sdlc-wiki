@@ -9,6 +9,18 @@ updated: 2026-07-05
 
 # Compound Engineering
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Validate and Review are sibling gates that both run after Implement.
+
+```mermaid
+flowchart TB
+    A["ce-brainstorm<br/><i>Align</i>"] --> P["ce-plan<br/><i>Plan</i>"] --> I["ce-work<br/><i>Implement</i>"]
+    I --> V["ce-dogfood<br/><i>Validate</i>"]
+    I --> R["ce-code-review<br/><i>Review</i>"]
+    V --> Rel["ce-commit-push-pr<br/><i>Release</i>"]
+    R --> Rel
+    Rel --> L["ce-compound<br/><i>Learn</i>"]
+```
+
 **Compound Engineering** is Every's methodology (and open-source Claude Code plugin) for coding when **AI agents write ~100% of the code**. Its one-line thesis: **"each unit of engineering work should make subsequent units easier — not harder."** Where traditional development accumulates technical debt, Compound Engineering accumulates *knowledge* — every bug, failed test, and problem-solving insight is captured and fed back so future agents avoid the mistake. The distinctive move is a **learning loop**: complexity grows *alongside* accumulated AI knowledge, so velocity accelerates over time rather than decaying. Authors Dan Shipper & Kieran Klaassen report single developers at Every now run **five products** — *"the work of five developers a few years ago."* MIT-licensed; portable across Claude Code, Cursor, Codex, Copilot, Factory Droid, Kimi, Qwen, OpenCode, Pi, and Antigravity.
 
 - **Install (Claude Code):** `/plugin marketplace add EveryInc/compound-engineering-plugin` then `/plugin install compound-engineering`.

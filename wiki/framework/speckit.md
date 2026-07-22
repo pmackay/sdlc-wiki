@@ -9,6 +9,13 @@ updated: 2026-07-04
 
 # Spec Kit
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted).
+
+```mermaid
+flowchart TB
+    A["speckit-clarify<br/><i>Align</i>"] --> S["speckit-specify<br/><i>Specify</i>"] --> P["speckit-plan<br/><i>Plan</i>"] --> I["speckit-implement<br/><i>Implement</i>"] --> V["speckit-converge<br/><i>Validate</i>"]
+```
+
 **Spec Kit** is **GitHub's** open-source toolkit for **Spec-Driven Development (SDD)** — the methodology that "flips the script on traditional software development" by making specifications *executable* rather than advisory: the spec is the primary artifact, and "code becomes its expression in a particular language and framework." Install via the `specify` CLI (`uv`/`uvx`, Python 3.11+): `specify init my-project --integration copilot`. Works with 30+ AI coding agents ("switch freely between agents… No lock-in"), offline, and cross-platform. It is by far the largest-community framework in this wiki (106K+ stars, 200+ contributors, 105 community extensions).
 
 ## What makes Spec Kit different

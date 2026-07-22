@@ -8,6 +8,18 @@ updated: 2026-07-17
 
 # Superpowers
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Validate and Review are sibling gates that both run after Implement.
+
+```mermaid
+flowchart TB
+    A["sp-brainstorming<br/><i>Align</i>"] --> P["sp-writing-plans<br/><i>Plan</i>"] --> I["sp-executing-plans<br/><i>Implement</i>"]
+    I --> V["sp-verification-before-completion<br/><i>Validate</i>"]
+    I --> R["sp-requesting-code-review<br/><i>Review</i>"]
+    V --> Rel["sp-finishing-a-development-branch<br/><i>Release</i>"]
+    R --> Rel
+    Rel --> L["sp-writing-skills<br/><i>Learn</i>"]
+```
+
 Jesse Vincent's (Prime Radiant) **Superpowers** — *"a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them."* A deliberately **small** library — **14 skills, no personas, no slash commands** — that nonetheless behaves as an end-to-end methodology because a bootstrap skill ([[sp-using-superpowers]]) makes the rest **trigger automatically**: the agent checks for a relevant skill before *any* action and, if one applies, *must* use it. MIT; v6.1.1.
 
 - **Install (Claude Code):** `/plugin install superpowers@claude-plugins-official` (also on the Superpowers marketplace, `obra/superpowers-marketplace`).

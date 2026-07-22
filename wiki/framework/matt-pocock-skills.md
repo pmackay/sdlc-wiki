@@ -8,6 +8,15 @@ updated: 2026-07-09
 
 # Matt Pocock — Skills for Real Engineers
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted).
+
+```mermaid
+flowchart TB
+    A1["mp-wayfinder<br/><i>Align</i>"] --> S["mp-to-spec<br/><i>Specify</i>"]
+    A2["mp-grill-with-docs<br/><i>Align</i>"] --> S
+    S --> P["mp-to-tickets<br/><i>Plan</i>"] --> I["mp-implement<br/><i>Implement</i>"] --> R["mp-code-review<br/><i>Review</i>"]
+```
+
 A curated set of small, composable agent skills by **Matt Pocock** "for real engineering work — not 'vibe coding'", sourced from his personal `.claude` directory and designed to be adapted ("Hack around with them. Make them your own."). Works with any model and any coding agent. Explicitly positioned *against* owning-the-process frameworks: "Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve." These skills stay small and composable instead.
 
 - **Install:** `npx skills@latest add mattpocock/skills`

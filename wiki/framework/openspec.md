@@ -8,6 +8,13 @@ updated: 2026-07-04
 
 # OpenSpec
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted; Plan folds into Specify's `propose`).
+
+```mermaid
+flowchart TB
+    A["openspec-explore<br/><i>Align</i>"] --> S["openspec-propose<br/><i>Specify</i>"] --> I["openspec-apply<br/><i>Implement</i>"] --> V["openspec-verify<br/><i>Validate</i>"] --> Rel["openspec-archive<br/><i>Release</i>"]
+```
+
 **OpenSpec** is "spec-driven development (SDD) for AI coding assistants" by **Fission AI** — a lightweight specification framework that aligns human developers and AI coding assistants on requirements *before* implementation, "without rigid ceremony." Install: `npm install -g @fission-ai/openspec@latest` (Node.js 20.19.0+), then `openspec init`. Works with 30+ AI assistants via slash commands.
 
 Its four principles are the wiki's clearest statement of the spec-driven ethos (see [[pattern-spec-driven-development]]): **fluid not rigid** (no phase gates), **iterative not waterfall**, **easy not complex**, and — distinctively — **brownfield-first** (built for existing codebases, not just greenfield).

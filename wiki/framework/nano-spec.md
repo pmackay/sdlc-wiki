@@ -9,6 +9,13 @@ updated: 2026-07-13
 
 # nano-spec
 
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). It owns a single lifecycle slice.
+
+```mermaid
+flowchart TB
+    S["nano-spec-create<br/><i>Specify</i>"]
+```
+
 **nano-spec** (Tao An, `tao-hpu/nano-spec`, MIT) is a deliberately **minimal, tool-agnostic task-specification methodology** for AI-assisted development. Its tagline — *"Spec-driven thinking, nano-sized docs"* — is the whole idea: capture just enough written structure to think clearly before coding, and no more. Like [[bm-skills]], it is **not a full-SDLC framework**; it owns exactly one slice of the lifecycle (authoring a lightweight spec) and leaves the rest to the coding agent.
 
 Its thesis is a **ceremony spectrum**. AI makes it trivial to skip specs (fast but chaotic — scope creep, misaligned code, painful handoffs) *or* to over-invest in enterprise-grade PRD + design + tech-spec stacks (complete but slower than the build). nano-spec claims the middle — the ~80% of tasks "too complex for *just do it*, too simple for enterprise-grade specs" — with **four tiny markdown files per task**. It is explicitly *"inspired by [Kiro's Spec-Driven Development](https://kiro.dev/docs/specs/), but minimal and practical"*:
