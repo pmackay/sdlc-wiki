@@ -6,10 +6,10 @@ implements: "[[stage-specify]]"
 delegates_to: []
 produces: ["[[artifact-nano-spec-pack]]", "[[artifact-plan-md]]", "[[artifact-adr]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-scale-adaptive-planning]]"]
-equivalent_to: ["[[bm-prd-creator]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[gstack-spec]]"]
+equivalent_to: ["[[bm-prd-creator]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[gstack-spec]]", "[[agent-os-shape-spec]]"]
 sources: "Tao An — nano-spec (2025)"
 raw: ["../../raw/nano-spec/2025-12-01-nano-spec.md"]
-updated: 2026-07-13
+updated: 2026-08-05
 ---
 
 # nano-spec create

@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/tao-hpu/nano-spec"
 docs_url: "https://generativeai.pub/nano-spec-the-sweet-spot-between-chaos-and-over-engineering-in-ai-assisted-development-0d0ccec202c0"
 sources: "Tao An — nano-spec, tao-hpu/nano-spec (MIT, 46★); intro article in Generative AI / Medium (2025-12-01)"
@@ -8,6 +9,13 @@ updated: 2026-07-13
 ---
 
 # nano-spec
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). It owns a single lifecycle slice.
+
+```mermaid
+flowchart TB
+    S["nano-spec-create<br/><i>Specify</i>"]
+```
 
 **nano-spec** (Tao An, `tao-hpu/nano-spec`, MIT) is a deliberately **minimal, tool-agnostic task-specification methodology** for AI-assisted development. Its tagline — *"Spec-driven thinking, nano-sized docs"* — is the whole idea: capture just enough written structure to think clearly before coding, and no more. Like [[bm-skills]], it is **not a full-SDLC framework**; it owns exactly one slice of the lifecycle (authoring a lightweight spec) and leaves the rest to the coding agent.
 

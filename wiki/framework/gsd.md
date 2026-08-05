@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]", "[[opencode]]"]
 source_url: "https://github.com/open-gsd/gsd-core"
 docs_url: "https://docs.opengsd.net/"
 sources: "Open GSD docs (2026); open-gsd/gsd-core README (2026)"
@@ -8,6 +9,13 @@ updated: 2026-07-04
 ---
 
 # GSD — Git. Ship. Done.
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted).
+
+```mermaid
+flowchart TB
+    A["gsd-discuss-phase<br/><i>Align</i>"] --> P["gsd-plan-phase<br/><i>Plan</i>"] --> I["gsd-execute-phase<br/><i>Implement</i>"] --> V["gsd-verify-work<br/><i>Validate</i>"] --> Rel["gsd-ship<br/><i>Release</i>"]
+```
 
 **GSD** is "a light-weight meta-prompting, context engineering, and spec-driven development system for AI coding agents" (Claude Code, OpenCode, Gemini CLI, Codex, Copilot, Cursor, Windsurf, and more). Install: `npx @opengsd/gsd-core@latest`.
 

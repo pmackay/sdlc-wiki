@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/buildermethods/bm-skills"
 docs_url: "https://buildermethods.com/prd-creator"
 sources: "Brian Casel (Builder Methods) — BM Skills, buildermethods/bm-skills (2026)"
@@ -8,6 +9,13 @@ updated: 2026-07-09
 ---
 
 # BM Skills
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Not a full-SDLC framework — it touches only two stages.
+
+```mermaid
+flowchart TB
+    S["bm-prd-creator<br/><i>Specify</i>"] --> I["bm-design-system<br/><i>Implement</i>"]
+```
 
 **BM Skills** is Brian Casel's (Builder Methods) open-source **Claude Code plugin marketplace** of small, independent utilities "for builders." Unlike the other entries in this wiki, it is **not a full-SDLC framework** — it makes no attempt to own the process or cover the lifecycle end to end. It is a loose, growing collection of self-contained plugins, each holding one skill for a specific area of work. Install via `/plugin marketplace add buildermethods/bm-skills` then `/plugin install <skill-name>`.
 

@@ -7,6 +7,7 @@ delegates_to: ["[[mp-grilling]]"]
 produces: []
 applies: ["[[pattern-grilling]]"]
 equivalent_to: ["[[addy-interview-me]]", "[[gsd-discuss-phase]]", "[[speckit-clarify]]", "[[ce-brainstorm]]", "[[gstack-office-hours]]", "[[sp-brainstorming]]"]
+docs_url: "https://www.aihero.dev/skills-grill-me"
 sources: "Matt Pocock — Skills for Real Engineers (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-06-28-skills-for-real-engineers.md"]
 updated: 2026-07-04

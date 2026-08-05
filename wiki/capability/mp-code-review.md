@@ -7,6 +7,7 @@ delegates_to: []
 produces: ["[[artifact-review-report]]"]
 applies: ["[[pattern-parallel-persona-review]]", "[[pattern-adversarial-review]]"]
 equivalent_to: ["[[addy-code-review]]", "[[bmad-code-review]]", "[[ce-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]"]
+docs_url: "https://www.aihero.dev/skills-code-review"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
 updated: 2026-07-09

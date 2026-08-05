@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]", "[[opencode]]"]
 source_url: "https://github.com/addyosmani/agent-skills"
 sources: "Addy Osmani — Agent Skills, addyosmani/agent-skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
@@ -7,6 +8,17 @@ updated: 2026-07-04
 ---
 
 # Addy Osmani — Agent Skills
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Validate and Review are sibling gates that both run after Implement.
+
+```mermaid
+flowchart TB
+    A["addy-interview-me<br/><i>Align</i>"] --> S["addy-spec-driven-development<br/><i>Specify</i>"] --> P["addy-planning<br/><i>Plan</i>"] --> I["addy-incremental-implementation<br/><i>Implement</i>"]
+    I --> V["addy-browser-testing<br/><i>Validate</i>"]
+    I --> R["addy-code-review<br/><i>Review</i>"]
+    V --> Rel["addy-shipping<br/><i>Release</i>"]
+    R --> Rel
+```
 
 **Production-grade engineering skills for AI coding agents** by **Addy Osmani** — a pack of 24 skills, 4 review personas, and 8 slash commands that encode the workflows and quality gates senior engineers use, organized around the **whole product lifecycle**. MIT-licensed; distributed as a Claude Code plugin and portable across Cursor, Gemini CLI, Antigravity, OpenCode, Windsurf, Copilot, Kiro, and Codex.
 

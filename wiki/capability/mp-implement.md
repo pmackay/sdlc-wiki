@@ -7,6 +7,7 @@ delegates_to: ["[[mp-tdd]]", "[[mp-code-review]]"]
 produces: ["[[artifact-atomic-commit]]"]
 applies: ["[[pattern-test-driven-development]]", "[[pattern-vertical-slice]]"]
 equivalent_to: ["[[gsd-execute-phase]]", "[[openspec-apply]]", "[[speckit-implement]]", "[[addy-incremental-implementation]]", "[[bmad-dev-story]]", "[[ce-work]]", "[[sp-executing-plans]]"]
+docs_url: "https://www.aihero.dev/skills-implement"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
 updated: 2026-07-09

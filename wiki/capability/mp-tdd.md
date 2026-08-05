@@ -7,6 +7,7 @@ delegates_to: []
 produces: []
 applies: ["[[pattern-test-driven-development]]"]
 equivalent_to: ["[[addy-tdd]]", "[[sp-test-driven-development]]"]
+docs_url: "https://www.aihero.dev/skills-tdd"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
 updated: 2026-07-09

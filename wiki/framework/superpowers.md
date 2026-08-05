@@ -1,12 +1,25 @@
 ---
 type: framework
 source_url: "https://github.com/obra/superpowers"
+runs_on: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
 sources: "Jesse Vincent (Prime Radiant) — Superpowers v6.1.1 (2025–2026); blog.fsck.com release announcement (2025-10-09)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-08-02
 ---
 
 # Superpowers
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Validate and Review are sibling gates that both run after Implement.
+
+```mermaid
+flowchart TB
+    A["sp-brainstorming<br/><i>Align</i>"] --> P["sp-writing-plans<br/><i>Plan</i>"] --> I["sp-executing-plans<br/><i>Implement</i>"]
+    I --> V["sp-verification-before-completion<br/><i>Validate</i>"]
+    I --> R["sp-requesting-code-review<br/><i>Review</i>"]
+    V --> Rel["sp-finishing-a-development-branch<br/><i>Release</i>"]
+    R --> Rel
+    Rel --> L["sp-writing-skills<br/><i>Learn</i>"]
+```
 
 Jesse Vincent's (Prime Radiant) **Superpowers** — *"a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them."* A deliberately **small** library — **14 skills, no personas, no slash commands** — that nonetheless behaves as an end-to-end methodology because a bootstrap skill ([[sp-using-superpowers]]) makes the rest **trigger automatically**: the agent checks for a relevant skill before *any* action and, if one applies, *must* use it. MIT; v6.1.1.
 

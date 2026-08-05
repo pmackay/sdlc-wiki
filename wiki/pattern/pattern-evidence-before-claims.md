@@ -26,5 +26,6 @@ Superpowers:
 ## See Also
 - [[pattern-anti-rationalization]] — the sibling discipline (excuse→rebuttal tables + Red Flags); frequently co-applied.
 - [[addy-doubt-driven-development]] — adversarial fresh-context self-check, a related honesty mechanism.
+- [[topic-harness-engineering]] — a **sensor** that forces a computational check (the command's real output) to back an inferential claim.
 - [[stage-validate]] — the empirical "does it actually work / did it actually pass" stage this pattern polices.
 - [[superpowers]] — the framework whose signature this pattern is.

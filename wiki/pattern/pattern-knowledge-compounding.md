@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026)"
+updated: 2026-08-05
 ---
 
 # Pattern: Knowledge compounding (each unit of work makes the next easier)
@@ -43,8 +43,20 @@ Superpowers (capability-compounding flavor only):
 
 - [[sp-writing-skills]] — codify a proven technique into a permanent, auto-triggering skill ([[artifact-skill-doc]]), authored test-first; the library grows itself. The direct counterpart to [[gstack-skillify]] — both make *the agent gain a capability* the compounded output, rather than a lesson it reads. Superpowers has no solution-corpus / retrospective flavor.
 
+Agent OS (standards-compounding flavor):
+
+- [[agent-os-discover-standards]] — the Refine phase of Discover→Inject→Build→**Refine**: a project's improved [[artifact-standards|standards]] `sync-to-profile` back into a reusable base profile (with inheritance), so the *next project* starts from the compounded conventions. Compounding applied to **standards** rather than lessons — the [[topic-harness-engineering|steering loop]] baked into the convention layer. Narrower than [[ce-compound]] (harvests arbitrary lessons); it compounds only authored conventions.
+
+## Enabled by (infrastructure)
+
+The most striking cross-layer finding in the wiki: an [execution-layer](../runtime/index.md) runtime bakes the harvest-externalize-reinject loop into the substrate, so compounding happens *without a process-layer skill asking for it*:
+
+- [[warren]] (platform) — a project's `.mulch/` directory is **persistent agent memory across runs**: prior expertise is primed into context on spawn, the agent records new conventions/patterns/failure-modes with `ml record`, and reap merges them back (last-write-wins, just files in the repo, no database). This is the infrastructure realization of [[ce-compound]] / [[gstack-learn]] — machine-consumable memory every future run auto-reads. Its `.seeds/` issue queue and `canopy` versioned prompt library compound work-items and prompts the same way.
+
 ## See Also
 - [[stage-learn]] — the canonical stage this pattern defines.
+- [[topic-harness-engineering]] — this pattern is the *steering loop* that refines guides and sensors over time.
 - [[pattern-living-specification]] — spec-level compounding (OpenSpec's [[openspec-sync]]); a narrower cousin.
 - [[pattern-context-engineering]] — how the compounded knowledge is fed back in.
 - [[compound-engineering]] — the framework built around this pattern.
+- [[warren]] — the runtime that moves knowledge compounding into the substrate (`.mulch/`).

@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/bmad-code-org/BMAD-METHOD"
 docs_url: "https://docs.bmad-method.org/"
 sources: "bmad-code-org/BMAD-METHOD README + docs.bmad-method.org (v6.10.0, 2026)"
@@ -8,6 +9,13 @@ updated: 2026-07-04
 ---
 
 # BMAD-METHOD
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted).
+
+```mermaid
+flowchart TB
+    A["bmad-analyst<br/><i>Align</i>"] --> S["bmad-pm<br/><i>Specify</i>"] --> P["bmad-architect<br/><i>Plan</i>"] --> I["bmad-dev<br/><i>Implement</i>"] --> R["bmad-code-review<br/><i>Review</i>"] --> L["bmad-retrospective<br/><i>Learn</i>"]
+```
 
 **BMAD** — "**B**reakthrough **M**ethod for **A**gile **A**I **D**riven Development" (the docs also gloss it "Build More Architect Dreams") by **bmad-code-org** — is the wiki's **most lifecycle-complete and most role-oriented framework**: an AI-driven agile method built around a cast of **named expert personas** (Analyst, PM, Architect, Developer…) who *facilitate* the human through a scale-adaptive pipeline from idea to shipped code. Install: `npx bmad-method install` (Node.js 20.12+). ~50K★, MIT. Works in Claude Code / Cursor / Copilot, with planning also available as Gemini Gems / ChatGPT GPTs ("web bundles").
 

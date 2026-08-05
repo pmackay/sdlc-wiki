@@ -6,10 +6,11 @@ implements: "[[stage-specify]]"
 delegates_to: []
 produces: ["[[artifact-spec-md]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-deep-modules]]"]
-equivalent_to: ["[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[gstack-spec]]", "[[bm-prd-creator]]", "[[nano-spec-create]]"]
+equivalent_to: ["[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[gstack-spec]]", "[[bm-prd-creator]]", "[[nano-spec-create]]", "[[agent-os-shape-spec]]"]
+docs_url: "https://www.aihero.dev/skills-to-spec"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-07-09
+updated: 2026-08-05
 ---
 
 # to-spec

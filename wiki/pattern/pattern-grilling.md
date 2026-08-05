@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Agent OS — Builder Methods (2026)"
+updated: 2026-08-05
 ---
 
 # Pattern: Grilling (elicitation interview loop)
@@ -46,6 +46,12 @@ gstack:
 Superpowers:
 
 - [[sp-brainstorming]] — Socratic **one-question-at-a-time** refinement with a HARD-GATE before any implementation; the design is presented in sections for approval before it flows into planning.
+
+Agent OS — grilling as the *only* interaction mode (every command is an AskUserQuestion interview):
+
+- [[agent-os-shape-spec]] — structured questions (scope → visuals → references → standards) drive the whole spec, one question at a time.
+- [[agent-os-plan-product]] — one-question-at-a-time vision/roadmap/tech-stack interview.
+- [[agent-os-discover-standards]] — 1-2 **"why" questions** per candidate standard, to capture rationale, not just the rule.
 
 ## See Also
 - [[stage-align]] — the stage where this applies.

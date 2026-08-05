@@ -5,10 +5,10 @@ belongs_to: "[[openspec]]"
 implements: "[[stage-specify]]"
 produces: ["[[artifact-proposal-md]]", "[[artifact-spec-delta]]", "[[artifact-design-md]]", "[[artifact-plan-md]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-living-specification]]"]
-equivalent_to: ["[[addy-spec-driven-development]]", "[[mp-to-spec]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[bm-prd-creator]]", "[[nano-spec-create]]"]
+equivalent_to: ["[[addy-spec-driven-development]]", "[[mp-to-spec]]", "[[speckit-specify]]", "[[bmad-prd]]", "[[bm-prd-creator]]", "[[nano-spec-create]]", "[[agent-os-shape-spec]]"]
 sources: "Fission-AI/OpenSpec docs — commands.md, concepts.md (2026)"
 raw: ["../../raw/openspec/2026-07-04-openspec-framework.md"]
-updated: 2026-07-09
+updated: 2026-08-05
 ---
 
 # /opsx:propose

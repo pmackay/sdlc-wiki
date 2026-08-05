@@ -1,12 +1,25 @@
 ---
 type: framework
 source_url: "https://github.com/garrytan/gstack"
+runs_on: ["[[claude-code]]", "[[opencode]]", "[[factory-droid]]"]
 sources: "Garry Tan — gstack (github.com/garrytan/gstack), MIT (2026); README, AGENTS.md, ETHOS.md, ARCHITECTURE.md"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-05
+updated: 2026-08-02
 ---
 
 # gstack
+
+**Workflow** — the primary skill per [SDLC stage](../sdlc-stage/index.md) this framework runs, top to bottom (folded and off-stage steps omitted). Validate and Review are sibling gates that both run after Implement.
+
+```mermaid
+flowchart TB
+    A["gstack-office-hours<br/><i>Align</i>"] --> S["gstack-spec<br/><i>Specify</i>"] --> P["gstack-autoplan<br/><i>Plan</i>"] --> I["gstack-design-html<br/><i>Implement</i>"]
+    I --> V["gstack-qa<br/><i>Validate</i>"]
+    I --> R["gstack-review<br/><i>Review</i>"]
+    V --> Rel["gstack-ship<br/><i>Release</i>"]
+    R --> Rel
+    Rel --> L["gstack-learn<br/><i>Learn</i>"]
+```
 
 **gstack** is Garry Tan's (President & CEO of Y Combinator) open-source, MIT-licensed toolkit that **turns Claude Code into a virtual engineering team** — "a CEO who rethinks the product, an eng manager who locks architecture, a designer who catches AI slop, a reviewer who finds production bugs, a QA lead who opens a real browser, a security officer who runs OWASP + STRIDE audits, and a release engineer who ships the PR." It is the **largest framework in this wiki**: ~54 skills (all slash-commands, all Markdown) plus standalone CLIs, organized around a full **sprint**:
 

@@ -1,7 +1,7 @@
 ---
 type: artifact
-sources: "Addy Osmani — Agent Skills (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); Matt Pocock — Skills for Real Engineers v1.1 (2026)"
-updated: 2026-07-09
+sources: "Addy Osmani — Agent Skills (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); Matt Pocock — Skills for Real Engineers v1.1 (2026); Agent OS — Builder Methods (2026)"
+updated: 2026-08-05
 ---
 
 # Artifact: SPEC.md / spec.md
@@ -21,6 +21,7 @@ Upstream of planning it is a counterpart to GSD's [[artifact-phase-context]] and
 - [[bmad-spec]] — distills intent into the five-field SPEC kernel.
 - [[gstack-spec]] — gstack's five-phase executable spec, gated by a Codex quality check before filing.
 - [[mp-to-spec]] — synthesizes the conversation into a spec (formerly `to-prd`), seams-first, published to the tracker.
+- [[agent-os-shape-spec]] — shapes a persistent, timestamped spec pack in Plan Mode, with the matching [[artifact-standards]] snapshotted into it.
 
 ## See Also
 - [[artifact-prd]] — the fuller product-requirements counterpart (MP / BMAD).

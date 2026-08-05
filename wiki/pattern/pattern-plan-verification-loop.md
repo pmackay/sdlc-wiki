@@ -34,6 +34,9 @@ gstack:
 
 - [[gstack-plan-eng-review]] — locks architecture / edge-cases / tests, gating the plan before execution.
 
+In Fowler's *harness engineering* terms this is an **inferential sensor** run at the earliest useful point — a feedback control on the *plan* before any code exists ([[topic-harness-engineering]]).
+
 ## See Also
 - [[pattern-spec-driven-development]] — the broader method this gates.
+- [[topic-harness-engineering]] — the guides/sensors control system this is a sensor within.
 - [[stage-plan]] — the stage where this applies.

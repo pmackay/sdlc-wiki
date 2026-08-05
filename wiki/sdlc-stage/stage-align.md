@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage / wayfinder", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming" }
-sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-20
+aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage / wayfinder", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming", agent-os: "plan-product" }
+sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers + Agent OS (2026)"
+updated: 2026-08-05
 ---
 
 # Stage: Align
@@ -68,8 +68,12 @@ Superpowers (grilling flavor):
 
 - [[sp-brainstorming]] — Socratic one-question-at-a-time refinement; proposes 2-3 approaches; presents the design in sections for approval; HARD-GATE before any implementation → [[artifact-design-md]] ([[pattern-grilling]]). Its design doc folds straight into [[sp-writing-plans]] (Superpowers has no separate [[stage-specify]] capability, like GSD).
 
+Agent OS (strategy/product-direction flavor):
+
+- [[agent-os-plan-product]] — a one-question interview establishing the standing `mission`/`roadmap`/`tech-stack` docs → [[artifact-product-docs]]; the direct counterpart to Compound Engineering's [[ce-strategy]] (both maintain a durable, read-as-context product anchor upstream of the spec).
+
 ## Cross-framework equivalents
-Nine frameworks now realize this stage. The **grilling / elicitation** cluster (interrogate the human) spans GSD's [[gsd-discuss-phase]] ↔ Matt's [[mp-grill-me]] ↔ Addy's [[addy-interview-me]] ↔ Spec Kit's [[speckit-clarify]] ↔ Compound Engineering's [[ce-brainstorm]] ↔ gstack's [[gstack-office-hours]] ↔ Superpowers' [[sp-brainstorming]], plus BMAD's facilitator personas, at [[pattern-grilling]]. The **codebase-investigation** flavor clusters OpenSpec's [[openspec-explore]] ↔ Addy's [[addy-idea-refine]] ↔ BMAD's [[bmad-document-project]]. The **ideation** flavor clusters [[addy-idea-refine]] ↔ [[bmad-brainstorming]] ↔ [[ce-ideate]]. Compound Engineering adds an **evaluate-external-inputs** sub-flavor ([[ce-pov]], graded verdicts) with no counterpart elsewhere. Overwhelming evidence this is a genuine canonical stage, not a framework quirk.
+Ten frameworks now realize this stage. The **grilling / elicitation** cluster (interrogate the human) spans GSD's [[gsd-discuss-phase]] ↔ Matt's [[mp-grill-me]] ↔ Addy's [[addy-interview-me]] ↔ Spec Kit's [[speckit-clarify]] ↔ Compound Engineering's [[ce-brainstorm]] ↔ gstack's [[gstack-office-hours]] ↔ Superpowers' [[sp-brainstorming]], plus BMAD's facilitator personas, at [[pattern-grilling]]. The **codebase-investigation** flavor clusters OpenSpec's [[openspec-explore]] ↔ Addy's [[addy-idea-refine]] ↔ BMAD's [[bmad-document-project]]. The **ideation** flavor clusters [[addy-idea-refine]] ↔ [[bmad-brainstorming]] ↔ [[ce-ideate]]. Compound Engineering adds an **evaluate-external-inputs** sub-flavor ([[ce-pov]], graded verdicts) with no counterpart elsewhere. Overwhelming evidence this is a genuine canonical stage, not a framework quirk.
 
 ## Split candidates
 
@@ -81,7 +85,8 @@ Nine frameworks now realize this stage. The **grilling / elicitation** cluster (
   - OpenSpec has no project-wide charter.
   - BMAD (2026-07-04) does **not** advance it: its `project-context.md` (from `bmad-generate-project-context`) and `customize.toml` carry *dev-time rules/conventions* — context engineering, not an immutable numbered charter that gates every phase. Principles otherwise live inside the [[pattern-persona-agents|personas]].
   - Compound Engineering (2026-07-04) adds a **standing upstream anchor** ([[artifact-strategy-md|STRATEGY.md]] via [[ce-strategy]]) that ideate/brainstorm/plan defer to — structurally like a charter, but it frames *product direction* (what/why to build) and is *read as context*, not an immutable set of principles *mechanically gated* against every artifact. Related flavor, but not the same govern activity. Still one framework (Spec Kit) for gated immutable principles.
-- **Decisive trigger:** a second framework that ships a dedicated set-the-project-principles capability → clears the bar → split into `stage-govern`.
+  - Agent OS (2026-08-05) is the sharpest test of the distinction: its entire value is externalized conventions ([[artifact-standards]] via [[agent-os-discover-standards]]), yet they are **injected on demand as advisory context** ([[agent-os-inject-standards]]), never *gated*. So it strongly evidences an *externalize-standards* activity but explicitly **not** the *gated-principles* one — it lands with CE on the "read as context" side. The gated bar stays at one framework (Spec Kit); if anything Agent OS suggests the real second cluster is "advisory externalized standards" (→ see [[topic-harness-engineering]], the guide layer), distinct from a gated charter.
+- **Decisive trigger:** a second framework that ships a dedicated set-the-project-principles capability *that is mechanically gated* → clears the bar → split into `stage-govern`.
 
 ## See Also
 - [[stage-specify]] · [[stage-plan]] — the next stages.
