@@ -7,6 +7,7 @@ delegates_to: []
 produces: ["[[artifact-issue]]"]
 applies: ["[[pattern-scale-adaptive-planning]]", "[[pattern-fresh-context-subagents]]"]
 equivalent_to: []
+docs_url: "https://www.aihero.dev/skills-wayfinder"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
 updated: 2026-07-20

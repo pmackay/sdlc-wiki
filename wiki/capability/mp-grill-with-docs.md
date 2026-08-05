@@ -7,6 +7,7 @@ delegates_to: ["[[mp-grilling]]"]
 produces: ["[[artifact-domain-model]]", "[[artifact-adr]]"]
 applies: ["[[pattern-grilling]]"]
 equivalent_to: []
+docs_url: "https://www.aihero.dev/skills-grill-with-docs"
 sources: "Matt Pocock — Skills for Real Engineers (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-06-28-skills-for-real-engineers.md"]
 updated: 2026-06-28

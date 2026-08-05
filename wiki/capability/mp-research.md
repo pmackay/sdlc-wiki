@@ -7,6 +7,7 @@ delegates_to: []
 produces: ["[[artifact-research-md]]"]
 applies: ["[[pattern-source-grounding]]", "[[pattern-fresh-context-subagents]]"]
 equivalent_to: ["[[gsd-phase-researcher]]"]
+docs_url: "https://www.aihero.dev/skills-research"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
 updated: 2026-07-09

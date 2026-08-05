@@ -7,6 +7,7 @@ delegates_to: []
 produces: []
 applies: ["[[pattern-systematic-debugging]]"]
 equivalent_to: ["[[gsd-debugger]]", "[[addy-debugging]]", "[[ce-debug]]", "[[gstack-investigate]]", "[[sp-systematic-debugging]]"]
+docs_url: "https://www.aihero.dev/skills-diagnosing-bugs"
 sources: "Matt Pocock — Skills for Real Engineers (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-06-28-skills-for-real-engineers.md"]
 updated: 2026-07-04
