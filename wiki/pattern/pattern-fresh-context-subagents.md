@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026)"
+updated: 2026-07-31
 ---
 
 # Pattern: Fresh-context subagents
@@ -48,7 +48,17 @@ Superpowers (a foundational principle — *"they should never inherit your sessi
 - [[sp-dispatching-parallel-agents]] — one fresh-context subagent per independent problem domain, dispatched concurrently.
 - [[sp-requesting-code-review]] — the reviewer subagent gets precisely-crafted context, never the controller's session history.
 
+## Provided by (harness)
+
+The [harness layer](../harness/index.md) provides this pattern as a *primitive* — the sub-agent mechanism lives in the agent program itself, below any framework skill:
+
+- [[claude-code]] — the **Agent / Task tool** spawns a sub-agent with its own fresh context window and a scoped toolset, returning only a final result to the caller; agent types are defined in `.claude/agents/*.md`, and several launched in one turn run concurrently. This is the harness affordance every fresh-context skill above is standing on.
+- [[opencode]] — built-in **build / plan / explore / scout** agents plus background subagents, each with its own context and scoped tools.
+- [[factory-droid]] — **Custom Droids** (Markdown+YAML in `.factory/droids/`), each with a fresh context window and its own session, model, tool policy, and autonomy level; delegated via the **Task** tool with `run_in_background` for concurrency.
+- **Not [[pi]]** — pi's minimal core deliberately omits sub-agents (extension-only); a framework that needs them is not portable to pi without an extension. The clearest case of a pattern that is a harness primitive in some harnesses and absent from another.
+
 ## See Also
 - [[pattern-wave-parallelism]] — how execution subagents are scheduled.
 - [[pattern-worktree-isolation]] — the filesystem counterpart (isolate the files, not just the context).
 - [[gsd]] · [[superpowers]] — context-engineering frameworks built on this pattern.
+- [[claude-code]] · [[opencode]] · [[factory-droid]] — the harnesses whose sub-agent tools provide this as a primitive (pi omits it from core).

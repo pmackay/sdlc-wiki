@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/Fission-AI/OpenSpec"
 sources: "Fission-AI/OpenSpec README + docs/concepts.md + docs/commands.md (2026)"
 raw: ["../../raw/openspec/2026-07-04-openspec-framework.md"]

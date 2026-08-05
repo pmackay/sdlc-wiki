@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026)"
-updated: 2026-07-17
+sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026)"
+updated: 2026-07-26
 ---
 
 # Pattern: Worktree isolation (each unit of work in its own git worktree)
@@ -27,8 +27,16 @@ Superpowers:
 - [[sp-using-git-worktrees]] — detect existing isolation → prefer the harness's native worktree tool → fall back to `git worktree` (verified git-ignored) → verify a clean test baseline.
 - [[sp-finishing-a-development-branch]] — the counterpart teardown: removes only the worktrees it created, per the merge/PR/keep/discard choice.
 
+## Enabled by (infrastructure)
+
+The [execution layer](../runtime/index.md) provides this pattern as *substrate* — the isolation exists whether or not any skill asks for it:
+
+- [[sandcastle]] (library) — `createWorktree()` plus the `branch` / `merge-to-head` strategies give every run its own worktree/branch; the worktree is preserved on a dirty exit and removed when clean.
+- [[warren]] (platform) — the same "never corrupt the trunk" intent realized at the OS level: a fresh `bwrap`-isolated workspace per run (`local`) or a dedicated pod per run (`k8s`), rather than a git worktree.
+
 ## See Also
 - [[pattern-fresh-context-subagents]] — the context-isolation cousin (isolate the agent's memory vs the filesystem).
 - [[pattern-autonomous-loop]] — the pattern this one makes safe.
 - [[pattern-trunk-based-development]] — worktrees keep short-lived branches off a clean trunk.
 - [[compound-engineering]] · [[superpowers]] — the frameworks applying this pattern.
+- [[sandcastle]] · [[warren]] — the runtimes that provide worktree/workspace isolation as infrastructure.

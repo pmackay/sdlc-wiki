@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/bmad-code-org/BMAD-METHOD"
 docs_url: "https://docs.bmad-method.org/"
 sources: "bmad-code-org/BMAD-METHOD README + docs.bmad-method.org (v6.10.0, 2026)"

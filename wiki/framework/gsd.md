@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]", "[[opencode]]"]
 source_url: "https://github.com/open-gsd/gsd-core"
 docs_url: "https://docs.opengsd.net/"
 sources: "Open GSD docs (2026); open-gsd/gsd-core README (2026)"

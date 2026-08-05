@@ -1,10 +1,11 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
 source_url: "https://github.com/EveryInc/compound-engineering-plugin"
 docs_url: "https://every.to/chain-of-thought/compound-engineering-how-every-codes-with-agents"
 sources: "Dan Shipper & Kieran Klaassen — 'Compound Engineering: How Every Codes with Agents', Every/Chain-of-Thought (2025-12-11); EveryInc/compound-engineering-plugin (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-05
+updated: 2026-08-02
 ---
 
 # Compound Engineering

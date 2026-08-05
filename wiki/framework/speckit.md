@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/github/spec-kit"
 docs_url: "https://github.github.com/spec-kit/"
 sources: "GitHub/spec-kit README + docs (github.github.com/spec-kit) + spec-driven.md (2026)"

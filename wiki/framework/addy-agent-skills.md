@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]", "[[opencode]]"]
 source_url: "https://github.com/addyosmani/agent-skills"
 sources: "Addy Osmani — Agent Skills, addyosmani/agent-skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]

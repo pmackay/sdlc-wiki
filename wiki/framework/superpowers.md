@@ -1,9 +1,10 @@
 ---
 type: framework
 source_url: "https://github.com/obra/superpowers"
+runs_on: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
 sources: "Jesse Vincent (Prime Radiant) — Superpowers v6.1.1 (2025–2026); blog.fsck.com release announcement (2025-10-09)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-08-02
 ---
 
 # Superpowers

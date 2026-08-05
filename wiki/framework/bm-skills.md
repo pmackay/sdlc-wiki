@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/buildermethods/bm-skills"
 docs_url: "https://buildermethods.com/prd-creator"
 sources: "Brian Casel (Builder Methods) — BM Skills, buildermethods/bm-skills (2026)"

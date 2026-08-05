@@ -1,5 +1,6 @@
 ---
 type: framework
+runs_on: ["[[claude-code]]"]
 source_url: "https://github.com/tao-hpu/nano-spec"
 docs_url: "https://generativeai.pub/nano-spec-the-sweet-spot-between-chaos-and-over-engineering-in-ai-assisted-development-0d0ccec202c0"
 sources: "Tao An — nano-spec, tao-hpu/nano-spec (MIT, 46★); intro article in Generative AI / Medium (2025-12-01)"

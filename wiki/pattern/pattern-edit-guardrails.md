@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026)"
-updated: 2026-07-05
+sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026)"
+updated: 2026-07-31
 ---
 
 # Pattern: Edit guardrails (gate the agent's power to destroy or stray)
@@ -25,7 +25,17 @@ gstack:
 - [[gstack-unfreeze]] — release the freeze boundary.
 - [[gstack-investigate]] — auto-freezes to the module under investigation.
 
+## Provided by (harness)
+
+The [harness layer](../harness/index.md) supplies the mutation-gating substrate that gstack's guardrail skills configure — the guardrails are policy on top of a harness primitive:
+
+- [[claude-code]] — **hooks** (a `PreToolUse` hook can block or rewrite a tool call) plus **permission modes** (default / plan / acceptEdits / bypass) and allow/deny/ask rules in `settings.json` are the enforcement layer gstack's careful/freeze/guard skills sit on; plan mode is a read-only fence before any edit is allowed.
+- [[opencode]] — a **permissions/policies** framework (e.g. the plan agent set to "ask" before edits/bash) plus **plan vs build** modes and hooks that can block a tool call.
+- [[factory-droid]] — **autonomy levels** (off/low/medium/high, set via `--auto`) + a read-only/normal review mode + permission-checked tools + **hooks** for policy enforcement + approval workflows gate what an edit or shell command may do.
+- **Not [[pi]]** — no built-in permission prompts (extension/sandbox territory); pi leans on containerization for boundaries.
+
 ## See Also
 - [[pattern-worktree-isolation]] — the filesystem-isolation complement (isolate *where* work happens vs gate *what* it may do).
 - [[pattern-autonomous-loop]] — the autonomy these guardrails make safe.
 - [[gstack]] — the framework this pattern is signature to.
+- [[claude-code]] · [[opencode]] · [[factory-droid]] — the harnesses whose hooks + permission frameworks provide the enforcement substrate (pi omits it from core).

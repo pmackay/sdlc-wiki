@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Open GSD docs (2026); obra/superpowers (2026); mattpocock/sandcastle (2026)"
+updated: 2026-07-26
 ---
 
 # Pattern: Wave parallelism
@@ -19,6 +19,11 @@ Superpowers (the concurrent-dispatch half, without GSD's dependency-ordered wave
 
 - [[sp-dispatching-parallel-agents]] — one focused subagent per *independent* problem domain, all dispatched in a single response so they run concurrently; explicitly *not* for related/shared-state work.
 
+## Enabled by (infrastructure)
+
+- [[sandcastle]] (library) — the [execution layer](../runtime/index.md)'s concurrent-dispatch substrate: parallel AFK `run()`s across isolated worktrees plus session **forking** for fan-out. Its `parallel-planner` template identifies parallelizable work and runs it concurrently, merging back. This is the concurrent-dispatch half (like [[sp-dispatching-parallel-agents]]), without GSD's dependency-ordered waves.
+
 ## See Also
 - [[pattern-fresh-context-subagents]] — each wave task runs in clean context.
 - [[stage-implement]] — the stage where this applies.
+- [[sandcastle]] — the runtime that supplies parallel isolated agent execution.
