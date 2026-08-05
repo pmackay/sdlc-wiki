@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025)"
-raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md", "../../raw/gstack/2026-07-05-gstack-framework.md", "../../raw/nano-spec/2025-12-01-nano-spec.md"]
-updated: 2026-07-13
+sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026)"
+raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md", "../../raw/gstack/2026-07-05-gstack-framework.md", "../../raw/nano-spec/2025-12-01-nano-spec.md", "../../raw/agent-os/2026-08-05-agent-os.md"]
+updated: 2026-08-05
 ---
 
 # Pattern: Scale-adaptive planning
@@ -31,6 +31,10 @@ gstack:
 nano-spec:
 
 - [[nano-spec-create]] — applies the pattern at the *methodology* level: rather than a dial inside one framework, nano-spec is a deliberate **fixed middle tier** on the no-spec → nano → full-spec (Kiro) ceremony spectrum, chosen because most work lives there. The dial is exercised by *choosing nano-spec* over the neighbours, not within it.
+
+Agent OS:
+
+- [[agent-os-plan-product]] · [[agent-os-shape-spec]] — lightweight-by-default docs, sized to the project; v3's whole design is *subtraction* — it deleted its own scaffolding and delegates the heavy lifting to the harness's Plan Mode (another methodology-level point on the ceremony spectrum, like nano-spec).
 
 ## See Also
 - [[pattern-spec-driven-development]] — the method whose ceremony this pattern modulates.

@@ -6,10 +6,10 @@ implements: "[[stage-align]]"
 delegates_to: []
 produces: ["[[artifact-strategy-md]]"]
 applies: ["[[pattern-source-grounding]]", "[[pattern-context-engineering]]"]
-equivalent_to: []
+equivalent_to: ["[[agent-os-plan-product]]"]
 sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-04
+updated: 2026-08-05
 ---
 
 # /ce-strategy

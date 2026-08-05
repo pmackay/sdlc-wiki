@@ -6,10 +6,10 @@ implements: "[[stage-specify]]"
 delegates_to: []
 produces: ["[[artifact-prd]]", "[[artifact-plan-md]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-grilling]]", "[[pattern-scale-adaptive-planning]]"]
-equivalent_to: ["[[bmad-prd]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[gstack-spec]]", "[[nano-spec-create]]"]
+equivalent_to: ["[[bmad-prd]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[gstack-spec]]", "[[nano-spec-create]]", "[[agent-os-shape-spec]]"]
 sources: "Brian Casel (Builder Methods) — BM Skills (2026)"
 raw: ["../../raw/bm-skills/2026-07-09-bm-skills.md"]
-updated: 2026-07-09
+updated: 2026-08-05
 ---
 
 # PRD Creator (bm-prd-creator)

@@ -1,10 +1,10 @@
 # Wiki Conventions — SDLC Agent-Skill Ontology
 
-This wiki documents software-development-lifecycle (SDLC) agent **frameworks** and the **capabilities** they ship (commands, skills, sub-agents), then synthesizes the common lifecycle that emerges across them. It is built and maintained with the `karpathy-llm-wiki` skill: `raw/` holds immutable sources, `wiki/` holds compiled articles. This file is the **schema layer** for `wiki/` — read it before any ingest.
+This wiki documents software-development-lifecycle (SDLC) agent **frameworks** and the **capabilities** they ship (commands, skills, sub-agents), then synthesizes the common lifecycle that emerges across them. Two lower layers document the substrate the process layer runs on: the agent **harness** — the agent program itself (Claude Code, pi, OpenCode, …) that loads a framework's skills and drives the model's tool-call loop — and, below that, the agent **runtime** — the execution/orchestration substrate (sandbox isolation, parallelism, branch→PR, AFK autonomy, steering, persistence) that spawns and wraps harnesses to decide *where and how* they run. Frameworks are portable *across* harnesses; runtimes are agnostic *to* them; the harness is the pivot both other layers are defined relative to. All three layers meet at the `pattern` namespace. It is built and maintained with the `karpathy-llm-wiki` skill: `raw/` holds immutable sources, `wiki/` holds compiled articles. This file is the **schema layer** for `wiki/` — read it before any ingest.
 
 ## The ontology at a glance
 
-Five node types, six relationship edges. **`capability` is the hub**: every stored edge originates from a capability page's frontmatter. The other four types carry no forward edges — their relationships are the inverse (backlink) views. `sdlc-stage` is special: it stores nothing and is a **derived projection**, synthesized from the `implements:` backlinks pointing at it (the dashed edge). `implements:` drives that synthesis; `equivalent_to:` (capability ↔ capability, across frameworks) drives cross-framework clustering.
+Seven node types, nine relationship edges. **`capability` is the hub** of the process layer: every process-layer edge originates from a capability page's frontmatter. **`runtime` and `harness` are two more edge-origins** — the substrate layers below the process layer. A `framework` page carries one forward edge of its own (`runs_on:` → harness); a `runtime` carries two (`runs:` → harness, `enables:` → pattern); a `harness` carries one (`enables:` → pattern). Both substrate layers land at the `pattern` namespace, the seam where all three layers meet. The remaining types carry no forward edges — their relationships are the inverse (backlink) views. `sdlc-stage` is special: it stores nothing and is a **derived projection**, synthesized from the `implements:` backlinks pointing at it (the dashed edge). `implements:` drives that synthesis; `equivalent_to:` (capability ↔ capability, across frameworks) drives cross-framework clustering.
 
 ```mermaid
 flowchart LR
@@ -13,6 +13,8 @@ flowchart LR
     STG(sdlc-stage)
     ART[/artifact/]
     PAT[\pattern\]
+    HAR{{harness}}
+    RT{{runtime}}
 
     CAP -->|belongs_to| FW
     CAP -->|implements| STG
@@ -21,25 +23,37 @@ flowchart LR
     CAP -->|delegates_to| CAP
     CAP -->|equivalent_to| CAP
 
+    FW -->|runs_on| HAR
+    RT -->|runs| HAR
+    HAR -->|enables| PAT
+    RT -->|enables| PAT
+
     STG -.->|derived projection: synthesized<br/>from implements backlinks| CAP
 
     classDef derived stroke-dasharray:4 4;
     class STG derived;
+    classDef exec stroke-width:2px;
+    class RT exec;
+    class HAR exec;
 ```
 
-Solid arrows are stored edges (`[[wikilinks]]` in capability frontmatter); the dashed arrow is the derived synthesis, not a stored field. The [Node types](#node-types--topic-namespaces) and [Relationship vocabulary](#relationship-vocabulary) tables below define each box and label precisely.
+Solid arrows are stored edges (`[[wikilinks]]` in capability, framework, runtime, **or harness** frontmatter); the dashed arrow is the derived synthesis, not a stored field. The two substrate layers attach at two kinds of seam: **`framework --runs_on--> harness`** and **`runtime --runs--> harness`** bind the layers to one another (the harness is the shared pivot), while **`enables:`** — carried by *both* `runtime` and `harness` — lands in the `pattern` namespace. So `pattern` now collects **three** backlink rosters: `applies:` (process-side, from capabilities), `enables:` from runtimes (infra-side), and `enables:` from harnesses (harness-side). The [Node types](#node-types--topic-namespaces) and [Relationship vocabulary](#relationship-vocabulary) tables below define each box and label precisely.
 
 ## Node types (= topic namespaces)
 
-The wiki's one-level topic directories map 1:1 to the five ontology node types:
+The wiki's one-level topic directories map 1:1 to the seven ontology node types:
 
 | Namespace (`wiki/…/`) | `type:` | What it is |
 |-----------------------|---------|------------|
-| `framework/`   | `framework`  | A complete SDLC agent toolkit / methodology (e.g. GSD, SpecKit, OpenSpec). |
+| `framework/`   | `framework`  | A complete SDLC agent toolkit / methodology (e.g. GSD, SpecKit, OpenSpec). Carries one forward edge, `runs_on:` → harness. |
 | `capability/`  | `capability` | A single unit of work a framework exposes. Carries a `subtype:` (see below). |
 | `sdlc-stage/`  | `sdlc-stage` | A canonical lifecycle stage. **Derived projection** — its body is synthesized from the capabilities that `implements:` it (its backlinks are the evidence). Its name and definition are **framework-neutral**: the most generic term that covers all frameworks' evidence, never a label lifted from one framework. Reviewed and re-derived on every ingest (see [Stage re-derivation](#stage-re-derivation-keep-stages-framework-neutral)). |
 | `artifact/`    | `artifact`   | A concrete output a capability produces (e.g. an atomic commit, a spec file, a plan). |
-| `pattern/`     | `pattern`    | A reusable technique a capability applies (e.g. wave parallelism, plan-then-act). |
+| `pattern/`     | `pattern`    | A reusable technique a capability applies (e.g. wave parallelism, plan-then-act). Also the **seam to the two substrate layers**: `runtime` **and** `harness` pages `enables:` patterns here. |
+| `harness/`     | `harness`    | An agent **program / CLI** — the agent loop that loads a framework's skills and runs the model's tool-call cycle (e.g. Claude Code, pi, OpenCode). The **pivot both other layers are defined against**: frameworks `runs_on:` it, runtimes `runs:` it. Carries a `subtype:` (terminal \| ide). Connects to the ontology by `enables:` → `pattern` (the execution primitives — sub-agents, hooks, MCP, skill-loading — that capabilities build on); performs **no** SDLC stage, so it carries no `implements:` / `belongs_to:` / `equivalent_to:`. |
+| `runtime/`     | `runtime`    | An agent **execution / orchestration substrate** — the harness-agnostic layer deciding *where and how* agents run (sandbox isolation, parallelism, branch→PR, AFK autonomy, steering, persistence), as opposed to the process layer's *what*. Carries a `subtype:` (library \| platform). Connects to the ontology through `runs:` → `harness` and `enables:` → `pattern`, **not** `implements:` → `sdlc-stage` — a runtime performs no SDLC stage, it spawns the harness that hosts the agent that does. |
+
+There is also an **eighth namespace, `topic/`, that is deliberately *not* one of the seven ontology node types** — it is a curated navigation overlay that sits *above* the graph rather than participating in it. See [The topic layer](#the-topic-layer-curated-overlays) below.
 
 ### `capability` subtypes
 
@@ -47,6 +61,22 @@ The wiki's one-level topic directories map 1:1 to the five ontology node types:
 subtype: command    # an invocable slash-command / entrypoint
 subtype: skill      # a loadable skill (SKILL.md unit)
 subtype: sub-agent  # a delegated agent a command spawns
+```
+
+### `harness` subtypes
+
+```
+subtype: terminal   # a terminal/CLI (or TUI) agent run in a shell (e.g. Claude Code, pi, OpenCode, Codex)
+subtype: ide        # an editor-embedded agent (e.g. Cursor, Copilot, Windsurf)
+```
+
+Classify by the harness's **native / primary** interaction surface. A `terminal` harness may also ship IDE extensions or a web/desktop app (Claude Code does) without becoming `ide`; the subtype records where it *lives first*, because that is what a framework's skill/command format targets.
+
+### `runtime` subtypes
+
+```
+subtype: library    # an embeddable SDK/toolkit you script your own orchestration with (e.g. Sandcastle)
+subtype: platform   # a self-hostable control-plane service with UI/API (e.g. Warren)
 ```
 
 ## Frontmatter schema (Tolaria style)
@@ -71,6 +101,39 @@ updated: 2026-06-27
 ---
 ```
 
+A `framework` page now also carries a single forward edge, **`runs_on:`** → harness[], recording which harnesses its skills/commands run on (this is the only forward edge a framework stores; its capabilities carry the rest).
+
+A `harness` page's frontmatter is lean — one relationship edge (`enables:`) plus a scalar `subtype:` and the bookkeeping fields. Like a runtime it carries **no** `implements:` / `belongs_to:` / `equivalent_to:`; it performs no stage. It is a target of `runs_on:` (frameworks) and `runs:` (runtimes), and a source of `enables:` (patterns):
+
+```yaml
+---
+# wiki/harness/claude-code.md
+type: harness
+subtype: terminal
+enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
+# --- karpathy bookkeeping ---
+sources: "Anthropic — Claude Code docs (2026)"
+raw: ["../../raw/harness/2026-07-31-claude-code.md"]
+updated: 2026-07-31
+---
+```
+
+A `runtime` page's frontmatter carries two relationship edges (`runs:` → harness, `enables:` → pattern) plus a scalar `subtype:` and the bookkeeping fields. It carries **no** `implements:` / `belongs_to:` / `equivalent_to:`; it is not a framework and performs no stage:
+
+```yaml
+---
+# wiki/runtime/sandcastle.md
+type: runtime
+subtype: library
+runs: ["[[claude-code]]"]   # extend with codex / pi / cursor / opencode / copilot as those harness pages are ingested
+enables: ["[[pattern-worktree-isolation]]", "[[pattern-autonomous-loop]]", "[[pattern-wave-parallelism]]", "[[pattern-session-handoff]]"]
+# --- karpathy bookkeeping ---
+sources: "mattpocock/sandcastle (MIT, 2026)"
+raw: ["../../raw/runtime/2026-07-26-sandcastle.md"]
+updated: 2026-07-26
+---
+```
+
 ### Relationship vocabulary
 
 | Edge | Domain → Range | Meaning |
@@ -81,16 +144,21 @@ updated: 2026-06-27
 | `produces`      | capability → artifact[]       | Concrete outputs. |
 | `applies`       | capability → pattern[]        | Techniques used. |
 | `equivalent_to` | capability → capability[]     | Cross-framework counterparts. **Drives clustering.** |
+| `runs_on`       | framework → harness[]         | The harnesses this framework **officially supports / documents** — *not* every harness it could theoretically run on. Makes cross-harness portability structural (was prose like *"cross-harness"*). See the support-scope rule below. |
+| `runs`          | runtime → harness[]           | The harnesses this runtime **officially lists as a provider / target** — the documented provider set, not any harness it might host. Makes harness-agnosticism structural (was prose like *"provider-agnostic"*). |
+| `enables`       | runtime **or** harness → pattern[] | A pattern this substrate provides — the *infra-side* (runtime) or *harness-side* (harness) realization of a pattern that capabilities `apply` at the *process* level. **The seam where the substrate layers meet the process layer.** |
 
 Single targets may be a bare string; multiple targets use a YAML list. All targets are `[[wikilink]]` strings resolved by file basename (Obsidian/Tolaria style), so basenames are globally unique — see naming below.
 
 ### Derived edges (backlinks, not stored)
 
-Stage / framework / artifact / pattern pages do **not** store inverse edges. They are computed from backlinks:
+Stage / framework / artifact / pattern / harness pages do **not** store inverse edges. They are computed from backlinks:
 
 - `sdlc-stage` page ← `implements:` backlinks = the capabilities realizing this stage.
-- `framework` page ← `belongs_to:` backlinks = its capability catalogue.
-- `artifact` page ← `produces:` backlinks; `pattern` page ← `applies:` backlinks.
+- `framework` page ← `belongs_to:` backlinks = its capability catalogue. (It also *stores* one forward edge, `runs_on:`.)
+- `artifact` page ← `produces:` backlinks; `pattern` page ← `applies:` backlinks (process-side) **plus two `enables:` rosters — infra-side from `runtime` pages and harness-side from `harness` pages**.
+- `harness` page ← `runs_on:` backlinks (frameworks that run on it) **and** `runs:` backlinks (runtimes that spawn it); it *stores* `enables:` (patterns) forward. So a harness is both a target (of `runs_on:` / `runs:`) and a source (of `enables:`) — like `capability`.
+- `runtime` pages store `runs:` and `enables:` and are otherwise pure sources — nothing links *to* them via the stored edges (a runtime is never a target).
 
 ## Naming convention (ensures unique basenames)
 
@@ -101,6 +169,9 @@ Stage / framework / artifact / pattern pages do **not** store inverse edges. The
 | sdlc-stage  | `stage-<name>`            | `stage-implement`, `stage-validate` |
 | artifact    | `artifact-<name>`         | `artifact-atomic-commit` |
 | pattern     | `pattern-<name>`          | `pattern-wave-parallelism` |
+| harness     | `<harness>`               | `claude-code`, `pi`, `opencode` |
+| runtime     | `<runtime>`               | `sandcastle`, `warren` |
+| topic (overlay) | `topic-<name>`        | `topic-harness-engineering` |
 
 Files: `wiki/<namespace>/<basename>.md`, kebab-case, ≤60 chars.
 
@@ -116,6 +187,74 @@ The synthesized lifecycle therefore lives in `sdlc-stage/` pages, each a **deriv
 Do not invent stage content; a stage page is only as strong as the capabilities that link into it. Write/expand stage pages as evidence (backlinks) accumulates.
 
 The stage set is a **hypothesis that improves with evidence**, not a fixed schema. It started from one framework and must be re-derived toward the generic as more arrive — see below. Some arcs to sanity-check the derived set against (these are reference points, not the canonical names): the spec-driven loop `classify → prompt → execute → validate → checkpoint`, and the pre-spec arc `explore → shape → execute`.
+
+## The harness layer
+
+Between the process layer and the execution layer sits the **harness** — the agent program itself: the loop that reads a framework's skills/commands, assembles context, calls the model, executes the model's tool calls (subject to a permission/hook policy), spawns sub-agents, and returns a result. Claude Code, pi, OpenCode, Codex, Cursor, and Copilot are harnesses.
+
+A harness is neither a `framework` nor a `runtime`, by this wiki's own definitions:
+
+- **Not a framework.** A framework ships an opinionated SDLC *methodology* (capabilities across the lifecycle). A harness ships *execution primitives* — a tool-call loop, sub-agent spawning, MCP, hooks, a skill loader — that frameworks are built *on top of*. Claude Code performs no lifecycle stage; it *loads* GSD's or Superpowers' skills and runs them. (A harness may bundle a few of its own built-in commands, but those are host affordances, not a methodology.)
+- **Not a runtime.** A runtime *spawns and wraps* harnesses to parallelize/sandbox/AFK them; the harness is the thing being orchestrated. Sandcastle and Warren launch Claude Code — they are one layer down.
+
+The harness is the **pivot both other layers are already defined against**: frameworks are described as *"cross-harness"* (Superpowers runs on Claude Code/Codex/Cursor/Kimi/OpenCode/pi) and runtimes as *"harness-agnostic"* (Sandcastle runs Claude Code/Codex/pi/…). Making `harness` a node turns those two hand-wavy prose properties into stored, queryable edges — `framework --runs_on--> harness` and `runtime --runs--> harness` — that both point at the same shared node. That is the sign it is a real, load-bearing node rather than scope creep.
+
+**How it joins the ontology graph.** Like a runtime, a harness attaches only at `pattern`, via `enables:` — but where a runtime provides *orchestration* substrate, a harness provides *execution primitives*. Several patterns are dual- or triple-sided: [[pattern-fresh-context-subagents]] is `applied` by capabilities (process-side) yet `enabled` by the harness's sub-agent tool (harness-side); [[pattern-edit-guardrails]] is gstack's signature skill set yet rests on the harness's hooks + permission modes. A `pattern` page therefore carries up to three backlink rosters — **Applied by** (capabilities), **Enabled by (infrastructure)** (runtimes), **Provided by (harness)** (harnesses). Keep them as separate subsections.
+
+**The synthesis axis** — as with runtimes, *collect instances then synthesize the dimensions they share*, but the dimensions are **harness capabilities**, not SDLC stages: skill/command format (SKILL.md · AGENTS.md · slash-commands) · sub-agents · MCP · hooks/extensibility · permissions & guardrails · model access/routing · memory & context files (CLAUDE.md/AGENTS.md) · plan mode & steering · interaction surface (CLI/TUI/IDE/web) · distribution/license. With only a handful documented these live as a **comparison matrix** in `wiki/harness/index.md` and as prose per page — **not** minted as their own derived-node namespace (premature abstraction for so few instances). Graduate the matrix into derived nodes only if the layer grows enough that it stops scaling — the same discipline parked for runtimes.
+
+**The harness/runtime boundary (decide with this test).** When a tool blurs the line — Cursor has orchestration features; Claude Code ships an Agent SDK — page the single agent loop you talk to as the `harness`, and note its orchestration features as *runtime-adjacent* prose rather than minting a second node. A harness is *the loop*; a runtime *spawns loops*.
+
+**Support scope — wire `runs_on:` / `runs:` to *officially supported* harnesses only.** An edge means the framework's (or runtime's) own docs claim support for that harness — not that it *could* run there. A framework that a user *happens* to run under some other harness does not earn an edge. This keeps the harness backlink rosters a map of documented compatibility, not speculation. Corollary: when an officially-supported harness has **no page yet**, do not point an edge at a non-existent target — record the support in prose (a bold-text mention, per the runtime "broader category" precedent) and add the stored edge when that harness is ingested. So the stored-edge set trails the documented-support set until every referenced harness has a page; the log tracks the gap.
+
+**Ingesting a harness:** source → `raw/harness/YYYY-MM-DD-slug.md`; create `wiki/harness/<name>.md` with `type: harness`, a `subtype:` (terminal \| ide), and `enables:` edges to the primitives-as-patterns it provides; create stub `pattern` pages for any new targets; add a **Provided by (harness)** subsection to each enabled pattern; wire the `runs_on:` edge on every `framework` that runs on it and the `runs:` edge on every `runtime` that spawns it (create the harness page *before* those edges so nothing dangles); refresh the harness matrix in `wiki/harness/index.md` and the `## harness` section in `index.md`; log it. A harness implements no stage, so there is no stage re-derivation.
+
+## The execution layer (runtimes)
+
+The `framework`/`capability`/`sdlc-stage` triad models the **process layer** — *what* an agent does across the lifecycle. `runtime` pages model a third, orthogonal **execution layer** — *where and how* the agent runs. A runtime is [harness](#the-harness-layer)-agnostic (it runs Claude Code, Codex, pi, … interchangeably — a fact now stored as `runs:` → harness edges) and framework-agnostic (you could run any process framework's skills inside it), so it deliberately carries **no** `belongs_to`, `implements`, or `equivalent_to` edge. It is not a smaller framework; it is a different kind of thing.
+
+The two layers connect at exactly one point: the `pattern` namespace. Several patterns have both a **process-side** expression (a capability `applies:` it — a skill instructing the agent) and an **infra-side** expression (a runtime `enables:` it — a substrate that provides it). Worktree isolation, the autonomous loop, wave parallelism, session handoff, and knowledge compounding are the current dual-sided patterns. A pattern page therefore now carries two backlink rosters: **Applied by** (capabilities) and **Enabled by (infrastructure)** (runtimes). Keep them as separate subsections.
+
+The wiki's method — *collect instances of a layer, then synthesize the dimensions they share* — applies to runtimes too, but the synthesized dimensions are **orchestration concerns**, not SDLC stages: isolation model · parallelism · autonomy/AFK · steering (HITL) · persistence/memory · provider/harness-agnosticism · branch→PR · self-host topology · distribution (library vs platform). With only a handful of runtimes documented, these concerns live as a **comparison matrix** in `index.md`'s `## runtime` section and as prose on each page — they are **not** minted as their own derived-node namespace (that would be premature abstraction for so few instances). If the runtime layer grows enough that the matrix stops scaling, graduate the concerns into their own derived-projection nodes (the runtime analogue of `sdlc-stage`), mirroring the stage synthesis. Park that decision here until the evidence demands it.
+
+**Ingesting a runtime:** source → `raw/runtime/YYYY-MM-DD-slug.md`; create `wiki/runtime/<name>.md` with `type: runtime`, a `subtype:`, and `enables:` edges to the patterns it provides; create stub `pattern` pages for any new targets; add an **Enabled by (infrastructure)** subsection to each enabled pattern; refresh the `## runtime` matrix in `index.md`; log it. There is no stage re-derivation for runtimes (they implement no stage), but re-check whether a newly evidenced orchestration concern warrants graduating the matrix per the paragraph above.
+
+## The topic layer (curated overlays)
+
+Everything above is the **ontology graph** — nodes joined by stored edges, plus the one derived projection (`sdlc-stage`). The `topic/` namespace is a different kind of object: an **authored, top-down, cross-namespace reference page** — a *Map of Content* — that frames a theme and links *out* to the specific pages that instantiate it. Where a `pattern` is minted **bottom-up from capability backlinks** (evidence rolls up), a `topic` is written **top-down from a thesis** (a lens reaches down). It exists for *navigation and synthesis-in-prose*, not to carry ontology.
+
+**The four aggregations, kept distinct.** The wiki now has four ways a page can gather others; they must not be confused:
+
+| Page | Direction | Membership | Role |
+|------|-----------|------------|------|
+| `index.md` | — | exhaustive, one namespace | mechanical catalogue |
+| `sdlc-stage` | bottom-up | **derived** from `implements:` backlinks; framework-neutral; one canonical set | part of the synthesis machinery |
+| `pattern` | bottom-up | the capabilities that `apply:` it (stored edge) | one reusable technique |
+| `topic` | **top-down** | hand-picked links across *any* namespaces; open-ended; may be opinionated | curated overlay / reference hub |
+
+**The overlay rule — a topic must not pollute the synthesis graph.** A topic's `[[links]]` are *soft navigation only*. Concretely:
+
+1. A topic carries **no stored ontology edges** — no `implements` / `applies` / `produces` / `enables` / `runs_on`. Its links live in prose, never in frontmatter as a semantic edge.
+2. A topic link is **never evidence**. It may not be counted toward any target's `Applied by` / `Produced by` / `Enabled by` / stage-`implements` roster, and stage re-derivation ignores topics entirely.
+3. **Do not hand-author "Referenced by topic X" rosters** onto target pages. (Obsidian's automatic backlink panel will surface the topic for navigation — that is fine and is the point; the rule bars *authored* rosters that would blur evidence with curation.)
+
+So a topic is read-only with respect to the graph: it consumes the wiki's structure without changing it. Deleting every topic page would leave the ontology and its synthesis completely intact.
+
+**Frontmatter is lean** — `type: topic`, plus bookkeeping (`sources`, optional `raw`, `updated`). No relationship edges.
+
+```yaml
+---
+# wiki/topic/topic-harness-engineering.md
+type: topic
+sources: "Martin Fowler — 'Harness Engineering' (2026); wiki synthesis"
+raw: ["../../raw/reference/2026-08-05-fowler-harness-engineering.md"]
+updated: 2026-08-05
+---
+```
+
+**Discipline — few, high-value, and accepted-as-hand-maintained.** A topic earns a page only when its theme genuinely spans **≥3 namespaces** (or many pages) *and* a reader could not assemble it from an existing page. Unlike `sdlc-stage` (auto-derived, self-maintaining) a topic is *authored* and will drift as its targets evolve — that upkeep cost is the price of the overlay, so mint them sparingly for load-bearing themes only (the same "don't abstract prematurely" discipline parked for the runtime/harness synthesis dimensions). When a topic's whole content could live as a section on one existing page, put it there instead.
+
+**Authoring a topic:** create `wiki/topic/<topic-name>.md` with `type: topic`; write the framing thesis and the curated out-links (bullet lists per the formatting rule); optionally capture any external reference into `raw/reference/YYYY-MM-DD-slug.md` and cite it; add a row to the `## topic` section of `index.md`; log it. **No stage re-derivation, no backlink cascade** — a topic touches nothing but itself and `index.md`.
 
 ## Stage re-derivation (keep stages framework-neutral)
 

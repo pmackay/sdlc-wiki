@@ -39,8 +39,11 @@ Superpowers:
 - [[sp-requesting-code-review]] — dispatch a fresh-context reviewer specifically to *catch issues before they cascade* (never the controller's history).
 - [[sp-subagent-driven-development]] — a two-stage task review (spec compliance ∥ code quality) after every task, with a rule against pre-judging findings ("do not flag X" is forbidden).
 
+In Fowler's *harness engineering* terms this is the archetypal **inferential sensor** (LLM-as-judge) — a semantic feedback control for the judgments no deterministic linter can make; use it where a **computational sensor** can't reach. See [[topic-harness-engineering]].
+
 ## See Also
 - [[pattern-parallel-persona-review]] — BMAD implements this by fanning several adversarial layers out in parallel.
 - [[pattern-fresh-context-subagents]] — the clean-context mechanism this builds on.
 - [[pattern-anti-rationalization]] — the passive, page-level form of the same distrust.
+- [[topic-harness-engineering]] — guides vs sensors; computational vs inferential controls.
 - [[stage-implement]], [[stage-review]] — where the doubt loops run.

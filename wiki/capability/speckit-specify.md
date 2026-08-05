@@ -5,10 +5,10 @@ belongs_to: "[[speckit]]"
 implements: "[[stage-specify]]"
 produces: "[[artifact-spec-md]]"
 applies: "[[pattern-spec-driven-development]]"
-equivalent_to: ["[[openspec-propose]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[bmad-prd]]", "[[bm-prd-creator]]", "[[nano-spec-create]]"]
+equivalent_to: ["[[openspec-propose]]", "[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[bmad-prd]]", "[[bm-prd-creator]]", "[[nano-spec-create]]", "[[agent-os-shape-spec]]"]
 sources: "GitHub/spec-kit README + spec-driven.md (2026)"
 raw: ["../../raw/speckit/2026-07-04-speckit-framework.md"]
-updated: 2026-07-09
+updated: 2026-08-05
 ---
 
 # speckit-specify

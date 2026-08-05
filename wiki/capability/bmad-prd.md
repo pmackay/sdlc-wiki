@@ -6,10 +6,10 @@ implements: "[[stage-specify]]"
 delegates_to: []
 produces: ["[[artifact-prd]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-grilling]]", "[[pattern-context-engineering]]"]
-equivalent_to: ["[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bm-prd-creator]]", "[[nano-spec-create]]"]
+equivalent_to: ["[[mp-to-spec]]", "[[addy-spec-driven-development]]", "[[openspec-propose]]", "[[speckit-specify]]", "[[bm-prd-creator]]", "[[nano-spec-create]]", "[[agent-os-shape-spec]]"]
 sources: "bmad-code-org/BMAD-METHOD — bmad-prd (2026)"
 raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md"]
-updated: 2026-07-09
+updated: 2026-08-05
 ---
 
 # bmad-prd

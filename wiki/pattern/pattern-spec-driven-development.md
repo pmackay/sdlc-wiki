@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); Fission-AI/OpenSpec (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025)"
-updated: 2026-07-13
+sources: "Open GSD docs (2026); Fission-AI/OpenSpec (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026)"
+updated: 2026-08-05
 ---
 
 # Pattern: Spec-driven development
@@ -53,6 +53,10 @@ Builder Methods — BM Skills:
 nano-spec:
 
 - [[nano-spec-create]] — the minimalist instance: a fixed 4-file pack ([[artifact-nano-spec-pack]]) as the smallest useful spec, then drive the agent from it.
+
+Agent OS:
+
+- [[agent-os-shape-spec]] — *shapes* (rather than generates) a spec in the harness's Plan Mode into a persistent, standards-bound pack; v3 delegates spec authoring to the model and keeps only the structuring + durability.
 
 ## See Also
 - [[pattern-living-specification]] — OpenSpec's specialization: a permanent, delta-maintained spec.
