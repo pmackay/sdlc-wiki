@@ -42,6 +42,14 @@ jobs:
           mkdir -p quartz-build/content
           cp -R wiki/. quartz-build/content/
 
+      # Quartz titles a page from frontmatter and falls back to the *filename*,
+      # with no config option to prefer the first heading — so every page would
+      # render its slug ("gsd", "stage-align") as heading and browser title.
+      # This promotes each note's H1 into frontmatter on the copied tree only,
+      # keeping the source vault pure Markdown (B-lean, as above).
+      - name: Derive page titles from H1 headings
+        run: python3 .github/scripts/inject-titles.py quartz-build/content
+
       - name: Configure Quartz (baseUrl, title, analytics)
         working-directory: quartz-build
         run: |
