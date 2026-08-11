@@ -1,4 +1,6 @@
-# Artifacts — Index (lifecycle flow + counterpart map)
+# Artifacts
+
+*Index — lifecycle flow + counterpart map.*
 
 The concrete **outputs** capabilities produce, one page per artifact. Each artifact is `produces:`-linked from the capabilities that write it (see [CONVENTIONS.md](../CONVENTIONS.md)) and carries its own `See Also` cross-links. This index projects those links two ways: a whole-lifecycle **flow overview** showing how one artifact leads to the next across the eight [SDLC stages](../sdlc-stage/index.md), then a **stage-by-stage detail** section that zooms into each stage with the layout that best fits its artifacts. The lifecycle is a loop, not a line — the Learn-stage artifacts feed back into the front of the next iteration.
 

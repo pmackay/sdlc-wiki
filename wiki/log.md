@@ -416,3 +416,12 @@
 - **Verified on a copy of `wiki/`:** 331 injected, 2 skipped (`index.md` + `catalogue.md`, which now carry explicit titles); all 333 files parse with `title` as the first frontmatter key; no duplicate titles; longest title 99 chars.
 - **Consequence for authors:** a page's `#` heading is now also its site title and browser-tab text — worth writing as a real title rather than a slug. Pages may still set `title:` explicitly to override; the two landing pages do.
 - **Known state after deploy (verified live):** the mechanism works everywhere, but **201 of 333 pages carry a slug-style `#` heading** (no spaces) and so now show that slug as their title — 190 `capability`, 5 `framework`, 4 `harness`, 2 `runtime`. For capability pages this is often intentional (`# /gsd-execute-phase` *is* the command name); for others it is just a lowercase stand-in for a proper name (`# claude-code` → "Claude Code", `# warren` → "Warren"). The remaining 132 pages render proper prose titles (`Stage: Align`, `GSD — Git. Ship. Done.`, `Artifact: Atomic commit`). Deliberately **not** mass-rewritten — H1s are content, and the identifier-vs-name call differs per namespace. Open question for a future pass.
+
+## [2026-08-11] docs | concise titles + deks on the four namespace index pages
+- Follow-on from the H1→title build step: the layer/index pages carried their explanatory clause *inside* the heading, so the site title and browser tab read as a full sentence.
+- Split each into a short heading plus an italic dek on the line below (the dek becomes the first body line once the build promotes the H1):
+  - `Artifacts — Index (lifecycle flow + counterpart map)` → **Artifacts** · *Index — lifecycle flow + counterpart map.*
+  - `SDLC Stages — Index (execution order)` → **SDLC Stages** · *Index — the eight canonical stages, in execution order.*
+  - `Harness — the agent-program layer` → **Harness** · *The agent-program layer — the loop that loads a framework's skills and drives the model's tool calls.*
+  - `Runtime — the execution layer` → **Runtime** · *The execution layer — the harness-agnostic substrate deciding where and how agents run.*
+- Verified by running the build transform on a copy: all four yield the concise `title:`, and the blank line between dek and first paragraph survives (so the dek stays its own paragraph rather than merging). No links changed — every reference to these pages is path-based, not title-based.
