@@ -1,4 +1,6 @@
-# Catalogue
+---
+title: Catalogue
+---
 
 The exhaustive index of every article in this wiki, one section per ontology namespace. New to the wiki? Start at the **[introduction](index.md)** instead — it explains what these namespaces mean and suggests where to begin.
 

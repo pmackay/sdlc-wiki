@@ -1,4 +1,6 @@
-# SDLC Agent-Skill Wiki
+---
+title: SDLC Agent-Skill Wiki
+---
 
 **A comparative map of the toolkits people have built to make AI coding agents follow a software development lifecycle — and a synthesis of what they all turn out to agree on.**
 
