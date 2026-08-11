@@ -152,4 +152,4 @@ The useful synthesis is not "adopt one rubric" but the ordering both agree on. R
 - [[agent-os]] — the framework whose entire value proposition is the guide layer that Visdom's Context Engineering L2–L3 criteria describe.
 - [[sandcastle]] · [[warren]] — the runtime layer that Visdom's Infrastructure perspective scores as a maturity ladder.
 - [[stage-learn]] — the compounding loop the rubrics place at L4–L5.
-- Factory.ai, *Agent Readiness* ([capture](../../raw/reference/2026-08-07-factory-agent-readiness.md)) · VirtusLab, *Visdom AI-Native SDLC Maturity Matrix* ([capture](../../raw/reference/2026-08-07-visdom-maturity-matrix.md)).
+- Factory.ai, *Agent Readiness* ([capture](https://github.com/pmackay/sdlc-wiki/blob/main/raw/reference/2026-08-07-factory-agent-readiness.md)) · VirtusLab, *Visdom AI-Native SDLC Maturity Matrix* ([capture](https://github.com/pmackay/sdlc-wiki/blob/main/raw/reference/2026-08-07-visdom-maturity-matrix.md)).
