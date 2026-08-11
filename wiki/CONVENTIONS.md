@@ -207,7 +207,7 @@ The harness is the **pivot both other layers are already defined against**: fram
 
 **Support scope — wire `runs_on:` / `runs:` to *officially supported* harnesses only.** An edge means the framework's (or runtime's) own docs claim support for that harness — not that it *could* run there. A framework that a user *happens* to run under some other harness does not earn an edge. This keeps the harness backlink rosters a map of documented compatibility, not speculation. Corollary: when an officially-supported harness has **no page yet**, do not point an edge at a non-existent target — record the support in prose (a bold-text mention, per the runtime "broader category" precedent) and add the stored edge when that harness is ingested. So the stored-edge set trails the documented-support set until every referenced harness has a page; the log tracks the gap.
 
-**Ingesting a harness:** source → `raw/harness/YYYY-MM-DD-slug.md`; create `wiki/harness/<name>.md` with `type: harness`, a `subtype:` (terminal \| ide), and `enables:` edges to the primitives-as-patterns it provides; create stub `pattern` pages for any new targets; add a **Provided by (harness)** subsection to each enabled pattern; wire the `runs_on:` edge on every `framework` that runs on it and the `runs:` edge on every `runtime` that spawns it (create the harness page *before* those edges so nothing dangles); refresh the harness matrix in `wiki/harness/index.md` and the `## harness` section in `index.md`; log it. A harness implements no stage, so there is no stage re-derivation.
+**Ingesting a harness:** source → `raw/harness/YYYY-MM-DD-slug.md`; create `wiki/harness/<name>.md` with `type: harness`, a `subtype:` (terminal \| ide), and `enables:` edges to the primitives-as-patterns it provides; create stub `pattern` pages for any new targets; add a **Provided by (harness)** subsection to each enabled pattern; wire the `runs_on:` edge on every `framework` that runs on it and the `runs:` edge on every `runtime` that spawns it (create the harness page *before* those edges so nothing dangles); refresh the harness matrix in `wiki/harness/index.md` and the `## harness` section in `catalogue.md`; log it. A harness implements no stage, so there is no stage re-derivation.
 
 ## The execution layer (runtimes)
 
@@ -215,9 +215,9 @@ The `framework`/`capability`/`sdlc-stage` triad models the **process layer** —
 
 The two layers connect at exactly one point: the `pattern` namespace. Several patterns have both a **process-side** expression (a capability `applies:` it — a skill instructing the agent) and an **infra-side** expression (a runtime `enables:` it — a substrate that provides it). Worktree isolation, the autonomous loop, wave parallelism, session handoff, and knowledge compounding are the current dual-sided patterns. A pattern page therefore now carries two backlink rosters: **Applied by** (capabilities) and **Enabled by (infrastructure)** (runtimes). Keep them as separate subsections.
 
-The wiki's method — *collect instances of a layer, then synthesize the dimensions they share* — applies to runtimes too, but the synthesized dimensions are **orchestration concerns**, not SDLC stages: isolation model · parallelism · autonomy/AFK · steering (HITL) · persistence/memory · provider/harness-agnosticism · branch→PR · self-host topology · distribution (library vs platform). With only a handful of runtimes documented, these concerns live as a **comparison matrix** in `index.md`'s `## runtime` section and as prose on each page — they are **not** minted as their own derived-node namespace (that would be premature abstraction for so few instances). If the runtime layer grows enough that the matrix stops scaling, graduate the concerns into their own derived-projection nodes (the runtime analogue of `sdlc-stage`), mirroring the stage synthesis. Park that decision here until the evidence demands it.
+The wiki's method — *collect instances of a layer, then synthesize the dimensions they share* — applies to runtimes too, but the synthesized dimensions are **orchestration concerns**, not SDLC stages: isolation model · parallelism · autonomy/AFK · steering (HITL) · persistence/memory · provider/harness-agnosticism · branch→PR · self-host topology · distribution (library vs platform). With only a handful of runtimes documented, these concerns live as a **comparison matrix** in `catalogue.md`'s `## runtime` section and as prose on each page — they are **not** minted as their own derived-node namespace (that would be premature abstraction for so few instances). If the runtime layer grows enough that the matrix stops scaling, graduate the concerns into their own derived-projection nodes (the runtime analogue of `sdlc-stage`), mirroring the stage synthesis. Park that decision here until the evidence demands it.
 
-**Ingesting a runtime:** source → `raw/runtime/YYYY-MM-DD-slug.md`; create `wiki/runtime/<name>.md` with `type: runtime`, a `subtype:`, and `enables:` edges to the patterns it provides; create stub `pattern` pages for any new targets; add an **Enabled by (infrastructure)** subsection to each enabled pattern; refresh the `## runtime` matrix in `index.md`; log it. There is no stage re-derivation for runtimes (they implement no stage), but re-check whether a newly evidenced orchestration concern warrants graduating the matrix per the paragraph above.
+**Ingesting a runtime:** source → `raw/runtime/YYYY-MM-DD-slug.md`; create `wiki/runtime/<name>.md` with `type: runtime`, a `subtype:`, and `enables:` edges to the patterns it provides; create stub `pattern` pages for any new targets; add an **Enabled by (infrastructure)** subsection to each enabled pattern; refresh the `## runtime` matrix in `catalogue.md`; log it. There is no stage re-derivation for runtimes (they implement no stage), but re-check whether a newly evidenced orchestration concern warrants graduating the matrix per the paragraph above.
 
 ## The topic layer (curated overlays)
 
@@ -227,7 +227,7 @@ Everything above is the **ontology graph** — nodes joined by stored edges, plu
 
 | Page | Direction | Membership | Role |
 |------|-----------|------------|------|
-| `index.md` | — | exhaustive, one namespace | mechanical catalogue |
+| `catalogue.md` | — | exhaustive, one namespace | mechanical catalogue (`index.md` is the authored introduction that points into it) |
 | `sdlc-stage` | bottom-up | **derived** from `implements:` backlinks; framework-neutral; one canonical set | part of the synthesis machinery |
 | `pattern` | bottom-up | the capabilities that `apply:` it (stored edge) | one reusable technique |
 | `topic` | **top-down** | hand-picked links across *any* namespaces; open-ended; may be opinionated | curated overlay / reference hub |
@@ -254,7 +254,7 @@ updated: 2026-08-05
 
 **Discipline — few, high-value, and accepted-as-hand-maintained.** A topic earns a page only when its theme genuinely spans **≥3 namespaces** (or many pages) *and* a reader could not assemble it from an existing page. Unlike `sdlc-stage` (auto-derived, self-maintaining) a topic is *authored* and will drift as its targets evolve — that upkeep cost is the price of the overlay, so mint them sparingly for load-bearing themes only (the same "don't abstract prematurely" discipline parked for the runtime/harness synthesis dimensions). When a topic's whole content could live as a section on one existing page, put it there instead.
 
-**Authoring a topic:** create `wiki/topic/<topic-name>.md` with `type: topic`; write the framing thesis and the curated out-links (bullet lists per the formatting rule); optionally capture any external reference into `raw/reference/YYYY-MM-DD-slug.md` and cite it; add a row to the `## topic` section of `index.md`; log it. **No stage re-derivation, no backlink cascade** — a topic touches nothing but itself and `index.md`.
+**Authoring a topic:** create `wiki/topic/<topic-name>.md` with `type: topic`; write the framing thesis and the curated out-links (bullet lists per the formatting rule); optionally capture any external reference into `raw/reference/YYYY-MM-DD-slug.md` and cite it; add a row to the `## topic` section of `catalogue.md`; log it. **No stage re-derivation, no backlink cascade** — a topic touches nothing but itself and `catalogue.md`.
 
 ## Stage re-derivation (keep stages framework-neutral)
 
@@ -285,7 +285,7 @@ updated: 2026-06-30
 1. `grep -rl '\[\[stage-OLD\]\]' wiki/` to find every reference.
 2. Update every `implements:` edge and every prose/`See Also` mention to `[[stage-NEW]]`.
 3. Rename the file `sdlc-stage/stage-OLD.md` → `stage-NEW.md` and update its `# heading`, `aka:`, and `updated:`.
-4. Update the `index.md` row and any cross-stage links.
+4. Update the `catalogue.md` row and any cross-stage links.
 5. Append the rename to `log.md` as an explicit `OLD → NEW` mapping with the reason.
 6. Re-run the dangling-wikilink check; there must be zero `[[stage-OLD]]` left.
 
@@ -306,4 +306,4 @@ Renames ripple across many capability pages, so batch them per ingest and keep t
 3. Create stub `artifact`/`pattern`/`sdlc-stage` pages for any new `[[wikilink]]` targets so links resolve; flesh them out from backlink evidence.
 4. Set `equivalent_to:` when a capability matches one already documented in another framework (this is what builds the cross-framework clusters).
 5. **Re-derive the stage set** (see [Stage re-derivation](#stage-re-derivation-keep-stages-framework-neutral)): review every `sdlc-stage` against the now-richer evidence and rename / split / merge / add / retire toward the most generic, minimal set. Update `aka:` on each touched stage.
-6. Cascade: update affected stage projections; refresh `updated:`; update `index.md` and append to `log.md` (including any stage `OLD → NEW` renames).
+6. Cascade: update affected stage projections; refresh `updated:`; update `catalogue.md` and append to `log.md` (including any stage `OLD → NEW` renames).
