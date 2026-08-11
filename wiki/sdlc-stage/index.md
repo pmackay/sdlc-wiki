@@ -1,4 +1,6 @@
-# SDLC Stages — Index (execution order)
+# SDLC Stages
+
+*Index — the eight canonical stages, in execution order.*
 
 The eight **canonical, framework-neutral lifecycle stages** synthesized across the frameworks in this wiki. Each is a **derived projection** — its content comes from the capabilities that `implements:` it (see [CONVENTIONS.md](../CONVENTIONS.md) for the ontology). Listed below in the order they typically execute.
 

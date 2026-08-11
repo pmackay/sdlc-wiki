@@ -3,7 +3,9 @@ type: index
 updated: 2026-08-05
 ---
 
-# Harness — the agent-program layer
+# Harness
+
+*The agent-program layer — the loop that loads a framework's skills and drives the model's tool calls.*
 
 The `framework` / `capability` / `sdlc-stage` triad models the **process layer** — *what* an agent does across the lifecycle. This namespace models the **harness** — the agent *program* itself: the loop that loads a framework's skills/commands, assembles context, calls the model, executes the model's tool calls under a permission/hook policy, spawns sub-agents, and returns a result. Claude Code, pi, OpenCode, Codex, Cursor, and Copilot are harnesses.
 
