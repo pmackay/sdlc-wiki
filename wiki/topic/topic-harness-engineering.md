@@ -90,6 +90,8 @@ Two Fowler concepts have **no home in the wiki yet** and are worth flagging:
 
 These sit *upstream* of every guide and sensor: a legible codebase needs fewer of both. The nearest existing pages are [[pattern-deep-modules]] and [[mp-domain-modeling]] (a legible domain/ubiquitous language), but neither captures "shape the environment so the agent needs less harness." A candidate future `pattern-ambient-affordances` (or a note on [[pattern-deep-modules]]) would close it.
 
+**Partly closed (2026-08-07) by [[topic-agent-readiness]].** The agent-readiness rubrics — Factory's repo-scoped pillar/level report and VirtusLab's Visdom maturity matrix — are harnessability *operationalized*: they score the environment's amenability to control as 100+ binary signals or a 16-capability × 5-level grid. Read the two topics as a pair — this page is the controls you build, that one is the substrate those controls require ("a guide states the convention, a sensor catches the violation, readiness is whether a sensor is even possible here"). A `pattern-ambient-affordances` page is still unminted; the rubrics supply the evidence it would be built from.
+
 ## How the pieces map
 
 | Fowler term | This wiki |
