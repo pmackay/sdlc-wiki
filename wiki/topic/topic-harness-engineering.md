@@ -122,4 +122,4 @@ Net: the authored guide layer thins toward the project-specific kernel; sensors 
 - [[agent-os]] — the framework whose signature *is* the guide layer (layered standards + product docs + specs).
 - [[pattern-project-constitution]] ↔ [[pattern-knowledge-compounding]] — the prescribed and emergent poles of the guide/steering axis.
 - [[pattern-context-engineering]] — the delivery mechanism for guides.
-- Martin Fowler, *Harness Engineering* — the source frame ([capture](../../raw/reference/2026-08-05-fowler-harness-engineering.md)).
+- Martin Fowler, *Harness Engineering* — the source frame ([capture](https://github.com/pmackay/sdlc-wiki/blob/main/raw/reference/2026-08-05-fowler-harness-engineering.md)).
