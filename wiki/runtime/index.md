@@ -1,13 +1,13 @@
 ---
 type: index
-updated: 2026-07-26
+updated: 2026-08-31
 ---
 
 # Runtime
 
 *The execution layer — the harness-agnostic substrate deciding where and how agents run.*
 
-The `framework` / `capability` / `sdlc-stage` triad models the **process layer** — *what* an agent does across the lifecycle. This namespace models a second, orthogonal **execution layer** — *where and how* the agent runs. A **runtime** is the harness-agnostic substrate that provides sandbox isolation, parallelism, branch→PR flow, AFK autonomy, steering, and persistence. It runs Claude Code, Codex, pi, … interchangeably, and could host any process framework's skills — so it performs no SDLC stage and carries no `belongs_to` / `implements` / `equivalent_to` edge. It connects to the rest of the wiki at exactly one seam: the `pattern` namespace, via `enables:`. See [CONVENTIONS §The execution layer](../CONVENTIONS.md#the-execution-layer-runtimes).
+The `framework` / `capability` / `sdlc-stage` triad models the **process layer** — *what* an agent does across the lifecycle. This namespace models a second, orthogonal **execution layer** — *where and how* the agent runs. A **runtime** is the harness-agnostic substrate that provides sandbox isolation, parallelism, branch→PR flow, AFK autonomy, steering, and persistence — an *agent* execution substrate, not a language, container, or model runtime. It runs Claude Code, Codex, pi, … interchangeably, and could host any process framework's skills — so it performs no SDLC stage and carries no `belongs_to` / `implements` / `equivalent_to` edge. It connects to the rest of the wiki at exactly one seam: the `pattern` namespace, via `enables:`. See [CONVENTIONS §The execution layer](../CONVENTIONS.md#the-execution-layer-runtimes).
 
 ## Members
 
