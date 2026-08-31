@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026)"
-updated: 2026-07-05
+sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026); sipyourdrink-ltd/bernstein (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Cross-model review (an independent second opinion from another model)
@@ -26,7 +26,12 @@ Compound Engineering:
 
 - [[ce-code-review]] — adversarial + cross-model review pass.
 
+## Enabled by (infrastructure)
+
+- [[bernstein]] (platform) — the **review gate** makes a distinct-model reviewer a *configuration* property rather than a convention: `ModelSelection` is one of `SameModelOk` / `DifferentModelPreferred` / `DifferentModelRequired`, and the last raises `EvalGateConfigError` when it cannot be satisfied. The reviewer sees only `(spec, diff, test_output)` and returns a three-valued structured verdict — pass · fail · questions — that drives auto-merge. An optional **cross-model verifier** additionally runs the diff past a second provider's model for A/B review (shipped, disabled by default). The runtime's rationale matches this pattern's: *"Same-model self-critique is empirically weak at catching the implementer's own blind spots."*
+
 ## See Also
 - [[pattern-adversarial-review]] — fault-finding by mandate (same model); often combined with this.
 - [[pattern-parallel-persona-review]] — diversity by persona rather than by model.
 - [[stage-review]] — the stage this reinforces (Review side).
+- [[bernstein]] — the runtime that makes a different-model reviewer a configuration requirement (`DifferentModelRequired`) rather than a convention.

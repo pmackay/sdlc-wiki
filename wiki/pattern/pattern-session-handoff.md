@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026)"
-updated: 2026-07-31
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); sipyourdrink-ltd/bernstein (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Session handoff
@@ -34,6 +34,7 @@ The [execution layer](../runtime/index.md) carries working context across a *run
 
 - [[sandcastle]] (library) — session **capture & resume** (`resumeSession`) and session **forking** continue or branch a prior agent conversation across `run()` invocations.
 - [[warren]] (platform) — `.mulch/` priming on spawn, mid-run **steering**, and the persisted NDJSON event log let a run pick up (and be redirected on) prior state.
+- [[bernstein]] (platform) — `bernstein handoff emit` / `claim` moves a **live** session between surfaces (terminal → web dashboard → chat bridge) on a short-lived single-use token, alongside durable suspend/resume, fork-from-step, and a `session_memory` compaction tier that distils a completed session into a durable cross-session summary.
 
 ## Provided by (harness)
 
@@ -48,5 +49,5 @@ The [harness layer](../harness/index.md) carries working context across a *conte
 - [[artifact-handoff-doc]] — Matt's materialized handoff.
 - [[pattern-fresh-context-subagents]] — the complementary GSD technique for staying within context.
 - [[pattern-knowledge-compounding]] — carries *lessons* across iterations, versus this pattern's *working context* across a boundary.
-- [[sandcastle]] · [[warren]] — the runtimes that persist/resume session state as infrastructure.
+- [[sandcastle]] · [[warren]] · [[bernstein]] — the runtimes that persist/resume session state as infrastructure.
 - [[claude-code]] · [[opencode]] · [[pi]] · [[factory-droid]] — the harnesses that compact/resume session context as a built-in.

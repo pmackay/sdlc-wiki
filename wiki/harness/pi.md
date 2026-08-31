@@ -5,7 +5,7 @@ source_url: "https://github.com/earendil-works/pi"
 enables: ["[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
 sources: "pi.dev/docs + github.com/earendil-works/pi (Mario Zechner / Earendil Inc., formerly badlogic/pi-mono; MIT, 2026)"
 raw: ["../../raw/harness/2026-07-31-pi.md"]
-updated: 2026-07-31
+updated: 2026-08-31
 ---
 
 # pi
@@ -57,10 +57,10 @@ It does **not** provide [[pattern-fresh-context-subagents]] or [[pattern-edit-gu
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — [[compound-engineering]] · [[superpowers]] (both officially name Pi among supported agents).
-- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option, `claude-code`/`sapling`/`pi`).
+- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option, `claude-code`/`sapling`/`pi`) · [[bernstein]] (the `pi` adapter, `@mariozechner/pi-coding-agent`).
 
 ## See Also
 - [[claude-code]] · [[opencode]] — the batteries-included terminal harnesses pi is defined against (proprietary/Anthropic vs open/model-agnostic vs pi's minimal core). Cross-harness comparison: [harness/index.md](index.md).
-- [[sandcastle]] · [[warren]] — the runtimes that spawn this harness.
+- [[sandcastle]] · [[warren]] · [[bernstein]] — the runtimes that spawn this harness.
 - [[pattern-session-handoff]] · [[pattern-context-engineering]] — the two patterns pi provides as core primitives.
 - [[nano-spec]] — the process-layer minimalist, pi's spiritual counterpart one layer up.

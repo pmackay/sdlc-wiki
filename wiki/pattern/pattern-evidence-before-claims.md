@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "obra/superpowers — skills/verification-before-completion (2026)"
+sources: "obra/superpowers — skills/verification-before-completion (2026); sipyourdrink-ltd/bernstein (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-08-31
 ---
 
 # Pattern: Evidence before claims (verify, then assert)
@@ -23,9 +23,16 @@ Superpowers:
 - [[sp-subagent-driven-development]] — applies it to delegation ("trust the diff, not the agent's report").
 - [[sp-systematic-debugging]] — Phase 4 confirms a fix with fresh evidence before any "fixed" claim.
 
+## Enabled by (infrastructure)
+
+Everywhere above this pattern is a *skill* — an Iron Law the agent is instructed to obey and may quietly rationalize away. The [execution layer](../runtime/index.md) is where it becomes a property of the substrate instead:
+
+- [[bernstein]] (platform) — the **janitor** runs after every agent and evaluates the task's own declarative **completion signals** (`path_exists`, `glob_exists`, `test_passes`, content match) plus a gate pipeline (build · lint · type-check · tests · security · PII) over the actual diff. The agent's report is not an input. The design statement is the pattern verbatim: it *"does not trust agent claims—verifies them."* A rejected task does not merely block — `record_and_escalate()` retries it on a more capable model. This is the first documented case in the wiki of evidence-before-claims enforced *below* the agent rather than requested of it.
+
 ## See Also
 - [[pattern-anti-rationalization]] — the sibling discipline (excuse→rebuttal tables + Red Flags); frequently co-applied.
 - [[addy-doubt-driven-development]] — adversarial fresh-context self-check, a related honesty mechanism.
 - [[topic-harness-engineering]] — a **sensor** that forces a computational check (the command's real output) to back an inferential claim.
 - [[stage-validate]] — the empirical "does it actually work / did it actually pass" stage this pattern polices.
 - [[superpowers]] — the framework whose signature this pattern is.
+- [[bernstein]] — the runtime that enforces this below the agent (janitor completion signals + gate pipeline) rather than instructing it.

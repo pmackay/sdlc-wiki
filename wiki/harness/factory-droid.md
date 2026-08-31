@@ -5,7 +5,7 @@ source_url: "https://docs.factory.ai/cli/getting-started/overview"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
 sources: "Factory.ai — Droid CLI docs (docs.factory.ai/cli) + factory.ai/product/droids (2026)"
 raw: ["../../raw/harness/2026-08-02-factory-droid.md"]
-updated: 2026-08-02
+updated: 2026-08-31
 ---
 
 # factory-droid
@@ -82,9 +82,10 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — the individual-author cross-harness frameworks that officially name Factory Droid: [[compound-engineering]] · [[gstack]] · [[superpowers]] (see the [framework-support matrix](index.md#framework-support-the-runs_on-inverse)).
-- **Runtimes that `runs:` it** — none documented yet (no paged runtime lists Droid as a provider).
+- **Runtimes that `runs:` it** — [[bernstein]] (the `droid` adapter — *"teams on Factory AI's managed runtime who want Bernstein to orchestrate parallel droid sessions"*). The first paged runtime to list Droid as a provider.
 
 ## See Also
 - [[claude-code]] · [[opencode]] · [[pi]] — the other terminal harnesses. Droid is the **multi-model-routing / Missions** pole: closest in primitive shape to claude-code but with opencode/pi-style provider-neutrality taken furthest (routing + BYOK + free open-weight tier). Cross-harness comparison: [harness/index.md](index.md).
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns this harness provides as primitives.
 - [[compound-engineering]] · [[gstack]] · [[superpowers]] — frameworks whose skills officially run on this harness.
+- [[bernstein]] — the execution-layer runtime that spawns this harness (one layer down).

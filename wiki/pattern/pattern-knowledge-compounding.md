@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026)"
-updated: 2026-08-05
+sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026); sipyourdrink-ltd/bernstein (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Knowledge compounding (each unit of work makes the next easier)
@@ -52,6 +52,7 @@ Agent OS (standards-compounding flavor):
 The most striking cross-layer finding in the wiki: an [execution-layer](../runtime/index.md) runtime bakes the harvest-externalize-reinject loop into the substrate, so compounding happens *without a process-layer skill asking for it*:
 
 - [[warren]] (platform) — a project's `.mulch/` directory is **persistent agent memory across runs**: prior expertise is primed into context on spawn, the agent records new conventions/patterns/failure-modes with `ml record`, and reap merges them back (last-write-wins, just files in the repo, no database). This is the infrastructure realization of [[ce-compound]] / [[gstack-learn]] — machine-consumable memory every future run auto-reads. Its `.seeds/` issue queue and `canopy` versioned prompt library compound work-items and prompts the same way.
+- [[bernstein]] (platform) — the same loop, more elaborately instrumented and with an explicit review gate on the reinject step. `core/knowledge/lessons.py` propagates lessons **tag-matched and confidence-decayed over time** into later spawns under a bounded context-injection budget; a per-task **knowledge diary** (`tried` / `worked` / `failed` / `rationale` / `tags`) is distilled from each closing transcript, and a periodic **synthesis** pass clusters diaries into themes — but lands `approved: false` until an operator runs `bernstein knowledge synthesize --apply`, because *"no role prompt is mutated by the synthesizer alone."* A `CrossTaskKB` publish/subscribe facade over SQLite lets one task hand a fact to another *"without writing files into a shared worktree path and hoping the next agent reads them."*
 
 ## See Also
 - [[stage-learn]] — the canonical stage this pattern defines.
@@ -59,4 +60,4 @@ The most striking cross-layer finding in the wiki: an [execution-layer](../runti
 - [[pattern-living-specification]] — spec-level compounding (OpenSpec's [[openspec-sync]]); a narrower cousin.
 - [[pattern-context-engineering]] — how the compounded knowledge is fed back in.
 - [[compound-engineering]] — the framework built around this pattern.
-- [[warren]] — the runtime that moves knowledge compounding into the substrate (`.mulch/`).
+- [[warren]] · [[bernstein]] — the runtimes that move knowledge compounding into the substrate (`.mulch/`; confidence-decayed lessons + HITL-gated diary synthesis).

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); obra/superpowers (2026); mattpocock/sandcastle (2026)"
-updated: 2026-07-26
+sources: "Open GSD docs (2026); obra/superpowers (2026); mattpocock/sandcastle (2026); sipyourdrink-ltd/bernstein (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Wave parallelism
@@ -22,8 +22,9 @@ Superpowers (the concurrent-dispatch half, without GSD's dependency-ordered wave
 ## Enabled by (infrastructure)
 
 - [[sandcastle]] (library) — the [execution layer](../runtime/index.md)'s concurrent-dispatch substrate: parallel AFK `run()`s across isolated worktrees plus session **forking** for fan-out. Its `parallel-planner` template identifies parallelizable work and runs it concurrently, merging back. This is the concurrent-dispatch half (like [[sp-dispatching-parallel-agents]]), without GSD's dependency-ordered waves.
+- [[bernstein]] (platform) — the fullest infra realization: a **declarative task DAG** (`[P]` parallel-safe markers, `-> T###` dependency arrows, `[US<n>]` rollback slices) that `topological_iter_with_parallel` batches into waves — all ready `[P]` tasks form one concurrent batch, a serial task runs alone. Parallel-safety is *declared by the plan*, not inferred from file overlap or reasoned out by a planning agent, and an **adaptive-parallelism controller** throttles the effective `max_agents` on observed error rate and CPU load. This is the dependency-ordered-wave half that Sandcastle leaves to your script — the infra counterpart to [[gsd-execute-phase]]'s waves rather than to plain fan-out.
 
 ## See Also
 - [[pattern-fresh-context-subagents]] — each wave task runs in clean context.
 - [[stage-implement]] — the stage where this applies.
-- [[sandcastle]] — the runtime that supplies parallel isolated agent execution.
+- [[sandcastle]] · [[bernstein]] — the runtimes that supply parallel isolated agent execution (Sandcastle as fan-out you script; Bernstein as a scheduled, dependency-ordered task DAG).

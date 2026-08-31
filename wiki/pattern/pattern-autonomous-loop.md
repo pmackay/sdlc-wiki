@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026)"
+sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-26
+updated: 2026-08-31
 ---
 
 # Pattern: Autonomous loop (hands-off pipeline to a terminal success gate)
@@ -34,9 +34,10 @@ The process-layer loops above are *skills that instruct an agent*; the [executio
 
 - [[sandcastle]] (library) — a bounded AFK `run()` with a **machine-checkable stop** (`completionSignal`), iteration cap (`maxIterations`), idle/completion timeouts, and `exec`-gated success checks (e.g. `npm test` before a review run). The `simple-loop` template is the archetype.
 - [[warren]] (platform) — the entire product *is* the loop: dispatch → sandbox → validate → push → open PR → spin down, plus cron triggers and serial plan-runs that gate each child on the previous PR merging.
+- [[bernstein]] (platform) — a goal goes in and merged code comes out: an orchestrator **tick loop** over a task DAG, with adaptive timeouts sized from history, bounded retries that **escalate to a more capable model** on failure, a purpose-constraint circuit breaker, token/cost kill-switches, and **quiescence self-stop** (with heartbeat-renewed *hold* leases so an external HITL workflow can keep an idle-looking orchestrator alive).
 
 ## See Also
 - [[pattern-worktree-isolation]] — the safety substrate that makes unattended runs non-destructive.
 - [[bmad-quick-dev]] — BMAD's unattended fast path (single-stage analogue).
 - [[compound-engineering]] — the framework applying this pattern.
-- [[sandcastle]] · [[warren]] — the runtimes purpose-built to host AFK autonomous runs.
+- [[sandcastle]] · [[warren]] · [[bernstein]] — the runtimes purpose-built to host AFK autonomous runs.

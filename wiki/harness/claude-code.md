@@ -5,7 +5,7 @@ source_url: "https://docs.claude.com/en/docs/claude-code"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
 sources: "Anthropic — Claude Code docs (docs.claude.com/en/docs/claude-code) + Claude Agent SDK (2026)"
 raw: ["../../raw/harness/2026-07-31-claude-code.md"]
-updated: 2026-08-05
+updated: 2026-08-31
 ---
 
 # claude-code
@@ -76,10 +76,10 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — **all twelve** documented frameworks officially support Claude Code: [[gsd]] · [[matt-pocock-skills]] · [[addy-agent-skills]] · [[openspec]] · [[speckit]] · [[bmad]] · [[compound-engineering]] · [[gstack]] · [[bm-skills]] · [[superpowers]] · [[nano-spec]] · [[agent-os]]. It is the universal target of the process layer (see the [framework-support matrix](index.md#framework-support-the-runs_on-inverse)).
-- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option).
+- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option) · [[bernstein]] (the `claude` adapter, its top-reasoning default).
 
 ## See Also
 - [[opencode]] · [[pi]] — the other terminal harnesses: claude-code is the proprietary/Anthropic-models pole, opencode the open/model-agnostic pole, pi the minimal-core pole. Cross-harness comparison: [harness/index.md](index.md).
-- [[sandcastle]] · [[warren]] — the execution-layer runtimes that spawn this harness (one layer down).
+- [[sandcastle]] · [[warren]] · [[bernstein]] — the execution-layer runtimes that spawn this harness (one layer down).
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns this harness provides as primitives.
 - [[superpowers]] · [[gstack]] — frameworks whose skills run on this harness.
