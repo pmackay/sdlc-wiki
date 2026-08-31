@@ -5,11 +5,11 @@ belongs_to: "[[superpowers]]"
 implements: "[[stage-validate]]"
 delegates_to: []
 produces: []
-applies: ["[[pattern-evidence-before-claims]]", "[[pattern-anti-rationalization]]"]
+applies: ["[[pattern-evidence-before-claims]]", "[[pattern-anti-rationalization]]", "[[pattern-deterministic-gates]]"]
 equivalent_to: []
 sources: "Superpowers v6.1.1 (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-08-31
 ---
 
 # verification-before-completion
@@ -26,5 +26,5 @@ This is a functional-validation discipline: it asks *does it actually work / did
 - [[sp-systematic-debugging]] — calls this to confirm a fix before any "fixed" claim.
 - [[sp-subagent-driven-development]] — its "trust the diff, not the agent's report" rule is this discipline applied to delegation.
 - [[addy-doubt-driven-development]] — the nearest kin (adversarial fresh-context self-review).
-- [[pattern-evidence-before-claims]] · [[pattern-anti-rationalization]] — the techniques applied.
+- [[pattern-evidence-before-claims]] · [[pattern-anti-rationalization]] · [[pattern-deterministic-gates]] — the techniques applied (the last being the exit-code check its gate function demands).
 - [[stage-validate]] — the canonical stage this implements; contrast [[stage-review]] (quality).

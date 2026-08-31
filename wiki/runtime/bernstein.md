@@ -3,7 +3,7 @@ type: runtime
 subtype: platform
 source_url: "https://bernstein.readthedocs.io/en/latest/"
 runs: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
-enables: ["[[pattern-worktree-isolation]]", "[[pattern-wave-parallelism]]", "[[pattern-autonomous-loop]]", "[[pattern-evidence-before-claims]]", "[[pattern-cross-model-review]]", "[[pattern-fresh-context-subagents]]", "[[pattern-knowledge-compounding]]", "[[pattern-session-handoff]]"]
+enables: ["[[pattern-worktree-isolation]]", "[[pattern-wave-parallelism]]", "[[pattern-autonomous-loop]]", "[[pattern-evidence-before-claims]]", "[[pattern-deterministic-gates]]", "[[pattern-cross-model-review]]", "[[pattern-fresh-context-subagents]]", "[[pattern-knowledge-compounding]]", "[[pattern-session-handoff]]"]
 sources: "Alex Chernysh — sipyourdrink-ltd/bernstein, bernstein.readthedocs.io (Apache-2.0, PyPI 3.18.2, 2026)"
 raw: ["../../raw/runtime/2026-08-31-bernstein.md"]
 updated: 2026-08-31
@@ -117,6 +117,7 @@ The trade-off worth recording: this is by far the **heaviest** runtime documente
 - [[pattern-worktree-isolation]] — a git worktree per spawned agent is the default sandbox, *"so multiple agents running against the same repository cannot stomp on each other's files, processes, or secrets"*; seven heavier backends (docker, e2b, modal, daytona, blaxel, runloop, vercel) sit behind the same protocol.
 - [[pattern-wave-parallelism]] — the fullest infra realization in the wiki: a declarative task DAG (`[P]` parallel-safe markers, `-> T###` dependency arrows, `[US<n>]` rollback slices) batched by `topological_iter_with_parallel`, scheduled deterministically and throttled by an adaptive-parallelism feedback controller.
 - [[pattern-autonomous-loop]] — the product *is* the loop: goal → decompose → schedule → spawn → verify → escalate-or-merge, bounded by adaptive timeouts, retry budgets, a circuit breaker, token/cost kill-switches, and quiescence self-stop.
+- [[pattern-deterministic-gates]] — the configurable **gate pipeline**: named checks (lint · type_check · tests · security_scan · pii_scan · coverage_delta · dep_audit · …) run on the diff after every completion, each with a `required` flag and a change-condition; a failing required gate hard-blocks merge. Commands are repo-configurable, results cached while the diff is unchanged, and custom checks plug in as `GatePlugin` classes.
 - [[pattern-evidence-before-claims]] — the janitor evaluates declarative completion signals and a lint/type/test/security gate pipeline over the real diff, and *"does not trust agent claims—verifies them"*; the infra realization of what [[sp-verification-before-completion]] instructs.
 - [[pattern-cross-model-review]] — the review gate's `DifferentModelRequired` selection rule makes a distinct-model reviewer a configuration error to violate, plus an optional cross-provider verifier over the diff.
 - [[pattern-fresh-context-subagents]] — the same gate hard-asserts a new session id for the reviewer and raises `FreshContextViolation` if the implementer's transcript is threaded in; context isolation enforced by the substrate rather than requested by a skill.

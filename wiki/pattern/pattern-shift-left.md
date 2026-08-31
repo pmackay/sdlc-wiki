@@ -1,7 +1,7 @@
 ---
 type: pattern
 sources: "Addy Osmani — Agent Skills (2026); Martin Fowler — 'Harness Engineering' (2026)"
-updated: 2026-08-05
+updated: 2026-08-31
 ---
 
 # Pattern: Shift Left
@@ -17,6 +17,7 @@ Addy Osmani — Agent Skills:
 - [[addy-ci-cd]] — Shift Left, Faster is Safer, quality-gate pipelines, failure feedback loops.
 
 ## See Also
+- [[pattern-deterministic-gates]] — *what kind* of gate to prefer (program-decided), the orthogonal axis to this pattern's *when*.
 - [[pattern-test-driven-development]] — the earliest-possible quality gate: a test before the code.
 - [[pattern-trunk-based-development]] — the integration discipline that makes fast, safe shipping work.
 - [[topic-harness-engineering]] — Fowler's "keep quality left" and the guides/sensors control system.

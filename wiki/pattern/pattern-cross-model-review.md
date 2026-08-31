@@ -33,5 +33,6 @@ Compound Engineering:
 ## See Also
 - [[pattern-adversarial-review]] — fault-finding by mandate (same model); often combined with this.
 - [[pattern-parallel-persona-review]] — diversity by persona rather than by model.
+- [[pattern-deterministic-gates]] — the cheap, un-gameable checks that run first, so this inferential sensor is spent only on judgment.
 - [[stage-review]] — the stage this reinforces (Review side).
 - [[bernstein]] — the runtime that makes a different-model reviewer a configuration requirement (`DifferentModelRequired`) rather than a convention.

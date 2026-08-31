@@ -49,6 +49,7 @@ The execution layer touches the wiki only through the patterns it `enables:` —
 - [[pattern-wave-parallelism]] — sandcastle (parallel `run()`s / fork), bernstein (declarative task DAG, topological batching)
 - [[pattern-session-handoff]] — sandcastle (session resume/fork), warren (`.mulch/` prime + steer + event log), bernstein (`handoff emit`/`claim` across surfaces)
 - [[pattern-knowledge-compounding]] — warren (`.mulch/` machine-consumable memory across runs), bernstein (confidence-decayed lessons + HITL-gated diary synthesis)
+- [[pattern-deterministic-gates]] — bernstein (named gate pipeline, `required` gates hard-block merge), sandcastle (`exec()`-gated pipeline steps)
 - [[pattern-evidence-before-claims]] — bernstein (janitor completion signals + gate pipeline; the agent's own report is not an input)
 - [[pattern-cross-model-review]] — bernstein (review gate `DifferentModelRequired`; cross-provider verifier)
 - [[pattern-fresh-context-subagents]] — bernstein (review gate raises `FreshContextViolation` on a threaded implementer transcript)

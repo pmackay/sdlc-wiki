@@ -1,7 +1,7 @@
 ---
 type: pattern
 sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+updated: 2026-08-31
 ---
 
 # Pattern: Test-driven development (red-green-refactor)
@@ -45,4 +45,5 @@ Now a strong multi-framework cluster. Spec Kit is the strictest by *mechanism* �
 
 ## See Also
 - [[pattern-systematic-debugging]] — the sibling feedback loop for bugs.
+- [[pattern-deterministic-gates]] — the general form: a test suite is one program-decided gate among lint, types, and build.
 - [[stage-implement]] — the stage where this applies.

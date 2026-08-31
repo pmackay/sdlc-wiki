@@ -1,7 +1,7 @@
 ---
 type: pattern
 sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026)"
-updated: 2026-07-05
+updated: 2026-08-31
 ---
 
 # Pattern: Parallel persona review (fan-out / merge)
@@ -35,4 +35,5 @@ gstack:
 - [[pattern-adversarial-review]] — BMAD's review layers each carry the "must find issues" mandate.
 - [[pattern-fresh-context-subagents]] — each persona is a clean-context reviewer.
 - [[pattern-wave-parallelism]] — GSD's related "independent work runs concurrently" technique (on the execution side rather than the review side).
+- [[pattern-deterministic-gates]] — the computational counterweight to this and the other inferential review patterns.
 - [[stage-release]], [[stage-review]] — the stages these fan-outs gate.

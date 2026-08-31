@@ -5,12 +5,12 @@ belongs_to: "[[matt-pocock-skills]]"
 implements: "[[stage-implement]]"
 delegates_to: ["[[mp-tdd]]", "[[mp-code-review]]"]
 produces: ["[[artifact-atomic-commit]]"]
-applies: ["[[pattern-test-driven-development]]", "[[pattern-vertical-slice]]"]
+applies: ["[[pattern-test-driven-development]]", "[[pattern-vertical-slice]]", "[[pattern-deterministic-gates]]"]
 equivalent_to: ["[[gsd-execute-phase]]", "[[openspec-apply]]", "[[speckit-implement]]", "[[addy-incremental-implementation]]", "[[bmad-dev-story]]", "[[ce-work]]", "[[sp-executing-plans]]"]
 docs_url: "https://www.aihero.dev/skills-implement"
 sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-07-09
+updated: 2026-08-31
 ---
 
 # implement
@@ -23,5 +23,6 @@ updated: 2026-07-09
 - [[mp-to-tickets]] — produces the tickets this builds (one per fresh context window).
 - [[mp-tdd]] — the red-green engine this drives at seams.
 - [[mp-code-review]] — the quality gate this runs before committing.
+- [[pattern-deterministic-gates]] — the continuous typecheck/test discipline it runs while building.
 - [[gsd-execute-phase]] · [[speckit-implement]] · [[ce-work]] · [[bmad-dev-story]] — execute-cluster counterparts.
 - [[stage-implement]] — the canonical stage this implements.

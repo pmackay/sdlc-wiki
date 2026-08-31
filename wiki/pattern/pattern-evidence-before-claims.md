@@ -31,6 +31,7 @@ Everywhere above this pattern is a *skill* — an Iron Law the agent is instruct
 
 ## See Also
 - [[pattern-anti-rationalization]] — the sibling discipline (excuse→rebuttal tables + Red Flags); frequently co-applied.
+- [[pattern-deterministic-gates]] — usually what supplies the evidence; distinct in consequence — violate this pattern and you get a false claim, violate a gate and the work is blocked.
 - [[addy-doubt-driven-development]] — adversarial fresh-context self-check, a related honesty mechanism.
 - [[topic-harness-engineering]] — a **sensor** that forces a computational check (the command's real output) to back an inferential claim.
 - [[stage-validate]] — the empirical "does it actually work / did it actually pass" stage this pattern polices.

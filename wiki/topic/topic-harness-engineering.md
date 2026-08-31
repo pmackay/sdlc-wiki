@@ -2,7 +2,7 @@
 type: topic
 sources: "Martin Fowler — 'Harness Engineering' (2026, martinfowler.com); wiki synthesis"
 raw: ["../../raw/reference/2026-08-05-fowler-harness-engineering.md"]
-updated: 2026-08-05
+updated: 2026-08-31
 ---
 
 # Topic: Harness engineering — steering agents toward project conventions, and refining that over time
@@ -51,7 +51,7 @@ Checks applied *after* the agent acts, catching what the guides didn't prevent:
 
 Fowler's own split cuts *across* these sensors by cost and reliability:
 
-- **Computational controls** — deterministic, fast (ms–s): tests, linters, type checkers. In the wiki: [[gstack-health]] (type/lint/tests/dead-code), the CI gates of [[addy-ci-cd]], the hooks under [[pattern-edit-guardrails]].
+- **Computational controls** — deterministic, fast (ms–s): tests, linters, type checkers. In the wiki this is now its own node, [[pattern-deterministic-gates]] — [[gstack-health]] (type/lint/tests/dead-code), the CI gates of [[addy-ci-cd]], [[lfg]]'s watch-CI-until-green stop condition — plus the hooks under [[pattern-edit-guardrails]].
 - **Inferential controls** — semantic, AI-based ("LLM as judge"), slower and richer: [[pattern-adversarial-review]], [[pattern-cross-model-review]], and every review-persona capability ([[ce-code-review]], [[addy-code-review]], [[gstack-review]], [[bmad-code-review]]).
 
 The practical rule Fowler implies: **prefer a computational control when one exists** (cheap, deterministic, un-gameable), and reserve inferential controls for the semantic judgments no linter can make. A *small verifier* is exactly how you promote an advisory guide into a sensor without bloating the rules file.

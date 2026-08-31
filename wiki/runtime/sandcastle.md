@@ -3,10 +3,10 @@ type: runtime
 subtype: library
 source_url: "https://github.com/mattpocock/sandcastle"
 runs: ["[[claude-code]]", "[[opencode]]", "[[pi]]"]
-enables: ["[[pattern-worktree-isolation]]", "[[pattern-autonomous-loop]]", "[[pattern-wave-parallelism]]", "[[pattern-session-handoff]]"]
+enables: ["[[pattern-worktree-isolation]]", "[[pattern-autonomous-loop]]", "[[pattern-wave-parallelism]]", "[[pattern-session-handoff]]", "[[pattern-deterministic-gates]]"]
 sources: "Matt Pocock — mattpocock/sandcastle; npm @ai-hero/sandcastle (MIT, 2026)"
 raw: ["../../raw/runtime/2026-07-26-sandcastle.md"]
-updated: 2026-07-26
+updated: 2026-08-31
 ---
 
 # sandcastle
@@ -67,6 +67,7 @@ Sandcastle is the wiki's first pure **execution-layer** artifact and the **libra
 - [[pattern-worktree-isolation]] — `createWorktree()` + the `branch` / `merge-to-head` strategies give every unit of work its own worktree/branch, preserved on dirty exit and removed when clean; the infra realization of what [[ce-worktree]] / [[sp-using-git-worktrees]] instruct at the process level.
 - [[pattern-autonomous-loop]] — bounded AFK runs with a machine-checkable stop (`completionSignal`) and `exec`-gated success checks; the substrate under [[lfg]] / [[ce-dogfood]].
 - [[pattern-wave-parallelism]] — the `parallel-planner` template + parallel `run()`s + session forking provide the concurrent-dispatch substrate (without dependency-ordered waves), matching [[sp-dispatching-parallel-agents]].
+- [[pattern-deterministic-gates]] — `sandbox.exec()` runs a shell command in the warm sandbox, so a pipeline can gate an implement step on `npm test` before dispatching the review run; the script-it-yourself version of a merge gate.
 - [[pattern-session-handoff]] — session capture/resume/fork carries working context across a run boundary, the infra counterpart to [[mp-handoff]] / [[gstack-context-save]].
 
 ## See Also

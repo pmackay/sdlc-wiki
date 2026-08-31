@@ -1,7 +1,7 @@
 ---
 type: pattern
 sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+updated: 2026-08-31
 ---
 
 # Pattern: Adversarial fresh-context review
@@ -45,5 +45,6 @@ In Fowler's *harness engineering* terms this is the archetypal **inferential sen
 - [[pattern-parallel-persona-review]] — BMAD implements this by fanning several adversarial layers out in parallel.
 - [[pattern-fresh-context-subagents]] — the clean-context mechanism this builds on.
 - [[pattern-anti-rationalization]] — the passive, page-level form of the same distrust.
+- [[pattern-deterministic-gates]] — the *computational* complement: let a command decide what a command can, and spend this pattern on what it cannot.
 - [[topic-harness-engineering]] — guides vs sensors; computational vs inferential controls.
 - [[stage-implement]], [[stage-review]] — where the doubt loops run.

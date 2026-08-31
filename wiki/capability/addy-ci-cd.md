@@ -5,11 +5,11 @@ belongs_to: "[[addy-agent-skills]]"
 implements: "[[stage-release]]"
 delegates_to: []
 produces: []
-applies: ["[[pattern-shift-left]]", "[[pattern-feature-flags]]", "[[pattern-trunk-based-development]]"]
+applies: ["[[pattern-shift-left]]", "[[pattern-deterministic-gates]]", "[[pattern-feature-flags]]", "[[pattern-trunk-based-development]]"]
 equivalent_to: []
 sources: "Addy Osmani — Agent Skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
-updated: 2026-07-04
+updated: 2026-08-31
 ---
 
 # CI/CD & Automation
@@ -20,5 +20,6 @@ Its distinctive mechanism is the sequential quality-gate pipeline where no gate 
 
 ## See Also
 - [[pattern-shift-left]] — the early-detection principle it enforces.
+- [[pattern-deterministic-gates]] — the *kind* of gate its pipeline is built from (un-skippable, exit-code-decided).
 - [[pattern-feature-flags]] — how it decouples deploy from release.
 - [[stage-release]] — the canonical stage this implements.
