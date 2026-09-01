@@ -21,7 +21,7 @@ This page adopts that generic sense: a **software factory** is a system — code
 
 ## Where the factory sits — the four layers
 
-The wiki's ontology places the factory precisely: it is the **execution layer**, one of three compute layers above the state layer, and it touches the rest of the graph at exactly one seam — the `pattern` namespace.
+The wiki's ontology places the factory precisely: it is the **execution layer**, one of three compute layers above the state layer.
 
 ```mermaid
 flowchart TB
@@ -29,15 +29,17 @@ flowchart TB
     H["<b>Harness layer</b><br/>Claude Code · pi · opencode · droid<br/><i>the agent loop itself</i>"]
     R["<b>Execution layer — the factory</b><br/>sandcastle · warren · bernstein · sssf · gh-aw<br/><i>where, when, and how loops run</i>"]
     S[("<b>State layer</b><br/>beads · seeds<br/><i>what survives the run</i>")]
-    PAT["pattern<br/><i>the single seam all four layers attach to</i>"]
+    PAT["<b>one technique, four expressions</b><br/>worked example: deterministic gates"]
     P -- "runs_on" --> H
     R -- "runs (spawns)" --> H
     S -- "integrates_with" --> H
-    P -- "applies" --> PAT
-    H -- "enables" --> PAT
-    R -- "enables" --> PAT
-    S -- "enables" --> PAT
+    P -- "a review skill runs the checks" --> PAT
+    H -- "a hook blocks the tool call" --> PAT
+    R -- "a required gate blocks the merge" --> PAT
+    S -- "a gate issue blocks the work queue" --> PAT
 ```
+
+The bottom half of the diagram is the layers' one meeting point. The same technique recurs at every layer in a different material, and the factory's version is always the *enforced* one: taking [[pattern-deterministic-gates]] as the worked example, a capability like [[gstack-qa]] runs the checks because a skill tells it to, [[claude-code]]'s hooks can block the offending tool call, [[bernstein]]'s `required` gate pipeline hard-blocks the merge, and a [[beads-gate]] bead blocks the ready frontier until the check clears. The wiki stores this as four backlink rosters on each pattern page — *Applied by* (capabilities), *Provided by* (harnesses), *Enabled by* (runtimes), *Persisted by* (stores) — and the same four-way split holds for [[pattern-worktree-isolation]], [[pattern-autonomous-loop]], and the rest of the [factory's pattern roster](../runtime/index.md#patterns-this-layer-supplies).
 
 Two boundary tests from [CONVENTIONS](../CONVENTIONS.md#the-execution-layer-runtimes) keep the layers apart. Against the harness: *a harness is the loop; a runtime spawns loops*. Against the store: *a runtime spawns loops; a store is read by them* — [[beads]] and [[seeds]] coordinate agents but launch none, so they sit below and beside the factory, which consumes them.
 
