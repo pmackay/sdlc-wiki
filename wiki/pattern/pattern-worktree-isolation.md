@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
-updated: 2026-08-31
+sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026)"
+updated: 2026-09-01
 ---
 
 # Pattern: Worktree isolation (each unit of work in its own git worktree)
@@ -45,6 +45,7 @@ The [execution layer](../runtime/index.md) provides this pattern as *substrate* 
 - [[sandcastle]] (library) — `createWorktree()` plus the `branch` / `merge-to-head` strategies give every run its own worktree/branch; the worktree is preserved on a dirty exit and removed when clean.
 - [[warren]] (platform) — the same "never corrupt the trunk" intent realized at the OS level: a fresh `bwrap`-isolated workspace per run (`local`) or a dedicated pod per run (`k8s`), rather than a git worktree.
 - [[bernstein]] (platform) — a git worktree per spawned agent is the default sandbox, *"so multiple agents running against the same repository cannot stomp on each other's files, processes, or secrets"*; the choice is pluggable behind a `SandboxBackend` protocol with seven heavier first-party backends (docker, e2b microVMs, modal, daytona, blaxel, runloop, vercel) and an entry-point group for third parties.
+- [[gh-aw]] (platform) — the isolation is the CI substrate itself: every run gets an ephemeral GitHub Actions runner, optionally hardened by the Agent Workflow Firewall (the engine in a Docker container behind a Squid proxy enforcing a domain allowlist — *"All traffic routed through proxy enforcing the domain allowlist"*), with gVisor or KVM-microVM runtimes as stronger substrates. The distinctive addition is **egress** isolation: the other runtimes here bound what the agent may *write*; the firewall bounds what it may *reach*.
 
 ## Persisted by (store)
 

@@ -58,12 +58,12 @@ It does **not** provide [[pattern-fresh-context-subagents]] or [[pattern-edit-gu
 
 - **Frameworks that `runs_on:` it** — [[compound-engineering]] · [[superpowers]] (both officially name Pi among supported agents).
 - **Stores that `integrates_with:` it** — [[seeds]], evidenced by the `.pi/` session store its repo dogfoods; both seeds and pi are also in [[warren]]'s built-in agent set. [[beads]] does **not** name pi among its thirteen `bd setup` recipes, so no edge — the one paged harness the larger store misses.
-- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option, `claude-code`/`sapling`/`pi`) · [[bernstein]] (the `pi` adapter, `@mariozechner/pi-coding-agent`) · [[sssf]] (**pi only** — the one runtime here that targets pi *exclusively*: `coding_agent: claude_code` is schema-valid and its interface raises `NotImplementedError` until v2).
+- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option, `claude-code`/`sapling`/`pi`) · [[bernstein]] (the `pi` adapter, `@mariozechner/pi-coding-agent`) · [[sssf]] (**pi only** — the one runtime here that targets pi *exclusively*: `coding_agent: claude_code` is schema-valid and its interface raises `NotImplementedError` until v2) · [[gh-aw]] (the `pi` engine, production-status alongside copilot/claude/codex/gemini — Copilot auth by default, provider keys for prefixed models, and the one engine with an `engine.extensions:` plugin surface).
 
 sssf is worth reading as an argument about *why* a minimal harness is the right worker for an orchestrated pipeline. It leans on three pi properties in particular: `--session-id` is create-or-continue, so re-prompting a live agent with a correction and starting one are the same call; the JSONL stdout stream can be tailed line by line into a trace database while the agent is still working; and `-e <path>` loads a per-agent extension, which is where sssf puts its `harness_engineering:` config key — one pi extension set per role. The same page also records the one place a minimal harness costs it: with no built-in permission surface (pi omits [[pattern-edit-guardrails]] from core), sssf has to enforce write boundaries itself, after the fact, by diffing the repo around every call.
 
 ## See Also
 - [[claude-code]] · [[opencode]] — the batteries-included terminal harnesses pi is defined against (proprietary/Anthropic vs open/model-agnostic vs pi's minimal core). Cross-harness comparison: [harness/index.md](index.md).
-- [[sandcastle]] · [[warren]] · [[bernstein]] · [[sssf]] — the runtimes that spawn this harness; sssf spawns nothing else.
+- [[sandcastle]] · [[warren]] · [[bernstein]] · [[sssf]] · [[gh-aw]] — the runtimes that spawn this harness; sssf spawns nothing else.
 - [[pattern-session-handoff]] · [[pattern-context-engineering]] — the two patterns pi provides as core primitives.
 - [[nano-spec]] — the process-layer minimalist, pi's spiritual counterpart one layer up.

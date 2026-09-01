@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
+sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); github/gh-aw (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-08-31
+updated: 2026-09-01
 ---
 
 # Pattern: Autonomous loop (hands-off pipeline to a terminal success gate)
@@ -45,6 +45,7 @@ The process-layer loops above are *skills that instruct an agent*; the [executio
 - [[warren]] (platform) — the entire product *is* the loop: dispatch → sandbox → validate → push → open PR → spin down, plus cron triggers and serial plan-runs that gate each child on the previous PR merging.
 - [[sssf]] (library) — the **bounded, single-shot** end of the range: an ADW chain runs to a two-part terminal gate — every phase green **and** the script's own `run.finish(accepted=…)` criterion — with self-repair inside it. `adw_simple_sdlc` loops the builder against the suite's verbatim output (`MAX_FIX_LOOPS`), then against the reviewer's blocking findings (`MAX_REVISION_LOOPS`), re-runs the suite when a revision invalidated a green result, and commits only once both came back clean. No daemon, no cron, no CI watch: the loop is a Python `for` statement, which is the point (*"code owns sequencing, retries, and acceptance"*). The acceptance split is the transferable idea — *"a test phase that ran a red suite did its job perfectly"*, so phases passing and the run being acceptable are asked as separate questions.
 - [[bernstein]] (platform) — a goal goes in and merged code comes out: an orchestrator **tick loop** over a task DAG, with adaptive timeouts sized from history, bounded retries that **escalate to a more capable model** on failure, a purpose-constraint circuit breaker, token/cost kill-switches, and **quiescence self-stop** (with heartbeat-renewed *hold* leases so an external HITL workflow can keep an idle-looking orchestrator alive).
+- [[gh-aw]] (platform) — the **event-driven** end of the range: the loop's trigger is the repo's own event stream (an opened issue, a failed `workflow_run`, a deploy in error state, cron or fuzzy schedules like *"daily around 14:00"*), and its bounds are declared as frontmatter data rather than scripted — `max-turns`, per-run and daily AI-credit budgets, `cooldown`, `user-rate-limit`, and `stop-after: "+7d"` (a loop that disables its own trigger at a deadline). The announcement names the operating shape "continuous": triage, documentation, simplification, test improvement, quality hygiene, reporting.
 
 ## Persisted by (store)
 
@@ -57,4 +58,4 @@ The division of labour with the infrastructure roster above is clean: a runtime 
 - [[pattern-worktree-isolation]] — the safety substrate that makes unattended runs non-destructive.
 - [[bmad-quick-dev]] — BMAD's unattended fast path (single-stage analogue).
 - [[compound-engineering]] — the framework applying this pattern.
-- [[sandcastle]] · [[warren]] · [[bernstein]] — the runtimes purpose-built to host AFK autonomous runs.
+- [[sandcastle]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the runtimes purpose-built to host AFK autonomous runs.

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
-updated: 2026-08-31
+sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026)"
+updated: 2026-09-01
 ---
 
 # Pattern: Knowledge compounding (each unit of work makes the next easier)
@@ -66,6 +66,7 @@ The most striking cross-layer finding in the wiki: an [execution-layer](../runti
 
 - [[warren]] (platform) — a project's `.mulch/` directory is **persistent agent memory across runs**: prior expertise is primed into context on spawn, the agent records new conventions/patterns/failure-modes with `ml record`, and reap merges them back (last-write-wins, just files in the repo, no database). This is the infrastructure realization of [[ce-compound]] / [[gstack-learn]] — machine-consumable memory every future run auto-reads. Its `.seeds/` issue queue and `canopy` versioned prompt library compound work-items and prompts the same way.
 - [[bernstein]] (platform) — the same loop, more elaborately instrumented and with an explicit review gate on the reinject step. `core/knowledge/lessons.py` propagates lessons **tag-matched and confidence-decayed over time** into later spawns under a bounded context-injection budget; a per-task **knowledge diary** (`tried` / `worked` / `failed` / `rationale` / `tags`) is distilled from each closing transcript, and a periodic **synthesis** pass clusters diaries into themes — but lands `approved: false` until an operator runs `bernstein knowledge synthesize --apply`, because *"no role prompt is mutated by the synthesizer alone."* A `CrossTaskKB` publish/subscribe facade over SQLite lets one task hand a fact to another *"without writing files into a shared worktree path and hoping the next agent reads them."*
+- [[gh-aw]] (platform) — two substrate memories for recurring workflows, split by durability: `cache-memory` (files in the GitHub Actions cache, 10GB per repo, ~7-day eviction, sanitized on restore) for session-scale state, and `repo-memory` (git branches, versioned, unlimited retention) for the long term. The distinctive twist is **integrity-scoped** compounding: cache keys include the content-trust level, so a run operating on `merged`-only data never inherits memory written by a run that read `unapproved` content — the first runtime here to treat accumulated memory itself as a prompt-injection surface.
 
 ## Persisted by (store)
 

@@ -9,7 +9,7 @@ updated: 2026-09-01
 
 > **This page is a curated overlay, not an ontology node.** It gathers pages from across the wiki around one theme and links *out* to them; it stores no edges and changes no synthesis. See [CONVENTIONS §The topic layer](../CONVENTIONS.md#the-topic-layer-curated-overlays).
 
-**The question this topic answers:** the wiki has now absorbed four [execution runtimes](../runtime/index.md) — [[sandcastle]], [[warren]], [[bernstein]], [[sssf]] — and their comparison matrix answers *"how do these four differ?"* This page answers the prior question: **what is the general shape of the system they are all instances of, which decisions define one, and in what order do people typically take those decisions on?** It also carries the layer's [glossary](#glossary), including the canonical definition of *control plane*, a term four pages use and none defines.
+**The question this topic answers:** the wiki has now absorbed five [execution runtimes](../runtime/index.md) — [[sandcastle]], [[warren]], [[bernstein]], [[sssf]], [[gh-aw]] — and their comparison matrix answers *"how do these four differ?"* This page answers the prior question: **what is the general shape of the system they are all instances of, which decisions define one, and in what order do people typically take those decisions on?** It also carries the layer's [glossary](#glossary), including the canonical definition of *control plane*, a term four pages use and none defines.
 
 ## The term, generalized
 
@@ -27,7 +27,7 @@ The wiki's ontology places the factory precisely: it is the **execution layer**,
 flowchart TB
     P["<b>Process layer</b><br/>framework · capability · sdlc-stage<br/><i>what the agent does</i>"]
     H["<b>Harness layer</b><br/>Claude Code · pi · opencode · droid<br/><i>the agent loop itself</i>"]
-    R["<b>Execution layer — the factory</b><br/>sandcastle · warren · bernstein · sssf<br/><i>where, when, and how loops run</i>"]
+    R["<b>Execution layer — the factory</b><br/>sandcastle · warren · bernstein · sssf · gh-aw<br/><i>where, when, and how loops run</i>"]
     S[("<b>State layer</b><br/>beads · seeds<br/><i>what survives the run</i>")]
     PAT["pattern<br/><i>the single seam all four layers attach to</i>"]
     P -- "runs_on" --> H
@@ -43,7 +43,7 @@ Two boundary tests from [CONVENTIONS](../CONVENTIONS.md#the-execution-layer-runt
 
 ## Anatomy of a factory
 
-Strip the four documented runtimes to what they share and one machine remains. Every part below is optional in some member — [[sssf]] ships no isolation, [[sandcastle]] no memory, [[warren]] no real parallelism — but the *sockets* are always these:
+Strip the five documented runtimes to what they share and one machine remains. Every part below is optional in some member — [[sssf]] ships no isolation, [[sandcastle]] no memory, [[warren]] no real parallelism, [[gh-aw]] no mid-run steering — but the *sockets* are always these:
 
 ```mermaid
 flowchart LR
@@ -62,7 +62,7 @@ flowchart LR
     GATE -. "escalation" .-> HUMAN
 ```
 
-Reading the diagram against the wiki: the **trigger** and the control plane's next-action policy are [[pattern-autonomous-loop]] territory; the isolation box is [[pattern-worktree-isolation]]; running several workers at once inside it is [[pattern-wave-parallelism]]; the envelope crossing the seam is [[pattern-contract-first]] and its injection [[pattern-context-engineering]]; the gates are [[pattern-deterministic-gates]] refusing to accept [[pattern-evidence-before-claims|the agent's own report as evidence]], sometimes strengthened by [[pattern-cross-model-review]] and [[pattern-fresh-context-subagents]]; the store's memory half is [[pattern-knowledge-compounding]]; and a worker resuming across runs is [[pattern-session-handoff]]. The one empirical claim the four members unanimously support is about the **gate**: verification is the only concern every documented runtime implements — something between the agent's report and the merge is always checked by code. That, more than any component, is what makes a factory a factory rather than a loop of hope.
+Reading the diagram against the wiki: the **trigger** and the control plane's next-action policy are [[pattern-autonomous-loop]] territory; the isolation box is [[pattern-worktree-isolation]]; running several workers at once inside it is [[pattern-wave-parallelism]]; the envelope crossing the seam is [[pattern-contract-first]] and its injection [[pattern-context-engineering]]; the gates are [[pattern-deterministic-gates]] refusing to accept [[pattern-evidence-before-claims|the agent's own report as evidence]], sometimes strengthened by [[pattern-cross-model-review]] and [[pattern-fresh-context-subagents]]; the store's memory half is [[pattern-knowledge-compounding]]; and a worker resuming across runs is [[pattern-session-handoff]]. The one empirical claim the five members unanimously support is about the **gate**: verification is the only concern every documented runtime implements — something between the agent's report and the merge is always checked by code (what is checked varies: [[gh-aw]]'s gate vets the safety of outputs and leaves work quality to the PR's own CI). That, more than any component, is what makes a factory a factory rather than a loop of hope.
 
 ## The four axes
 
@@ -77,22 +77,23 @@ These are axes, not a ladder — each moves independently. You can run a single 
 
 ## The morphological grid
 
-Rows are the axes; cells are the option values, roughly lighter to heavier left to right. The markers place the three **profiles** — the recommended progressive configurations, each anchored to a documented runtime as evidence: 🎫 **ticket runner** ([[sssf]]), 🖥️ **monitored service** ([[warren]]), 🏭 **fleet factory** ([[bernstein]]).
+Rows are the axes; cells are the option values, roughly lighter to heavier left to right. The markers place the four **profiles** — the recommended progressive configurations, each anchored to a documented runtime as evidence: 🎫 **ticket runner** ([[sssf]]), 🖥️ **monitored service** ([[warren]]), 🏭 **fleet factory** ([[bernstein]]), 📡 **repo reactor** ([[gh-aw]]).
 
 | Axis | | | | |
 |---|---|---|---|---|
-| **Control-plane location** | in the prompt — the agent sequences itself | in a script you own 🎫 | in a deployed service 🖥️ | in a deterministic DAG scheduler 🏭 |
-| **Trigger model** | manual bootstrap 🎫 🖥️ | scheduled 🖥️ | event-triggered 🖥️ | goal-driven (run to quiescence) 🏭 |
-| **Isolation substrate** | inline checkout 🎫 | worktree / branch 🏭 | local sandbox 🖥️ | remote fleet 🏭 |
-| **Autonomy scope** | one bounded task 🎫 | queue intake 🖥️ | scan discovery 🏭 | reactive (failure-signal) — *no documented anchor yet* |
+| **Control-plane location** | in the prompt — the agent sequences itself | in a script you own 🎫 | in a deployed service 🖥️ | in a deterministic DAG — scheduled 🏭 or compiled into CI 📡 |
+| **Trigger model** | manual bootstrap 🎫 🖥️ | scheduled 🖥️ 📡 | event-triggered 🖥️ 📡 | goal-driven (run to quiescence) 🏭 |
+| **Isolation substrate** | inline checkout 🎫 | worktree / branch 🏭 | local sandbox 🖥️ | remote runners / fleet 🏭 📡 |
+| **Autonomy scope** | one bounded task 🎫 | queue intake 🖥️ | scan discovery 🏭 📡 | reactive (failure-signal) 📡 |
 
 - 🎫 **Ticket runner** — one unit of intent runs unattended to a gated finish. Control plane in a script, human-triggered, everything else optional. [[sssf]] is the documented anchor: a stamped ADW chain, gates over a typed envelope, and — by admission — no sandbox, no parallelism, no PR flow. The cheapest configuration that is still a factory rather than a supervised session.
 - 🖥️ **Monitored service** — continuous intake with a human watching. A deployed control plane dispatches sandboxed runs from a queue or cron, the human steers mid-run and merges the PRs. [[warren]] is the anchor: dispatch → `bwrap`/pod sandbox → steer → validate → auto-PR → reap, with `.mulch/` memory compounding across runs.
 - 🏭 **Fleet factory** — a goal becomes a task DAG scheduled by code across parallel isolated workers, with gates deciding what lands. [[bernstein]] is the anchor: pure-Python scheduling to quiescence, worktrees plus seven remote backends, janitor and review gates, never auto-merging past them.
+- 📡 **Repo reactor** — the factory as standing repository automation: the repo's own event stream (an opened issue, a failed check, a deploy error, a schedule) triggers a read-only agent whose writes pass through gated, pre-approved channels. [[gh-aw]] is the anchor: markdown workflows compiled into hardened Actions lock files, safe outputs behind a threat-detection verdict, budgets declared as data. Unlike the other three it is not a heavier stop on one path — it automates a *different kind of work* (the announcement's "continuous" triage, documentation, hygiene) and typically runs *alongside* whichever profile does feature work.
 
-Two honest caveats on the grid. First, [[sandcastle]] deliberately appears in no profile: it is the *embeddable* option — the SDK you would build any of these three configurations from — so its position is a distribution fact, not a shape. Second, the rightmost autonomy cell is empty of wiki evidence: a purely reactive factory (CI fails → agent dispatched) is well-attested externally — GitHub's **Agentic Workflows (gh-aw)** compiles markdown loop definitions into Actions runs, the strongest undocumented instance of that quadrant — but nothing ingested here anchors it yet. The grid should gain a marker, not a new axis, when one is ingested.
+One honest caveat on the grid: [[sandcastle]] deliberately appears in no profile — it is the *embeddable* option, the SDK you would build any of these configurations from, so its position is a distribution fact, not a shape.
 
-The progression 🎫 → 🖥️ → 🏭 is the adoption path the anchors themselves suggest — add triggers and sandboxes to a working ticket runner, add code-owned coordination and parallelism to a working service — and it agrees with the loop-engineering maturity rule of *earning autonomy in order*: "Persist state before increasing unattended runtime, establish external verification before adding more agents, and add production controls before actions can affect users or infrastructure." But because the axes are independent, skipping or reordering is legitimate whenever one axis's need arrives early; the profiles are waypoints, not gates.
+The progression 🎫 → 🖥️ → 🏭 is the adoption path the anchors themselves suggest — add triggers and sandboxes to a working ticket runner, add code-owned coordination and parallelism to a working service — and it agrees with the loop-engineering maturity rule of *earning autonomy in order*: "Persist state before increasing unattended runtime, establish external verification before adding more agents, and add production controls before actions can affect users or infrastructure." The 📡 profile sits beside that path rather than on it, adoptable at any point. And because the axes are independent, skipping or reordering is legitimate whenever one axis's need arrives early; the profiles are waypoints, not gates.
 
 ## Relation to the other maturity frames
 
@@ -103,12 +104,13 @@ The wiki now holds three level-shaped frames, and they measure different things 
 The execution layer's working vocabulary. Definitions link to the pages that ground them; this list defines, it does not re-argue.
 
 - **software factory** — a system of agents plus code that turns units of intent into verified, merged changes by spawning bounded agent loops and gating their claims; the generic sense of [[sssf]]'s proper name, adopted by this page for the assembled systems the [[sandcastle|runtime]] layer's members build or are.
-- **control plane** — the component that owns *sequencing, retries, and acceptance*: which work runs next, what happens on failure, and what counts as done. Its defining question is *location* — in the prompt (the agent decides) or in code (a script, DAG, or service decides). [[warren]] is a self-hostable control-plane service; [[bernstein]]'s is a deterministic DAG scheduler; [[sssf]]'s is a stamped Python script, and its pitch — *"moving the control plane out of the prompt and into Python"* — is the term's sharpest use in the wiki.
+- **control plane** — the component that owns *sequencing, retries, and acceptance*: which work runs next, what happens on failure, and what counts as done. Its defining question is *location* — in the prompt (the agent decides) or in code (a script, DAG, or service decides). [[warren]] is a self-hostable control-plane service; [[bernstein]]'s is a deterministic DAG scheduler; [[sssf]]'s is a stamped Python script, and its pitch — *"moving the control plane out of the prompt and into Python"* — is the term's sharpest use in the wiki; [[gh-aw]] shows the plane need not be a running process at all — its policy is compiled into the CI job topology before anything executes.
 - **execution layer** — the wiki's name for the layer these systems form; the node type is `runtime`, kept despite the word's overloading (language/container/model runtimes are unrelated). See [CONVENTIONS §The execution layer](../CONVENTIONS.md#the-execution-layer-runtimes) for why it was not named `orchestrator`.
 - **framework / harness / runtime** — the three compute layers, disambiguated: a *framework* ships methodology (skills and commands that perform lifecycle stages); a *harness* is the agent loop that executes them (Claude Code, [[pi]]); a *runtime* spawns and wraps harnesses. The boundary tests: a harness is the loop, a runtime spawns loops; a framework performs stages, the other two perform none.
 - **gate** — a code-enforced check between an agent's claim and its acceptance: tests, lint, schema validation, or a review pass that can hard-block a merge. See [[pattern-deterministic-gates]]. A *receipt-based* gate additionally demands recorded evidence — commands, logs, trace IDs, PR links — rather than assertions; [[pattern-evidence-before-claims]] is the wiki's form of that rule.
 - **envelope** — a typed, schema-validated document that crosses the seam between control plane and agent (and between agents), replacing conversation as the interface; re-prompted until it validates. [[sssf]]'s Pydantic envelopes are the documented instance; the general move is [[pattern-contract-first]].
 - **ADW (AI Developer Workflow)** — [[sssf]]'s term for the generic concept of a *workflow script*: the code file that is the control plane for one factory run, owning phase order, retries, and the acceptance decision.
+- **safe outputs** — [[gh-aw]]'s term for structurally gated writes: the agent runs with no write permission and emits typed requests (create-issue, add-comment, create-pull-request, …) that separate jobs with minimal scoped tokens apply, only after a threat-detection verdict. The structural-prevention shape of [[pattern-edit-guardrails]].
 - **loop contract** — the loop-engineering frame's reviewable specification for one recurring agent job: eleven decisions (objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit) that would otherwise be hidden defaults. An externalized control-plane policy in document form.
 - **trigger** — what authorizes a run: manual bootstrap, schedule, event, or a verifiable goal. The factory's front door; axis 2 above.
 - **intake** — where work comes from once running is authorized: consumed from a *queue*, found by a *scan*, or provoked by a *reactive* failure signal. Distinct from the trigger: a nightly schedule (trigger) may scan for drift (intake).
@@ -125,6 +127,6 @@ The execution layer's working vocabulary. Definitions link to the pages that gro
 - [runtime/index.md](../runtime/index.md) — the layer's navigational index: members, the pattern roster, and the 11-concern orchestration matrix this page's axes distill.
 - [[topic-agent-readiness]] — the substrate's maturity; what has to be true of the repo before any profile here pays off.
 - [[topic-harness-engineering]] — the controls around the single run the factory repeats; the factory is that steering loop moved out of the room.
-- [[sssf]] · [[warren]] · [[bernstein]] — the three profile anchors; [[sandcastle]] — the embeddable substrate beneath them.
-- Undocumented instances worth ingesting, by the quadrant they would evidence: **GitHub Agentic Workflows (gh-aw)** (event-driven, control plane compiled into CI — the empty reactive cell above) and **OpenHands SDK** (open-source remote-fleet runtime); see the [broader category](../runtime/index.md#the-broader-category).
+- [[sssf]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the four profile anchors; [[sandcastle]] — the embeddable substrate beneath them.
+- Further instances, documented as prose only: **OpenHands SDK** (open-source remote-fleet runtime, deprioritized as closer to the hosted IDE-agent systems), Conductor, Container-use, Sculptor, Vibe-Kanban (sunset); see the [broader category](../runtime/index.md#the-broader-category).
 - IndyDevDan, *Super Simple Software Factory* ([capture](../../raw/runtime/2026-08-31-super-simple-software-factory.md)) · ChaoYue, *Awesome Loop Engineering* ([capture](../../raw/reference/2026-09-01-awesome-loop-engineering.md)).

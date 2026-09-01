@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); disler/super-simple-software-factory (2026)"
-updated: 2026-08-31
+sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); disler/super-simple-software-factory (2026); github/gh-aw (2026)"
+updated: 2026-09-01
 ---
 
 # Pattern: Edit guardrails (gate the agent's power to destroy or stray)
@@ -27,11 +27,13 @@ gstack:
 
 ## Enabled by (infrastructure)
 
-The [execution layer](../runtime/index.md) supplies the guardrail as **detect-and-revert** rather than as a permission prompt — the only realization here that needs no interactive human and no harness support at all:
+The [execution layer](../runtime/index.md) supplies the guardrail in two shapes of its own — **detect-and-revert** and **structural prevention** — neither of which needs an interactive human or harness support:
 
 - [[sssf]] (library) — the argument is that a tool allowlist *cannot* be a boundary, because `bash` runs anything (including `git checkout`) and `write` reaches any path: *"'this agent changes nothing' is a claim a tool list can state but never keep."* So `tools:` stays a capability list and `writes:` becomes the boundary, enforced in `permissions.py` after every agent call by fingerprinting the working tree before and after and attributing every path that appeared, vanished, or changed. Change-set comparison is chosen over write-watching deliberately — *"a path that was modified before the agent ran and is clean afterwards has been reverted, and a reversion is a modification"* — which is what catches a destructive `git checkout`. Unauthorized changes the agent *introduced* are rolled back (`git checkout --` for tracked files, deletion for untracked), paths that were **already dirty** are left alone so the operator's uncommitted work is never discarded, and the phase fails naming each path. A roster-wide `protected_files:` fences the orchestration code itself: **an agent must not be able to edit the machinery that grades it.**
 
-Note the difference from the harness roster below: those are *preventive* (a hook or permission mode blocks the call), this is *detective and corrective* (the write happens, then is undone). The skill states why the two are not interchangeable — a breach is deliberately not a gate violation, because *"gates are for work an agent can be asked to redo; a write has already happened, so re-prompting fixes nothing."*
+- [[gh-aw]] (platform) — the **structural** shape: the boundary is the compiled job topology, not a check performed at any moment. The agent job runs read-only and *"never requires write permissions because all write operations are performed by separate, validated jobs with minimal scoped permissions"* — it emits typed *safe-output* requests (create-issue, add-comment, create-pull-request, …) that scoped-token jobs apply only after an isolated threat-detection verdict, each capped by `max:` and constrained by `protected-files`. There is nothing to intercept and nothing to revert, because the write capability was never present.
+
+The pattern now has three shapes across the layers, and they are not interchangeable. The harness roster below is *preventive at the call* (a hook or permission mode blocks the tool invocation); sssf is *detective and corrective* (the write happens, then is undone — its skill states why: *"gates are for work an agent can be asked to redo; a write has already happened, so re-prompting fixes nothing"*); gh-aw is *preventive by construction* (the token that could write never reaches the agent). The structural shape is the strongest claim but the narrowest scope — it governs writes to GitHub, while the runner's own filesystem stays agent-writable inside the sandbox.
 
 ## Provided by (harness)
 
