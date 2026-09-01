@@ -45,7 +45,7 @@ The classification still lands on `runtime`, on three tests:
 
 - **It hosts no agent loop and spawns the one that does.** `agent_pi.py` builds the argv, launches [[pi]] as a subprocess, tails its JSONL stdout, and reaps it. That is the runtime-versus-harness test, cleanly.
 - **The process content is explicitly disposable and the control plane is not.** The README is unusually direct about this: *"The tests it ships are not your tests. The prompts it ships describe a demo app, not your domain. The roster names the models that were good the week it was written. All of that is supposed to be replaced."* What you keep is `adw_modules/` — phases, envelopes, gates, permissions, tracing, session resumption. A framework's methodology is the product; here the methodology is sample data and the *substrate* is the product.
-- **The pitch is a relocation of the control plane, not a method.** *"This fixes that by moving the control plane out of the prompt and into Python."* The thing being moved is sequencing, retries, and acceptance — the execution layer's own concerns, taken back from the model.
+- **The pitch is a relocation of the [[topic-software-factory|control plane]], not a method.** *"This fixes that by moving the control plane out of the prompt and into Python."* The thing being moved is sequencing, retries, and acceptance — the execution layer's own concerns, taken back from the model.
 
 The tell the conventions name — *"a page whose capabilities almost all map to no stage is rarely a framework"* — cuts the same way from the other side: the stamped surface is `run.phase()`, `ph.call()`, `gates.*`, `quality.*`, `permissions.*`. None of those perform a lifecycle step. The role prompts do, and they are the part you are told to throw away.
 

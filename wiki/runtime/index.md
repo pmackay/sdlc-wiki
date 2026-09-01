@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-08-31
+updated: 2026-09-01
 ---
 
 # Runtime
@@ -8,6 +8,10 @@ updated: 2026-08-31
 *The execution layer — the harness-agnostic substrate deciding where and how agents run.*
 
 The `framework` / `capability` / `sdlc-stage` triad models the **process layer** — *what* an agent does across the lifecycle. This namespace models a second, orthogonal **execution layer** — *where and how* the agent runs. A **runtime** is the harness-agnostic substrate that provides sandbox isolation, parallelism, branch→PR flow, AFK autonomy, steering, and persistence — an *agent* execution substrate, not a language, container, or model runtime. It runs Claude Code, Codex, pi, … interchangeably, and could host any process framework's skills — so it performs no SDLC stage and carries no `belongs_to` / `implements` / `equivalent_to` edge. It connects to the rest of the wiki at exactly one seam: the `pattern` namespace, via `enables:`. See [CONVENTIONS §The execution layer](../CONVENTIONS.md#the-execution-layer-runtimes).
+
+## The concepts
+
+The general architecture these members share — the anatomy of a **software factory** (control plane, trigger, isolation, gates, envelopes), the four design axes, the three progressive profiles (ticket runner → monitored service → fleet factory), and the layer's glossary (*control plane*, *gate*, *envelope*, *intake*, …) — lives on [[topic-software-factory]], with the layer's two architecture diagrams. This index stays navigational: the members, the patterns they supply, and the per-runtime comparison matrix as reference.
 
 ## Members
 
@@ -20,9 +24,28 @@ The `framework` / `capability` / `sdlc-stage` triad models the **process layer**
 
 One caveat on membership, recorded rather than smoothed over: the layer definition calls a runtime *harness-agnostic*, and [[sssf]] runs [[pi]] **only** in v1 (`coding_agent: claude_code` is schema-valid and raises). It is still filed here because agnosticism is a property of the *interface* — one `agent_*.py` module per harness behind one call site, with the second specced and stubbed — and because the agnosticism that matters most to it is at the *model* layer, where it is total: any `provider/model-id` in pi's catalog, chosen per phase, in one run.
 
-## Orchestration profile (the synthesis axis)
+## Patterns this layer supplies
 
-The runtime layer's analogue of the SDLC-stage synthesis: the dimensions runtimes are compared on are **orchestration concerns**, not lifecycle stages. Held as this matrix (not their own node namespace) until the layer grows enough to warrant graduating them — see [CONVENTIONS](../CONVENTIONS.md#the-execution-layer-runtimes).
+The execution layer touches the wiki only through the patterns it `enables:` — each has a **process-side** roster (capabilities that `apply` it) and now an **infra-side** roster (runtimes that `enable` it):
+
+- [[pattern-worktree-isolation]] — sandcastle (git worktree/branch), warren (`bwrap`/pod), bernstein (worktree + 7 pluggable backends)
+- [[pattern-autonomous-loop]] — sandcastle (AFK `run()`), warren (ephemeral dispatch + plan-run), bernstein (tick loop to quiescence), sssf (a bounded chain to a two-part acceptance gate)
+- [[pattern-wave-parallelism]] — sandcastle (parallel `run()`s / fork), bernstein (declarative task DAG, topological batching)
+- [[pattern-session-handoff]] — sandcastle (session resume/fork), warren (`.mulch/` prime + steer + event log), bernstein (`handoff emit`/`claim` across surfaces), sssf (`agent_map.json` rejoins each agent's own context window across ADWs)
+- [[pattern-knowledge-compounding]] — warren (`.mulch/` machine-consumable memory across runs), bernstein (confidence-decayed lessons + HITL-gated diary synthesis)
+- [[pattern-deterministic-gates]] — bernstein (named gate pipeline, `required` gates hard-block merge), sandcastle (`exec()`-gated pipeline steps), sssf (per-call gate callables + `kind="code"` phases; *"a known command is code, not an agent"*)
+- [[pattern-evidence-before-claims]] — bernstein (janitor completion signals + gate pipeline; the agent's own report is not an input), sssf (gates run *after* the agent, against the envelope's own declarations)
+- [[pattern-cross-model-review]] — bernstein (review gate `DifferentModelRequired`; cross-provider verifier)
+- [[pattern-fresh-context-subagents]] — bernstein (review gate raises `FreshContextViolation` on a threaded implementer transcript)
+- [[pattern-contract-first]] — sssf (a typed Pydantic envelope is the interface at every seam, re-prompted until it validates) — the layer's first supply of this pattern
+- [[pattern-context-engineering]] — sssf (two output channels only; the previous envelope injected by code, not carried in conversation; bounded output tails)
+- [[pattern-edit-guardrails]] — sssf (`writes:` + `protected_files:` enforced by diffing the repo around every call and rolling back what the agent introduced) — the layer's first supply of this pattern too
+
+[[pattern-evidence-before-claims]], [[pattern-cross-model-review]] and [[pattern-fresh-context-subagents]] arrived with Bernstein and named the layer's characteristic move: patterns that were **process-layer instruction everywhere else in the wiki** — verify before claiming, review with a different model, review in clean context — become *enforced properties of the substrate*, failing loudly rather than degrading quietly when violated. The last three bullets are sssf continuing it from the light end, and they are the two layers meeting at a smaller seam than usual: a typed envelope instead of a conversation ([[pattern-contract-first]] supplied as infrastructure for the first time), and a write boundary enforced by reverting the write rather than by asking a human first ([[pattern-edit-guardrails]], likewise).
+
+## Reference: the orchestration profile matrix
+
+The runtime layer's analogue of the SDLC-stage synthesis: the dimensions runtimes are compared on are **orchestration concerns**, not lifecycle stages. Held as this matrix (not their own node namespace) until the layer grows enough to warrant graduating them — see [CONVENTIONS](../CONVENTIONS.md#the-execution-layer-runtimes). [[topic-software-factory]] distills these eleven concerns into four coarser design axes; this matrix remains the fine-grained record.
 
 | Concern | [[sandcastle]] (library) | [[warren]] (platform) | [[bernstein]] (platform) | [[sssf]] (library) |
 |---|---|---|---|---|
@@ -47,25 +70,10 @@ A third axis worth naming is **weight**, and with four instances it spans two or
 
 The light end also demonstrates that the concerns in this matrix are **separable rather than a package**. sssf ships *no* isolation at all — current branch, current tree — and says so in its own README, listing a branch per run, a sandbox, and a merge step as *"the obvious next things to build"*; Sandcastle ships no memory; Warren no real parallelism. Only one row is filled by all four members, and it is **verification**: every runtime here decided that something between the agent's report and the merge had to be checked by code. That is the layer's most-agreed claim.
 
-## Patterns this layer supplies
-
-The execution layer touches the wiki only through the patterns it `enables:` — each has a **process-side** roster (capabilities that `apply` it) and now an **infra-side** roster (runtimes that `enable` it):
-
-- [[pattern-worktree-isolation]] — sandcastle (git worktree/branch), warren (`bwrap`/pod), bernstein (worktree + 7 pluggable backends)
-- [[pattern-autonomous-loop]] — sandcastle (AFK `run()`), warren (ephemeral dispatch + plan-run), bernstein (tick loop to quiescence), sssf (a bounded chain to a two-part acceptance gate)
-- [[pattern-wave-parallelism]] — sandcastle (parallel `run()`s / fork), bernstein (declarative task DAG, topological batching)
-- [[pattern-session-handoff]] — sandcastle (session resume/fork), warren (`.mulch/` prime + steer + event log), bernstein (`handoff emit`/`claim` across surfaces), sssf (`agent_map.json` rejoins each agent's own context window across ADWs)
-- [[pattern-knowledge-compounding]] — warren (`.mulch/` machine-consumable memory across runs), bernstein (confidence-decayed lessons + HITL-gated diary synthesis)
-- [[pattern-deterministic-gates]] — bernstein (named gate pipeline, `required` gates hard-block merge), sandcastle (`exec()`-gated pipeline steps), sssf (per-call gate callables + `kind="code"` phases; *"a known command is code, not an agent"*)
-- [[pattern-evidence-before-claims]] — bernstein (janitor completion signals + gate pipeline; the agent's own report is not an input), sssf (gates run *after* the agent, against the envelope's own declarations)
-- [[pattern-cross-model-review]] — bernstein (review gate `DifferentModelRequired`; cross-provider verifier)
-- [[pattern-fresh-context-subagents]] — bernstein (review gate raises `FreshContextViolation` on a threaded implementer transcript)
-- [[pattern-contract-first]] — sssf (a typed Pydantic envelope is the interface at every seam, re-prompted until it validates) — the layer's first supply of this pattern
-- [[pattern-context-engineering]] — sssf (two output channels only; the previous envelope injected by code, not carried in conversation; bounded output tails)
-- [[pattern-edit-guardrails]] — sssf (`writes:` + `protected_files:` enforced by diffing the repo around every call and rolling back what the agent introduced) — the layer's first supply of this pattern too
-
-[[pattern-evidence-before-claims]], [[pattern-cross-model-review]] and [[pattern-fresh-context-subagents]] arrived with Bernstein and named the layer's characteristic move: patterns that were **process-layer instruction everywhere else in the wiki** — verify before claiming, review with a different model, review in clean context — become *enforced properties of the substrate*, failing loudly rather than degrading quietly when violated. The last three bullets are sssf continuing it from the light end, and they are the two layers meeting at a smaller seam than usual: a typed envelope instead of a conversation ([[pattern-contract-first]] supplied as infrastructure for the first time), and a write boundary enforced by reverting the write rather than by asking a human first ([[pattern-edit-guardrails]], likewise).
-
 ## The broader category
 
-Four documented instances are the start, not the extent. The same layer includes **Conductor** (already referenced by [[gstack-context-restore]] as a workspace host), Dagger's **Container-use**, Imbue's **Sculptor**, **Vibe-Kanban**, and the coding harnesses' own worktree/sandbox modes — plus Warren's own [os-eco](https://github.com/jayminwest/os-eco) siblings (burrow, canopy, mulch, plot, sapling). Two of those siblings belong to a **different** layer: [[seeds]] and [[beads]] are [stores](../store/index.md), not runtimes — they spawn no agent and decide nothing about where one runs; Warren consumes `.seeds/`, not the reverse. The test is *a runtime spawns loops; a store is read by them*, and beads' charter states it from the other side, naming *"schedulers, swarms, release coordinators"* as the layer above it and declining to encode them. **mulch** and **canopy** are `memory`-subtype store candidates on the same test, not runtimes. Ingest more as they warrant pages; graduate the matrix above into derived nodes if it stops scaling.
+Four documented instances are the start, not the extent. The same layer includes **Conductor** (already referenced by [[gstack-context-restore]] as a workspace host; the canonical worktree-per-workspace, human-invoked orchestrator, a Mac app over Claude Code/Codex/Cursor), Dagger's **Container-use** (isolation delivered *as an MCP tool to the agent* — fresh container + git branch per agent, the control plane left in the prompt), Imbue's **Sculptor** (parallel per-agent Docker containers with a Pairing Mode — the HITL-maximal corner, explicitly *without* worktrees), **Vibe-Kanban** (a kanban board as the control plane over multiple harnesses; **sunset** — Bloop shut down in April 2026 and the project is community-maintained, so document it as historical if ingested), and the coding harnesses' own worktree/sandbox modes — plus Warren's own [os-eco](https://github.com/jayminwest/os-eco) siblings (burrow, canopy, mulch, plot, sapling).
+
+Two stronger candidates surfaced by the software-factory synthesis fill quadrants no documented member covers, and are queued for ingest: **GitHub Agentic Workflows (gh-aw)** — markdown loop definitions compiled into GitHub Actions lock files, agent jobs sandboxed read-only behind "safe outputs" write gating; the event-driven, control-plane-in-CI quadrant ([[topic-software-factory]]'s empty reactive cell) — and the **OpenHands software-agent SDK** — an open-source (MIT) agent runtime with an agent server, Docker sandbox lifecycle control, and remote workspaces; the open-source remote-fleet counterpart to the sandcastle+bernstein territory.
+
+Two of the os-eco siblings belong to a **different** layer: [[seeds]] and [[beads]] are [stores](../store/index.md), not runtimes — they spawn no agent and decide nothing about where one runs; Warren consumes `.seeds/`, not the reverse. The test is *a runtime spawns loops; a store is read by them*, and beads' charter states it from the other side, naming *"schedulers, swarms, release coordinators"* as the layer above it and declining to encode them. **mulch** and **canopy** are `memory`-subtype store candidates on the same test, not runtimes. Ingest more as they warrant pages; graduate the matrix above into derived nodes if it stops scaling.

@@ -23,7 +23,7 @@ flowchart LR
     PR --> RP["reap<br/><i>merge .mulch memory,<br/>close .seeds</i>"]
 ```
 
-**Warren** (Jaymin West, `jayminwest/warren`, MIT; part of the [os-eco](https://github.com/jayminwest/os-eco) ecosystem) is *"the Coolify of coding agents"* — a **self-hostable control plane for ephemeral coding agents**. Point it at a GitHub repo, bring your own key, and agents run in sandboxes on your own infrastructure; runs are short-lived and sandboxed — they complete a task, validate the changes, push a branch, and spin down — and a PR comes out. It is **harness-agnostic** (run Claude Code, Sapling, pi, and others behind one interface) and ships as *"one container, one volume, one HTTP API, one UI."* Where [[sandcastle]] is a library you script, Warren is a **running service** you deploy: it is the **platform / control-plane pole** of the runtime layer.
+**Warren** (Jaymin West, `jayminwest/warren`, MIT; part of the [os-eco](https://github.com/jayminwest/os-eco) ecosystem) is *"the Coolify of coding agents"* — a **self-hostable [[topic-software-factory|control plane]] for ephemeral coding agents**. Point it at a GitHub repo, bring your own key, and agents run in sandboxes on your own infrastructure; runs are short-lived and sandboxed — they complete a task, validate the changes, push a branch, and spin down — and a PR comes out. It is **harness-agnostic** (run Claude Code, Sapling, pi, and others behind one interface) and ships as *"one container, one volume, one HTTP API, one UI."* Where [[sandcastle]] is a library you script, Warren is a **running service** you deploy: it is the **platform / control-plane pole** of the runtime layer.
 
 ## What it orchestrates (not what it builds)
 
