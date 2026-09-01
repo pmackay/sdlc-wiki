@@ -5,10 +5,10 @@ belongs_to: "[[speckit]]"
 implements: "[[stage-plan]]"
 produces: "[[artifact-plan-md]]"
 applies: "[[pattern-vertical-slice]]"
-equivalent_to: ["[[mp-to-tickets]]", "[[addy-planning]]", "[[bmad-create-epics-and-stories]]", "[[ce-plan]]", "[[sp-writing-plans]]"]
+equivalent_to: ["[[mp-to-tickets]]", "[[addy-planning]]", "[[bmad-create-epics-and-stories]]", "[[ce-plan]]", "[[sp-writing-plans]]", "[[seeds-plan-submit]]"]
 sources: "GitHub/spec-kit README + spec-driven.md (2026)"
 raw: ["../../raw/speckit/2026-07-04-speckit-framework.md"]
-updated: 2026-07-04
+updated: 2026-08-31
 ---
 
 # speckit-tasks
@@ -28,6 +28,7 @@ Clusters with the frameworks that break a plan/spec into discrete, orderable uni
 The `[P]` parallel markers echo GSD's dependency-ordered [[pattern-wave-parallelism|wave parallelism]], though Spec Kit expresses parallelism as per-task flags rather than explicit waves.
 
 ## See Also
+- [[seeds-plan-submit]] — the same decomposition as data rather than as `tasks.md`; its steps' `blocks` indices become dependency edges on spawned work items instead of `[P]` markers a later step re-reads.
 - [[speckit]] — the framework.
 - [[speckit-plan]] — the plan this command decomposes.
 - [[speckit-taskstoissues]] — exports the resulting tasks to GitHub issues.

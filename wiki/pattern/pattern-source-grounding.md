@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026)"
-updated: 2026-07-05
+sources: "Addy Osmani — Agent Skills (2026); jayminwest/seeds (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Source grounding (cite official docs)
@@ -23,6 +23,10 @@ Compound Engineering:
 gstack:
 
 - [[gstack-office-hours]] · [[gstack-design-consultation]] · [[gstack-document-generate]] — research the landscape/codebase first (gstack's "Search Before Building" ethos).
+
+Seeds:
+
+- [[seeds-plan-prompt]] — emits `prior_art` records (`{id, type, summary, relevance}`) mined from mulch alongside each plan section and instructs the model to ground its answer in them; the grounding corpus is the project's own accumulated conventions, decisions, and failures rather than external documentation.
 
 ## See Also
 - [[pattern-adversarial-review]] — the complementary "distrust the output" technique.

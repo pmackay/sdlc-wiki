@@ -1,7 +1,7 @@
 ---
 type: artifact
-sources: "Open GSD docs (2026); GitHub/spec-kit (2026); Builder Methods — BM Skills (2026); tao-hpu/nano-spec (2025)"
-updated: 2026-07-13
+sources: "Open GSD docs (2026); GitHub/spec-kit (2026); Builder Methods — BM Skills (2026); tao-hpu/nano-spec (2025); jayminwest/seeds (2026)"
+updated: 2026-08-31
 ---
 
 # Artifact: PLAN.md (executable plan)
@@ -42,6 +42,7 @@ nano-spec:
 - [[nano-spec-create]] — the pack's `todo.md`: research/implementation/verification checklists + Must/Nice/Out acceptance criteria (part of the [[artifact-nano-spec-pack]]).
 
 ## See Also
+- [[artifact-plan-record]] — the direct contrast: [[seeds]] refuses a markdown plan outright (*"No markdown plan documents anywhere in the artifact path"*) and emits a schema-validated JSONL row instead, gaining enforceability and machine-consumption at the cost of a plan a human can read as prose.
 - [[artifact-research-md]] — research feeding the plan.
 - [[artifact-atomic-commit]] — what executing each task produces.
 - [[artifact-design-md]] — OpenSpec's design record that `tasks.md` is derived from.

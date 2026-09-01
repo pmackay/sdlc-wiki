@@ -162,7 +162,7 @@ flowchart LR
 
 ### 3 · [Plan](../sdlc-stage/stage-plan.md) — *research, design, decompose*
 
-A pipeline from investigation to executable units. Research and architecture feed the design; the design derives the task list; the task list becomes issues or context-rich stories that implementation consumes.
+A pipeline from investigation to executable units. Research and architecture feed the design; the design derives the task list; the task list becomes issues or context-rich stories that implementation consumes. The plan itself comes in two forms — prose (`PLAN.md`) in eleven frameworks, and a schema-validated data row in [[seeds]] — which is why the plan node forks here.
 
 ```mermaid
 flowchart LR
@@ -172,10 +172,13 @@ flowchart LR
     design -->|derives| plan
     design -.->|decision + rationale| adr["ADR"]
     plan -->|exported to| issue["tracker issue"]
+    plan -.->|prose vs validated data| rec["plan record"]
+    rec -->|spawns one per step| issue
     issue -.->|context-inlined form| story["story"]
     plan -.->|flat list vs context bundle| story
     plan -->|executed| oCMT(["→ atomic commit · Implement"])
     story -->|built| oCMT
+    issue -->|claimed| oCMT
     classDef bound stroke-dasharray:5 4,fill:transparent;
     class oCMT bound
 ```
@@ -282,10 +285,11 @@ flowchart LR
 | Plan | [[artifact-design-md\|design.md]] | OpenSpec · Spec Kit · BMAD · BM | The technical/UX *how* — approach, decisions, data flow — kept separate from behavior. |
 | Plan | [[artifact-adr\|ADR]] | MP · Addy · nano-spec | Per-decision architecture record: options · chosen · rationale. |
 | Plan | [[artifact-plan-md\|PLAN.md / tasks.md]] | GSD · Addy · OpenSpec · Spec Kit · CE · BM · nano-spec | The executable task list / checklist derived from the spec and design. |
-| Plan | [[artifact-issue\|tracker issue]] | MP · Spec Kit | A tracker issue materialised from a plan (decomposed or exported). |
+| Plan | [[artifact-plan-record\|plan record]] | Seeds | The same plan as **schema-validated data** rather than prose: a JSONL row whose steps spawn the work items and whose order is the execution schedule. |
+| Plan | [[artifact-issue\|tracker issue]] | MP · Spec Kit · Seeds | A tracker issue materialised from a plan (decomposed or exported). |
 | Plan | [[artifact-story\|story]] | BMAD | Context-rich story file: an issue with all implementation context inlined. |
 | Implement | [[artifact-design-mockup\|design mockup]] | gstack | Disposable AI-generated UI variants on a comparison board with taste memory. |
-| Implement | [[artifact-atomic-commit\|atomic commit]] | GSD · Addy · BMAD · CE | One atomic git commit per completed task. |
+| Implement | [[artifact-atomic-commit\|atomic commit]] | GSD · Addy · BMAD · CE · Seeds | One atomic git commit per completed task. |
 | Validate | [[artifact-uat-md\|UAT.md]] | GSD | User-acceptance-testing results + diagnosed gaps and fix plans. |
 | Review | [[artifact-review-report\|code review report]] | Addy · BMAD · CE · gstack · MP | Structured five-axis review with severity labels and fix recommendations. |
 | Review | [[artifact-security-audit\|security audit]] | Addy · CE · gstack | OWASP Top 10 vulnerability + threat-model assessment. |

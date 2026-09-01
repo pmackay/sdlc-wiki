@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026)"
-updated: 2026-07-31
+sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); sipyourdrink-ltd/bernstein (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Fresh-context subagents
@@ -48,6 +48,12 @@ Superpowers (a foundational principle — *"they should never inherit your sessi
 - [[sp-dispatching-parallel-agents]] — one fresh-context subagent per independent problem domain, dispatched concurrently.
 - [[sp-requesting-code-review]] — the reviewer subagent gets precisely-crafted context, never the controller's session history.
 
+## Enabled by (infrastructure)
+
+Where the harness *offers* fresh context as a primitive a skill may or may not use, an [execution-layer](../runtime/index.md) runtime can make it non-optional:
+
+- [[bernstein]] (platform) — the **review gate** hard-asserts that the reviewer runs in a new session id and raises `FreshContextViolation` if the implementer's transcript is threaded in, eliminating *"the silent 'we reused the session by accident' failure mode."* The reason given is drift: *"long-running implementer contexts accumulate drift that makes the implementer a poor reviewer of its own diff."* Context isolation enforced by the substrate, not requested by a prompt.
+
 ## Provided by (harness)
 
 The [harness layer](../harness/index.md) provides this pattern as a *primitive* — the sub-agent mechanism lives in the agent program itself, below any framework skill:
@@ -62,3 +68,4 @@ The [harness layer](../harness/index.md) provides this pattern as a *primitive* 
 - [[pattern-worktree-isolation]] — the filesystem counterpart (isolate the files, not just the context).
 - [[gsd]] · [[superpowers]] — context-engineering frameworks built on this pattern.
 - [[claude-code]] · [[opencode]] · [[factory-droid]] — the harnesses whose sub-agent tools provide this as a primitive (pi omits it from core).
+- [[bernstein]] — the runtime that makes fresh context non-optional for a reviewer (`FreshContextViolation`).

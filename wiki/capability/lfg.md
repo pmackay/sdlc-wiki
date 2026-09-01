@@ -5,11 +5,11 @@ belongs_to: "[[compound-engineering]]"
 implements: ["[[stage-plan]]", "[[stage-implement]]", "[[stage-review]]", "[[stage-validate]]", "[[stage-release]]"]
 delegates_to: ["[[ce-plan]]", "[[ce-work]]", "[[ce-simplify-code]]", "[[ce-code-review]]", "[[ce-commit-push-pr]]"]
 produces: ["[[artifact-pull-request]]"]
-applies: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]"]
+applies: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-deterministic-gates]]"]
 equivalent_to: []
 sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-04
+updated: 2026-08-31
 ---
 
 # /lfg
@@ -21,5 +21,6 @@ It spans [[stage-plan]] through [[stage-release]] by delegating to the loop's in
 ## See Also
 - [[ce-plan]] · [[ce-work]] · [[ce-simplify-code]] · [[ce-code-review]] · [[ce-commit-push-pr]] — the loop steps it delegates to.
 - [[pattern-autonomous-loop]] — the technique; [[bmad-quick-dev]] — BMAD's unattended fast path (nearest analogue).
+- [[pattern-deterministic-gates]] — "watch CI until green": the machine-checkable stop condition that makes the loop safe to leave unattended.
 - [[ce-dogfood]] — the same autonomy scoped to QA.
 - [[stage-plan]] · [[stage-implement]] · [[stage-review]] · [[stage-validate]] · [[stage-release]] — the stages it orchestrates.

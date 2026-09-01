@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Addy Osmani — Agent Skills (2026); obra/superpowers (2026); gastownhall/beads (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Trunk-based development
@@ -26,6 +26,10 @@ gstack:
 Superpowers:
 
 - [[sp-finishing-a-development-branch]] — short-lived feature branch → merge-or-PR decision menu, with per-choice worktree cleanup keeping the trunk clean.
+
+Beads:
+
+- [[beads-merge-slot]] — mutual exclusion on the merge to trunk, expressed as a bead one worker acquires and releases. Parallel agents can branch freely; only landing is serialized.
 
 ## See Also
 - [[pattern-feature-flags]] — how in-progress work stays on trunk without shipping.

@@ -8,15 +8,16 @@ A wave of open-source "agent frameworks" appeared through 2026: GSD, Spec Kit, B
 
 This wiki reads them side by side. Every framework is decomposed into its individual capabilities, each capability is tagged with the lifecycle stage it performs and the techniques it applies, and matching capabilities across frameworks are linked to one another. What emerges from those links — rather than from anyone's opinion — is a **canonical eight-stage lifecycle** and a set of recurring **patterns** that most frameworks independently converged on.
 
-It currently covers **12 frameworks**, **230 capabilities**, **36 artifacts**, **31 patterns**, **4 agent harnesses**, and **2 execution runtimes**.
+It currently covers **12 frameworks**, **318 capabilities**, **37 artifacts**, **32 patterns**, **4 agent harnesses**, **5 execution runtimes**, and **2 state stores**.
 
 ## How it is organised
 
-Three layers, from *what the agent does* down to *where it runs*:
+Four layers, from *what the agent does* down to what is left when it stops:
 
 - **Process layer** — a **[framework](catalogue.md#framework)** ships **[capabilities](catalogue.md#capability)** (commands, skills, sub-agents). Each capability performs one canonical **[sdlc-stage](catalogue.md#sdlc-stage)**, produces **[artifacts](catalogue.md#artifact)**, and applies **[patterns](catalogue.md#pattern)**.
 - **[Harness](catalogue.md#harness) layer** — the agent program itself (Claude Code, Droid, opencode, pi): the loop that loads those skills and executes tool calls. Frameworks *run on* a harness.
 - **[Runtime](catalogue.md#runtime) layer** — the substrate deciding *where and how* agents run: sandboxes, parallelism, unattended autonomy, branch→PR. Runtimes *spawn* harnesses.
+- **[Store](catalogue.md#store) layer** — the durable work graph and memory that outlives any single run, so a session that ends or crashes does not take the work with it. The other three layers are compute and are gone when the run ends; this is the one that survives.
 
 Two page types are derived rather than authored. **Stage** pages are synthesised purely from the capabilities that link to them — they are evidence summaries, not opinions, and get re-derived on every ingest so the stage names stay neutral rather than borrowing one framework's branding. **[Topic](catalogue.md#topic)** pages are the opposite: hand-written essays that cut across everything else.
 
@@ -24,7 +25,7 @@ The full schema — node types, relationship edges, naming rules, and the discip
 
 ## Ways to use it
 
-**Choosing a framework.** Start at the **[framework catalogue](catalogue.md#framework)**. Each entry states the framework's shape, its signature idea, which stages it covers and which it skips, and how heavy it is. Useful contrasts: [Spec Kit](framework/speckit.md) (gated, maximalist, the reference spec-driven implementation) vs [nano-spec](framework/nano-spec.md) (four tiny files) vs [Superpowers](framework/superpowers.md) (a complete methodology from 14 auto-triggering skills) vs [Agent OS](framework/agent-os.md) (deliberately owns only the front of the lifecycle).
+**Choosing a framework.** Start at the **[framework catalogue](catalogue.md#framework)**. Each entry states the framework's shape, its signature idea, which stages it covers and which it skips, and how heavy it is. Useful contrasts: [Spec Kit](framework/speckit.md) (gated, maximalist, the reference spec-driven implementation) vs [nano-spec](framework/nano-spec.md) (four tiny files) vs [Superpowers](framework/superpowers.md) (a complete methodology from 14 auto-triggering skills) vs [Agent OS](framework/agent-os.md) (deliberately owns only the front of the lifecycle). If none of them fit because what you actually lack is durable state rather than a methodology, the answer is a layer down: see the [store layer](store/index.md).
 
 **Borrowing one good idea instead of adopting a whole framework.** Most teams don't want another methodology; they want the two or three moves that actually work. Browse the **[capability catalogue](catalogue.md#capability)** or a **[stage](catalogue.md#sdlc-stage)** page, find the cluster of frameworks solving the same problem, and take the best-shaped version. Cross-framework counterparts are linked on every page.
 
@@ -34,7 +35,11 @@ The full schema — node types, relationship edges, naming rules, and the discip
 
 **Improving the repo the agent works in.** Before adopting any process, check whether your codebase can support one. **[Agent readiness](topic/topic-agent-readiness.md)** covers the two public scoring rubrics for exactly that, and the sibling **[harness engineering](topic/topic-harness-engineering.md)** covers how to steer agents toward your conventions and refine that over time. These two topics are the most directly actionable pages here.
 
-**Picking the substrate.** The **[harness matrix](harness/index.md)** compares agent programs on sub-agents, MCP, hooks, permissions, and model access; the **[runtime matrix](runtime/index.md)** compares isolation, parallelism, autonomy, and steering. Both are decisions people usually make by default rather than deliberately.
+**Rolling this out across an organization.** The community frameworks assume one motivated engineer; **[the AI-native SDLC](topic/topic-ai-native-sdlc.md)** covers the org-level view — Anthropic's own enterprise playbook (committed artifact chain, advisory-skill/deterministic-hook controls, governance enforced as the agent acts) read against the wiki's stages and patterns, with the convergences and the one instrument nobody else ships noted.
+
+**Picking the substrate.** The **[harness matrix](harness/index.md)** compares agent programs on sub-agents, MCP, hooks, permissions, and model access; the **[runtime matrix](runtime/index.md)** compares isolation, parallelism, autonomy, and steering; the **[store matrix](store/index.md)** compares the two work-tracking substrates on storage, merge, memory, and ephemerality. All three are decisions people usually make by default rather than deliberately. For the execution layer's general architecture — what a **[software factory](topic/topic-software-factory.md)** is made of, the four design axes, and which configuration to start with — read the topic page before the matrix.
+
+**Making long-horizon work survive.** Everyone hits the same wall on the second week: markdown plans rot, TODO comments scatter, and a crashed agent takes its context with it. The **[store layer](store/index.md)** is the two documented answers to that — [beads](store/beads.md) and [seeds](store/seeds.md) — compared on storage, merge behaviour, memory, ephemerality, and how much methodology a tracker should carry. Both agree on the core move (a dependency graph whose unblocked frontier *is* the work queue) and disagree on almost everything else, which makes the pair unusually informative.
 
 **Getting oriented in the field.** Read [CONVENTIONS](CONVENTIONS.md) for the vocabulary, then any two framework pages. The **[visual artifact index](artifact/index.md)** shows how the documents these tools produce flow into one another across a whole lifecycle.
 
@@ -48,4 +53,4 @@ Nothing here is a benchmark: the wiki records what these tools *claim and contai
 
 ## The full catalogue
 
-Every article in the wiki, one section per namespace, is listed on a single page: **[Catalogue](catalogue.md)** — [framework](catalogue.md#framework) · [capability](catalogue.md#capability) · [sdlc-stage](catalogue.md#sdlc-stage) · [artifact](catalogue.md#artifact) · [pattern](catalogue.md#pattern) · [harness](catalogue.md#harness) · [runtime](catalogue.md#runtime) · [topic](catalogue.md#topic).
+Every article in the wiki, one section per namespace, is listed on a single page: **[Catalogue](catalogue.md)** — [framework](catalogue.md#framework) · [capability](catalogue.md#capability) · [sdlc-stage](catalogue.md#sdlc-stage) · [artifact](catalogue.md#artifact) · [pattern](catalogue.md#pattern) · [harness](catalogue.md#harness) · [runtime](catalogue.md#runtime) · [store](catalogue.md#store) · [topic](catalogue.md#topic).

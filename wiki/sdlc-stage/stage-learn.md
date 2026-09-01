@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { bmad: "retrospective (learning close-out)", compound-engineering: "compound", gstack: "Reflect (retro + learn)", superpowers: "writing-skills (capability-compounding)" }
-sources: "Synthesized from BMAD + Compound Engineering + gstack + Superpowers (2026); spec-flavor cousin in OpenSpec"
-updated: 2026-07-17
+aka: { bmad: "retrospective (learning close-out)", compound-engineering: "compound", gstack: "Reflect (retro + learn)", superpowers: "writing-skills (capability-compounding)", seeds: "plan outcome (storage-only)" }
+sources: "Synthesized from BMAD + Compound Engineering + gstack + Superpowers + Seeds (2026); spec-flavor cousin in OpenSpec"
+updated: 2026-08-31
 ---
 
 # Stage: Learn
@@ -42,6 +42,10 @@ Superpowers (capability-compounding flavor):
 
 - [[sp-writing-skills]] — codify a proven technique into a permanent, auto-triggering skill ([[artifact-skill-doc]]) via **TDD-for-documentation** (baseline a subagent failing → write the skill → watch it comply); the library grows itself ([[pattern-knowledge-compounding]]). The direct counterpart to [[gstack-skillify]] — both make *the agent gain a capability* the learn output, rather than a lesson it reads.
 
+Seeds — a [store](../store/index.md) (and a stub, recorded because the gap is instructive):
+
+- [[seeds-plan-outcome]] — record a plan's `success | partial | failure` result. Storage-only by design: *"aggregation and retros are out of scope and left to teams."* Nothing reads it but a `--outcome` filter on [[seeds-plan-list]]. The framework's own thesis argues for closing the loop — a failure should become a new section or validation rule in the plan template — but seeds records the datum and stops, delegating the compounding to mulch, which [[seeds-plan-prompt]] reads back in as prior art on the next plan. The lesson-to-template step no capability performs is the clearest missing link this stage has.
+
 ## Two flavors of "learn" in the evidence
 
 - **Agent-grounding corpus (Compound Engineering; gstack).** Machine-consumable learnings written where future *agents* auto-read them ([[artifact-solution-doc]]); the corpus itself is a maintained artifact ([[ce-compound-refresh]]) or a searchable cross-session store ([[gstack-learn]]
@@ -60,4 +64,6 @@ The **learning-capture** cluster: Compound Engineering's [[ce-compound]] ↔ BMA
 - [[stage-release]] — the sibling close-out stage; learn was split out of it. Release delivers; learn compounds.
 - [[stage-align]] · [[stage-plan]] · [[stage-review]] — the stages that *consume* this stage's output as grounding, closing the loop.
 - [[pattern-knowledge-compounding]] — the technique behind the stage (each unit of work leaves reusable lessons for the next).
-- [[compound-engineering]] · [[bmad]] — the frameworks implementing this stage.
+- [[compound-engineering]] · [[bmad]] — the frameworks implementing this stage; [[seeds]] contributes a store-side stub.
+- [[beads-remember]] · [[beads-audit]] — the [store layer](../store/index.md) does the *storing* half of compounding without a Learn capability: durable memories auto-primed into every session, and labelled interaction traces kept for fine-tuning. Neither harvests a lesson, which is why neither implements this stage.
+- [[warren]] — the runtime whose `.mulch/` store is where the seeds half of this loop actually compounds.

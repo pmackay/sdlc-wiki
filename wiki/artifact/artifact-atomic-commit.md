@@ -1,7 +1,7 @@
 ---
 type: artifact
-sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026)"
-updated: 2026-07-05
+sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); jayminwest/seeds (2026)"
+updated: 2026-08-31
 ---
 
 # Artifact: Atomic commit
@@ -29,6 +29,10 @@ Compound Engineering:
 - [[ce-work]] — produces committed code from the guardrailed plan.
 - [[ce-commit]] — crafts one convention-aware atomic commit (file-level splitting).
 - [[gstack-ship]] · [[gstack-qa]] · [[gstack-design-review]] — atomic commits at ship time / per QA fix / per design fix (gstack).
+
+Seeds:
+
+- [[seeds-sync]] — stages and commits the `.seeds/` tracker state. The odd one out in this roster: it commits *work-item state*, not a change to the product — which is also why seeds has no audit trail of its own (*"Git IS the audit trail"*).
 
 ## See Also
 - [[artifact-pull-request]] — aggregates these commits at ship time.
