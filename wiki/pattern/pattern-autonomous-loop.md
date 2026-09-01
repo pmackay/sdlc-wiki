@@ -1,6 +1,6 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026)"
+sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
 updated: 2026-08-31
 ---
@@ -28,13 +28,30 @@ gstack (scoped autonomies rather than a whole-lifecycle loop):
 - [[gstack-ios-fix]] — autonomous iOS bug fixer with regression-snapshot capture.
 - [[gstack-canary]] — post-deploy monitoring loop watching for errors/regressions.
 
+Seeds:
+
+- [[seeds-ready]] — the queue the loop polls: open issues with no unresolved blockers, derived from the dependency graph so it is correct the moment a blocker closes. `--respect-schedule` reads warren's `queued` / `scheduledFor` keys so work can be parked without being lost. The process-layer half of a loop [[warren]] closes by having its agents self-claim from `.seeds/`.
+
+Beads:
+
+- [[beads-ready]] — the claimable frontier plus atomic `--claim`; the dispatch primitive an unattended loop turns on, derived from the graph so it is correct the instant a blocker closes.
+- [[beads-gate]] — a parked step waits on a human, a timer, or a GitHub run as a *blocking bead*, so *"agents never need to poll or spin"*. An unattended loop can suspend indefinitely at zero cost — the alternative to [[lfg]] burning turns watching CI.
+
 ## Enabled by (infrastructure)
 
 The process-layer loops above are *skills that instruct an agent*; the [execution layer](../runtime/index.md) is where the loop becomes *runtime machinery* — the purpose-built home for "AFK" (away-from-keyboard) agents:
 
 - [[sandcastle]] (library) — a bounded AFK `run()` with a **machine-checkable stop** (`completionSignal`), iteration cap (`maxIterations`), idle/completion timeouts, and `exec`-gated success checks (e.g. `npm test` before a review run). The `simple-loop` template is the archetype.
 - [[warren]] (platform) — the entire product *is* the loop: dispatch → sandbox → validate → push → open PR → spin down, plus cron triggers and serial plan-runs that gate each child on the previous PR merging.
+- [[sssf]] (library) — the **bounded, single-shot** end of the range: an ADW chain runs to a two-part terminal gate — every phase green **and** the script's own `run.finish(accepted=…)` criterion — with self-repair inside it. `adw_simple_sdlc` loops the builder against the suite's verbatim output (`MAX_FIX_LOOPS`), then against the reviewer's blocking findings (`MAX_REVISION_LOOPS`), re-runs the suite when a revision invalidated a green result, and commits only once both came back clean. No daemon, no cron, no CI watch: the loop is a Python `for` statement, which is the point (*"code owns sequencing, retries, and acceptance"*). The acceptance split is the transferable idea — *"a test phase that ran a red suite did its job perfectly"*, so phases passing and the run being acceptable are asked as separate questions.
 - [[bernstein]] (platform) — a goal goes in and merged code comes out: an orchestrator **tick loop** over a task DAG, with adaptive timeouts sized from history, bounded retries that **escalate to a more capable model** on failure, a purpose-constraint circuit breaker, token/cost kill-switches, and **quiescence self-stop** (with heartbeat-renewed *hold* leases so an external HITL workflow can keep an idle-looking orchestrator alive).
+
+## Persisted by (store)
+
+- [[beads]] — [[beads-ready]] plus atomic `--claim` is the frontier an unattended loop polls, and [[beads-gate]] lets a step park on a human, a timer, or a GitHub run without spinning. The store makes the loop *resumable*: a crashed run leaves the graph intact and the next one picks up the frontier.
+- [[seeds]] — the same frontier over JSONL; [[warren]]'s agents self-claim from `.seeds/` and its plan-run walks the children serially.
+
+The division of labour with the infrastructure roster above is clean: a runtime supplies the loop, a store supplies the state that makes stopping and restarting it safe.
 
 ## See Also
 - [[pattern-worktree-isolation]] — the safety substrate that makes unattended runs non-destructive.

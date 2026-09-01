@@ -1,6 +1,6 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); Addy Osmani — Agent Skills (2026); EveryInc/compound-engineering-plugin (2026); Matt Pocock — Skills for Real Engineers (2026); obra/superpowers (2026); Martin Fowler — 'Harness Engineering' (2026); sipyourdrink-ltd/bernstein (2026); mattpocock/sandcastle (2026)"
+sources: "gstack — Garry Tan (2026); Addy Osmani — Agent Skills (2026); EveryInc/compound-engineering-plugin (2026); Matt Pocock — Skills for Real Engineers (2026); obra/superpowers (2026); Martin Fowler — 'Harness Engineering' (2026); sipyourdrink-ltd/bernstein (2026); mattpocock/sandcastle (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
 updated: 2026-08-31
 ---
 
@@ -44,12 +44,33 @@ Superpowers:
 
 - [[sp-verification-before-completion]] — its gate function is mechanical: identify the command that proves the claim → run it fresh → **read the exit code and count failures** → only then speak. The deterministic-gate half of a skill whose thesis is honesty.
 
+Seeds — the wiki's first framework that is itself a program, so its gates are the framework rather than something bolted onto it:
+
+- [[seeds-plan-submit]] — an AJV schema generated from the project's plan template gates the plan before any child seed is spawned; fail-fast, pre-write, exit-code verdict.
+- [[seeds-plan-validate]] — re-runs that gate against the *current* template, so tightening a rule after a failure applies retroactively to plans in flight.
+- [[seeds-doctor]] — data-integrity checks over the store (gitattributes drift, non-object `extensions`) with `--fix`.
+
+Beads — four program-decided checks, each with an exit code and no model involved:
+
+- [[beads-doctor]] — installation and data health, and the single consolidation point for remediation (*"don't create separate commands like `bd recover`"*), including orphan detection against git history.
+- [[beads-graph]] — `bd graph check` on the dependency graph's structural invariants.
+- [[beads-lint]] — the unusual one: a linter for the *content of work items*, flagging beads whose template sections are empty before someone claims them.
+- [[beads-preflight]] — a pre-PR checklist over the working tree, `--check` to run it.
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) is where this pattern stops being a skill an agent may forget and becomes a condition of merging:
 
 - [[bernstein]] (platform) — the fullest realization: a configurable **gate pipeline** of named checks (lint · type_check · tests · security_scan · pii_scan · coverage_delta · dep_audit · mutation_testing · …), each with a `required` flag and an execution condition, run on the diff after every agent completion. A failing *required* gate hard-blocks merge; a failing *optional* gate is reported only. Commands are repo-configurable (`lint_command`, `test_command`, …), results are cached while the diff is unchanged, and custom checks plug in as `GatePlugin` classes via `.bernstein/gates/*.py` or a `bernstein.gates` entry point. Alongside it the janitor's declarative **completion signals** (`path_exists`, `glob_exists`, `test_passes`, `file_contains`) gate the individual task the same way.
+- [[sssf]] (library) — the pattern reduced to its economics and then enforced as a hard rule: *"A known command is code, not an agent"*, so anything whose invocation you can write down (`bun test`, `ruff check`) becomes a `kind="code"` phase rather than an agent phase, and its result reaches the next agent through the same envelope door an agent's report would have used. Alongside it, a gate is one callable — `gate(envelope, run) -> GateReport` — attached per call site, returning one `{item, ok, note}` check per thing it examined so a *green* gate records what it verified. Both the rule and the argument for it are unusually explicit: an agent rediscovering your test runner *"burns a context window to learn what a subprocess already knows, and it charges you for the privilege every single run."*
 - [[sandcastle]] (library) — the script-it-yourself version: `sandbox.exec()` runs a shell command in the warm sandbox so a pipeline can gate an implement step on `npm test` before dispatching the review run.
+
+## Persisted by (store)
+
+- [[beads]] — four program-decided checks over the store and the tree: [[beads-doctor]], [[beads-graph]]'s integrity check, [[beads-lint]] (a linter for *work-item content*, not code), and [[beads-preflight]].
+- [[seeds]] — the AJV plan gate on [[seeds-plan-submit]] and the integrity checks in [[seeds-doctor]].
+
+Distinct from the infrastructure roster: a runtime gates the *work* before it merges, a store gates *its own state* — cycles, dangling edges, under-specified beads, drifted config.
 
 ## See Also
 - [[pattern-shift-left]] — *when* to run the gate (as early as possible); this pattern is *what kind* of gate it is.

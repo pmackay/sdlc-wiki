@@ -82,6 +82,7 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — the individual-author cross-harness frameworks that officially name Factory Droid: [[compound-engineering]] · [[gstack]] · [[superpowers]] (see the [framework-support matrix](index.md#framework-support-the-runs_on-inverse)).
+- **Stores that `integrates_with:` it** — [[beads]] (a `bd setup factory` recipe that creates or updates `AGENTS.md`) · [[seeds]] (a repo-local `.factory/skills/` unit, [[seeds-issue-workflow]]).
 - **Runtimes that `runs:` it** — [[bernstein]] (the `droid` adapter — *"teams on Factory AI's managed runtime who want Bernstein to orchestrate parallel droid sessions"*). The first paged runtime to list Droid as a provider.
 
 ## See Also

@@ -6,10 +6,10 @@ implements: "[[stage-plan]]"
 delegates_to: ["[[gsd-phase-researcher]]", "[[gsd-planner]]", "[[gsd-plan-checker]]"]
 produces: ["[[artifact-plan-md]]", "[[artifact-research-md]]"]
 applies: ["[[pattern-spec-driven-development]]", "[[pattern-plan-verification-loop]]", "[[pattern-fresh-context-subagents]]", "[[pattern-vertical-slice]]", "[[pattern-test-driven-development]]"]
-equivalent_to: ["[[addy-planning]]", "[[speckit-plan]]", "[[ce-plan]]", "[[sp-writing-plans]]"]
+equivalent_to: ["[[addy-planning]]", "[[speckit-plan]]", "[[ce-plan]]", "[[sp-writing-plans]]", "[[seeds-plan-submit]]"]
 sources: "Open GSD docs — workflow-commands (2026)"
 raw: ["../../raw/gsd/2026-06-27-gsd-core-framework.md"]
-updated: 2026-07-04
+updated: 2026-08-31
 ---
 
 # /gsd-plan-phase
@@ -23,6 +23,7 @@ updated: 2026-07-04
 These two flags are where GSD and Matt Pocock's toolkit converge: `--mvp` ↔ [[mp-to-tickets]] (both cut [[pattern-vertical-slice]] work) and `--tdd` ↔ [[mp-tdd]] (both drive [[pattern-test-driven-development]]).
 
 ## See Also
+- [[seeds-plan-submit]] — the decomposition cluster's deterministic member: its plan gate is a generated schema rather than a checker sub-agent like [[gsd-plan-checker]], so it cannot be argued with and cannot judge quality.
 - [[gsd-discuss-phase]] — supplies the locked context this plans against.
 - [[gsd-execute-phase]] — consumes the approved plan.
 - [[addy-planning]] — Addy's planning skill; same spec-to-plan step.

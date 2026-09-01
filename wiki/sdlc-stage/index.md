@@ -64,6 +64,19 @@ The **12 capabilities** that map to no lifecycle stage — cross-cutting tooling
 
 <sup>†</sup> OpenSpec's Release is a **spec-merge** (`archive`), not a code deploy — gstack is the only framework here with a genuine deploy step. Folded (🔗) cases: GSD, Superpowers, and Compound Engineering capture the *what* inside Align/Plan rather than a separate spec; OpenSpec bundles design + task-decomposition into its `propose` (specify) step. BM Skills and nano-spec are deliberately point tools, not full-SDLC frameworks.
 
+## Stores on the stage map
+
+The matrix above is **framework × stage**, and the [store layer](../store/index.md) is deliberately not in it. A store holds durable work state; running *around* the lifecycle rather than advancing it is what it is for, so scoring one against eight stages would rank it low for succeeding at its job. Two stores nonetheless ship some genuine lifecycle work, listed here so the evidence stays visible without competing with framework rows:
+
+| Store | On-stage | Off-stage | What it implements |
+|---|---|---|---|
+| [[seeds]] | 14 of 37 | 23 | [[stage-plan]] — the whole `sd plan` surface (templated, AJV-gated, spawns the children) plus filing and dependency-wiring; [[stage-learn]] — [[seeds-plan-outcome]], a storage-only stub |
+| [[beads]] | 1 of 51 | 50 | [[stage-plan]] — [[beads-mol]] alone, pouring a formula into dependency-ordered work |
+
+The gap between the two rows is the layer's own open argument, not a quality difference. Beads' charter **forbids** carrying methodology — *"the orchestration layer owns […] workflow semantics"* — so its single on-stage capability is deliberate minimalism, and even that one is template instantiation rather than reasoning. Seeds bakes a planning methodology into the store so that the plan and the queue are one object. The rest of the contrast is in the [store matrix](../store/index.md#the-comparison-matrix).
+
+**What this means for the rosters:** a `Seeds:` or `Beads:` group under [[stage-plan]] is store evidence, and it is weaker evidence for a *stage* than a framework's — a store implements a stage as a side effect of holding state about it, where a framework implements it on purpose. Weight it accordingly during [re-derivation](../CONVENTIONS.md#stage-re-derivation-keep-stages-framework-neutral); in particular, a candidate stage evidenced by two stores and no framework has not cleared the bar.
+
 ## Notes on ordering
 
 - **Stages 5–6 (Validate ∥ Review) are sibling gates**, not a strict sequence. Both run after [Implement](stage-implement.md) and both must pass before [Release](stage-release.md), but their order varies by framework — Addy runs *Verify → Review*, gstack runs *Review → Test*. They are listed 5 then 6 for a linear read; treat them as parallel quality gates.

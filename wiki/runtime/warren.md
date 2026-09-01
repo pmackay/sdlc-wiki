@@ -6,7 +6,7 @@ runs: ["[[claude-code]]", "[[pi]]"]
 enables: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-knowledge-compounding]]", "[[pattern-session-handoff]]"]
 sources: "Jaymin West — jayminwest/warren, part of the os-eco ecosystem (MIT, v0.9.10, 2026)"
 raw: ["../../raw/runtime/2026-07-26-warren.md"]
-updated: 2026-07-26
+updated: 2026-08-31
 ---
 
 # warren
@@ -38,7 +38,7 @@ The control-plane "capabilities" — orchestration verbs, not SDLC work:
 - **Live event stream** — NDJSON events persisted to SQLite and tailed over `GET /runs/:id/events?follow=1`; UI, CLI, and API all consume the same stream.
 - **Mid-run steering** — `POST /runs/:id/steer` lands a message in the agent's inbox for its next turn; `POST /runs/:id/cancel` aborts cleanly. This real-time HITL steering (≈5s poll under k8s) is Warren's signature affordance and the sharpest contrast with Sandcastle.
 - **Scheduled runs** — `.warren/triggers.yaml` defines per-project cron triggers dispatched on the same path as manual runs.
-- **Serial plan-run dispatch** — `POST /plan-runs` walks a `.seeds/` plan's children one at a time, one run per child, gating each on the previous PR merging; re-dispatch resumes from the next open child.
+- **Serial plan-run dispatch** — `POST /plan-runs` walks a `.seeds/` [[artifact-plan-record|plan record]]'s children one at a time, one run per child, gating each on the previous PR merging; re-dispatch resumes from the next open child. It consumes `plan.children` **verbatim** (`seq = index + 1`), which is why seeds ships [[seeds-plan-reorder]] as a first-class command: the array order *is* the execution schedule.
 - **Per-run preview environments** — a `.warren/preview.yaml` launches the app as a sidecar in the run's workspace behind `run-<id>.<host>`, so reviewers click a URL instead of checking out the branch.
 - **Auto-PR** — after a successful run warren opens a PR with a generated, per-project-overridable body (`.warren/pr-template.md`).
 
@@ -47,8 +47,8 @@ The control-plane "capabilities" — orchestration verbs, not SDLC work:
 Warren bundles a small set of [os-eco](https://github.com/jayminwest/os-eco) tools that light up when a project ships the matching directory — this is where the runtime layer starts to *own* concerns the process frameworks only gesture at:
 
 - **canopy** (`CANOPY_REPO_URL`) — versioned prompt library; define custom agents as prompts with inheritance/mixins/per-agent sandbox config.
-- **mulch** (`.mulch/`) — **persistent agent memory across runs**: expertise is primed into context on spawn, recorded with `ml record`, and merged back at reap (last-write-wins, just files in the repo, no database).
-- **seeds** (`.seeds/`) — an **issue queue** agents work from and write to (`sd ready` / `claim` / `create` / `close`); also the substrate for plan-runs.
+- **mulch** (`.mulch/`) — **persistent agent memory across runs**: expertise is primed into context on spawn, recorded with `ml record`, and merged back at reap (last-write-wins, just files in the repo, no database). A `memory`-subtype [store](../store/index.md) in all but a page — bundled by Warren rather than owned by it, and the same capability [[beads-remember]] ships inside a tracker.
+- **[[seeds]]** (`.seeds/`) — an **issue queue** agents work from and write to ([[seeds-ready]] / [[seeds-update]] / [[seeds-create]] / [[seeds-close]]); also the substrate for plan-runs. Now paged in its own right as a `framework` — the one os-eco tool that reaches up into the process layer rather than staying in the substrate.
 - **plot** (`.plot/`) — a peer-network coordination substrate; agents read shared context and append decision/question/artifact events.
 - **sapling** — a headless coding harness with proactive context management, usable as a steerable alternative to `claude-code`.
 - **burrow** — the `local` topology's `bwrap` sandbox runtime.
@@ -69,7 +69,7 @@ Warren bundles a small set of [os-eco](https://github.com/jayminwest/os-eco) too
 
 ## Distinctive contribution
 
-Warren is the **platform pole** of the runtime layer and the wiki's first look at agent orchestration as *operable infrastructure* — health/readiness probes, structured pino logs, correlation IDs, per-run cost analytics, `warren doctor`, a documented security posture, and a Kubernetes runbook. Two contributions are genuinely novel for this wiki. First, **mid-run steering**: an unattended run remains *interruptible and re-directable* without restarting it — a middle path between Sandcastle's "interactive OR AFK" split. Second, and more interesting for the ontology, Warren's **`.mulch/` persistent memory** is the **infrastructure-side realization of [[pattern-knowledge-compounding]]** — the very thing [[ce-compound]] / [[gstack-learn]] do as *process-layer skills*, but here baked into the runtime so every run auto-reads accumulated expertise and merges its own back at reap. Together with the `.seeds/` issue queue and `plot` coordination substrate, Warren shows the execution layer absorbing align/learn concerns that the process frameworks currently script by hand.
+Warren is the **platform pole** of the runtime layer and the wiki's first look at agent orchestration as *operable infrastructure* — health/readiness probes, structured pino logs, correlation IDs, per-run cost analytics, `warren doctor`, a documented security posture, and a Kubernetes runbook. Two contributions are genuinely novel for this wiki. First, **mid-run steering**: an unattended run remains *interruptible and re-directable* without restarting it — a middle path between Sandcastle's "interactive OR AFK" split. Second, and more interesting for the ontology, Warren's **`.mulch/` persistent memory** is the **infrastructure-side realization of [[pattern-knowledge-compounding]]** — the very thing [[ce-compound]] / [[gstack-learn]] do as *process-layer skills*, but here baked into the runtime so every run auto-reads accumulated expertise and merges its own back at reap. Together with the `.seeds/` issue queue and `plot` coordination substrate, Warren shows the execution layer absorbing align/learn concerns that the process frameworks currently script by hand. What it is absorbing is a whole layer rather than a concern: `.seeds/`, `.mulch/`, and canopy are all [stores](../store/index.md), and Warren's contribution is consuming them well rather than owning them.
 
 ## Patterns enabled
 
@@ -82,4 +82,5 @@ Warren is the **platform pole** of the runtime layer and the wiki's first look a
 - [[sandcastle]] — the other runtime here; the embeddable **library** pole to Warren's **platform** pole (script-it-yourself SDK vs deployed service; DIY PR vs built-in auto-PR; session resume vs persistent `.mulch/` memory; interactive-then-AFK vs steerable AFK).
 - [[pattern-autonomous-loop]] · [[pattern-worktree-isolation]] · [[pattern-knowledge-compounding]] · [[pattern-session-handoff]] — the patterns this runtime supplies as substrate.
 - [[ce-compound]] · [[gstack-learn]] — the process-layer knowledge-compounding skills whose job `.mulch/` moves into the runtime.
+- [[seeds]] — the os-eco sibling, now paged as a framework. The clearest process-layer/execution-layer pairing in the wiki, both halves by the same author: seeds decides *what* work exists and in what order, warren decides *where and how* each piece runs.
 - [[gstack-context-restore]] — already references running across **Conductor** workspaces, another instance of this execution layer leaking into the process wiki as prose.

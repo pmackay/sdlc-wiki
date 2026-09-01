@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); Agent OS — Builder Methods (2026)"
-updated: 2026-08-05
+sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); Agent OS — Builder Methods (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Context engineering (right context, right time)
@@ -38,6 +38,25 @@ Agent OS — the framework built almost entirely *around* this pattern:
 - [[agent-os-index-standards]] — the `index.yml` one-line-description **matcher** that lets standards be loaded selectively instead of all-at-once (*"Every word costs tokens"*), the mechanism that keeps the guide layer from becoming context rot.
 - [[agent-os-discover-standards]] — authors the standard files this curates. See [[artifact-standards]].
 
+Seeds — the pattern inverted, because the framework is a program rather than a prompt bundle:
+
+- [[seeds-prime]] — the tool emits its own rules and command reference into the agent's context on request (`--compact`, or `--json` for typed sections a harness can place deliberately); an agent cannot read a CLI the way it reads a `SKILL.md`.
+- [[seeds-onboard]] — the persistent counterpart: writes the seeds section into `CLAUDE.md` / `AGENTS.md` once, so every later session starts primed.
+- [[seeds-list]] · [[seeds-ready]] — five renderings of one query (`markdown`, `compact`, `plain`, `ids`, `json`) so the caller pays only for the tokens it needs; `ids` makes the tracker a shell filter rather than prose to parse.
+
+Beads — a ~109-command store that budgets its own footprint:
+
+- [[beads-prime]] — measures whether an MCP server is present and charges ~50 tokens instead of ~1–2k; `--memories-only` for mid-session compaction hooks.
+- [[beads-compact]] — semantic "memory decay" summarizes old closed beads specifically *"to save context window"*.
+- [[beads-list]] — every read command narrows (filters, limits, `--json`), because with a store this large what an agent pulls in is a budget decision.
+- [[beads-setup]] · [[beads-rules]] — write into and then mechanically *compact* the harness's guide layer, merging near-duplicate rules above a similarity threshold.
+
+## Enabled by (infrastructure)
+
+The [execution layer](../runtime/index.md) decides what is in the window when an agent is spawned, and what crosses between agents:
+
+- [[sssf]] (library) — context crosses a seam **in code, not in conversation**. An agent has exactly two output channels (files in the session's shared `context_handoff/`, and one final JSON envelope), and the runtime — not the model — persists that envelope and injects it into the next agent's rendered prompt as `{{previous_envelope}}`. A failing test's output rides back inside the envelope with a bounded tail (`TAIL_CHARS`) *"so a runaway stack trace can't swamp the next agent's context"*, and the *"a known command is code, not an agent"* rule is partly a context argument: running the suite in a `kind="code"` phase keeps a passing test suite out of the window entirely, which *"buys you nothing at all."* Occupancy is measured rather than assumed — `context_tokens` / `context_window` is recorded per agent session, computed the way [[pi]] computes it for its own auto-compaction trigger. Its operator skill applies the discipline to itself: nine cookbooks lazy-loaded one per request, with a stated ban on surveying state before the request arrives (*"Volunteered state is guessed state… It is stale on arrival"*).
+
 ## Provided by (harness)
 
 The [harness layer](../harness/index.md) supplies the context-assembly machinery these skills configure — what actually loads into the window at each turn:
@@ -46,6 +65,13 @@ The [harness layer](../harness/index.md) supplies the context-assembly machinery
 - [[opencode]] — **`AGENTS.md`** project config + configurable skills/rules + **MCP** assemble per-turn context.
 - [[pi]] — **`AGENTS.md` + `SYSTEM.md`** loaded from `~/.pi/agent/`, parent dirs, and cwd, plus skills and customizable **compaction** summarization.
 - [[factory-droid]] — **`AGENTS.md`** (shared standard, `CLAUDE.md`-compatible; discovery walks to the git root plus `~/.factory/` personal defaults) + skills + **40+ MCP servers** + plugins assemble per-turn context.
+
+## Persisted by (store)
+
+- [[beads]] — the store measures and manages its *own* context cost, which no other layer here does. [[beads-prime]] detects whether an MCP server already describes the tools and emits ~50 tokens instead of ~1–2k; [[beads-compact]] semantically decays old closed work *"to save context window"*; [[beads-mol]]'s wisps are born deletable so operational runs never accumulate.
+- [[seeds]] — five output formats over one query, and `sd prime --compact`, so the caller pays only for what it needs ([[seeds-list]], [[seeds-prime]]).
+
+The state-side insight is that a store that never forgets eventually costs more context than it saves, so forgetting has to be designed. Beads is the only tool in the wiki that treats that as a first-class problem.
 
 ## See Also
 - [[pattern-fresh-context-subagents]] — resetting context per task; the story file is what makes a fresh dev context safe.

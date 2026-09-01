@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026)"
-updated: 2026-07-05
+sources: "Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); jayminwest/seeds (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Plan verification loop
@@ -35,6 +35,13 @@ gstack:
 - [[gstack-plan-eng-review]] — locks architecture / edge-cases / tests, gating the plan before execution.
 
 In Fowler's *harness engineering* terms this is an **inferential sensor** run at the earliest useful point — a feedback control on the *plan* before any code exists ([[topic-harness-engineering]]).
+
+Seeds — the cluster's first gate that is not a model:
+
+- [[seeds-plan-submit]] — an AJV schema generated from the plan template checks required sections, `min_length`, `min`, step-index range, and self-references before any child seed is spawned. Failure is pre-write and returns a patchable partial-state diff (`errors[].path/code/fix` plus the plan as submitted), so the agent revises rather than restarts — the framework's *"one-shot with resume"*.
+- [[seeds-plan-validate]] — re-runs the gate against the current template definition, the mechanism behind its claim that a failure should be fixed in the planning *process* rather than in code review.
+
+The trade against the five model-based gates above is sharp in both directions: this one cannot be argued out of its verdict, and it checks shape rather than quality — it notices a missing `risks` array, never a wrong approach.
 
 ## See Also
 - [[pattern-spec-driven-development]] — the broader method this gates.

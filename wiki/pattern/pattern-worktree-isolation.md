@@ -1,6 +1,6 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026)"
+sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
 updated: 2026-08-31
 ---
 
@@ -27,6 +27,17 @@ Superpowers:
 - [[sp-using-git-worktrees]] — detect existing isolation → prefer the harness's native worktree tool → fall back to `git worktree` (verified git-ignored) → verify a clean test baseline.
 - [[sp-finishing-a-development-branch]] — the counterpart teardown: removes only the worktrees it created, per the merge/PR/keep/discard choice.
 
+Seeds — the pattern seen from the shared-state side rather than the workspace side:
+
+- [[seeds-init]] — installs the `merge=union` gitattributes that let branches from parallel worktrees each append work items and merge without conflict; dedup-on-read (last occurrence wins) resolves the duplicates union leaves.
+- [[seeds-sync]] — commits the store, which is the unit those merges reconcile. Together with advisory file locks and atomic temp-file-and-rename writes, this is what makes one tracker safe for several isolated agents at once — the concern every prompt-based framework leaves to the runtime.
+
+Beads — the state-side half of the pattern: isolation is only useful if the isolated agents still share one queue.
+
+- [[beads-worktree]] — create, inspect, and safely remove git worktrees with the store wired correctly, rather than sharing or stranding the database.
+- [[beads-init]] — content-hash IDs so two branches cannot mint the same id (*"merges never renumber work"*), and Dolt cell-level three-way merge for the rest; `bd recompute-blocked` repairs derived flags after a merge lands.
+- [[beads-merge-slot]] — the merge slot serializes the one step isolation cannot parallelize.
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) provides this pattern as *substrate* — the isolation exists whether or not any skill asks for it:
@@ -34,6 +45,13 @@ The [execution layer](../runtime/index.md) provides this pattern as *substrate* 
 - [[sandcastle]] (library) — `createWorktree()` plus the `branch` / `merge-to-head` strategies give every run its own worktree/branch; the worktree is preserved on a dirty exit and removed when clean.
 - [[warren]] (platform) — the same "never corrupt the trunk" intent realized at the OS level: a fresh `bwrap`-isolated workspace per run (`local`) or a dedicated pod per run (`k8s`), rather than a git worktree.
 - [[bernstein]] (platform) — a git worktree per spawned agent is the default sandbox, *"so multiple agents running against the same repository cannot stomp on each other's files, processes, or secrets"*; the choice is pluggable behind a `SandboxBackend` protocol with seven heavier first-party backends (docker, e2b microVMs, modal, daytona, blaxel, runloop, vercel) and an entry-point group for third parties.
+
+## Persisted by (store)
+
+Isolation is only useful if the isolated agents can still see one queue — that is this layer's contribution.
+
+- [[beads]] — content-hash IDs so parallel branches never renumber work, Dolt cell-level three-way merge for concurrent field edits, [[beads-worktree]] to wire a new worktree to the store correctly, and [[beads-merge-slot]] to serialize the one step that cannot be parallel.
+- [[seeds]] — `merge=union` gitattributes plus dedup-on-read, advisory locks, and atomic writes, so several worktree agents share one file store and git reconciles it ([[seeds-init]], [[seeds-sync]]).
 
 ## See Also
 - [[pattern-fresh-context-subagents]] — the context-isolation cousin (isolate the agent's memory vs the filesystem).

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026)"
-updated: 2026-07-31
+sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); disler/super-simple-software-factory (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Edit guardrails (gate the agent's power to destroy or stray)
@@ -25,6 +25,14 @@ gstack:
 - [[gstack-unfreeze]] — release the freeze boundary.
 - [[gstack-investigate]] — auto-freezes to the module under investigation.
 
+## Enabled by (infrastructure)
+
+The [execution layer](../runtime/index.md) supplies the guardrail as **detect-and-revert** rather than as a permission prompt — the only realization here that needs no interactive human and no harness support at all:
+
+- [[sssf]] (library) — the argument is that a tool allowlist *cannot* be a boundary, because `bash` runs anything (including `git checkout`) and `write` reaches any path: *"'this agent changes nothing' is a claim a tool list can state but never keep."* So `tools:` stays a capability list and `writes:` becomes the boundary, enforced in `permissions.py` after every agent call by fingerprinting the working tree before and after and attributing every path that appeared, vanished, or changed. Change-set comparison is chosen over write-watching deliberately — *"a path that was modified before the agent ran and is clean afterwards has been reverted, and a reversion is a modification"* — which is what catches a destructive `git checkout`. Unauthorized changes the agent *introduced* are rolled back (`git checkout --` for tracked files, deletion for untracked), paths that were **already dirty** are left alone so the operator's uncommitted work is never discarded, and the phase fails naming each path. A roster-wide `protected_files:` fences the orchestration code itself: **an agent must not be able to edit the machinery that grades it.**
+
+Note the difference from the harness roster below: those are *preventive* (a hook or permission mode blocks the call), this is *detective and corrective* (the write happens, then is undone). The skill states why the two are not interchangeable — a breach is deliberately not a gate violation, because *"gates are for work an agent can be asked to redo; a write has already happened, so re-prompting fixes nothing."*
+
 ## Provided by (harness)
 
 The [harness layer](../harness/index.md) supplies the mutation-gating substrate that gstack's guardrail skills configure — the guardrails are policy on top of a harness primitive:
@@ -38,4 +46,5 @@ The [harness layer](../harness/index.md) supplies the mutation-gating substrate 
 - [[pattern-worktree-isolation]] — the filesystem-isolation complement (isolate *where* work happens vs gate *what* it may do).
 - [[pattern-autonomous-loop]] — the autonomy these guardrails make safe.
 - [[gstack]] — the framework this pattern is signature to.
+- [[sssf]] — the runtime that enforces the boundary *after* the write rather than before it, by diffing the repo around every agent call and rolling back what that agent was not allowed to touch.
 - [[claude-code]] · [[opencode]] · [[factory-droid]] — the harnesses whose hooks + permission frameworks provide the enforcement substrate (pi omits it from core).

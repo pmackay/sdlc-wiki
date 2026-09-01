@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026)"
+sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026); jayminwest/seeds (2026)"
 raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md", "../../raw/gstack/2026-07-05-gstack-framework.md", "../../raw/nano-spec/2025-12-01-nano-spec.md", "../../raw/agent-os/2026-08-05-agent-os.md"]
-updated: 2026-08-05
+updated: 2026-08-31
 ---
 
 # Pattern: Scale-adaptive planning
@@ -35,6 +35,11 @@ nano-spec:
 Agent OS:
 
 - [[agent-os-plan-product]] · [[agent-os-shape-spec]] — lightweight-by-default docs, sized to the project; v3's whole design is *subtraction* — it deleted its own scaffolding and delegates the heavy lifting to the harness's Plan Mode (another methodology-level point on the ceremony spectrum, like nano-spec).
+
+Seeds:
+
+- [[seeds-create]] · [[seeds-plan-prompt]] — a deliberate two-tier dial with the rule stated in the docs: *"use it when work is large or ambiguous enough that an LLM benefits from decomposing it — for small, well-scoped tasks just `sd create` directly."*
+- [[seeds-issue-workflow]] — the skill that encodes the choice as two named procedures (create-then-ready vs. plan-decomposition) with the routing rule between them.
 
 ## See Also
 - [[pattern-spec-driven-development]] — the method whose ceremony this pattern modulates.

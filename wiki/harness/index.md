@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-08-05
+updated: 2026-08-31
 ---
 
 # Harness
@@ -71,6 +71,21 @@ Which harnesses each framework **officially documents** support for (its own doc
 | [[agent-os]] | **claude-code** *(primary — slash commands)* · Cursor · Windsurf · Codex · Antigravity *("any AI assistant that reads markdown")* |
 
 Claude Code is the universal target; **opencode** is the most broadly officially-supported *second* harness (6 frameworks); **factory-droid** is named by the three individual-author cross-harness frameworks ([[compound-engineering]], [[gstack]], [[superpowers]]); **pi** by two of them (Compound Engineering, Superpowers). Two frameworks are effectively Claude-Code-only in what they name: [[bm-skills]] (a CC plugin marketplace) and [[matt-pocock-skills]] (soft "any agent" claim, no others named).
+
+## Store support (the `integrates_with:` inverse)
+
+The [state layer](../store/index.md) points at harnesses too, but for a different reason and by a different mechanism. A framework `runs_on:` a harness because its skills are written in that harness's format. A store integrates because it must get itself **mentioned** — an agent that does not know the tracker exists will write a markdown TODO list instead, which is the exact failure both stores were built against. So what a store ships is an installer that writes into the harness's own memory file and hooks.
+
+| Store | Harnesses it ships an integration for |
+|---|---|
+| [[beads]] | **claude-code** · **factory-droid** · **opencode** · cursor · copilot · gemini · aider · mux · junie · windsurf · cody · kilocode · codex — thirteen `bd setup` recipes ([[beads-setup]]) |
+| [[seeds]] | **claude-code** · **factory-droid** · **pi** — repo-local `.claude/commands/`, `.factory/skills/`, `.pi/`; `sd onboard` also writes `AGENTS.md` for anything else ([[seeds-onboard]]) |
+
+**Bold** = has a page here and carries a stored `integrates_with:` edge; plain = documented but not yet paged, per the [support-scope rule](../CONVENTIONS.md#the-harness-layer).
+
+Two observations. **Claude Code is the universal target for this layer too** — both stores integrate with it, and it is the only harness both name. And the mechanism a store depends on is **hooks, not skills**: `bd setup claude` wires [[beads-prime]] into `SessionStart` so context injection is automatic, which is why [[beads-prime]] ships a `--hook-json` envelope. A harness without a hook system can still host a store, but the agent has to remember to prime itself — the difference between a convention and a guarantee.
+
+`pi` is the one paged harness [[beads]] does not name, and `opencode` is one [[seeds]] reaches only through the `AGENTS.md` convention rather than by name.
 
 ## The broader category
 

@@ -3,7 +3,7 @@ type: harness
 subtype: terminal
 source_url: "https://docs.claude.com/en/docs/claude-code"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
-sources: "Anthropic — Claude Code docs (docs.claude.com/en/docs/claude-code) + Claude Agent SDK (2026)"
+sources: "Anthropic — Claude Code docs (docs.claude.com/en/docs/claude-code) + Claude Agent SDK (2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/harness/2026-07-31-claude-code.md"]
 updated: 2026-08-31
 ---
@@ -76,7 +76,9 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — **all twelve** documented frameworks officially support Claude Code: [[gsd]] · [[matt-pocock-skills]] · [[addy-agent-skills]] · [[openspec]] · [[speckit]] · [[bmad]] · [[compound-engineering]] · [[gstack]] · [[bm-skills]] · [[superpowers]] · [[nano-spec]] · [[agent-os]]. It is the universal target of the process layer (see the [framework-support matrix](index.md#framework-support-the-runs_on-inverse)).
+- **Stores that `integrates_with:` it** — [[beads]] · [[seeds]], i.e. **both** documented members of the [state layer](../store/index.md). They target this harness differently from a framework: not by shipping skills it loads, but by getting themselves *mentioned* in the files and hooks it reads. [[beads-setup]] `claude` installs hooks and settings and wires [[beads-prime]] into `SessionStart` (with a `--hook-json` envelope built for exactly this); [[seeds-onboard]] writes a section into `CLAUDE.md`, and seeds ships `.claude/commands/` in its own repo. Claude Code's hook system is what makes a store's context injection automatic rather than something an agent must remember to run.
 - **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option) · [[bernstein]] (the `claude` adapter, its top-reasoning default).
+- **Not an edge, but the inverse of one** — [[sssf]] is a runtime *delivered as a Claude Code skill*: `/sssf install` stamps its Python control plane into the repo, and Claude Code then plays **operator** (launch an ADW, read the trace database, retune the roster) while the runtime spawns [[pi]] to do the work. So this harness sits **above** that runtime rather than being spawned by it, which is why there is no `runs:` edge; the skill polices the split explicitly — *"You run the system, observe the system, and help the user interact with it. You do no ADW work yourself."* The first documented case of a harness hosting the *operator* of a runtime rather than its worker.
 
 ## See Also
 - [[opencode]] · [[pi]] — the other terminal harnesses: claude-code is the proprietary/Anthropic-models pole, opencode the open/model-agnostic pole, pi the minimal-core pole. Cross-harness comparison: [harness/index.md](index.md).

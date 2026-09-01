@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-07-17
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
+updated: 2026-08-31
 ---
 
 # Pattern: Vertical slice
@@ -35,6 +35,15 @@ Compound Engineering:
 Superpowers:
 
 - [[sp-writing-plans]] — each task is the smallest unit that carries its own test cycle and is worth a reviewer's gate — an independently testable slice.
+
+Seeds:
+
+- [[seeds-plan-submit]] — the `steps` section's own instruction is the rule: *"Decompose into ordered, independent implementation steps"*, each becoming exactly one child seed.
+- [[seeds-dep]] — wires the ordering between those slices, with an explicit warning against over-wiring, since every unnecessary edge hides work from [[seeds-ready]].
+
+Beads:
+
+- [[beads-mol]] — a poured molecule is a set of independently-claimable, dependency-ordered beads, one per formula step; the slicing is inherited from the template rather than reasoned out per task.
 
 ## See Also
 - [[artifact-issue]] — how Matt's skills materialize a slice.

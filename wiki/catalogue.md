@@ -25,7 +25,7 @@ Complete SDLC agent toolkits / methodologies (e.g. GSD, SpecKit, OpenSpec).
 | [agent-os](framework/agent-os.md) | Brian Casel's (Builder Methods) **Agent OS v3.0.0** — *"Agents that build the way you would."* A deliberately **narrow, non-full-SDLC** framework: a durable **guide layer** (project [[artifact-standards\|standards]] + product docs) plus the *front* of the lifecycle (align + specify), handing build/review/validate/ship to the coding agent. Five commands, **no sub-agents**. v3 is a rare *shrink* — it deleted its own v2 scaffolding once Plan Mode + better models made it derivable, keeping only the non-derivable convention layer. The wiki's purest instance of [[topic-harness-engineering\|guides (feedforward)]]; standards refined via bidirectional profile-sync ([[pattern-knowledge-compounding]]). MIT, ~5.2K★. | 2026-08-05 |
 
 ## capability
-Individual commands, skills, and sub-agents a framework ships (`subtype:` distinguishes).
+Individual commands, skills, and sub-agents a **framework or [store](store/index.md)** ships (`subtype:` distinguishes; `belongs_to:` names the owner). Store capabilities — the `seeds-*` and `beads-*` rows — mostly implement no lifecycle stage, which is the expected shape for that layer rather than a gap.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
@@ -259,6 +259,94 @@ Individual commands, skills, and sub-agents a framework ships (`subtype:` distin
 | [agent-os-inject-standards](capability/agent-os-inject-standards.md) | Agent OS command — deploy the relevant standards into context (auto-suggest or explicit), choosing file-reference vs embedded-snapshot payloads; the wiki's purest [[pattern-context-engineering]] act (no stage). | 2026-08-05 |
 | [agent-os-plan-product](capability/agent-os-plan-product.md) | Agent OS command — one-question interview establishing the standing `mission`/`roadmap`/`tech-stack` docs → [[artifact-product-docs]]; counterpart to [[ce-strategy]] (align, product-direction flavor). | 2026-08-05 |
 | [agent-os-shape-spec](capability/agent-os-shape-spec.md) | Agent OS command — *shape* (not generate) a spec in Plan Mode into a persistent, timestamped pack with the matching standards bound in; the **9th** specify-cluster member (specify). | 2026-08-05 |
+| [seeds-init](capability/seeds-init.md) | Seeds command — create `.seeds/` and install the `merge=union` gitattributes that make the store mergeable. | 2026-08-31 |
+| [seeds-create](capability/seeds-create.md) | Seeds command — file one typed, prioritized unit of work → tracker issue; the low-ceremony tier of the planning dial. | 2026-08-31 |
+| [seeds-show](capability/seeds-show.md) | Seeds command — full detail for one or more issues, plan-aware (draft hint, approved children inline). | 2026-08-31 |
+| [seeds-list](capability/seeds-list.md) | Seeds command — filtered listing across five output formats, including `ids` for shell pipelines. | 2026-08-31 |
+| [seeds-ready](capability/seeds-ready.md) | Seeds command — **the dispatch primitive**: open issues with no unresolved blockers, plus schedule-aware and requires-plan gating. | 2026-08-31 |
+| [seeds-search](capability/seeds-search.md) | Seeds command — substring search over title and description; the duplicate-avoidance step before filing. | 2026-08-31 |
+| [seeds-update](capability/seeds-update.md) | Seeds command — mutate an issue; the `--status in_progress` claim is the whole coordination protocol between parallel agents. | 2026-08-31 |
+| [seeds-close](capability/seeds-close.md) | Seeds command — close with a `--reason`; unblocks everything downstream. | 2026-08-31 |
+| [seeds-dep](capability/seeds-dep.md) | Seeds command — the dependency edges, stored on both endpoints; over-wiring hides work from `sd ready`. | 2026-08-31 |
+| [seeds-block](capability/seeds-block.md) | Seeds command — the blocker-first surface over the same edges (`block` / `unblock` / `blocked`). | 2026-08-31 |
+| [seeds-label](capability/seeds-label.md) | Seeds command — normalized tagging; also feeds plan-step label propagation and mulch domain inference. | 2026-08-31 |
+| [seeds-stats](capability/seeds-stats.md) | Seeds command — project-level counts by status, type, and priority. | 2026-08-31 |
+| [seeds-sync](capability/seeds-sync.md) | Seeds command — stage and commit `.seeds/` locally; git is the tracker's entire audit trail. | 2026-08-31 |
+| [seeds-tpl](capability/seeds-tpl.md) | Seeds command — author convoy templates: a stored checklist, distinct from a plan template's schema-for-reasoning. | 2026-08-31 |
+| [seeds-tpl-pour](capability/seeds-tpl-pour.md) | Seeds command — instantiate a convoy template into a serially-wired chain of issues; decomposition as a macro. | 2026-08-31 |
+| [seeds-tpl-status](capability/seeds-tpl-status.md) | Seeds command — convoy completion status, derived from the issues themselves. | 2026-08-31 |
+| [seeds-plan-templates](capability/seeds-plan-templates.md) | Seeds command — list the plan templates (feature / bug / refactor, plus project-declared ones). | 2026-08-31 |
+| [seeds-plan-prompt](capability/seeds-plan-prompt.md) | Seeds command — emit the structured planning request, with mulch prior art pre-filling risks from past failures. | 2026-08-31 |
+| [seeds-plan-submit](capability/seeds-plan-submit.md) | Seeds command — **the centre of gravity**: AJV-validate the plan, spawn one child seed per step, wire the dependency edges → plan record. | 2026-08-31 |
+| [seeds-plan-show](capability/seeds-plan-show.md) | Seeds command — plan sections, children, and recursive sub-plans; prints the (non-gating) review-suggested hint. | 2026-08-31 |
+| [seeds-plan-validate](capability/seeds-plan-validate.md) | Seeds command — re-run the gate against the *current* template, applying a tightened rule retroactively. | 2026-08-31 |
+| [seeds-plan-list](capability/seeds-plan-list.md) | Seeds command — query plans by seed, status, outcome, or template; the only consumer of recorded outcomes. | 2026-08-31 |
+| [seeds-plan-create](capability/seeds-plan-create.md) | Seeds command — an adopt-only plan with zero spawned children, for release trains. | 2026-08-31 |
+| [seeds-plan-adopt](capability/seeds-plan-adopt.md) | Seeds command — link existing open seeds into a plan, link-only, never mutating their state. | 2026-08-31 |
+| [seeds-plan-release](capability/seeds-plan-release.md) | Seeds command — detach a seed from a plan without closing it; the strict inverse of adopt. | 2026-08-31 |
+| [seeds-plan-reorder](capability/seeds-plan-reorder.md) | Seeds command — pin the exact order of `plan.children`, which warren's plan-run consumes verbatim as the schedule. | 2026-08-31 |
+| [seeds-plan-edit](capability/seeds-plan-edit.md) | Seeds command — field-level plan fixes that propagate to child seeds and refresh their backref blocks. | 2026-08-31 |
+| [seeds-plan-outcome](capability/seeds-plan-outcome.md) | Seeds command — record success / partial / failure; the framework's only Learn capability, deliberately storage-only. | 2026-08-31 |
+| [seeds-plan-review](capability/seeds-plan-review.md) | Seeds command — record a reviewer's name; informational, never gating. Maps to no stage. | 2026-08-31 |
+| [seeds-doctor](capability/seeds-doctor.md) | Seeds command — data-integrity and setup-drift checks with `--fix`; a deterministic gate over the store. | 2026-08-31 |
+| [seeds-config](capability/seeds-config.md) | Seeds command — typed config surface that **publishes its own JSON Schema** so warren can render a form; where plan templates are edited. | 2026-08-31 |
+| [seeds-prime](capability/seeds-prime.md) | Seeds command — the tool emits its own rules into the agent's context; context engineering inverted, because a CLI cannot be read like a SKILL.md. | 2026-08-31 |
+| [seeds-onboard](capability/seeds-onboard.md) | Seeds command — write the seeds section into `CLAUDE.md` / `AGENTS.md`; the persistent half of prime. | 2026-08-31 |
+| [seeds-upgrade](capability/seeds-upgrade.md) | Seeds command — npm self-updater with `--check`; counterpart of gstack-upgrade. | 2026-08-31 |
+| [seeds-completions](capability/seeds-completions.md) | Seeds command — generated shell completions; the framework's only human-facing capability. | 2026-08-31 |
+| [seeds-migrate-from-beads](capability/seeds-migrate-from-beads.md) | Seeds command — import `.beads/issues.jsonl`; cheap because seeds kept beads' id format deliberately. | 2026-08-31 |
+| [seeds-issue-workflow](capability/seeds-issue-workflow.md) | Seeds **skill** — the repo-local `.factory/skills` unit routing a vague ask between create-then-ready and plan-decomposition. | 2026-08-31 |
+| [beads-ready](capability/beads-ready.md) | **The dispatch primitive** — the claimable frontier: open beads with no open blockers, excluding in-progress/blocked/deferred/gated; `--claim` is atomic. | 2026-08-31 |
+| [beads-create](capability/beads-create.md) | File a bead → tracker issue; content-hash ids so parallel branches never collide. Includes `bd q` quick capture and `bd batch`. | 2026-08-31 |
+| [beads-update](capability/beads-update.md) | The mutation surface, incl. the atomic `--claim`; carries an orchestrator's `execution_*` metadata without acting on it. `bd edit` is an agent trap. | 2026-08-31 |
+| [beads-close](capability/beads-close.md) | Close and reopen; closing releases blockers and lands as a Dolt commit with actor attribution. | 2026-08-31 |
+| [beads-show](capability/beads-show.md) | Bead detail plus audit trail, children, and per-bead version history. | 2026-08-31 |
+| [beads-list](capability/beads-list.md) | Filtered listing, counts, blocked, stale — and `bd orphans`, which cross-references open beads against git commit messages. | 2026-08-31 |
+| [beads-query](capability/beads-query.md) | A small query language, text search, and semantic duplicate detection over a graph several agents append to. | 2026-08-31 |
+| [beads-dep](capability/beads-dep.md) | **Five typed edge kinds**, only some of which gate work — provenance (`discovered-from`) and association (`related`) without hiding anything from the frontier. | 2026-08-31 |
+| [beads-graph](capability/beads-graph.md) | Render the dependency graph; `bd graph check` is a structural-integrity gate. | 2026-08-31 |
+| [beads-epic](capability/beads-epic.md) | Epic completion status and close-eligibility; hierarchy expressed in the id itself (`bd-a3f8.1.1`). | 2026-08-31 |
+| [beads-swarm](capability/beads-swarm.md) | Validate an epic's DAG and mint a swarm molecule *"any coordinator agent"* can pick up — the wave declared, the batching left to the layer above. | 2026-08-31 |
+| [beads-supersede](capability/beads-supersede.md) | The knowledge-graph links (`supersedes`, `duplicates`, `relates-to`, `replies-to`) — meaning without schedulability. | 2026-08-31 |
+| [beads-comment](capability/beads-comment.md) | Threaded comments with per-actor attribution in the events journal; the substrate under message-type beads. | 2026-08-31 |
+| [beads-label](capability/beads-label.md) | Labels, including `propagate` from a parent to its children; the `human` and `template` labels carry semantics. | 2026-08-31 |
+| [beads-todo](capability/beads-todo.md) | Sugar over task beads, existing to win one argument: *"do not use markdown TODO lists for task tracking."* | 2026-08-31 |
+| [beads-delete](capability/beads-delete.md) | Delete, prune, purge — the forgetting machinery a store that grows forever needs. | 2026-08-31 |
+| [beads-formula](capability/beads-formula.md) | The TOML/JSON DAG source for a repeatable workflow: steps, `needs`, variables, inheritance, gates. Shape only, never policy. | 2026-08-31 |
+| [beads-cook](capability/beads-cook.md) | Compile a formula into a proto; compile-time mode keeps `{{variables}}` intact so a work graph can be quoted before it is committed to. | 2026-08-31 |
+| [beads-mol](capability/beads-mol.md) | **Pour a proto into real dependency-ordered beads** (+ wisps, the ephemeral phase; `squash`/`burn`; `distill` extracts a formula from a finished epic). The one on-stage capability. | 2026-08-31 |
+| [beads-gate](capability/beads-gate.md) | **Async coordination as work items** — a human sign-off, timer, or GitHub run becomes a blocking bead, *"so agents never need to poll or spin."* | 2026-08-31 |
+| [beads-merge-slot](capability/beads-merge-slot.md) | Mutual exclusion on the merge to trunk, expressed as a bead you acquire and release. | 2026-08-31 |
+| [beads-prime](capability/beads-prime.md) | Inject rules + memories at `SessionStart`, **sized to the detected context budget** (~50 tokens with MCP, ~1–2k without). | 2026-08-31 |
+| [beads-remember](capability/beads-remember.md) | Durable insight as a store primitive, auto-primed every session; the README's replacement for `MEMORY.md` files. | 2026-08-31 |
+| [beads-kv](capability/beads-kv.md) | A plain key-value store, for durable values rather than durable prose. | 2026-08-31 |
+| [beads-compact](capability/beads-compact.md) | Two kinds of forgetting: semantic decay of old closed beads (context window) and Dolt history squashing (storage). | 2026-08-31 |
+| [beads-dolt](capability/beads-dolt.md) | The storage-engine surface: remotes, push/pull on `refs/dolt/data`, embedded-vs-server lifecycle, raw SQL. | 2026-08-31 |
+| [beads-vc](capability/beads-vc.md) | **Version control over the work data** — branch, merge, diff the issue graph alongside the code. No hosted tracker can do this. | 2026-08-31 |
+| [beads-export](capability/beads-export.md) | JSONL export/import for interchange — explicitly *not* the database, the sync protocol, or a backup. | 2026-08-31 |
+| [beads-backup](capability/beads-backup.md) | Backup destinations, sync, and restore; the runbook step before every destructive operation. | 2026-08-31 |
+| [beads-federation](capability/beads-federation.md) | Peer-to-peer sharing across repos and organizations, incl. a GCS/S3 bucket mode with no server to run. | 2026-08-31 |
+| [beads-repo](capability/beads-repo.md) | Multi-repo routing (contributor vs maintainer), cross-repo dependencies, and `bd ship`. | 2026-08-31 |
+| [beads-init](capability/beads-init.md) | Initialize `.beads/`; three postures — default, `--stealth` (nothing committed), `--contributor` (planning routed elsewhere). Works without git. | 2026-08-31 |
+| [beads-setup](capability/beads-setup.md) | **Thirteen per-harness recipes** that write beads into whichever file that harness reads and wire `bd prime` into its hooks. | 2026-08-31 |
+| [beads-hooks](capability/beads-hooks.md) | Git hooks embedded in the binary: pre-commit lands Dolt changes with the code; post-merge carries a gated legacy JSONL fallback. | 2026-08-31 |
+| [beads-config](capability/beads-config.md) | Configuration with **provenance** (which value won, from where), plus a drift/apply convergence loop. | 2026-08-31 |
+| [beads-doctor](capability/beads-doctor.md) | The single consolidation point for health and remediation, incl. orphan detection and an intentional-divergence marker. | 2026-08-31 |
+| [beads-lint](capability/beads-lint.md) | A linter for **work-item content** — flags beads whose template sections are empty before anyone claims them. | 2026-08-31 |
+| [beads-preflight](capability/beads-preflight.md) | A pre-PR checklist over the working tree, including stray `.beads/issues.jsonl` diffs. | 2026-08-31 |
+| [beads-worktree](capability/beads-worktree.md) | Worktree management wired to the store — the state-side half of worktree isolation. | 2026-08-31 |
+| [beads-migrate](capability/beads-migrate.md) | Schema, hook, and sync migrations; the visible tax on choosing a real database (version guard, designated-clone protocol). | 2026-08-31 |
+| [beads-upgrade](capability/beads-upgrade.md) | Version status and **review-since-last-acknowledged**, so silent drift in a load-bearing tool is noticeable. | 2026-08-31 |
+| [beads-human](capability/beads-human.md) | **The queue of things that need a person** — escalation as a durable, answerable, countable bead rather than a question lost with the session. | 2026-08-31 |
+| [beads-audit](capability/beads-audit.md) | Append-only interaction log for auditing *and* **SFT/RL dataset generation** — compounding aimed at weights, unique here. | 2026-08-31 |
+| [beads-mail](capability/beads-mail.md) | Delegates to the orchestrator's mail provider; a store declining to grow into a runtime, in one command. | 2026-08-31 |
+| [beads-rules](capability/beads-rules.md) | Mechanically audits `.claude/rules/` for contradictions and merges near-duplicates — the guide layer maintained by metric, not by LLM. | 2026-08-31 |
+| [beads-github](capability/beads-github.md) | Two-way GitHub Issues bridge; GitHub also appears as a gate source and as the repo host. | 2026-08-31 |
+| [beads-gitlab](capability/beads-gitlab.md) | Two-way GitLab bridge, identical shape — the uniformity is the point. | 2026-08-31 |
+| [beads-jira](capability/beads-jira.md) | Two-way Jira bridge; the one that most tests the *"adoption bridges, not a second product surface"* rule. | 2026-08-31 |
+| [beads-linear](capability/beads-linear.md) | Two-way Linear bridge; the closest external model to beads' own. | 2026-08-31 |
+| [beads-ado](capability/beads-ado.md) | Two-way Azure DevOps bridge — an adoption signal for enterprise ground. | 2026-08-31 |
+| [beads-notion](capability/beads-notion.md) | Notion bridge, the only one that can `init` its own schema; a Notion board is a work store missing exactly this layer's four features. | 2026-08-31 |
 
 ## sdlc-stage
 Canonical lifecycle stages — derived projections synthesized from `implements:` backlinks.
@@ -281,6 +369,7 @@ Concrete outputs capabilities produce (commits, specs, plans, …). See the **[v
 |---------|---------|---------|
 | [artifact-phase-context](artifact/artifact-phase-context.md) | GSD `{phase}-CONTEXT.md` — locked decisions + scope (name clashes with MP domain-model). | 2026-07-20 |
 | [artifact-plan-md](artifact/artifact-plan-md.md) | `{phase}-PLAN.md` — executable task prompts (GSD); also Addy `tasks/plan.md`+`todo.md`; OpenSpec/SpecKit `tasks.md`; CE guardrail plans; BM `milestones/N/prompt.md` build prompts; nano-spec `todo.md`; Superpowers bite-sized `docs/superpowers/plans/…` from [[sp-writing-plans]]. | 2026-07-17 |
+| [artifact-plan-record](artifact/artifact-plan-record.md) | Seeds `plans.jsonl` row — a plan as **schema-validated data** rather than prose: template-shaped sections, steps that spawn one child seed each with their dependency edges wired, a derived status, and a children array a runtime executes in order. The direct contrast to `artifact-plan-md`. | 2026-08-31 |
 | [artifact-research-md](artifact/artifact-research-md.md) | `RESEARCH.md` — domain/tech research output (GSD parallel researchers; SpecKit `research.md`; BMAD Analysis-phase research; MP `mp-research` background primary-source agent). | 2026-07-09 |
 | [artifact-uat-md](artifact/artifact-uat-md.md) | `{phase}-UAT.md` — UAT results + diagnosed gaps. | 2026-06-27 |
 | [artifact-atomic-commit](artifact/artifact-atomic-commit.md) | One atomic git commit per completed task/slice/story (GSD + Addy + BMAD + CE + gstack + Superpowers). | 2026-07-17 |
@@ -372,6 +461,16 @@ The **execution layer** — harness-agnostic substrates that decide *where and h
 | [sandcastle](runtime/sandcastle.md) | Matt Pocock's **Sandcastle** (`@ai-hero/sandcastle`, MIT) — a **TypeScript library** for orchestrating AI coding agents in isolated sandboxes: `run()` sandboxes an agent with a branch strategy (head / merge-to-head / branch) and merges the commits back. Provider-agnostic (Docker/Podman/Vercel/none; Claude Code/Codex/pi/Cursor/OpenCode/Copilot). First-class **AFK** (maxIterations + completionSignal + idle/completion timeouts), warm reusable sandboxes with `exec`-gating, session resume/fork, schema-validated structured output. The **library pole** of the runtime layer; enables [[pattern-worktree-isolation]] + [[pattern-autonomous-loop]] + [[pattern-wave-parallelism]] + [[pattern-session-handoff]]. | 2026-07-26 |
 | [warren](runtime/warren.md) | Jaymin West's **Warren** (os-eco, MIT, v0.9.10) — *"Coolify for coding agents"*: a **self-hostable control plane** for ephemeral agents. Dispatch (UI/CLI/API) → sandbox (`bwrap` workspace or k8s pod) → **steer mid-run** → validate → push branch → **auto-PR** → reap. Harness-agnostic (claude-code/sapling/pi). Opt-in os-eco power features: **`.mulch/` persistent cross-run memory**, `.seeds/` issue queue, `canopy` versioned prompts, `plot` coordination. The **platform pole**; uniquely enables [[pattern-knowledge-compounding]] *in the runtime*, plus [[pattern-autonomous-loop]] + [[pattern-worktree-isolation]] + [[pattern-session-handoff]]. | 2026-07-26 |
 | [bernstein](runtime/bernstein.md) | Alex Chernysh's **Bernstein** (`sipyourdrink-ltd/bernstein`, Apache-2.0) — *"Kubernetes for AI coding agents"*: a **deterministic orchestrator**. A goal is decomposed once into a **task DAG**, then scheduled by **pure Python with zero LLM tokens in the coordination loop**, run in parallel git worktrees (or docker/e2b/modal/daytona/blaxel/runloop/vercel), and gated by a **janitor** (declarative completion signals + lint/type/test/PII pipeline) and a **review gate** that enforces a fresh session and a different model. 40+ CLI adapters. Confidence-decayed **lessons**, HITL-gated diary synthesis, HMAC-chained audit + signed lineage, cluster mode, air-gap. The **coordination pole**; the first runtime to supply [[pattern-evidence-before-claims]] + [[pattern-cross-model-review]] + [[pattern-fresh-context-subagents]] as infrastructure, plus [[pattern-worktree-isolation]] + [[pattern-wave-parallelism]] + [[pattern-autonomous-loop]] + [[pattern-knowledge-compounding]] + [[pattern-session-handoff]]. | 2026-08-31 |
+| [sssf](runtime/sssf.md) | IndyDevDan's **Super Simple Software Factory** (`disler/super-simple-software-factory`, MIT) — a deterministic **Python control plane stamped from a Claude Code skill**: *"Agent proposes, code disposes."* An **ADW** script owns sequencing, retries, and acceptance; agents run as bounded `run.phase()` blocks; a typed **Pydantic envelope** crosses every seam (parse failure re-prompts the *same session*, never a restart); **gates verify the envelope's claims** after the fact; `writes:`/`protected_files` breaches are **rolled back** by diffing the repo around each call; every event streams live into WAL SQLite read by one cursor query. Twelve starter ADWs, a five-agent roster with a different model per phase. **pi** only (claude_code stubbed); **no sandbox, no parallelism, no PR flow, no cross-run memory — by admission.** The **minimal pole**; the layer's first supply of [[pattern-contract-first]] + [[pattern-edit-guardrails]], plus [[pattern-deterministic-gates]] + [[pattern-evidence-before-claims]] + [[pattern-context-engineering]] + [[pattern-session-handoff]] + [[pattern-autonomous-loop]]. | 2026-08-31 |
+
+## store
+The **state layer** — the durable work graph or memory corpus that outlives any single agent run. See the [store index](store/index.md) for the layer's comparison matrix and the [conventions](CONVENTIONS.md#the-state-layer-stores) for the schema.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [store — index](store/index.md) | The layer overview plus a 24-row comparison matrix: storage substrate, merge model, sync, memory surface, ephemerality, workflow templating, and where the two members disagree. | 2026-08-31 |
+| [beads](store/beads.md) | Steve Yegge / gastownhall **Beads** (`bd`) — *"distributed graph issue tracker for AI agents, powered by Dolt"* (MIT, Go, ~109 commands). Its own charter names the orchestration layer and refuses to be it, scoping beads to *"issue tracking primitives"*. Versioned SQL storage with cell-level merge and content-hash ids; five typed dependency edges of which only some gate work; knowledge-graph links; a formula→proto→molecule workflow engine with an ephemeral phase; **gates and merge slots as blocking beads** (coordination as work items); a first-class memory surface (`remember`/`kv`/`prime`, budget-aware) and semantic compaction; federation; a human-needed queue; an audit log doubling as a fine-tuning dataset; six tracker bridges. Implements one stage ([[beads-mol]]) by design. | 2026-08-31 |
+| [seeds](store/seeds.md) | Jaymin West **Seeds** (`sd`) — *"git-native issue tracker for AI agent workflows"* (MIT, Bun/TS, 37 commands), part of the os-eco ecosystem with [[warren]]. *"The JSONL file IS the database"* — plain diffable files merged by git (`merge=union` + dedup-on-read), written specifically to replace beads and arguing against its storage design by name. **The layer's boundary-crosser:** unlike beads it bakes a planning methodology into the store — `sd plan`, templated and AJV-gated, spawning the children — so 14 of its 37 capabilities are on-stage. | 2026-08-31 |
 
 ## topic
 Curated cross-cutting **overlays** (Maps of Content) — authored, top-down reference pages that link *out* to specifics across the ontology. Not ontology nodes: they store no edges and change no synthesis. See [CONVENTIONS §The topic layer](CONVENTIONS.md#the-topic-layer-curated-overlays).

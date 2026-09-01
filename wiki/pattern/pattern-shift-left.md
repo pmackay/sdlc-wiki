@@ -1,6 +1,6 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); Martin Fowler — 'Harness Engineering' (2026)"
+sources: "Addy Osmani — Agent Skills (2026); Martin Fowler — 'Harness Engineering' (2026); gastownhall/beads (2026)"
 updated: 2026-08-31
 ---
 
@@ -15,6 +15,10 @@ In the agent era Martin Fowler restates this as **"keep quality left"**: distrib
 Addy Osmani — Agent Skills:
 
 - [[addy-ci-cd]] — Shift Left, Faster is Safer, quality-gate pipelines, failure feedback loops.
+
+Beads:
+
+- [[beads-preflight]] — move the CI failure to before the push: tests, lint, formatting, version mismatches, and stray `.beads/issues.jsonl` diffs, checked locally.
 
 ## See Also
 - [[pattern-deterministic-gates]] — *what kind* of gate to prefer (program-decided), the orthogonal axis to this pattern's *when*.

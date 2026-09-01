@@ -56,6 +56,8 @@ opencode is the wiki's **model-agnostic, open-source** terminal harness — the 
 ## Runs / spawned by (backlinks)
 
 - **Frameworks that `runs_on:` it** — [[gsd]] · [[addy-agent-skills]] · [[compound-engineering]] · [[gstack]] · [[nano-spec]] · [[superpowers]] (each officially names OpenCode among supported agents).
+- **Stores that `integrates_with:` it** — [[beads]], which ships an `opencode` recipe among its thirteen `bd setup` targets ([[beads-setup]]) and so names this harness explicitly.
+- **Portable-but-unwired:** [[seeds]] writes its conventions into `AGENTS.md` as well as `CLAUDE.md` ([[seeds-onboard]]), so it works under any harness reading that convention — this one included. Per the support-scope rule no edge is stored, since seeds names the *file convention*, not this harness.
 - **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[bernstein]] (the `opencode` adapter).
 
 ## See Also

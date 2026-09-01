@@ -1,6 +1,6 @@
 ---
 type: topic
-sources: "Martin Fowler — 'Harness Engineering' (2026, martinfowler.com); wiki synthesis"
+sources: "Martin Fowler — 'Harness Engineering' (2026, martinfowler.com); wiki synthesis; disler/super-simple-software-factory (2026)"
 raw: ["../../raw/reference/2026-08-05-fowler-harness-engineering.md"]
 updated: 2026-08-31
 ---
@@ -56,7 +56,9 @@ Fowler's own split cuts *across* these sensors by cost and reliability:
 
 The practical rule Fowler implies: **prefer a computational control when one exists** (cheap, deterministic, un-gameable), and reserve inferential controls for the semantic judgments no linter can make. A *small verifier* is exactly how you promote an advisory guide into a sensor without bloating the rules file.
 
-> **Adjacent but distinct:** [[pattern-edit-guardrails]] is a *preventive* control — it blocks a destructive or out-of-scope action rather than detecting a defect after the fact. It belongs to the harness's safety envelope (permissions/hooks) more than to either guide or sensor; include it when reasoning about the full control set.
+**The clearest independent statement of that rule in the wiki is [[sssf]]'s**, arrived at from cost rather than from control theory and written into the skill as a hard rule: *"A known command is code, not an agent — if you can write the invocation down (`bun test`, `ruff check`), it belongs in a `kind="code"` phase."* Its argument for the preference is the economic one Fowler leaves implicit: *"An agent rediscovering your test runner burns a context window to learn what a subprocess already knows, and it charges you for the privilege every single run. Worse, it puts a passing test suite into a context window, which buys you nothing at all."* Two structural consequences are worth borrowing. The shipped roster has **no tester agent at all** — the suite is code, so no persona exists for it. And a computational control's result is adapted into the *same* envelope shape an agent report uses (`quality.as_envelope`), so a failing lint run and a failing review reach the next agent through one door and one repair loop: the sensor's *type* changes without the steering loop changing shape. The counterpart honesty is on the same page — its shipped quality blocks are placeholder `echo`s that exit 0, announced loudly, because *"a wrong-but-plausible command that silently passes is worse than one that says so out loud."*
+
+> **Adjacent but distinct:** [[pattern-edit-guardrails]] is a *preventive* control — it blocks a destructive or out-of-scope action rather than detecting a defect after the fact. It belongs to the harness's safety envelope (permissions/hooks) more than to either guide or sensor; include it when reasoning about the full control set. **One caveat the frame needs:** [[sssf]] shows the guardrail can also be built as a *sensor with an actuator* — it lets the write happen, then diffs the repo around the call and reverts what the agent was not permitted to touch, on the reasoning that a tool allowlist can never be a boundary while `bash` can run `git checkout`. Preventive and detective versions of the same control are not interchangeable, and which one you can build depends on whether the harness offers a hook at all (pi does not).
 
 ### The steering loop (refinement over time) — what the wiki already has
 
@@ -101,9 +103,9 @@ These sit *upstream* of every guide and sensor: a legible codebase needs fewer o
 | User harness | the guides + sensors a team applies ([[pattern-context-engineering]], the review patterns, …) |
 | Guide (feedforward) | [[pattern-project-constitution]], [[pattern-context-engineering]], [[artifact-standards]], [[artifact-adr]], [[pattern-source-grounding]] |
 | Sensor (feedback) | [[pattern-plan-verification-loop]], [[pattern-adversarial-review]], [[pattern-evidence-before-claims]] |
-| Computational control | linters/tests/types — [[gstack-health]], [[addy-ci-cd]], [[pattern-test-driven-development]] |
+| Computational control | linters/tests/types — [[gstack-health]], [[addy-ci-cd]], [[pattern-test-driven-development]]; [[sssf]]'s `kind="code"` phases are the rule stated as a budget line |
 | Inferential control | LLM-as-judge — [[pattern-adversarial-review]], [[pattern-cross-model-review]] |
-| Steering loop | [[pattern-knowledge-compounding]], [[warren]] |
+| Steering loop | [[pattern-knowledge-compounding]], [[warren]]; an ADW script in [[sssf]] is a steering loop written as plain Python |
 | Keep quality left | [[pattern-shift-left]] |
 | Harnessability / ambient affordances | *(gap)* — nearest: [[pattern-deep-modules]] |
 
@@ -119,6 +121,8 @@ The frame also settles the *"fewer conventions now needed"* debate by splitting 
 Net: the authored guide layer thins toward the project-specific kernel; sensors and the steering loop grow in relative weight.
 
 ## See Also
+- [[beads-rules]] — the only capability in the wiki that maintains the guide layer **mechanically**: it scans `.claude/rules/` for contradictions by Jaccard similarity and merges near-duplicates into composites. Everything else here either writes guides ([[agent-os-discover-standards]], [[beads-setup]]) or asks an LLM to curate them ([[ce-compound-refresh]]). Rule-set decay is the failure this topic describes, and a similarity threshold is a surprisingly direct answer to it.
+- [The store layer](../store/index.md) — where durable project state lives once you stop hand-maintaining instruction files; [[beads-remember]] is that argument in one command.
 - [[agent-os]] — the framework whose signature *is* the guide layer (layered standards + product docs + specs).
 - [[pattern-project-constitution]] ↔ [[pattern-knowledge-compounding]] — the prescribed and emergent poles of the guide/steering axis.
 - [[pattern-context-engineering]] — the delivery mechanism for guides.

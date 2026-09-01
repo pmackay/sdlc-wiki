@@ -6,10 +6,10 @@ implements: "[[stage-plan]]"
 delegates_to: ["[[sp-subagent-driven-development]]", "[[sp-executing-plans]]"]
 produces: ["[[artifact-plan-md]]"]
 applies: ["[[pattern-vertical-slice]]", "[[pattern-test-driven-development]]"]
-equivalent_to: ["[[gsd-plan-phase]]", "[[addy-planning]]", "[[speckit-tasks]]", "[[mp-to-tickets]]", "[[ce-plan]]", "[[bmad-create-epics-and-stories]]"]
+equivalent_to: ["[[gsd-plan-phase]]", "[[addy-planning]]", "[[speckit-tasks]]", "[[mp-to-tickets]]", "[[ce-plan]]", "[[bmad-create-epics-and-stories]]", "[[seeds-plan-submit]]"]
 sources: "Superpowers v6.1.1 (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-08-31
 ---
 
 # writing-plans
@@ -23,6 +23,7 @@ Structure: a **File Structure** map (decomposition decisions locked here) → **
 The **execution handoff** offers two paths: [[sp-subagent-driven-development]] (recommended) or [[sp-executing-plans]]. It joins the cross-framework decompose/plan cluster with [[gsd-plan-phase]], [[addy-planning]], [[speckit-tasks]], [[mp-to-tickets]], [[ce-plan]], and [[bmad-create-epics-and-stories]] — distinctive for baking the TDD micro-loop directly into every task's steps and forbidding placeholders outright.
 
 ## See Also
+- [[seeds-plan-submit]] — the decomposition cluster's program-implemented member; where this skill forbids placeholders by instruction, seeds enforces plan completeness with a schema.
 - [[sp-brainstorming]] — supplies the approved design this plan decomposes.
 - [[sp-subagent-driven-development]] · [[sp-executing-plans]] — the two execution paths it hands off to.
 - [[gsd-plan-phase]] · [[addy-planning]] · [[speckit-tasks]] · [[mp-to-tickets]] · [[ce-plan]] · [[bmad-create-epics-and-stories]] — the plan/decompose cluster.
