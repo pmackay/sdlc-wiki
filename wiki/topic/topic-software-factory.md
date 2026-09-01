@@ -9,7 +9,7 @@ updated: 2026-09-01
 
 > **This page is a curated overlay, not an ontology node.** It gathers pages from across the wiki around one theme and links *out* to them; it stores no edges and changes no synthesis. See [CONVENTIONS §The topic layer](../CONVENTIONS.md#the-topic-layer-curated-overlays).
 
-**The question this topic answers:** the wiki has now absorbed five [execution runtimes](../runtime/index.md) — [[sandcastle]], [[warren]], [[bernstein]], [[sssf]], [[gh-aw]] — and their comparison matrix answers *"how do these four differ?"* This page answers the prior question: **what is the general shape of the system they are all instances of, which decisions define one, and in what order do people typically take those decisions on?** It also carries the layer's [glossary](#glossary), including the canonical definition of *control plane*, a term four pages use and none defines.
+**The question this topic answers:** **what is the general architecture of a software factory — which components make one up, which design decisions define one, and in what order are those decisions typically taken on?** Where the [runtime index](../runtime/index.md) compares the documented instances — [[sandcastle]], [[warren]], [[bernstein]], [[sssf]], [[gh-aw]] — concern by concern, this page describes the system they are all instances of: the anatomy every factory shares, four axes that locate any factory in the design space, and named profiles marking the configurations worth building toward. It also carries the layer's [glossary](#glossary), including the canonical definition of *control plane*.
 
 ## The term, generalized
 
