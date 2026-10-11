@@ -3,11 +3,12 @@ type: store
 subtype: work
 integrates_with: ["[[claude-code]]", "[[factory-droid]]", "[[pi]]"]
 enables: ["[[pattern-session-handoff]]", "[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-deterministic-gates]]"]
+conforms_to: ["[[std-agents-md]]"]
 source_url: "https://github.com/jayminwest/seeds"
 docs_url: "https://www.npmjs.com/package/@os-eco/seeds-cli"
 sources: "Jaymin West — jayminwest/seeds README + AGENTS.md + PLAN_SPEC.md + SPEC.md, part of the os-eco ecosystem (MIT, @os-eco/seeds-cli v0.5.15, 2026)"
 raw: ["../../raw/seeds/2026-08-31-seeds.md"]
-updated: 2026-08-31
+updated: 2026-10-11
 ---
 
 # Seeds
@@ -156,3 +157,4 @@ Four things seeds contributes that no other page here has.
 - [[artifact-plan-record]] · [[artifact-issue]] · [[artifact-atomic-commit]] — what it produces.
 - [[stage-plan]] · [[stage-learn]] — the two canonical stages it touches.
 - [[claude-code]] · [[factory-droid]] · [[pi]] — the harnesses it ships integrations for (`.claude/commands/`, `.factory/skills/`, `.pi/`). The `AGENTS.md` half of `sd onboard` makes it portable to any harness reading that convention, [[opencode]] included.
+- [[std-agents-md]] — the convention `sd onboard` writes to reach harnesses it ships no recipe for.

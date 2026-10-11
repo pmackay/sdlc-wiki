@@ -1,11 +1,12 @@
 ---
 type: framework
 runs_on: ["[[claude-code]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-agents-md]]"]
 source_url: "https://github.com/buildermethods/bm-skills"
 docs_url: "https://buildermethods.com/prd-creator"
 sources: "Brian Casel (Builder Methods) — BM Skills, buildermethods/bm-skills (2026)"
 raw: ["../../raw/bm-skills/2026-07-09-bm-skills.md"]
-updated: 2026-07-09
+updated: 2026-10-11
 ---
 
 # BM Skills

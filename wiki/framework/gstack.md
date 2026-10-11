@@ -2,9 +2,10 @@
 type: framework
 source_url: "https://github.com/garrytan/gstack"
 runs_on: ["[[claude-code]]", "[[opencode]]", "[[factory-droid]]"]
+conforms_to: ["[[std-agent-skills]]"]
 sources: "Garry Tan — gstack (github.com/garrytan/gstack), MIT (2026); README, AGENTS.md, ETHOS.md, ARCHITECTURE.md"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-09-11
+updated: 2026-10-11
 ---
 
 # gstack

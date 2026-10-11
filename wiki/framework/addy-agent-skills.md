@@ -1,10 +1,11 @@
 ---
 type: framework
 runs_on: ["[[claude-code]]", "[[opencode]]"]
+conforms_to: ["[[std-agent-skills]]"]
 source_url: "https://github.com/addyosmani/agent-skills"
 sources: "Addy Osmani — Agent Skills, addyosmani/agent-skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
-updated: 2026-07-04
+updated: 2026-10-11
 ---
 
 # Addy Osmani — Agent Skills

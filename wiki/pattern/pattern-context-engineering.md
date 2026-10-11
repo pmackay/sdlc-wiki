@@ -104,6 +104,16 @@ The state-side insight is that a store that never forgets eventually costs more 
 
 - [[tessl]] — the supply-side realization: **what loads, and when, becomes a packaging decision**. Rules ship as always-on, skills ship as description-matched, and both travel in a versioned bundle that also carries MCP servers and hooks. [[tessl-observability]] then closes the loop by measuring which ones actually *activate* in real sessions, which is the only way to find context that is installed everywhere and firing nowhere.
 
+## Specified by (standard)
+
+The [contract layer](../standard/index.md) fixes the *shape* of what gets loaded, so a context-engineering decision made for one harness holds in the others:
+
+- [[std-agent-skills]] — **progressive disclosure as a spec**: only `name` + `description` (~100 tokens) load at startup, the body on activation, and `scripts/` / `references/` / `assets/` only when the instructions call for them. The `description` is the whole trigger surface.
+- [[std-agents-md]] — the always-loaded half: one plain-Markdown briefing per directory, nearest file wins, user prompts override. Keeping it to pointers is what leaves room for everything else.
+- [[std-mcp]] — context on a live connection rather than in a file: resources, prompts, and tools a server offers, with cacheable list results and deterministic tool ordering *"to improve LLM prompt cache hit rates"*.
+
+The contract-side insight is that the always-on / on-demand split, which every framework here rediscovers in its own words, is now written into two separate standards.
+
 ## See Also
 - [[pattern-fresh-context-subagents]] — resetting context per task; the story file is what makes a fresh dev context safe.
 - [[pattern-source-grounding]] — one high-value thing to put *into* context: cited docs.
