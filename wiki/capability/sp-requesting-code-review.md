@@ -6,10 +6,10 @@ implements: "[[stage-review]]"
 delegates_to: []
 produces: ["[[artifact-review-report]]"]
 applies: ["[[pattern-adversarial-review]]", "[[pattern-fresh-context-subagents]]"]
-equivalent_to: ["[[addy-code-review]]", "[[ce-code-review]]", "[[gstack-review]]", "[[bmad-code-review]]", "[[mp-code-review]]"]
-sources: "Superpowers v6.1.1 (2026)"
+equivalent_to: ["[[addy-code-review]]", "[[ce-code-review]]", "[[gstack-review]]", "[[bmad-code-review]]", "[[mp-code-review]]", "[[builder-factory-review-prs]]"]
+sources: "Superpowers v6.1.1 (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-09-26
 ---
 
 # requesting-code-review

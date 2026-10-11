@@ -6,10 +6,10 @@ implements: "[[stage-implement]]"
 delegates_to: ["[[gsd-executor]]", "[[gsd-verifier]]"]
 produces: "[[artifact-atomic-commit]]"
 applies: ["[[pattern-wave-parallelism]]", "[[pattern-fresh-context-subagents]]"]
-equivalent_to: ["[[addy-incremental-implementation]]", "[[openspec-apply]]", "[[speckit-implement]]", "[[bmad-dev-story]]", "[[ce-work]]", "[[mp-implement]]", "[[sp-executing-plans]]", "[[sp-subagent-driven-development]]"]
+equivalent_to: ["[[addy-incremental-implementation]]", "[[openspec-apply]]", "[[speckit-implement]]", "[[bmad-dev-story]]", "[[ce-work]]", "[[mp-implement]]", "[[sp-executing-plans]]", "[[sp-subagent-driven-development]]", "[[mp-implement-spec]]"]
 sources: "Open GSD docs — workflow-commands (2026)"
 raw: ["../../raw/gsd/2026-06-27-gsd-core-framework.md"]
-updated: 2026-07-09
+updated: 2026-10-11
 ---
 
 # /gsd-execute-phase
@@ -28,3 +28,4 @@ updated: 2026-07-09
 - [[speckit-implement]] — Spec Kit's counterpart; executes `tasks.md` with TDD mandated (tests fail before code).
 - [[bmad-dev-story]] — BMAD's counterpart; implements one fully-contexted story at a time in a fresh context.
 - [[stage-implement]] — the canonical stage this implements.
+- [[mp-implement-spec]] — Matt Pocock's parallel whole-spec executor: a ready frontier of tickets instead of pre-computed waves.

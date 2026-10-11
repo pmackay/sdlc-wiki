@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); GitHub/spec-kit (2026); jayminwest/seeds (2026); disler/super-simple-software-factory (2026)"
-updated: 2026-08-31
+sources: "Addy Osmani — Agent Skills (2026); GitHub/spec-kit (2026); jayminwest/seeds (2026); disler/super-simple-software-factory (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Pattern: Contract-first interface design
@@ -23,6 +23,22 @@ This second framework promotes contract-first from an Addy-only technique to a *
 Seeds:
 
 - [[seeds-config]] — publishes a JSON Schema for its own config file so an external UI ([[warren]]'s per-tool config editor) renders a form and writes back through per-knob commands, with no bespoke integration either side. The pattern applied to a config file: the schema is the interface, CLI and UI are both clients.
+
+pstack:
+
+- [[pstack-principle-model-the-domain]] — encode the domain in a structure (state machine, typed model, table or registry, reducer, boundary) instead of scattered conditionals. [[pstack-poteto-mode]] promotes it to a standing trigger: any code at all means naming the data shape first.
+- [[pstack-principle-type-system-discipline]] — make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler.
+- [[pstack-principle-boundary-discipline]] — concentrate guards at the CLI, config, network, and external-API boundaries; trust internal types and keep business logic pure.
+- [[pstack-typescript-best-practices]] — the syntax binding: constructive modeling (`[T, ...T[]]` for non-empty), the narrowing hierarchy, schemas before hand-written guards, and `Record<string, unknown>` stopping at the parse.
+- [[pstack-architect]] — sketches types and signatures with `not implemented` bodies before any code, and treats the sketch as the contract implementation must justify departing from.
+
+Tessl:
+
+- [[tessl-environment]] — credentials and MCP wiring declared as a named environment outside the shareable bundle, so the boundary between portable context and per-team secrets is structural.
+
+builder-skills:
+
+- [[builder-visual-plan]] — *"Decide the hard-to-reverse bets first"*: wire format, public IDs, data-model shape, and auth boundaries, settled in the plan before the smallest first cut.
 
 ## Enabled by (infrastructure)
 

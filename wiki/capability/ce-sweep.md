@@ -6,10 +6,10 @@ implements: "[[stage-align]]"
 delegates_to: ["[[ce-media-analyzer]]"]
 produces: []
 applies: ["[[pattern-context-engineering]]", "[[pattern-knowledge-compounding]]"]
-equivalent_to: []
-sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
+equivalent_to: ["[[builder-factory-collect]]"]
+sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-04
+updated: 2026-09-26
 ---
 
 # /ce-sweep

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026); sipyourdrink-ltd/bernstein (2026)"
-updated: 2026-08-31
+sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026); sipyourdrink-ltd/bernstein (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Pattern: Cross-model review (an independent second opinion from another model)
@@ -26,13 +26,29 @@ Compound Engineering:
 
 - [[ce-code-review]] — adversarial + cross-model review pass.
 
+pstack — **the purest instance here; the framework is multi-model by construction**:
+
+- [[pstack-interrogate]] — one reviewer per configured model, identical prompt and rubric. *"The adversarial signal comes from model diversity, not assigned personas"* — an explicit rejection of [[pattern-parallel-persona-review]].
+- [[pstack-arena]] — one candidate per model, then a cross-judge deliberately drawn from **a different model family from the parent's**.
+- [[pstack-architect]] — four architect runners across four models for the design sketch.
+- [[pstack-reflect]] — a different model per review lens (judgment, tooling, divergent).
+- [[pstack-setup-pstack]] — the config surface the whole scheme rests on; maps each role to a model and sets panel width by list length.
+
+builder-skills (cross-*agent*, typically Codex ↔ Claude Code):
+
+- [[builder-agent-watchdog]] — a second agent investigates the same problem independently, then diffs its findings against the first agent's. Session-level cross-model review.
+- [[builder-plan-arbiter]] — cross-review competing plans from different agents, choosing the executor separately from the plan: *"A cheaper/faster executor can be the right choice … even when another model produced the best critique."*
+
 ## Enabled by (infrastructure)
 
 - [[bernstein]] (platform) — the **review gate** makes a distinct-model reviewer a *configuration* property rather than a convention: `ModelSelection` is one of `SameModelOk` / `DifferentModelPreferred` / `DifferentModelRequired`, and the last raises `EvalGateConfigError` when it cannot be satisfied. The reviewer sees only `(spec, diff, test_output)` and returns a three-valued structured verdict — pass · fail · questions — that drives auto-merge. An optional **cross-model verifier** additionally runs the diff past a second provider's model for A/B review (shipped, disabled by default). The runtime's rationale matches this pattern's: *"Same-model self-critique is empirically weak at catching the implementer's own blind spots."*
 
 ## See Also
+- [[pattern-candidate-grafting]] — several models each producing a *whole* artifact, rather than several models reviewing one.
 - [[pattern-adversarial-review]] — fault-finding by mandate (same model); often combined with this.
 - [[pattern-parallel-persona-review]] — diversity by persona rather than by model.
 - [[pattern-deterministic-gates]] — the cheap, un-gameable checks that run first, so this inferential sensor is spent only on judgment.
 - [[stage-review]] — the stage this reinforces (Review side).
 - [[bernstein]] — the runtime that makes a different-model reviewer a configuration requirement (`DifferentModelRequired`) rather than a convention.
+
+- [[pattern-model-tiering]] — the neighbour that uses model *price* to allocate work rather than model *diversity* to find errors.

@@ -27,8 +27,8 @@ flowchart TD
 | 4 | [Implement](stage-implement.md) | *Write the code* that satisfies the plan | Execute · build/TDD · Build · apply · implement · dev-story · work |
 | 5 | [Validate](stage-validate.md) | *Does it work?* — functional gate: UAT, runtime/browser tests, spec-conformance | Verify (UAT) · verify · converge · test/dogfood · Test (QA) |
 | 6 | [Review](stage-review.md) | *Is it good?* — quality gate: code review, security, performance, simplicity, design | architecture audit · Review · code-review · Simplify+Review · Review (code/design/DX/security) |
-| 7 | [Release](stage-release.md) | *Deliver it* — finalize, ship, deploy, and keep it healthy in production | Ship · sync+archive · commit-push-pr · ship+land-and-deploy+canary |
-| 8 | [Learn](stage-learn.md) | *What did we learn?* — harvest reusable lessons that seed the next iteration | retrospective · compound · Reflect (retro + learn) |
+| 7 | [Release](stage-release.md) | *Deliver it* — finalize, ship, deploy, and keep it healthy in production | Ship · sync+archive · commit-push-pr · ship+land-and-deploy+canary · pr |
+| 8 | [Learn](stage-learn.md) | *What did we learn?* — harvest reusable lessons that seed the next iteration | retrospective · compound · Reflect (retro + learn) · retro (environment) |
 
 ## Framework × stage support matrix
 
@@ -44,8 +44,9 @@ How completely each framework covers the eight stages, derived from the `impleme
 | [addy-agent-skills](../framework/addy-agent-skills.md) | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | ➖ | 1 |
 | [gsd](../framework/gsd.md) | 🟢 | 🔗 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | — |
 | [openspec](../framework/openspec.md) | 🟢 | 🟢 | 🔗 | 🟢 | 🟢 | ➖ | 🟢<sup>†</sup> | ➖ | — |
+| [matt-pocock-skills](../framework/matt-pocock-skills.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | 🟡 | 🟡 | 5 |
 | [bmad](../framework/bmad.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟡 | ➖ | 🟡 | — |
-| [matt-pocock-skills](../framework/matt-pocock-skills.md) | 🟢 | 🟢 | 🟢 | 🟢 | ➖ | 🟢 | ➖ | ➖ | 2 |
+| [builder-skills](../framework/builder-skills.md) | 🟡 | ➖ | 🟡 | 🟡 | ➖ | 🟢 | 🟢 | 🟡 | 12 |
 | [speckit](../framework/speckit.md) | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | ➖ | ➖ | ➖ | — |
 | [bm-skills](../framework/bm-skills.md) | ➖ | 🟡 | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | 1 |
 | [nano-spec](../framework/nano-spec.md) | ➖ | 🟡 | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | 2 |
@@ -59,6 +60,10 @@ The **12 capabilities** that map to no lifecycle stage — cross-cutting tooling
 - **Spec-pack state ops** — [[nano-spec-status]], [[nano-spec-update]] (report on / mutate an existing [[artifact-nano-spec-pack|nano-spec pack]] rather than advancing a step).
 - **Publishing & diagrams** — [[gstack-diagram]] (Diagram Maker), [[gstack-make-pdf]] (markdown → publication-quality PDF).
 - **Tooling & self-maintenance** — [[gstack-benchmark-models]] (cross-model benchmark of gstack's own skills), [[gstack-upgrade]] (self-updater), [[bm-favicon-creator]] (favicon asset generator).
+
+- **builder-skills (added 2026-09-26, 12 more, not folded into the count above)**: Factory supervision ([[builder-factory]], [[builder-factory-human-digest]], [[builder-factory-watchdog]], [[builder-factory-recover]]); autonomy and cost ([[builder-plow-ahead]], [[builder-efficient-fable]], [[builder-efficient-frontier]], [[builder-stay-within-limits]], [[builder-quick-recap]]); and Agent-Native host surfaces ([[builder-an]], [[builder-webmcp]], [[builder-rewind]]). Half of the framework is off-stage, and most of that half is the **supervision layer of an unattended factory**: configuring policy, queueing human decisions, nudging stalled work, and resuming interrupted runs. That is a new kind of off-stage capability, with no router among them.
+
+- **matt-pocock-skills (v1.3.1, added 2026-10-11, 3 more, not folded into the count above)**: [[mp-wizard]] (generates a bash script for steps only a human can perform), [[mp-wait-what]] (a three-line corrective that re-pitches a message that didn't land), and [[mp-writing-for-agents]] (the reference for writing skills and steering files). With [[mp-ask-matt]] and [[mp-handoff]] that makes 5. They are cross-cutting tools of a loose toolkit: a human-in-the-loop escape hatch, a communication repair, and a writing standard. In the same release MP's Release and Learn cells moved from ➖ to 🟡 ([[mp-pr]], [[mp-retro]]), so the toolkit now touches 7 of 8 stages (no Validate).
 
 **The pattern:** the five frameworks that *own the whole process* (GSD, OpenSpec, Spec Kit, BMAD, Compound Engineering) keep **everything** on the lifecycle — zero off-stage capabilities. The toolkit / marketplace-style ones (gstack, Matt Pocock, nano-spec, BM Skills — and Addy/Superpowers with their routers) ship standalone utilities alongside the pipeline. gstack alone accounts for 5 of the 12, consistent with it being the largest, most "virtual-engineering-team" framework here.
 

@@ -1,8 +1,8 @@
 ---
 type: artifact
-sources: "gstack — Garry Tan (2026); BMAD-METHOD v6 (2026)"
+sources: "gstack — Garry Tan (2026); BMAD-METHOD v6 (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-05
+updated: 2026-09-26
 ---
 
 # Artifact: retrospective
@@ -14,6 +14,10 @@ The retrospective is the **team-process flavor** of the [[stage-learn]] stage �
 ## Produced by (backlinks)
 - [[gstack-retro]] — team-aware weekly retrospective with per-person breakdowns and streaks.
 - [[bmad-retrospective]] — post-epic Party-Mode retrospective extracting lessons + action items.
+
+builder-skills:
+
+- [[builder-factory-lookback]] — a retrospective over **production signal** rather than a sprint: coverage and query dates, counts and affected users, prior fixes and recurrence, confirmed cause vs. open alternatives, systemic change and regression proof, and the separate action decisions.
 
 ## See Also
 - [[artifact-solution-doc]] — the agent-facing learning artifact sibling ([[ce-compound]], [[gstack-learn]]).

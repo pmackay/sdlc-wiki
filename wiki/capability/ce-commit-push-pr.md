@@ -6,10 +6,10 @@ implements: "[[stage-release]]"
 delegates_to: ["[[ce-commit]]"]
 produces: ["[[artifact-pull-request]]"]
 applies: ["[[pattern-trunk-based-development]]"]
-equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[openspec-archive]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]"]
-sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
+equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[openspec-archive]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]", "[[builder-factory-ship]]", "[[mp-pr]]"]
+sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-04
+updated: 2026-10-11
 ---
 
 # /ce-commit-push-pr
@@ -26,3 +26,4 @@ Finalize cluster: `ce-commit-push-pr` ↔ [[gsd-ship]] ↔ [[addy-shipping]] ↔
 - [[ce-commit]] — the commit step it delegates to; [[ce-resolve-pr-feedback]] — resolves review comments on the opened PR.
 - [[ce-promote]] — announces the shipped work; [[lfg]] — runs this as its terminal step (to green CI).
 - [[stage-release]] — the canonical stage this implements.
+- [[mp-pr]] — Matt Pocock: the PR-body half only (Summary visual, Evidence, Merge Danger); no commit/push.

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); sipyourdrink-ltd/bernstein (2026)"
-updated: 2026-08-31
+sources: "Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); sipyourdrink-ltd/bernstein (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Fresh-context subagents
@@ -47,6 +47,26 @@ Superpowers (a foundational principle — *"they should never inherit your sessi
 - [[sp-subagent-driven-development]] — a fresh implementer subagent per task; a fresh reviewer per review; briefs and reports move as files, never pasted into the controller's context.
 - [[sp-dispatching-parallel-agents]] — one fresh-context subagent per independent problem domain, dispatched concurrently.
 - [[sp-requesting-code-review]] — the reviewer subagent gets precisely-crafted context, never the controller's session history.
+
+pstack — with an inversion worth recording: **a generic fresh subagent is treated as a failure mode**:
+
+- [[pstack-poteto-agent]] — the framework's answer. A delegate spawned mid-playbook starts without the mode skill loaded and therefore drops the principles, the reply rules, and the autonomy policy, so pstack ships a subagent type whose sole instruction is to read [[pstack-poteto-mode]] in full first. *"Substituting `generalPurpose` skips that read and drifts."* The exemption is deliberate: routed workflow skills set their own subagent types to get **model diversity**, and must not be overridden.
+- [[pstack-how]] · [[pstack-swarm]] · [[pstack-interrogate]] · [[pstack-reflect]] — readonly or cloud subagents that keep bulk reading out of the parent thread.
+- [[pstack-principle-guard-the-context-window]] — the principle behind the routing.
+
+Tessl:
+
+- [[tessl-launch]] — runs an installed skill as an isolated local or cloud invocation; a `--launchable` skill can declare **typed input and output JSON Schemas** and return a structured result, which makes the capability a function call rather than a prompt.
+
+builder-skills:
+
+- [[builder-efficient-fable]] · [[builder-efficient-frontier]] — handoff packets written *"as if the subagent has no useful chat context"*, with objective, scope, out-of-scope, evidence format, verification commands, and stop conditions. This is the precondition for [[pattern-model-tiering]].
+
+Matt Pocock — Skills for Real Engineers:
+
+- [[mp-implement-spec]] — exploration, implementer, and merger subagents, communicating through sparse context pointers (v1.3.0).
+- [[mp-grilling]] — environment facts dispatched to background sub-agents so research never blocks a question round (v1.2.0).
+- [[mp-wayfinder]] — a research subagent per research ticket, burned down in parallel while charting continues (v1.2.0).
 
 ## Enabled by (infrastructure)
 

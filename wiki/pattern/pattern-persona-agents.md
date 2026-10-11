@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "bmad-code-org/BMAD-METHOD (2026); gstack — Garry Tan (2026)"
+sources: "bmad-code-org/BMAD-METHOD (2026); gstack — Garry Tan (2026); pstack v0.15.2 — Lauren Tan (2026)"
 raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md", "../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-05
+updated: 2026-09-11
 ---
 
 # Pattern: Persona agents (named role experts)
@@ -23,6 +23,12 @@ gstack (a role specialist per skill; the plan-review panel is the clearest clust
 
 - [[gstack-plan-ceo-review]] · [[gstack-plan-eng-review]] · [[gstack-plan-design-review]] · [[gstack-plan-devex-review]] — the CEO / Eng Manager / Senior Designer / DX Lead personas ([[pattern-parallel-persona-review]] via [[gstack-autoplan]]).
 - [[gstack-review]] (Staff Engineer) · [[gstack-qa]] (QA Lead) · [[gstack-cso]] (Chief Security Officer) · [[gstack-canary]] (SRE) · [[gstack-ship]] (Release Engineer) — role specialists across the rest of the sprint.
+
+pstack — **one instance, and the framework argues against the mechanism everywhere else**:
+
+- [[pstack-comment-sicko]] — a read-only comment reviewer written in a deliberately deranged first-person voice (*"I hate comments… everything else is meat"*), the wiki's most extreme persona and the furthest from the professional-role register [[gstack]] and [[bmad]] use.
+
+The contrast is the point. [[pstack-interrogate]] states the counter-position directly — *"the adversarial signal comes from model diversity, not assigned personas"* — so pstack uses a costume exactly once, for a single-axis sweep, and uses [[pattern-cross-model-review]] everywhere a panel is wanted.
 
 ## See Also
 - [[pattern-parallel-persona-review]] — Addy's related fan-out: several *reviewer* personas in parallel, then merge. Persona-agents is the broader idea (personas across the whole lifecycle, collaborating as well as reviewing); Party Mode's subagent mode is effectively a parallel-persona review.

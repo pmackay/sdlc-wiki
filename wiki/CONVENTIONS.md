@@ -1,12 +1,12 @@
 # Wiki Conventions — SDLC Agent-Skill Ontology
 
-This wiki documents software-development-lifecycle (SDLC) agent **frameworks** and the **capabilities** they ship (commands, skills, sub-agents), then synthesizes the common lifecycle that emerges across them. Three further layers document the substrate the process layer runs on. The agent **harness** — the agent program itself (Claude Code, pi, OpenCode, …) that loads a framework's skills and drives the model's tool-call loop. Below it, the agent **runtime** — the execution/orchestration substrate (sandbox isolation, parallelism, branch→PR, AFK autonomy, steering) that spawns and wraps harnesses to decide *where and how* they run. Beside both, the **store** — the durable, agent-facing state (a work graph, a memory corpus) that outlives any single run, so a session that ends or crashes does not take the work with it. Frameworks are portable *across* harnesses; runtimes are agnostic *to* them; the harness is the pivot both are defined relative to; the store is what all three write to and read back. All four layers meet at the `pattern` namespace. It is built and maintained with the `karpathy-llm-wiki` skill: `raw/` holds immutable sources, `wiki/` holds compiled articles. This file is the **schema layer** for `wiki/` — read it before any ingest.
+This wiki documents software-development-lifecycle (SDLC) agent **frameworks** and the **capabilities** they ship (commands, skills, sub-agents), then synthesizes the common lifecycle that emerges across them. Four further layers document the substrate the process layer runs on. The agent **harness** — the agent program itself (Claude Code, pi, OpenCode, …) that loads a framework's skills and drives the model's tool-call loop. Below it, the agent **runtime** — the execution/orchestration substrate (sandbox isolation, parallelism, branch→PR, AFK autonomy, steering) that spawns and wraps harnesses to decide *where and how* they run. Beside both, the **store** — the durable, agent-facing state (a work graph, a memory corpus) that outlives any single run, so a session that ends or crashes does not take the work with it. Upstream of all of them, the **registry** — the versioned supply of capabilities themselves, discovered, scanned, evaluated, policy-gated, and installed into a harness before any run begins. Frameworks are portable *across* harnesses; runtimes are agnostic *to* them; the harness is the pivot both are defined relative to; the store is what all three write to and read back; the registry is where the capabilities came from in the first place. All five layers meet at the `pattern` namespace. It is built and maintained with the `karpathy-llm-wiki` skill: `raw/` holds immutable sources, `wiki/` holds compiled articles. This file is the **schema layer** for `wiki/` — read it before any ingest.
 
-**The layer split in one line:** framework, harness, and runtime are all *compute* — instructions, the loop, and where the loop runs, each transient per run. The store is *state*: the only layer that survives the run.
+**The layer split in one line:** framework, harness, and runtime are all *compute* — instructions, the loop, and where the loop runs, each transient per run. The store is *state*: the layer that survives the run. The registry is *supply*: the layer that exists before the run, and the only one whose unit of trade is a `capability` rather than a session.
 
 ## The ontology at a glance
 
-Eight node types, eleven relationship edges. **`capability` is the hub** of the process layer: every process-layer edge originates from a capability page's frontmatter. **`runtime`, `harness`, and `store` are three more edge-origins** — the substrate layers around the process layer. A `framework` page carries one forward edge of its own (`runs_on:` → harness); a `runtime` carries two (`runs:` → harness, `enables:` → pattern); a `harness` carries one (`enables:` → pattern); a `store` carries two (`integrates_with:` → harness, `enables:` → pattern). All three substrate layers land at the `pattern` namespace, the seam where the four layers meet. The remaining types carry no forward edges — their relationships are the inverse (backlink) views. `sdlc-stage` is special: it stores nothing and is a **derived projection**, synthesized from the `implements:` backlinks pointing at it (the dashed edge). `implements:` drives that synthesis; `equivalent_to:` (capability ↔ capability, across frameworks) drives cross-framework clustering.
+Nine node types, twelve relationship edges. **`capability` is the hub** of the process layer: every process-layer edge originates from a capability page's frontmatter. **`runtime`, `harness`, `store`, and `registry` are four more edge-origins** — the substrate layers around the process layer. A `framework` page carries one forward edge of its own (`runs_on:` → harness); a `runtime` carries two (`runs:` → harness, `enables:` → pattern); a `harness` carries one (`enables:` → pattern); a `store` carries two (`integrates_with:` → harness, `enables:` → pattern); a `registry` carries three (`integrates_with:` → harness, `enables:` → pattern, `distributes:` → framework \| capability). All four substrate layers land at the `pattern` namespace, the seam where the five layers meet. The remaining types carry no forward edges — their relationships are the inverse (backlink) views. `sdlc-stage` is special: it stores nothing and is a **derived projection**, synthesized from the `implements:` backlinks pointing at it (the dashed edge). `implements:` drives that synthesis; `equivalent_to:` (capability ↔ capability, across frameworks) drives cross-framework clustering.
 
 ```mermaid
 flowchart LR
@@ -18,9 +18,11 @@ flowchart LR
     HAR{{harness}}
     RT{{runtime}}
     STO[(store)]
+    REG>registry]
 
     CAP -->|belongs_to| FW
     CAP -->|belongs_to| STO
+    CAP -->|belongs_to| REG
     CAP -->|implements| STG
     CAP -->|produces| ART
     CAP -->|applies| PAT
@@ -30,9 +32,13 @@ flowchart LR
     FW -->|runs_on| HAR
     RT -->|runs| HAR
     STO -->|integrates_with| HAR
+    REG -->|integrates_with| HAR
+    REG -->|distributes| FW
+    REG -->|distributes| CAP
     HAR -->|enables| PAT
     RT -->|enables| PAT
     STO -->|enables| PAT
+    REG -->|enables| PAT
 
     STG -.->|derived projection: synthesized<br/>from implements backlinks| CAP
 
@@ -42,9 +48,10 @@ flowchart LR
     class RT exec;
     class HAR exec;
     class STO exec;
+    class REG exec;
 ```
 
-Solid arrows are stored edges (`[[wikilinks]]` in capability, framework, runtime, harness, **or store** frontmatter); the dashed arrow is the derived synthesis, not a stored field. The substrate layers attach at two kinds of seam. **`framework --runs_on--> harness`**, **`runtime --runs--> harness`**, and **`store --integrates_with--> harness`** bind the layers to one another (the harness is the shared pivot), while **`enables:`** — carried by `runtime`, `harness`, *and* `store` — lands in the `pattern` namespace. So `pattern` now collects **four** backlink rosters: `applies:` (process-side, from capabilities), `enables:` from runtimes (infra-side), from harnesses (harness-side), and from stores (state-side). `capability --belongs_to-->` now has two possible ranges, `framework` **or** `store`: a store is a product that ships an invocable command surface, so its commands are `capability` pages like a framework's — but most of them `implements:` no stage, because holding state about work is not performing a lifecycle step. The [Node types](#node-types--topic-namespaces) and [Relationship vocabulary](#relationship-vocabulary) tables below define each box and label precisely.
+Solid arrows are stored edges (`[[wikilinks]]` in capability, framework, runtime, harness, store, **or registry** frontmatter); the dashed arrow is the derived synthesis, not a stored field. The substrate layers attach at two kinds of seam. **`framework --runs_on--> harness`**, **`runtime --runs--> harness`**, **`store --integrates_with--> harness`**, and **`registry --integrates_with--> harness`** bind the layers to one another (the harness is the shared pivot), while **`enables:`** — carried by `runtime`, `harness`, `store`, *and* `registry` — lands in the `pattern` namespace. So `pattern` now collects **five** backlink rosters: `applies:` (process-side, from capabilities), `enables:` from runtimes (infra-side), from harnesses (harness-side), from stores (state-side), and from registries (supply-side). `capability --belongs_to-->` now has three possible ranges, `framework`, `store`, **or `registry`**: each is a product that ships an invocable command surface, so its commands are `capability` pages like a framework's — but most store and registry commands `implements:` no stage, because holding state about work, or governing the supply of capabilities, is not performing a lifecycle step. **`registry --distributes--> framework | capability`** is the one edge that points *back into* the process layer, and it is the layer's defining verb. The [Node types](#node-types--topic-namespaces) and [Relationship vocabulary](#relationship-vocabulary) tables below define each box and label precisely.
 
 ## Node types (= topic namespaces)
 
@@ -60,8 +67,9 @@ The wiki's one-level topic directories map 1:1 to the eight ontology node types:
 | `harness/`     | `harness`    | An agent **program / CLI** — the agent loop that loads a framework's skills and runs the model's tool-call cycle (e.g. Claude Code, pi, OpenCode). The **pivot both other layers are defined against**: frameworks `runs_on:` it, runtimes `runs:` it. Carries a `subtype:` (terminal \| ide). Connects to the ontology by `enables:` → `pattern` (the execution primitives — sub-agents, hooks, MCP, skill-loading — that capabilities build on); performs **no** SDLC stage, so it carries no `implements:` / `belongs_to:` / `equivalent_to:`. |
 | `runtime/`     | `runtime`    | An agent **execution / orchestration substrate** — the harness-agnostic layer deciding *where and how* agents run (sandbox isolation, parallelism, branch→PR, AFK autonomy, steering, persistence), as opposed to the process layer's *what*. Carries a `subtype:` (library \| platform). **Not a language, container, or model runtime** — the word here means an *agent* execution substrate; read it as “the execution layer” wherever the overloaded sense intrudes. Connects to the ontology through `runs:` → `harness` and `enables:` → `pattern`, **not** `implements:` → `sdlc-stage` — a runtime performs no SDLC stage, it spawns the harness that hosts the agent that does. |
 | `store/`       | `store`      | A **durable, agent-facing state store** — the work graph or memory corpus that outlives any single run, so an ended or crashed session does not take the work with it. Carries a `subtype:` (work \| memory). The **state layer**: where the other three layers are compute (instructions, the loop, where the loop runs — each transient per run), this is the layer that *survives* the run. Connects to the ontology through `integrates_with:` → `harness` and `enables:` → `pattern`, and is the second possible range of `belongs_to:` (its command surface gets `capability` pages). Performs **no** SDLC stage itself, so it carries no `implements:` / `equivalent_to:`. |
+| `registry/`    | `registry`   | A **capability supply platform** — the versioned index that capabilities are discovered in, scanned, scored, evaluated, policy-gated, and installed from, before any run begins. Carries a `subtype:` (index \| platform). The **supply layer**: where the store is the state a run leaves behind, this is the inventory a run is provisioned from, and the only layer whose unit of trade is a `capability` rather than a session. Connects to the ontology through `integrates_with:` → `harness`, `enables:` → `pattern`, and `distributes:` → `framework` \| `capability`, and is the third possible range of `belongs_to:`. Performs **no** SDLC stage as a layer, so it carries no `implements:` / `equivalent_to:` — though individual commands may (see [The supply layer](#the-supply-layer-registries)). |
 
-There is also an **eighth namespace, `topic/`, that is deliberately *not* one of the seven ontology node types** — it is a curated navigation overlay that sits *above* the graph rather than participating in it. See [The topic layer](#the-topic-layer-curated-overlays) below.
+There is also a **ninth namespace, `topic/`, that is deliberately *not* one of the eight ontology node types** — it is a curated navigation overlay that sits *above* the graph rather than participating in it. See [The topic layer](#the-topic-layer-curated-overlays) below.
 
 ### `capability` subtypes
 
@@ -95,6 +103,16 @@ subtype: memory     # a corpus of durable insight an agent reads back (e.g. mulc
 ```
 
 Classify by **what the store holds**, not by how it stores it. The storage substrate — a versioned SQL database ([[beads]]) versus plain diffable files ([[seeds]]) — is the sharpest *disagreement* in the layer and is therefore a matrix dimension in `wiki/store/index.md`, not a subtype. Only `work` stores are paged so far; `memory` is declared because the layer's own members already name instances of it (Warren bundles mulch and canopy; Beads ships its own memory surface in `bd remember` / `bd kv`), and because scoping the node to issue-trackers alone would have to be widened on the next ingest.
+
+### `registry` subtypes
+
+```
+subtype: index      # a searchable catalogue — discovery and install, little or no governance (e.g. ClawHub, Smithery, the agentskills.io showcase)
+subtype: platform   # an index plus a managed supply chain — scanning, scoring, evals, RBAC, policy, audit (e.g. Tessl, JFrog, Google Cloud Skill Registry)
+```
+
+Classify by **how much of the supply chain it owns**, not by who can read it. Public-vs-private is the sharpest *matrix* dimension in this layer rather than a subtype, because the platforms are usually both at once — [[tessl]] runs a public registry and private per-team workspaces from the same index — so filing it as a subtype would force most instances into a false choice. The same move the store layer made with storage substrate.
+
 
 ## Frontmatter schema (Tolaria style)
 
@@ -167,11 +185,28 @@ updated: 2026-08-31
 ---
 ```
 
+A `registry` page's frontmatter carries three relationship edges (`integrates_with:` → harness, `enables:` → pattern, `distributes:` → framework \| capability) plus a scalar `subtype:` and the bookkeeping fields. Like a store it carries **no** `implements:` / `equivalent_to:` at the page level, and like a store it *is* a target — its own command surface points back at it with `belongs_to:`. `distributes:` is expected to be **empty on a first ingest** and to fill in as paged frameworks turn out to be published there; the support-scope rule applies exactly as it does to `runs_on:`.
+
+```yaml
+---
+# wiki/registry/tessl.md
+type: registry
+subtype: platform
+integrates_with: ["[[claude-code]]", "[[opencode]]"]   # extend as cursor / codex / gemini-cli / copilot are ingested
+distributes: []                                        # fills in when a paged framework is published to this registry
+enables: ["[[pattern-capability-evals]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-supply-chain-scanning]]"]
+# --- karpathy bookkeeping ---
+sources: "Tessl docs (2026)"
+raw: ["../../raw/tessl/2026-09-12-tessl-platform.md"]
+updated: 2026-09-12
+---
+```
+
 ### Relationship vocabulary
 
 | Edge | Domain → Range | Meaning |
 |------|----------------|---------|
-| `belongs_to`    | capability → framework \| store | The product that ships this capability — a framework, or a store. Two ranges because a store ships an invocable command surface too, so its commands are `capability` pages like a framework's; the difference is that a store's capabilities usually `implements:` nothing. |
+| `belongs_to`    | capability → framework \| store \| registry | The product that ships this capability — a framework, a store, or a registry. Three ranges because each ships an invocable command surface, so its commands are `capability` pages like a framework's; the difference is that store and registry capabilities usually `implements:` nothing. |
 | `implements`    | capability → sdlc-stage       | The canonical stage this capability performs. **Drives synthesis.** |
 | `delegates_to`  | capability → capability[]     | Sub-capabilities this one spawns/calls (e.g. command → sub-agents). |
 | `produces`      | capability → artifact[]       | Concrete outputs. |
@@ -179,8 +214,9 @@ updated: 2026-08-31
 | `equivalent_to` | capability → capability[]     | Cross-framework counterparts. **Drives clustering.** |
 | `runs_on`       | framework → harness[]         | The harnesses this framework **officially supports / documents** — *not* every harness it could theoretically run on. Makes cross-harness portability structural (was prose like *"cross-harness"*). See the support-scope rule below. |
 | `runs`          | runtime → harness[]           | The harnesses this runtime **officially lists as a provider / target** — the documented provider set, not any harness it might host. Makes harness-agnosticism structural (was prose like *"provider-agnostic"*). |
-| `integrates_with` | store → harness[]           | The harnesses this store **ships an integration for** — an installer, a memory-file writer, a hooks/skill/plugin bundle. The store analogue of `runs_on:` / `runs:`, and the same support-scope rule applies: a documented integration, not "it would work there". A store is a CLI, so what it usually supports is a *convention* (`AGENTS.md`) rather than a named harness; an edge needs the harness named or a harness-specific artifact shipped. |
-| `enables`       | runtime, harness **or** store → pattern[] | A pattern this substrate provides — the *infra-side* (runtime), *harness-side* (harness), or *state-side* (store) realization of a pattern that capabilities `apply` at the *process* level. **The seam where the substrate layers meet the process layer.** |
+| `integrates_with` | store **or** registry → harness[] | The harnesses this store or registry **ships an integration for** — an installer, a memory-file writer, a hooks/skill/plugin bundle. The store analogue of `runs_on:` / `runs:`, and the same support-scope rule applies: a documented integration, not "it would work there". A store is a CLI, so what it usually supports is a *convention* (`AGENTS.md`) rather than a named harness; an edge needs the harness named or a harness-specific artifact shipped. |
+| `distributes`   | registry → framework[] \| capability[] | The paged frameworks or capabilities this registry **publishes as installable, independently versioned units**. The supply layer's defining verb and the only substrate edge that points back *into* the process layer. Expected to be empty on a first ingest; the `runs_on:` support-scope rule applies — an edge means the registry actually carries it, not that it could. |
+| `enables`       | runtime, harness, store **or** registry → pattern[] | A pattern this substrate provides — the *infra-side* (runtime), *harness-side* (harness), *state-side* (store), or *supply-side* (registry) realization of a pattern that capabilities `apply` at the *process* level. **The seam where the substrate layers meet the process layer.** |
 
 Single targets may be a bare string; multiple targets use a YAML list. All targets are `[[wikilink]]` strings resolved by file basename (Obsidian/Tolaria style), so basenames are globally unique — see naming below.
 
@@ -191,9 +227,10 @@ Stage / framework / artifact / pattern / harness / store pages do **not** store 
 - `sdlc-stage` page ← `implements:` backlinks = the capabilities realizing this stage.
 - `framework` page ← `belongs_to:` backlinks = its capability catalogue. (It also *stores* one forward edge, `runs_on:`.)
 - `store` page ← `belongs_to:` backlinks = its command catalogue, exactly as for a framework. (It also *stores* two forward edges, `integrates_with:` and `enables:`.)
-- `artifact` page ← `produces:` backlinks; `pattern` page ← `applies:` backlinks (process-side) **plus three `enables:` rosters — infra-side from `runtime` pages, harness-side from `harness` pages, and state-side from `store` pages**.
-- `harness` page ← `runs_on:` backlinks (frameworks that run on it), `runs:` backlinks (runtimes that spawn it), **and `integrates_with:` backlinks (stores that ship an integration for it)**; it *stores* `enables:` (patterns) forward. So a harness is both a target (of `runs_on:` / `runs:` / `integrates_with:`) and a source (of `enables:`) — like `capability`.
+- `artifact` page ← `produces:` backlinks; `pattern` page ← `applies:` backlinks (process-side) **plus four `enables:` rosters — infra-side from `runtime` pages, harness-side from `harness` pages, state-side from `store` pages, and supply-side from `registry` pages**.
+- `harness` page ← `runs_on:` backlinks (frameworks that run on it), `runs:` backlinks (runtimes that spawn it), **and `integrates_with:` backlinks (stores *and registries* that ship an integration for it)**; it *stores* `enables:` (patterns) forward. So a harness is both a target (of `runs_on:` / `runs:` / `integrates_with:`) and a source (of `enables:`) — like `capability`.
 - `runtime` pages store `runs:` and `enables:` and are otherwise pure sources — nothing links *to* them via the stored edges (a runtime is never a target).
+- `registry` page ← `belongs_to:` backlinks = its command catalogue, exactly as for a framework or store. (It also *stores* three forward edges, `integrates_with:`, `enables:`, and `distributes:`.) A `framework` page gains a fifth backlink view — `distributes:` backlinks = the registries it is published through — which replaces the free-text *"Install: `/plugin marketplace add …`"* line those pages carry as prose today.
 
 ## Naming convention (ensures unique basenames)
 
@@ -207,6 +244,7 @@ Stage / framework / artifact / pattern / harness / store pages do **not** store 
 | harness     | `<harness>`               | `claude-code`, `pi`, `opencode` |
 | runtime     | `<runtime>`               | `sandcastle`, `warren` |
 | store       | `<store>`                 | `beads`, `seeds` |
+| registry    | `<registry>`              | `tessl` |
 | topic (overlay) | `topic-<name>`        | `topic-harness-engineering` |
 
 Files: `wiki/<namespace>/<basename>.md`, kebab-case, ≤60 chars.
@@ -281,6 +319,30 @@ That paragraph describes the `runtime` layer and places beads below and beside i
 
 **Ingesting a store:** source → `raw/<store>/YYYY-MM-DD-slug.md`; create `wiki/store/<name>.md` with `type: store`, a `subtype:`, `integrates_with:` → harness, and `enables:` → pattern; create one `capability` page per meaningful command family with `belongs_to:` → the store (`implements:` usually `[]`); create stub `pattern` pages for any new targets; add a **Persisted by (store)** subsection to each enabled pattern; add an *Integrated by (stores)* bullet to each harness page's backlink roster and to the `harness/index.md` support matrix; refresh the matrix in `wiki/store/index.md` and the `## store` section in `catalogue.md`; log it. Re-derive stages only if a store capability genuinely implements one.
 
+## The supply layer (registries)
+
+The other four layers all describe a *run*: the instructions it follows, the loop that executes them, where that loop runs, and the state it leaves behind. A `registry` describes what happens **before** the run — where the capabilities came from, who vouched for them, and what was allowed to be installed.
+
+This is the layer that appears once capabilities stop being something you write and start being something you **acquire**. [[tessl]] states the premise plainly: *"Skills, rules, and docs are versioned, reviewed, and rolled out with the same rigor as code dependencies."* Discover, install, version, pin, roll back, scan, score, evaluate, deprecate — the full package-manager vocabulary, applied to agent context.
+
+**Why it is a node and not a feature.** The wiki has been carrying this concern homeless for a long time. *Distribution* is a matrix dimension on both the [harness](harness/index.md) and [runtime](runtime/index.md) matrices; every `framework` page ends up with a free-text install line (*"`/plugin marketplace add EveryInc/compound-engineering-plugin`"*); and [[speckit]]'s page notes its packaging ecosystem is *"a distribution/customization layer no other framework here ships"* — an observation with nowhere to live. Minting the node gives those facts one home and converts the install lines into a stored `distributes:` edge.
+
+**The boundary test — an independent product, not a vendor's shelf.** A marketplace shipped by a harness vendor for its own harness (Anthropic's plugin marketplace, `cursor/plugins`, opencode's community registry, Droid's plugin bundles) is a **harness feature**: it stays a row in the harness matrix and gets no node. A `registry` is a **separate product that distributes capabilities across harnesses it does not own**. The test is the same shape as the harness/runtime one: *page the thing you buy or deploy, not the feature your existing tool already has.* Without this rule the layer immediately sprawls to every vendor shelf, every MCP-server index, and every general agent marketplace.
+
+**How it joins the ontology graph.** Like a store, a registry attaches at `pattern` via `enables:`, at `harness` via `integrates_with:`, and is itself a **target** of `belongs_to:` from its own command surface. It adds one edge no other substrate layer has — `distributes:`, pointing back into the process layer. So `pattern` now carries up to **five** backlink rosters: **Applied by** (capabilities), **Enabled by (infrastructure)** (runtimes), **Provided by (harness)** (harnesses), **Persisted by (store)** (stores), **Supplied by (registry)** (registries). Keep them as separate subsections. The registry roster is the one that answers *"and where did this capability come from, and who vouched for it?"*
+
+**A corollary on artifact type.** This layer distributes **capabilities** — skills, rules, and the plugins that bundle them — as consumed by a *harness*. A registry of MCP servers (Smithery) distributes *tools*, which is an adjacent and genuinely different artifact; page one only if it also carries capabilities, and record the distinction rather than blurring it.
+
+**What the layer is evidence *of*.** The wiki's core claim is that a `framework` is a bundle of `capability` pages. A registry makes the capability the independently versioned, independently installable unit — which is the framework bundle coming apart. [[bm-skills]] is a marketplace of unrelated utilities that had to be filed as a framework for want of anywhere better; [[superpowers]], [[addy-agent-skills]], [[compound-engineering]], and [[pstack]] all ship *through* a marketplace rather than as a tarball. Treat growth in this layer as the leading indicator that `framework` is becoming a distribution convenience rather than a methodology boundary, and re-read the framework pages against that when it does.
+
+**Registry capabilities mostly implement no stage — with a caveat the store layer did not have.** As with a store, most of a registry's command surface is off-stage by construction: `tessl install` and `tessl plugin publish` perform no lifecycle step. Do **not** stretch a stage edge to make a registry look better covered. The caveat is that these products **grow sideways into the lifecycle** as they mature — Tessl ships `tessl code review` (agentic PR review), `tessl change risk`, and `tessl change verify`, which are genuine [[stage-review]] capabilities, plus `tessl launch` and `tessl schedule`, which spawn and schedule harnesses and are frankly *runtime-adjacent*. Wire the stage edge where the capability genuinely performs the stage, and record the runtime-adjacent surface as **prose**, per the harness/runtime boundary rule — do not mint a second node for one product's second act. When such a surface grows past prose, that is a re-ingest trigger, not a new node.
+
+**The synthesis axis** — as with the other substrate layers, *collect instances then synthesize the dimensions they share*, but the dimensions are **supply concerns**: unit of distribution (skill \| plugin \| bundle) · public vs private index · versioning & rollback · provenance & signing · security scanning · quality scoring · impact measurement (evals) · policy & RBAC · audit trail · estate inventory · harness-agnosticism · open format vs proprietary · self-host vs SaaS. With one instance paged these live as a **comparison matrix** in `wiki/registry/index.md` and as prose per page — **not** minted as their own derived-node namespace. The same discipline parked for the runtime, harness, and store dimensions.
+
+**Known instances, for the queue.** [[tessl]] is paged. Not yet ingested: **JFrog Agent Skills Registry** (the canonical package-registry incumbent entering the space; private, scanned and signed, claims the AgentSkills format and the OpenClaw registry protocol), **Google Cloud Skill Registry** (Gemini Enterprise Agent Platform; private, hyperscaler-operated), **ClawHub** (community, vector search, `subtype: index`), **Agensi** (marketplace with a creator revenue split). An incumbent plus a hyperscaler plus an emerging open format is what distinguishes a category from a product, and is the evidence that justified minting the node on one paged instance. Also parked: **agentskills.io** and the AgentSkills format itself, which is a *standard* rather than a registry and probably belongs in `topic/` if it is captured at all.
+
+**Ingesting a registry:** source → `raw/<registry>/YYYY-MM-DD-slug.md`; create `wiki/registry/<name>.md` with `type: registry`, a `subtype:`, `integrates_with:` → harness, `enables:` → pattern, and `distributes:` (usually `[]` at first); create one `capability` page per meaningful command family with `belongs_to:` → the registry (`implements:` usually `[]`, but wire it where a command genuinely performs a stage); create stub `pattern` pages for any new targets; add a **Supplied by (registry)** subsection to each enabled pattern; add an *Integrated by (registries)* bullet to each harness page's backlink roster and to the `harness/index.md` support matrix; refresh the matrix in `wiki/registry/index.md` and the `## registry` section in `catalogue.md`; log it. Re-derive stages only if a registry capability genuinely implements one.
+
 ## The topic layer (curated overlays)
 
 Everything above is the **ontology graph** — nodes joined by stored edges, plus the one derived projection (`sdlc-stage`). The `topic/` namespace is a different kind of object: an **authored, top-down, cross-namespace reference page** — a *Map of Content* — that frames a theme and links *out* to the specific pages that instantiate it. Where a `pattern` is minted **bottom-up from capability backlinks** (evidence rolls up), a `topic` is written **top-down from a thesis** (a lens reaches down). It exists for *navigation and synthesis-in-prose*, not to carry ontology.
@@ -296,7 +358,7 @@ Everything above is the **ontology graph** — nodes joined by stored edges, plu
 
 **The overlay rule — a topic must not pollute the synthesis graph.** A topic's `[[links]]` are *soft navigation only*. Concretely:
 
-1. A topic carries **no stored ontology edges** — no `implements` / `applies` / `produces` / `enables` / `runs_on`. Its links live in prose, never in frontmatter as a semantic edge.
+1. A topic carries **no stored ontology edges** — no `implements` / `applies` / `produces` / `enables` / `runs_on` / `distributes`. Its links live in prose, never in frontmatter as a semantic edge.
 2. A topic link is **never evidence**. It may not be counted toward any target's `Applied by` / `Produced by` / `Enabled by` / stage-`implements` roster, and stage re-derivation ignores topics entirely.
 3. **Do not hand-author "Referenced by topic X" rosters** onto target pages. (Obsidian's automatic backlink panel will surface the topic for navigation — that is fine and is the point; the rule bars *authored* rosters that would blur evidence with curation.)
 
@@ -361,12 +423,22 @@ Renames ripple across many capability pages, so batch them per ingest and keep t
 - Tables remain fine for fixed multi-column data (e.g. the phase ↔ command ↔ stage map); the bullet rule is about prose enumerations of capabilities.
 - Genuine prose that *mentions* capabilities in the course of explaining a flow (e.g. "plans via [[gsd-planner]], then gated by [[gsd-plan-checker]]") stays as prose — the rule targets *lists*, not every reference.
 
+**Write the body for the current version; keep change history in a `## Version history` section at the bottom.** Pages whose subject ships in versions (framework, capability, harness, runtime, store, registry) describe the subject **as it is in the latest ingested version**, so the readable flow never makes the reader reconstruct the present from a sequence of changes.
+
+- **In the body:** no version tags on bullets or paragraphs (`(v1.2.0, new)`, `since v1.3`, `graduated from in-progress`), no "formerly X" / "was `CONTEXT.md`" / "renamed from" asides, no "updated to vX" callouts, and no comparisons to an earlier version ("the loop now closes", "up to v1.1 the flow ended at review"). State the current fact plainly. Name the current version once, near the top (e.g. "The current release is **v1.3.1** (2026-10-04)"). The frontmatter `sources:` / `raw:` fields keep the version provenance as usual.
+- **Removed or retired items** (a deleted skill, a dropped artifact, a pattern that only a removed capability applied) leave the body's capability, artifact, and pattern lists entirely, and are recorded in the history. A page kept for a removed capability carries a short removal banner at the top, since its whole subject is historical.
+- **`## Version history`** is the **last section**, after See Also. One `### <version> (<release date>; ingested <date>)` subsection per release, **newest first**, each a bullet list of what changed relative to the previous release: added, renamed, reshaped, removed, deprecated. Name the old term here (this is where "formerly `to-prd`" lives). End with an `### Initial ingest (<date>)` entry recording the state first documented.
+- **Thin pages may skip the section.** A capability page with a single small change can carry one dated bullet under `## Version history` instead of subsections; a page whose subject has never changed since ingest needs no section at all.
+- **Stage, artifact, pattern, and topic pages** are syntheses, not versioned subjects. They describe the current evidence and do not get a version-history section; when an upstream change matters to them (e.g. a resolved naming clash), state the current fact with its date, as the dated-callout convention already does, and leave the per-release detail to the framework page.
+- **On every re-ingest:** rewrite the body to the new current state, then prepend the new release's entry to `## Version history`. Never stack a new "updated to vX" callout on top of the previous one.
+
 ## Ingest workflow reminders
 
-0. **Decide the layer first.** Is the thing a methodology (`framework`), an agent loop (`harness`), something that spawns loops (`runtime`), or durable state a loop reads and writes (`store`)? The tests are in [The harness layer](#the-harness-layer), [The execution layer](#the-execution-layer-runtimes), and [The state layer](#the-state-layer-stores). Getting this wrong is the most expensive mistake available: a misfiled node drags its whole capability set, its stage rosters, the matrices it appears in, and every backlink with it. When a tool sits close to a boundary, the tell is usually its **stage coverage** — a page whose capabilities almost all map to no stage is rarely a framework.
+0. **Decide the layer first.** Is the thing a methodology (`framework`), an agent loop (`harness`), something that spawns loops (`runtime`), durable state a loop reads and writes (`store`), or the versioned supply a loop is provisioned from (`registry`)? The tests are in [The harness layer](#the-harness-layer), [The execution layer](#the-execution-layer-runtimes), [The state layer](#the-state-layer-stores), and [The supply layer](#the-supply-layer-registries). Getting this wrong is the most expensive mistake available: a misfiled node drags its whole capability set, its stage rosters, the matrices it appears in, and every backlink with it. When a tool sits close to a boundary, the tell is usually its **stage coverage** — a page whose capabilities almost all map to no stage is rarely a framework.
 1. Source → `raw/<framework>/YYYY-MM-DD-slug.md` (immutable).
 2. Compile → create/merge the `framework` page and one `capability` page per command/ skill/sub-agent, with full frontmatter edges.
 3. Create stub `artifact`/`pattern`/`sdlc-stage` pages for any new `[[wikilink]]` targets so links resolve; flesh them out from backlink evidence.
 4. Set `equivalent_to:` when a capability matches one already documented in another framework (this is what builds the cross-framework clusters).
 5. **Re-derive the stage set** (see [Stage re-derivation](#stage-re-derivation-keep-stages-framework-neutral)): review every `sdlc-stage` against the now-richer evidence and rename / split / merge / add / retire toward the most generic, minimal set. Update `aka:` on each touched stage.
 6. Cascade: update affected stage projections; refresh `updated:`; update `catalogue.md` and append to `log.md` (including any stage `OLD → NEW` renames).
+7. **Re-ingest of a new version:** rewrite each touched page's body to the current state and prepend the release to its `## Version history` (see [Formatting conventions](#formatting-conventions)). The body must read correctly to someone who never saw the previous version.

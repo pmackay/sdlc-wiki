@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Fission-AI/OpenSpec — concepts.md (2026)"
-updated: 2026-07-04
+sources: "Fission-AI/OpenSpec — concepts.md (2026); pstack v0.15.2 — Lauren Tan (2026)"
+updated: 2026-09-11
 ---
 
 # Pattern: Living specification (spec-as-source-of-truth + deltas)
@@ -26,6 +26,10 @@ OpenSpec:
 - [[openspec-propose]] — authors changes as deltas against the living spec.
 - [[openspec-sync]] — merges a delta into the living spec.
 - [[openspec-archive]] — finalizes the change, folding its delta in.
+
+pstack — applied to a **verification** artifact rather than a requirements one:
+
+- [[pstack-maintain-verification-skill]] — *"a feature map rots the moment the app changes."* A scheduled pass reconciles the map against the app with one read-only subagent per feature plus one live pass, shipping at most one PR of proven corrections. Its key rule forces the fork the pattern always faces: a behavior the map describes that the app no longer does is either **doc drift** (fix the map) or a **product regression** (report it, do not paper over it in docs).
 
 ## See Also
 - [[pattern-spec-driven-development]] — the broader pattern this specializes.

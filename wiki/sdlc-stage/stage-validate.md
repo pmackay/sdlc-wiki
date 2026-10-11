@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Verify (UAT)", addy-agent-skills: "Verify (browser-testing)", openspec: "verify", speckit: "converge", compound-engineering: "test / dogfood", gstack: "Test (QA / benchmark / iOS)", superpowers: "verification-before-completion" }
-sources: "Synthesized from GSD + Addy Osmani + OpenSpec + Spec Kit + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+aka: { gsd: "Verify (UAT)", addy-agent-skills: "Verify (browser-testing)", openspec: "verify", speckit: "converge", compound-engineering: "test / dogfood", gstack: "Test (QA / benchmark / iOS)", superpowers: "verification-before-completion", pstack: "create- and maintain-verification-skill" }
+sources: "Synthesized from GSD + Addy Osmani + OpenSpec + Spec Kit + Compound Engineering + gstack + Superpowers + pstack (2026)"
+updated: 2026-09-11
 ---
 
 # Stage: Validate
@@ -51,6 +51,11 @@ Superpowers — *evidence-gate validation* (do the claims hold):
 - [[sp-verification-before-completion]] — the Iron Law "no completion claims without fresh verification evidence": run the command, read the full output, then claim ([[pattern-evidence-before-claims]]). A distinctive validator — it verifies the **agent's own success claims** against reproducible command output rather than checking the build against a spec/goal (the empirical honesty half of "confirm the build is sound").
 
 (Note: [[gstack-benchmark]] is a performance audit, so it lives in [[stage-review]] with the other performance capabilities, not here — even though gstack colloquially groups it under "Test".)
+
+pstack — *generate the harness rather than ship one* ([[pattern-tooling-leverage]]):
+
+- [[pstack-create-verification-skill]] — generates a project-local skill that drives the real app for any language or platform (web, CLI/TUI, desktop, API, mobile, library), with Launch / Doctor / Drive / Evidence / Cleanup sections and proof standards that require the real user path and observed side effects → [[artifact-skill-doc]].
+- [[pstack-maintain-verification-skill]] — the upkeep loop; one read-only subagent per feature then one live pass, at most one PR of proven corrections, and a forced fork between doc drift and a product regression ([[pattern-living-specification]]).
 
 ## Cross-framework equivalents
 

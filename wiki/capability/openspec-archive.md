@@ -5,10 +5,10 @@ belongs_to: "[[openspec]]"
 implements: "[[stage-release]]"
 delegates_to: ["[[openspec-sync]]"]
 applies: ["[[pattern-living-specification]]", "[[pattern-spec-driven-development]]"]
-equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]"]
-sources: "Fission-AI/OpenSpec docs — commands.md, concepts.md (2026)"
+equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]", "[[builder-factory-ship]]"]
+sources: "Fission-AI/OpenSpec docs — commands.md, concepts.md (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/openspec/2026-07-04-openspec-framework.md"]
-updated: 2026-07-04
+updated: 2026-09-26
 ---
 
 # /opsx:archive

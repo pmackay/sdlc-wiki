@@ -6,10 +6,10 @@ implements: "[[stage-review]]"
 delegates_to: []
 produces: "[[artifact-review-report]]"
 applies: ["[[pattern-adversarial-review]]"]
-equivalent_to: ["[[addy-code-review]]", "[[bmad-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[sp-requesting-code-review]]"]
-sources: "gstack — Garry Tan (2026)"
+equivalent_to: ["[[addy-code-review]]", "[[bmad-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[sp-requesting-code-review]]", "[[builder-factory-review-prs]]"]
+sources: "gstack — Garry Tan (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-09
+updated: 2026-09-26
 ---
 
 # /review

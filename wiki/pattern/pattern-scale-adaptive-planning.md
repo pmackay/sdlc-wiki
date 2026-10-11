@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026); jayminwest/seeds (2026)"
+sources: "bmad-code-org/BMAD-METHOD (2026); tao-hpu/nano-spec (2025); Agent OS — Builder Methods (2026); jayminwest/seeds (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026)"
 raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md", "../../raw/gstack/2026-07-05-gstack-framework.md", "../../raw/nano-spec/2025-12-01-nano-spec.md", "../../raw/agent-os/2026-08-05-agent-os.md"]
-updated: 2026-08-31
+updated: 2026-09-12
 ---
 
 # Pattern: Scale-adaptive planning
@@ -40,6 +40,17 @@ Seeds:
 
 - [[seeds-create]] · [[seeds-plan-prompt]] — a deliberate two-tier dial with the rule stated in the docs: *"use it when work is large or ambiguous enough that an LLM benefits from decomposing it — for small, well-scoped tasks just `sd create` directly."*
 - [[seeds-issue-workflow]] — the skill that encodes the choice as two named procedures (create-then-ready vs. plan-decomposition) with the routing rule between them.
+
+pstack — **applied to rigor rather than to ceremony**, which is the variation worth noting:
+
+- [[pstack-figure-it-out]] — the rigor level is chosen up front and **biased high**, with one-way doors and high blast radius getting more and reversible low-stakes steps getting less. *"Rigor is gates and artifacts, not 'try harder'."*
+- [[pstack-how]] — a simple question skips exploration entirely and runs one explainer; a complex one fans out two to four explorers. *"When in doubt, take the simple path."*
+- [[pstack-tdd]] — skips the test when the path would need brittle mocks, slow infrastructure, or large fixture churn. *"Prefer no new test over a bad test."*
+- [[pstack-poteto-mode]] — the router itself: a large or cross-cutting effort escalates to [[pstack-figure-it-out]] even when a narrower playbook fits, and a standing program escalates again to the Orchestrate playbook.
+
+Tessl — the same instinct applied to the **review budget**:
+
+- [[tessl-change-risk]] — assesses a diff and exits non-zero only when human review is required, allocating reviewer attention by measured blast radius rather than spending it uniformly. The organizational counterpart to [[pstack-figure-it-out]]'s rigor-sized-to-blast-radius rule.
 
 ## See Also
 - [[pattern-spec-driven-development]] — the method whose ceremony this pattern modulates.

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026)"
-updated: 2026-09-01
+sources: "Every — 'Compound Engineering' (2025-12-11); EveryInc/compound-engineering-plugin (2026); gstack — Garry Tan (2026); obra/superpowers (2026); jayminwest/warren (2026); Agent OS — Builder Methods (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Knowledge compounding (each unit of work makes the next easier)
@@ -60,6 +60,30 @@ Beads — compounding as a store primitive rather than a skill's output:
 - [[beads-federation]] — accumulated state shared peer-to-peer across repos and organizations, so compounding is not confined to one clone.
 - [[beads-audit]] — records labelled prompt/response traces for *"dataset generation (SFT/RL fine-tuning)"*: compounding aimed at model weights rather than at context, which nothing else in this wiki attempts.
 
+pstack — compounding from **transcripts**, with an explicit brake on prose accretion:
+
+- [[pstack-reflect]] — three parallel review lenses over the active transcript, synthesized to Accepted / Rejected / Backlog and routed to concrete edits on **existing** skills. Approval is mandatory because *"skill changes affect every future agent in the org"*, and the structural-enforcement check demotes anything a lint rule would enforce better.
+- [[pstack-automate-me]] — mines the user's own recent transcripts into a personal `-mode` skill, and on repeat runs mines only history since the file was last edited, **preserving sections the user has not contradicted**.
+- [[pstack-create-verification-skill]] — codifies a repo's verification recipe into a durable project-local skill the next agent reads cold.
+- [[pstack-principle-encode-lessons-in-structure]] — the governing rule: a lesson worth keeping becomes a check, not a paragraph.
+
+Both transcript miners carry the same privacy scope rule: read only the active workspace's `agent-transcripts/`, never glob across `~/.cursor/projects/*/`, because that reads private chats from unrelated projects.
+
+Tessl — compounding applied to the **capability corpus itself**, at organization scale:
+
+- [[tessl-agent]] — mines PRs and session logs for recurring agent mistakes, turns each into a skill fix, and proves it with an eval. The [[pstack-reflect]] loop lifted out of the session and made continuous.
+- [[tessl-inventory]] — indexes every skill across every repo so the corpus can be de-duplicated and governed at all.
+- [[tessl-skill]] · [[tessl-plugin]] — make a captured technique versioned, publishable, and installable by everyone else.
+
+builder-skills:
+
+- [[builder-factory-lookback]] — compounding from **production signal**. Recurring reports and prior fixes feed one systemic change and a regression check at the boundary.
+- [[builder-turn-into-app]] — a proven thread or skill packaged into a runnable app for people (the counterpart of [[gstack-skillify]] producing a skill for agents).
+
+Matt Pocock — Skills for Real Engineers:
+
+- [[mp-retro]] — the **environment-compounding** flavor: a session's lessons become navigation pointers, automated checks, coding standards and tooling changes the next session runs inside (v1.3.0).
+
 ## Enabled by (infrastructure)
 
 The most striking cross-layer finding in the wiki: an [execution-layer](../runtime/index.md) runtime bakes the harvest-externalize-reinject loop into the substrate, so compounding happens *without a process-layer skill asking for it*:
@@ -75,7 +99,12 @@ The most striking cross-layer finding in the wiki: an [execution-layer](../runti
 
 Also in this layer but unpaged: [[warren]]'s `.mulch/` (expertise records merged across runs) and canopy (a versioned prompt library), which is why the store node's `memory` subtype exists.
 
+## Supplied by (registry)
+
+- [[tessl]] — supplies the half the process layer never had: **distribution and upkeep of the corpus**. Frameworks are good at capturing a lesson ([[ce-compound]], [[gstack-skillify]], [[sp-writing-skills]], [[pstack-reflect]]) and have nothing to say about what happens to the hundredth one. A registry versions it, scores it, scans it, measures it, de-duplicates it across repos, and rolls it back when it regresses. *"Context as code"* is this pattern with a package manager attached.
+
 ## See Also
+- [[pattern-tooling-leverage]] — a lever kept and reused is how tooling compounds.
 - [[stage-learn]] — the canonical stage this pattern defines.
 - [[topic-harness-engineering]] — this pattern is the *steering loop* that refines guides and sensors over time.
 - [[pattern-living-specification]] — spec-level compounding (OpenSpec's [[openspec-sync]]); a narrower cousin.

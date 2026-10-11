@@ -2,10 +2,10 @@
 type: harness
 subtype: terminal
 source_url: "https://docs.factory.ai/cli/getting-started/overview"
-enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
-sources: "Factory.ai — Droid CLI docs (docs.factory.ai/cli) + factory.ai/product/droids (2026)"
+enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]", "[[pattern-model-tiering]]"]
+sources: "Factory.ai — Droid CLI docs (docs.factory.ai/cli) + factory.ai/product/droids (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/harness/2026-08-02-factory-droid.md"]
-updated: 2026-08-31
+updated: 2026-09-26
 ---
 
 # factory-droid
@@ -78,6 +78,7 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 - [[pattern-edit-guardrails]] — **autonomy levels** (off/low/medium/high) + read-only review mode + permission-checked tools + **hooks** (policy enforcement around lifecycle events) + approval workflows are the mutation-gating substrate under gstack's careful/freeze/guard.
 - [[pattern-session-handoff]] — subagents each carry their own session, the **Droid Sessions API** and persisted sessions reopen prior work, and headless **`droid exec`** runs are scriptable/resumable across a session boundary — the harness primitive below [[mp-handoff]] / [[gstack-context-save]].
 - [[pattern-context-engineering]] — **AGENTS.md** (git-root-upward discovery + personal defaults) + skills + **40+ MCP servers** + plugins assemble what loads into the window at each turn, the primitive under [[addy-context-engineering]].
+- [[pattern-model-tiering]] — complexity-based routing of subagent work to a model tier, mid-session swap, and the free open-weight Droid Core tier. The harness provides tiering directly, where [[builder-efficient-frontier]] and [[pstack-setup-pstack]] have to build it from subagent definitions.
 
 ## Runs / spawned by (backlinks)
 

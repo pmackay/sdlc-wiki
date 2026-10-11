@@ -115,7 +115,7 @@ The overview above compresses everything into one loop. Below, each stage gets i
 
 ### 1 · [Align](../sdlc-stage/stage-align.md) — *what to build and why*
 
-Two standing anchors that persist across iterations, and four decision/scope docs that feed the spec and plan. The GSD and Matt Pocock frameworks both write a `CONTEXT.md`, but they are different artifacts — the dotted edge flags the clash.
+Two standing anchors that persist across iterations, and four decision/scope docs that feed the spec and plan. The GSD and Matt Pocock frameworks both wrote a `CONTEXT.md` for different artifacts (the dotted edge flags the clash). Matt Pocock renamed its file to `GLOSSARY.md` in v1.3.0 (2026-10-04), so the clash only survives in older repos.
 
 ```mermaid
 flowchart LR
@@ -273,7 +273,7 @@ flowchart LR
 | Align | [[artifact-product-brief\|product brief]] | BMAD | Pre-PRD scoping doc (problem/audience/boundaries); variants PRFAQ and forged-idea. |
 | Align | [[artifact-brainstorm-md\|brainstorm doc]] | Compound Engineering | Requirements-only unified plan (WHAT, not HOW) from a collaborative Q&A dialogue. |
 | Align | [[artifact-phase-context\|CONTEXT.md (phase)]] | GSD | Locked decisions and scope guidance for a phase; feeds planning. |
-| Align | [[artifact-domain-model\|domain model]] | Matt Pocock | Shared-language glossary (`CONTEXT.md`) mapping jargon to precise concepts. |
+| Align | [[artifact-domain-model\|domain model]] | Matt Pocock | Shared-language glossary (`GLOSSARY.md`, formerly `CONTEXT.md`) mapping jargon to precise concepts. |
 | Specify | [[artifact-spec-md\|SPEC.md / spec.md]] | Addy · Spec Kit · BMAD · MP | The durable written spec the lifecycle plans and builds against. |
 | Specify | [[artifact-prd\|PRD]] | BMAD · Builder Methods | Fuller product-requirements document; intent and scope before issues/stories are cut. |
 | Specify | [[artifact-proposal-md\|proposal.md]] | OpenSpec | The why/what + scope rationale layer, first in a change's dependency chain. |

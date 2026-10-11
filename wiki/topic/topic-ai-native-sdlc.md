@@ -2,7 +2,7 @@
 type: topic
 sources: "Louis Claxton, Anthropic Applied AI — 'The AI-Native SDLC playbook' (2026-08-21); wiki synthesis"
 raw: ["../../raw/reference/2026-08-21-ai-native-sdlc-playbook.md"]
-updated: 2026-09-01
+updated: 2026-09-12
 ---
 
 # Topic: The AI-native SDLC — the vendor's own playbook, read against the wiki
@@ -59,6 +59,8 @@ Read as evidence-in-prose (a topic link is never graph evidence), the playbook l
 
 One genuinely novel instrument: **continuous evals of the agent's configuration**. The suite of 20–50 real tasks re-runs on any change to CLAUDE.md, skills, or hooks — the steering configuration gets the regression testing that code gets, and a skill change that drops the pass rate is blocked at merge. No community framework in the wiki ships this; it is the QA gate rebuilt for the thing that now varies (the agent's setup, not just the code).
 
+**Update (2026-09-12): it ships, from a layer this page did not anticipate.** [[tessl]] — a [registry](../registry/index.md), the wiki's [supply layer](../registry/index.md) — sells exactly this instrument: [[tessl-scenario]] generates the task suite, [[tessl-eval]] runs the agent with and without the context and scores the difference, the scenarios are versioned **with** the skill as a regression suite, and the score is gateable at merge. The original claim was accurate and stays as written: no *framework* ships it. The finding is that configuration evals turned out to belong to the commercial layer that distributes and governs capabilities, not to the layer that authors them — which is also where the security scanning, the RBAC, and the audit trail this page calls for have landed. See [[pattern-capability-evals]].
+
 ## The factory, from the governance side
 
 Stage 6 describes a [[topic-software-factory|software factory]] in all but name, and lands on the same anatomy from the compliance direction. A version-controlled `bands.yaml` defines response tiers over a deterministic detection script — log at 1σ, diagnose read-only at 2σ, act at 3σ but only by opening a PR into the review gate or triggering a pre-approved runbook — with the emphatic rule that *detection stays deterministic, no model involved*. In factory vocabulary: an event/schedule **trigger**, a code-owned **control plane** (the tiers are config, not prompt), sandboxed stateless workers, **gates** the agent cannot pass ("the agent may act up to the production gate and cannot pass it"), and **escalation** as PR-into-review. The tiered-autonomy config is the closest any wiki source comes to [[gh-aw]]'s compiled-policy shape expressed as a governance document, and the headless stage-to-stage handoff — "an independent confidence gate between stages… deciding whether the previous stage's output continues or is escalated to a human" — is the maker/checker rule from the factory glossary, applied between lifecycle stages rather than within a run.
@@ -70,6 +72,7 @@ The separation-of-duties principle recurs at every gate: the agent that wrote th
 The playbook is a vendor document: its plays name Claude products (Claude Code, Cowork, Claude Design, Code Review, Claude Security, Claude Tag, the Agent SDK) where the wiki's other sources name mechanisms. This page reads it for the mechanisms, which are product-independent; the capture preserves the product framing. It is also not ingested as a `framework` — it ships prose and templates, not an installable capability set, and the wiki's [[claude-code]] harness page already carries the primitives (plan mode, hooks, skills, subagents, managed settings) the plays are built from. If Anthropic later ships the plays as an installable plugin, that would be a framework ingest with `runs_on: [[claude-code]]`.
 
 ## See Also
+- [[tessl]] · [registry layer](../registry/index.md) — the commercial supply layer that implements much of this page's governance frame, including the configuration-eval instrument recorded above as unshipped.
 
 - [[topic-software-factory]] — the execution-layer architecture Stage 6 arrives at from the governance side; its glossary defines the vocabulary used above.
 - [[topic-harness-engineering]] — the per-run steering controls (guides/sensors) the playbook's CLAUDE.md/skills/hooks plays instantiate; the playbook is that frame scaled to an organization with auditors.

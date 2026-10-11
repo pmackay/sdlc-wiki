@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage / wayfinder", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming", agent-os: "plan-product" }
-sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers + Agent OS (2026)"
-updated: 2026-08-05
+aka: { gsd: "Discuss", matt-pocock-skills: "grilling / grill-me / triage / wayfinder / to-questionnaire", addy-agent-skills: "Define / interview-me", openspec: "explore", speckit: "clarify / constitution", bmad: "Analysis (brainstorm / forge-idea / research)", compound-engineering: "brainstorm / ideate / strategy", gstack: "Think (office-hours)", superpowers: "brainstorming", agent-os: "plan-product", pstack: "how / why (+ benny triage)", builder-skills: "factory-collect (intake)" }
+sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers + Agent OS + pstack + Builder Skills (2026)"
+updated: 2026-10-11
 ---
 
 # Stage: Align
@@ -24,8 +24,9 @@ Matt Pocock — Skills for Real Engineers:
 - [[mp-grill-me]] — comprehensive interview until decisions resolve.
 - [[mp-grilling]] — the reusable interview loop.
 - [[mp-grill-with-docs]] — grilling that also writes a domain model + ADRs.
+- [[mp-to-questionnaire]] — when the missing knowledge is in **someone else's** head: grill the user about the *send* (who it goes to, what they need back), then write a Markdown questionnaire aimed at the gap, for one recipient to fill in async (delegated-elicitation flavor; v1.2.0). No other framework pages this yet.
 - [[mp-triage]] — move issues/PRs through a triage state machine → agent-ready briefs (intake flavor; v1.1); the intake counterpart to Compound Engineering's [[ce-sweep]].
-- [[mp-wayfinder]] — map an oversized effort (greenfield / bigger than one session) as a tracker map of investigation tickets that resolve *decisions* until the destination is clear, then hand off to [[mp-to-spec]] / [[mp-to-tickets]] (decision-mapping flavor; v1.1). *Plan, don't do* — it shapes what to build, upstream of the spec, so it aligns rather than plans.
+- [[mp-wayfinder]] — map an oversized effort (greenfield / bigger than one session) as a tracker map of **decision tickets** (v1.2.0 rename; formerly "investigation tickets") that resolve *decisions* until the destination is clear, then hand off to [[mp-to-spec]] / [[mp-to-tickets]] (decision-mapping flavor; v1.1). *Plan, don't do* — it shapes what to build, upstream of the spec, so it aligns rather than plans.
 
 Addy Osmani — Agent Skills:
 
@@ -71,6 +72,16 @@ Superpowers (grilling flavor):
 Agent OS (strategy/product-direction flavor):
 
 - [[agent-os-plan-product]] — a one-question interview establishing the standing `mission`/`roadmap`/`tech-stack` docs → [[artifact-product-docs]]; the direct counterpart to Compound Engineering's [[ce-strategy]] (both maintain a durable, read-as-context product anchor upstream of the spec).
+
+pstack (codebase-investigation flavor, plus an unattended intake case):
+
+- [[pstack-how]] — how does X work; scale-adaptive parallel explorers then one synthesizing explainer → [[artifact-explainer]].
+- [[pstack-why]] — why it is shaped this way; run-time MCP discovery fans one investigator across each of seven **organizational** evidence categories (source control, tracker, docs, chat, observability, error tracking, analytics) with an explicit epistemics contract ([[pattern-source-grounding]]).
+- [[pstack-benny-triage]] — unattended Slack issue-report triage with cause-aware routing, tracker dedupe, and fail-closed ticketing (intake flavor; counterpart to [[mp-triage]] and [[ce-sweep]], but triggered by an incoming report rather than by a developer).
+
+builder-skills (intake flavor, from **production** signal):
+
+- [[builder-factory-collect]] — scheduled collection and triage of feedback, telemetry, runtime errors, and issues, with explicit coverage accounting (*empty ≠ unavailable ≠ truncated*), one targeted follow-up question when policy allows, and re-triage when the answer arrives. It joins the intake cluster with [[mp-triage]], [[ce-sweep]], and [[pstack-benny-triage]], and is the first of them designed to run on a schedule with nobody watching.
 
 ## Cross-framework equivalents
 Ten frameworks now realize this stage. The **grilling / elicitation** cluster (interrogate the human) spans GSD's [[gsd-discuss-phase]] ↔ Matt's [[mp-grill-me]] ↔ Addy's [[addy-interview-me]] ↔ Spec Kit's [[speckit-clarify]] ↔ Compound Engineering's [[ce-brainstorm]] ↔ gstack's [[gstack-office-hours]] ↔ Superpowers' [[sp-brainstorming]], plus BMAD's facilitator personas, at [[pattern-grilling]]. The **codebase-investigation** flavor clusters OpenSpec's [[openspec-explore]] ↔ Addy's [[addy-idea-refine]] ↔ BMAD's [[bmad-document-project]]. The **ideation** flavor clusters [[addy-idea-refine]] ↔ [[bmad-brainstorming]] ↔ [[ce-ideate]]. Compound Engineering adds an **evaluate-external-inputs** sub-flavor ([[ce-pov]], graded verdicts) with no counterpart elsewhere. Overwhelming evidence this is a genuine canonical stage, not a framework quirk.

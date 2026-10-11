@@ -5,7 +5,7 @@ source_url: "https://github.com/earendil-works/pi"
 enables: ["[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
 sources: "pi.dev/docs + github.com/earendil-works/pi (Mario Zechner / Earendil Inc., formerly badlogic/pi-mono; MIT, 2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/harness/2026-07-31-pi.md"]
-updated: 2026-08-31
+updated: 2026-09-26
 ---
 
 # pi
@@ -56,7 +56,7 @@ It does **not** provide [[pattern-fresh-context-subagents]] or [[pattern-edit-gu
 
 ## Runs / spawned by (backlinks)
 
-- **Frameworks that `runs_on:` it** — [[compound-engineering]] · [[superpowers]] (both officially name Pi among supported agents).
+- **Frameworks that `runs_on:` it** — [[compound-engineering]] · [[superpowers]] · [[builder-skills]] (all three officially name Pi among supported agents).
 - **Stores that `integrates_with:` it** — [[seeds]], evidenced by the `.pi/` session store its repo dogfoods; both seeds and pi are also in [[warren]]'s built-in agent set. [[beads]] does **not** name pi among its thirteen `bd setup` recipes, so no edge — the one paged harness the larger store misses.
 - **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option, `claude-code`/`sapling`/`pi`) · [[bernstein]] (the `pi` adapter, `@mariozechner/pi-coding-agent`) · [[sssf]] (**pi only** — the one runtime here that targets pi *exclusively*: `coding_agent: claude_code` is schema-valid and its interface raises `NotImplementedError` until v2) · [[gh-aw]] (the `pi` engine, production-status alongside copilot/claude/codex/gemini — Copilot auth by default, provider keys for prefixed models, and the one engine with an `engine.extensions:` plugin surface).
 

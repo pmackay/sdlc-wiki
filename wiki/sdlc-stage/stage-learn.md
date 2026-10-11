@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { bmad: "retrospective (learning close-out)", compound-engineering: "compound", gstack: "Reflect (retro + learn)", superpowers: "writing-skills (capability-compounding)", seeds: "plan outcome (storage-only)" }
-sources: "Synthesized from BMAD + Compound Engineering + gstack + Superpowers + Seeds (2026); spec-flavor cousin in OpenSpec"
-updated: 2026-08-31
+aka: { bmad: "retrospective (learning close-out)", compound-engineering: "compound", gstack: "Reflect (retro + learn)", superpowers: "writing-skills (capability-compounding)", seeds: "plan outcome (storage-only)", pstack: "reflect / automate-me / teach", builder-skills: "factory-lookback / turn-into-app", matt-pocock-skills: "retro (environment retrospective)" }
+sources: "Synthesized from BMAD + Compound Engineering + gstack + Superpowers + Seeds + Builder Skills + Matt Pocock (2026); spec-flavor cousin in OpenSpec"
+updated: 2026-10-11
 ---
 
 # Stage: Learn
@@ -46,13 +46,32 @@ Seeds — a [store](../store/index.md) (and a stub, recorded because the gap is 
 
 - [[seeds-plan-outcome]] — record a plan's `success | partial | failure` result. Storage-only by design: *"aggregation and retros are out of scope and left to teams."* Nothing reads it but a `--outcome` filter on [[seeds-plan-list]]. The framework's own thesis argues for closing the loop — a failure should become a new section or validation rule in the plan template — but seeds records the datum and stops, delegating the compounding to mulch, which [[seeds-plan-prompt]] reads back in as prior art on the next plan. The lesson-to-template step no capability performs is the clearest missing link this stage has.
 
-## Two flavors of "learn" in the evidence
+pstack (all three flavors — targeted skill edit, personal mode skill, and human explainer):
+
+- [[pstack-reflect]] — three parallel review lenses over the transcript, synthesized into Accepted / Rejected / Backlog and routed to concrete edits on **existing** skills → [[artifact-skill-doc]]. Its structural-enforcement check *demotes* any accepted learning better served by a lint rule, script, or runtime check, which is a built-in brake on prose accretion.
+- [[pstack-automate-me]] — mines the user's own transcripts into a personal `-mode` skill, updating in place across runs and preserving sections the user has not contradicted ([[pattern-knowledge-compounding]]).
+- [[pstack-teach]] — explains a change or subsystem so a person understands it, built up diagram by diagram → [[artifact-explainer]] (the human-facing flavor; counterpart to [[ce-explain]]).
+
+builder-skills:
+
+- [[builder-factory-lookback]] — a bounded retrospective over production signal: recurrence after a claimed fix, sibling-path escapes, and one systemic correction at the shared boundary → [[artifact-retrospective]]. The first instance of a **third flavor** of this stage (see below).
+- [[builder-turn-into-app]] — packages a proven thread or skill into a runnable app; the counterpart of [[gstack-skillify]] and [[pstack-automate-me]] with an app for people as the output rather than a skill for agents.
+
+Matt Pocock — Skills for Real Engineers (environment-compounding flavor; added 2026-10-11):
+
+- [[mp-retro]] — a retrospective on one coding session (current by default, or a past one found in the machine's session logs) that suggests changes to the agent's **environment**, not the code: navigation pointers, automated checks, coding standards, steering files, tool economy, information access. Candidates are presented in severity order. Its standards rule is the sharp one: a **mechanical** violation "gets a deterministic check, full stop" (linter rule, pre-commit hook, or CI job), and `CODING_STANDARDS.md` ([[artifact-standards]]) is kept for judgement calls. v1.3.0 routes it as the **last step of MP's main flow** and v1.3.1 as the follow-up to [[mp-diagnosing-bugs]]. It is MP's first capability on this stage, which the wiki had listed as a gap since 2026-06-28.
+
+## Flavors of "learn" in the evidence
 
 - **Agent-grounding corpus (Compound Engineering; gstack).** Machine-consumable learnings written where future *agents* auto-read them ([[artifact-solution-doc]]); the corpus itself is a maintained artifact ([[ce-compound-refresh]]) or a searchable cross-session store ([[gstack-learn]]
   + gbrain). This is the sharpest, most novel form. gstack and Superpowers extend it with **capability compounding** — [[gstack-skillify]] turns a successful run into a permanent skill, and Superpowers' [[sp-writing-skills]] authors new auto-triggering skills test-first → [[artifact-skill-doc]] (the library grows itself).
 - **Team-process retrospective (BMAD; gstack).** A human-facing report extracting lessons and action items for future *sprints* → [[artifact-retrospective]] ([[bmad-retrospective]], [[gstack-retro]]). The traditional agile form, agent-facilitated.
 
+- **Environment compounding (Matt Pocock; pstack in part).** The lesson is written into the agent's *harness*, the checks, standards, pointers and tooling the next session runs inside, rather than into a corpus it reads or a report people read ([[mp-retro]]). It is the stage's most explicitly **computational** flavor: mechanical findings become lint rules, hooks, or CI jobs. [[pstack-reflect]]'s structural-enforcement demotion is the same instinct applied to skill edits.
+
 Same generic activity (harvest lessons → fold into a durable form that improves future iterations); different consumers (agents vs the human team). gstack is the first framework to ship **both** flavors.
+
+**A third flavor, added 2026-09-26: production-signal learning ([[builder-skills]]).** [[builder-factory-lookback]] harvests lessons from neither an agent session nor a sprint. It learns from **the product's behaviour in the field**: a bounded history of user feedback, telemetry, runtime errors, recurring CI failures, and prior fixes marked shipped. It asks why the same class of problem keeps coming back. The output is a structural change at a shared boundary plus a regression check, and the lookback is only finished when *"the live recurrence stopped."* The consumer is the codebase itself rather than future agents or the team. It is recorded as a flavor rather than a split because the evidence is one framework ([[ce-product-pulse]] reports post-release signal but, filed under [[stage-release]], looks for no causes), well under the ≥2-framework bar.
 
 ## Cross-framework equivalents
 
@@ -64,6 +83,6 @@ The **learning-capture** cluster: Compound Engineering's [[ce-compound]] ↔ BMA
 - [[stage-release]] — the sibling close-out stage; learn was split out of it. Release delivers; learn compounds.
 - [[stage-align]] · [[stage-plan]] · [[stage-review]] — the stages that *consume* this stage's output as grounding, closing the loop.
 - [[pattern-knowledge-compounding]] — the technique behind the stage (each unit of work leaves reusable lessons for the next).
-- [[compound-engineering]] · [[bmad]] — the frameworks implementing this stage; [[seeds]] contributes a store-side stub.
+- [[compound-engineering]] · [[bmad]] · [[matt-pocock-skills]] — frameworks implementing this stage; [[seeds]] contributes a store-side stub.
 - [[beads-remember]] · [[beads-audit]] — the [store layer](../store/index.md) does the *storing* half of compounding without a Learn capability: durable memories auto-primed into every session, and labelled interaction traces kept for fine-tuning. Neither harvests a lesson, which is why neither implements this stage.
 - [[warren]] — the runtime whose `.mulch/` store is where the seeds half of this loop actually compounds.

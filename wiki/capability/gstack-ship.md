@@ -6,10 +6,10 @@ implements: "[[stage-release]]"
 delegates_to: ["[[gstack-document-release]]"]
 produces: ["[[artifact-pull-request]]", "[[artifact-changelog]]", "[[artifact-atomic-commit]]"]
 applies: ["[[pattern-trunk-based-development]]", "[[pattern-parallel-persona-review]]"]
-equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[sp-finishing-a-development-branch]]"]
-sources: "gstack — Garry Tan (2026)"
+equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[sp-finishing-a-development-branch]]", "[[builder-factory-ship]]"]
+sources: "gstack — Garry Tan (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-05
+updated: 2026-09-26
 ---
 
 # /ship

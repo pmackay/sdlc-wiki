@@ -1,8 +1,8 @@
 ---
 type: artifact
-sources: "obra/superpowers — skills/writing-skills (2026)"
+sources: "obra/superpowers — skills/writing-skills (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-10-11
 ---
 
 # Artifact: skill doc (SKILL.md)
@@ -15,7 +15,24 @@ What makes it distinctive is that it is **executable process knowledge**: unlike
 - [[sp-writing-skills]] — authors/edits a skill, test-first against subagent pressure scenarios.
 - [[gstack-skillify]] — the gstack counterpart: codifies a successful run into a permanent browser-skill (same capability-compounding idea, a scrape-specific instance).
 
+pstack:
+
+- [[pstack-create-verification-skill]] — a project-local `verify-<app>` skill with Launch / Doctor / Drive / Evidence / Cleanup / Helpers sections, written for an agent that will read it cold mid-task.
+- [[pstack-automate-me]] — a personal `<handle>-mode` skill drafted from the user's own transcripts, updated in place on repeat runs.
+- [[mp-writing-for-agents]] — Matt Pocock's model-invoked reference for writing any agent-facing document (skills, `AGENTS.md`/`CLAUDE.md`, pointed-at docs); fires whenever one is created or edited (v1.2.0).
+- [[pstack-reflect]] — targeted edits to existing skills, each routed from a synthesized learning and gated by a structural-enforcement check.
+- [[pstack-maintain-verification-skill]] — proven corrections to a generated verification skill and its feature map.
+
+Tessl — the layer that treats this artifact as a **tradeable dependency** rather than as a note to self:
+
+- [[tessl-skill]] — scaffolds, lints, publishes, and unpublishes it; `skill import` promotes a loose `SKILL.md` into an [[artifact-capability-bundle]], which is the prerequisite for evaluating it at all.
+- [[tessl-review-fix]] — rewrites it iteratively until it clears a quality threshold.
+
+A registry changes what the artifact *is*: it acquires a version, an owner, a visibility setting, a security score, an eval suite, and a rollback path. See [[artifact-capability-bundle]] for the shape it ships as.
+
 ## See Also
+- [[artifact-capability-bundle]] — the versioned package a skill ships inside once it is distributed rather than written in place.
+- [[artifact-eval-suite]] — the scenarios that prove a skill changes behavior.
 - [[artifact-solution-doc]] — machine-consumable *lessons* agents read (vs a skill agents *run*).
 - [[artifact-explainer]] · [[artifact-retrospective]] — the other [[stage-learn]] outputs (human-facing knowledge).
 - [[pattern-knowledge-compounding]] — the technique this artifact realizes (capability-compounding form).

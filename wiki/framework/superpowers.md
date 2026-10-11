@@ -4,7 +4,7 @@ source_url: "https://github.com/obra/superpowers"
 runs_on: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
 sources: "Jesse Vincent (Prime Radiant) — Superpowers v6.1.1 (2025–2026); blog.fsck.com release announcement (2025-10-09)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-08-02
+updated: 2026-09-11
 ---
 
 # Superpowers
@@ -101,6 +101,7 @@ All 14 are **skills** (`SKILL.md` units, model-invoked once the bootstrap is act
 - [[pattern-trunk-based-development]] — short-lived branch → merge/PR discipline ([[sp-finishing-a-development-branch]]).
 
 ## See Also
+- [[pstack]] — the closest structural cousin. Both are small-library, anti-slop frameworks built on gated rigor rather than personas, and both make verification the load-bearing stage. The inversion is in how the discipline is kept on: Superpowers makes **every leaf auto-trigger** with a bootstrap router, pstack makes the **router a sticky mode** and marks every leaf `disable-model-invocation: true`. Superpowers is unusually cross-harness, pstack is Cursor-only. [[sp-systematic-debugging]] ↔ [[pstack-principle-fix-root-causes]] (and pstack's [[pstack-principle-attack-the-premise]] names the move after the stop-after-three rule); [[sp-verification-before-completion]] ↔ [[pstack-principle-prove-it-works]]; [[sp-writing-skills]] ↔ [[pstack-reflect]]; [[sp-requesting-code-review]] ↔ [[pstack-interrogate]].
 
 - [[matt-pocock-skills]] — closest sibling: a small, composable, individually-authored skill library. Both apply [[pattern-test-driven-development]], [[pattern-systematic-debugging]], [[pattern-grilling]]. The key contrast: Matt's toolkit deliberately *does not own the process*; Superpowers *does*, wiring its skills into a mandatory gated pipeline via [[sp-using-superpowers]]. Clusters: [[sp-test-driven-development]] ↔ [[mp-tdd]], [[sp-systematic-debugging]] ↔ [[mp-diagnosing-bugs]], [[sp-brainstorming]] ↔ [[mp-grill-me]], [[sp-using-superpowers]] ↔ [[mp-ask-matt]], [[sp-requesting-code-review]] ↔ [[mp-code-review]].
 - [[addy-agent-skills]] — the other framework whose signature is [[pattern-anti-rationalization]]; lifecycle-complete. Clusters: [[sp-brainstorming]] ↔ [[addy-interview-me]], [[sp-test-driven-development]] ↔ [[addy-tdd]], [[sp-systematic-debugging]] ↔ [[addy-debugging]], [[sp-requesting-code-review]] ↔ [[addy-code-review]], [[sp-using-superpowers]] ↔ [[addy-using-agent-skills]].

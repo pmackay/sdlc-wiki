@@ -5,7 +5,7 @@ source_url: "https://github.com/EveryInc/compound-engineering-plugin"
 docs_url: "https://every.to/chain-of-thought/compound-engineering-how-every-codes-with-agents"
 sources: "Dan Shipper & Kieran Klaassen — 'Compound Engineering: How Every Codes with Agents', Every/Chain-of-Thought (2025-12-11); EveryInc/compound-engineering-plugin (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-08-02
+updated: 2026-09-11
 ---
 
 # Compound Engineering
@@ -173,6 +173,7 @@ The [[ce-session-historian]] + [[ce-pattern-recognition-specialist]] + [[ce-secu
 - [[pattern-trunk-based-development]] — atomic commits, PR flow ([[ce-commit]], [[ce-commit-push-pr]]).
 
 ## See Also
+- [[pstack]] — the other loop-closing framework, with the opposite review mechanism. [[ce-compound]] ↔ [[pstack-reflect]] (but pstack's gates its own Accepted list against a lint-rule test); [[ce-explain]] ↔ [[pstack-teach]]; [[ce-code-review]] ↔ [[pstack-interrogate]] — a ~16-persona panel versus a four-model panel with one shared rubric; [[ce-dogfood]] ↔ [[pstack-benny-reproduce-and-fix]]; [[ce-sweep]] ↔ [[pstack-benny-triage]]; [[ce-simplify-code]] ↔ [[pstack-no-comments]].
 - [[bmad]] — the other framework implementing [[stage-learn]]; its [[bmad-retrospective]] is the team-process flavor of Compound Engineering's agent-grounding [[ce-compound]].
 - [[gsd]] — end-to-end workflow engine; shares the plan→execute→verify→ship spine and [[pattern-fresh-context-subagents]]; [[ce-commit-push-pr]] ↔ [[gsd-ship]].
 - [[addy-agent-skills]] — the other lifecycle-broad pack; shares [[pattern-parallel-persona-review]] (its `/ship` fan-out ↔ CE's review personas), [[ce-simplify-code]] ↔ [[addy-code-simplification]], [[ce-debug]] ↔ [[addy-debugging]], the browser-testing and performance skills.

@@ -6,10 +6,10 @@ implements: "[[stage-learn]]"
 delegates_to: ["[[sp-test-driven-development]]"]
 produces: ["[[artifact-skill-doc]]"]
 applies: ["[[pattern-knowledge-compounding]]", "[[pattern-test-driven-development]]"]
-equivalent_to: ["[[gstack-skillify]]"]
+equivalent_to: ["[[gstack-skillify]]", "[[mp-writing-for-agents]]"]
 sources: "Superpowers v6.1.1 (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-10-11
 ---
 
 # writing-skills
@@ -29,3 +29,4 @@ This is **capability compounding** — a successful run hardens into a permanent
 - [[artifact-skill-doc]] — the SKILL.md it produces.
 - [[pattern-knowledge-compounding]] · [[pattern-test-driven-development]] — the techniques applied.
 - [[stage-learn]] — the canonical stage this implements.
+- [[mp-writing-for-agents]] — Matt Pocock's reference for writing any agent-facing document (pointers, loads, leading words, pruning).

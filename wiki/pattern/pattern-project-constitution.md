@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "GitHub/spec-kit — spec-driven.md (2026)"
-updated: 2026-07-04
+sources: "GitHub/spec-kit — spec-driven.md (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026)"
+updated: 2026-09-12
 ---
 
 # Pattern: Project constitution (externalized governing principles)
@@ -26,6 +26,14 @@ Spec Kit:
 
 - [[speckit-constitution]] — authors and maintains the constitution.
 - [[speckit-analyze]] — enforces it as a cross-artifact compliance gate.
+
+pstack — the closest relative to a constitution that is not a document:
+
+- [[pstack-poteto-mode]] — carries **23 principles** as an inline index over 23 individually-loadable leaf skills, grouped Core / Architecture / Verification / Delegation / Meta. The binding rule is a citation requirement rather than a gate: *name each principle that shaped a decision and the specific choice it changed, and cite only principles whose leaf SKILL.md you read this session.* Where [[speckit]]'s constitution is one immutable document that gates every plan, pstack's is a navigable corpus loaded on demand and audited through the reply.
+
+Tessl — a mandated capability set rather than a document:
+
+- [[tessl-workspace]] — **required skills** plus install and publish policies push a standard into every workspace from *outside* the framework, enforced by the index rather than by a framework's own analysis step. Recorded here rather than as evidence for the parked `stage-govern` split, which asks for a framework gating project principles.
 
 ## See Also
 - [[artifact-constitution]] — the artifact this pattern is built on.

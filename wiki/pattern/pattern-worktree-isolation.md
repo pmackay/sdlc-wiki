@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026)"
-updated: 2026-09-01
+sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Worktree isolation (each unit of work in its own git worktree)
@@ -38,6 +38,25 @@ Beads — the state-side half of the pattern: isolation is only useful if the is
 - [[beads-init]] — content-hash IDs so two branches cannot mint the same id (*"merges never renumber work"*), and Dolt cell-level three-way merge for the rest; `bd recompute-blocked` repairs derived flags after a merge lands.
 - [[beads-merge-slot]] — the merge slot serializes the one step isolation cannot parallelize.
 
+pstack — stated as a principle and cited by name at every fan-out:
+
+- [[pstack-principle-separate-before-serializing-shared-state]] — eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.
+- [[pstack-arena]] — each candidate writes to its own git worktree where possible, otherwise its own `/tmp` path.
+- [[pstack-swarm]] — every worker gets its own writable output.
+- [[pstack-figure-it-out]] — parallelize **only across seams**, and give each worker its own worktree or branch. *Don't over-fan.*
+
+Tessl:
+
+- [[tessl-launch]] — cloud launches run a capability against a repository in an isolated sandbox, with secrets supplied by [[tessl-environment]] rather than baked into the bundle.
+
+builder-skills:
+
+- [[builder-factory]] · [[builder-factory-ship]] · [[builder-factory-babysit-pr]] — `worktree.mode: fresh-per-run` from `origin/main`, requested from the host. When the host cannot provide one, *"keep the workflow manual rather than borrowing a shared checkout"*, and never take over a peer's checkout.
+
+Matt Pocock — Skills for Real Engineers:
+
+- [[mp-implement-spec]] — each implementer subagent works one ticket in its own worktree on its own branch, rebased on the integration branch and fast-forward merged back by a merger subagent (v1.3.0).
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) provides this pattern as *substrate* — the isolation exists whether or not any skill asks for it:
@@ -55,6 +74,7 @@ Isolation is only useful if the isolated agents can still see one queue — that
 - [[seeds]] — `merge=union` gitattributes plus dedup-on-read, advisory locks, and atomic writes, so several worktree agents share one file store and git reconciles it ([[seeds-init]], [[seeds-sync]]).
 
 ## See Also
+- [[pattern-candidate-grafting]] — competing candidates need isolation or they contaminate each other.
 - [[pattern-fresh-context-subagents]] — the context-isolation cousin (isolate the agent's memory vs the filesystem).
 - [[pattern-autonomous-loop]] — the pattern this one makes safe.
 - [[pattern-trunk-based-development]] — worktrees keep short-lived branches off a clean trunk.

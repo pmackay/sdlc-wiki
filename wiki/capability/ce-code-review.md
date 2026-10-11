@@ -6,10 +6,10 @@ implements: "[[stage-review]]"
 delegates_to: ["[[ce-learnings-researcher]]"]
 produces: ["[[artifact-review-report]]"]
 applies: ["[[pattern-parallel-persona-review]]", "[[pattern-adversarial-review]]", "[[pattern-fresh-context-subagents]]", "[[pattern-knowledge-compounding]]"]
-equivalent_to: ["[[addy-code-review]]", "[[bmad-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]"]
-sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
+equivalent_to: ["[[addy-code-review]]", "[[bmad-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]", "[[builder-factory-review-prs]]"]
+sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-09
+updated: 2026-09-26
 ---
 
 # /ce-code-review

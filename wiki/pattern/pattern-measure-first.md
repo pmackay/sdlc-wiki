@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026)"
-updated: 2026-07-05
+sources: "Addy Osmani — Agent Skills (2026); Tessl docs (2026)"
+updated: 2026-09-12
 ---
 
 # Pattern: Measure first (profile before optimizing)
@@ -23,6 +23,10 @@ Compound Engineering:
 gstack:
 
 - [[gstack-benchmark]] — baseline Core Web Vitals / load, then compare before/after on every PR.
+
+Tessl:
+
+- [[tessl-observability]] — measures where skills **activate** across real agent sessions, not where they are installed. The first capability here that measures agent behavior in production rather than in a test, and the distinction matters: a skill deployed everywhere and firing nowhere looks identical to a working one from any install-side view.
 
 ## See Also
 - [[artifact-perf-audit]] — the measured scorecard this pattern produces.
