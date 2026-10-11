@@ -1,8 +1,8 @@
 ---
 type: topic
-sources: "IndyDevDan — Super Simple Software Factory (2026); ChaoYue — Awesome Loop Engineering (2026); wiki synthesis across the runtime, harness, store, and pattern layers"
-raw: ["../../raw/runtime/2026-08-31-super-simple-software-factory.md", "../../raw/reference/2026-09-01-awesome-loop-engineering.md"]
-updated: 2026-09-01
+sources: "IndyDevDan — Super Simple Software Factory (2026); ChaoYue — Awesome Loop Engineering (2026); Builder.io — BuilderIO/skills Factory (2026); wiki synthesis across the runtime, harness, store, and pattern layers"
+raw: ["../../raw/runtime/2026-08-31-super-simple-software-factory.md", "../../raw/reference/2026-09-01-awesome-loop-engineering.md", "../../raw/builder-skills/2026-09-26-builder-skills.md"]
+updated: 2026-09-26
 ---
 
 # Topic: The software factory — a general architecture for the execution layer
@@ -79,23 +79,44 @@ These are axes, not a ladder — each moves independently. You can run a single 
 
 ## The morphological grid
 
-Rows are the axes; cells are the option values, roughly lighter to heavier left to right. The markers place the four **profiles** — the recommended progressive configurations, each anchored to a documented runtime as evidence: 🎫 **ticket runner** ([[sssf]]), 🖥️ **monitored service** ([[warren]]), 🏭 **fleet factory** ([[bernstein]]), 📡 **repo reactor** ([[gh-aw]]).
+Rows are the axes; cells are the option values, roughly lighter to heavier left to right. The markers place the four **profiles** — the recommended progressive configurations, each anchored to a documented runtime as evidence: 🎫 **ticket runner** ([[sssf]]), 🖥️ **monitored service** ([[warren]]), 🏭 **fleet factory** ([[bernstein]]), 📡 **repo reactor** ([[gh-aw]]). A fifth marker, 🧩 **skill-pack factory** ([[builder-skills]]), added 2026-09-26, places the one factory in the wiki that is built from instructions rather than a runtime.
 
 | Axis | | | | |
 |---|---|---|---|---|
-| **Control-plane location** | in the prompt — the agent sequences itself | in a script you own 🎫 | in a deployed service 🖥️ | in a deterministic DAG — scheduled 🏭 or compiled into CI 📡 |
-| **Trigger model** | manual bootstrap 🎫 🖥️ | scheduled 🖥️ 📡 | event-triggered 🖥️ 📡 | goal-driven (run to quiescence) 🏭 |
-| **Isolation substrate** | inline checkout 🎫 | worktree / branch 🏭 | local sandbox 🖥️ | remote runners / fleet 🏭 📡 |
-| **Autonomy scope** | one bounded task 🎫 | queue intake 🖥️ | scan discovery 🏭 📡 | reactive (failure-signal) 📡 |
+| **Control-plane location** | in the prompt — the agent sequences itself 🧩 | in a script you own 🎫 | in a deployed service 🖥️ | in a deterministic DAG — scheduled 🏭 or compiled into CI 📡 |
+| **Trigger model** | manual bootstrap 🎫 🖥️ 🧩 | scheduled 🖥️ 📡 🧩 | event-triggered 🖥️ 📡 | goal-driven (run to quiescence) 🏭 |
+| **Isolation substrate** | inline checkout 🎫 | worktree / branch 🏭 🧩 | local sandbox 🖥️ | remote runners / fleet 🏭 📡 |
+| **Autonomy scope** | one bounded task 🎫 | queue intake 🖥️ 🧩 | scan discovery 🏭 📡 | reactive (failure-signal) 📡 🧩 |
 
 - 🎫 **Ticket runner** — one unit of intent runs unattended to a gated finish. Control plane in a script, human-triggered, everything else optional. [[sssf]] is the documented anchor: a stamped ADW chain, gates over a typed envelope, and — by admission — no sandbox, no parallelism, no PR flow. The cheapest configuration that is still a factory rather than a supervised session.
 - 🖥️ **Monitored service** — continuous intake with a human watching. A deployed control plane dispatches sandboxed runs from a queue or cron, the human steers mid-run and merges the PRs. [[warren]] is the anchor: dispatch → `bwrap`/pod sandbox → steer → validate → auto-PR → reap, with `.mulch/` memory compounding across runs.
 - 🏭 **Fleet factory** — a goal becomes a task DAG scheduled by code across parallel isolated workers, with gates deciding what lands. [[bernstein]] is the anchor: pure-Python scheduling to quiescence, worktrees plus seven remote backends, janitor and review gates, never auto-merging past them.
 - 📡 **Repo reactor** — the factory as standing repository automation: the repo's own event stream (an opened issue, a failed check, a deploy error, a schedule) triggers a read-only agent whose writes pass through gated, pre-approved channels. [[gh-aw]] is the anchor: markdown workflows compiled into hardened Actions lock files, safe outputs behind a threat-detection verdict, budgets declared as data. Unlike the other three it is not a heavier stop on one path — it automates a *different kind of work* (the announcement's "continuous" triage, documentation, hygiene) and typically runs *alongside* whichever profile does feature work.
 
+- 🧩 **Skill-pack factory** *(added 2026-09-26; anchored by a framework, not a runtime)* — the whole factory is written as **instructions**, and the harness supplies everything else: scheduler, connectors, worktrees, and credentials. The control plane is the agent itself, following a per-action policy document. The Factory in [[builder-skills]] is the anchor. See [the section below](#a-factory-with-no-runtime-the-skill-pack-pole).
+
 One honest caveat on the grid: [[sandcastle]] deliberately appears in no profile — it is the *embeddable* option, the SDK you would build any of these configurations from, so its position is a distribution fact, not a shape.
 
 The progression 🎫 → 🖥️ → 🏭 is the adoption path the anchors themselves suggest — add triggers and sandboxes to a working ticket runner, add code-owned coordination and parallelism to a working service — and it agrees with the loop-engineering maturity rule of *earning autonomy in order*: "Persist state before increasing unattended runtime, establish external verification before adding more agents, and add production controls before actions can affect users or infrastructure." The 📡 profile sits beside that path rather than on it, adoptable at any point. And because the axes are independent, skipping or reordering is legitimate whenever one axis's need arrives early; the profiles are waypoints, not gates.
+
+## A factory with no runtime: the skill-pack pole
+
+*Added 2026-09-26.* Every factory above was anchored by a member of the execution layer, and the grid's first control-plane column, *in the prompt*, had no documented instance. The column was there only as the thing [[sssf]] defines itself against. The Factory in [[builder-skills]] fills it, deliberately: nine skills that turn feedback, telemetry, errors, and PR queues into gated changes, and that ship **no code at all**.
+
+> "Factory skills install agent instructions. They do not add integrations, credentials, scheduled jobs, or permission grants."
+
+It is filed as a `framework`, not a `runtime`, because it spawns nothing (see the [layer call](../framework/builder-skills.md#layer-call-why-the-factory-is-a-framework-and-not-a-runtime)). Checked against the [anatomy](#anatomy-of-a-factory), though, every socket is filled, and the interesting part is *what* fills each one:
+
+- **Trigger** — the host's own scheduler. [[builder-factory]] creates one job per enabled workflow and then **reads it back**, because *"a YAML schedule is only a request."*
+- **Control plane** — the agent, reading `.agent-factory/config.yaml` ([[artifact-autonomy-policy]]). That file is *"an agent-readable convention, not a validated schema."* Sequencing and retries are prompt-owned. **Acceptance is policy-owned**, set per action.
+- **Isolation** — a `fresh-per-run` worktree requested from the host, with *"keep the workflow manual rather than borrowing a shared checkout"* when the host cannot provide one.
+- **Gates** — head-bound check and review evidence with a soak that restarts on any change, and a split between merge and deploy (*"a merge is not live proof"*).
+- **Store** — nothing of its own. State lives in the source systems (the issue, the Slack thread, the PR) and is re-read on every run, which is why coverage honesty (*unavailable ≠ truncated ≠ empty*) runs through every module.
+- **Human** — a first-class queue rather than an interrupt: [[builder-factory-human-digest]], read-only, grouped by underlying pattern.
+
+**What it contributes to the design space is an axis the grid did not have: how authority is decomposed.** The four runtime profiles each have one coarse autonomy dial. The skill-pack pole has **ten**, one each for fix, reply, close, review, approve, publish, merge, deploy, recover, and notify, with the rule that *"the skills never infer permission for one action from another."* The wiki now records this as [[pattern-action-gating]]. [[gh-aw]]'s safe outputs reach the same decomposition from the runtime side, compiled into the CI job graph where the agent cannot break it. The two together define the axis. At one end, prose policy the agent is trusted to obey, portable to any harness and adoptable today. At the other, structural channels the agent cannot bypass, bound to one platform.
+
+**The honest cost** is the one [[sssf]] was built to avoid. When the control plane lives in the prompt, every safety property depends on the model following the instructions. The Factory's response is to be conservative everywhere the prompt could slip: defaults off, *"missing or unclear policy means hold"*, read back every write. It does not claim the guarantees a code-owned plane gives. It suits a team that wants the factory's *shape* before committing to a runtime. Following the adoption path above, it is a plausible first step before 🎫 or 🖥️, and it can keep running as the policy layer afterwards.
 
 ## Relation to the other maturity frames
 
@@ -129,6 +150,6 @@ The execution layer's working vocabulary. Definitions link to the pages that gro
 - [runtime/index.md](../runtime/index.md) — the layer's navigational index: members, the pattern roster, and the 11-concern orchestration matrix this page's axes distill.
 - [[topic-agent-readiness]] — the substrate's maturity; what has to be true of the repo before any profile here pays off.
 - [[topic-harness-engineering]] — the controls around the single run the factory repeats; the factory is that steering loop moved out of the room.
-- [[sssf]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the four profile anchors; [[sandcastle]] — the embeddable substrate beneath them.
+- [[sssf]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the four profile anchors; [[builder-skills]] — the 🧩 skill-pack pole, a framework rather than a runtime; [[sandcastle]] — the embeddable substrate beneath them.
 - Further instances, documented as prose only: **OpenHands SDK** (open-source remote-fleet runtime, deprioritized as closer to the hosted IDE-agent systems), Conductor, Container-use, Sculptor, Vibe-Kanban (sunset); see the [broader category](../runtime/index.md#the-broader-category).
 - IndyDevDan, *Super Simple Software Factory* ([capture](../../raw/runtime/2026-08-31-super-simple-software-factory.md)) · ChaoYue, *Awesome Loop Engineering* ([capture](../../raw/reference/2026-09-01-awesome-loop-engineering.md)).

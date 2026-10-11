@@ -6,10 +6,10 @@ implements: "[[stage-release]]"
 delegates_to: ["[[addy-code-reviewer]]", "[[addy-security-auditor]]", "[[addy-test-engineer]]"]
 produces: ["[[artifact-launch-checklist]]"]
 applies: ["[[pattern-parallel-persona-review]]", "[[pattern-feature-flags]]"]
-equivalent_to: ["[[gsd-ship]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]"]
-sources: "Addy Osmani — Agent Skills (2026)"
+equivalent_to: ["[[gsd-ship]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]", "[[builder-factory-ship]]"]
+sources: "Addy Osmani — Agent Skills (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
-updated: 2026-07-04
+updated: 2026-09-26
 ---
 
 # Shipping & Launch

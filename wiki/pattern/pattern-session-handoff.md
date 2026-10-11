@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
-updated: 2026-08-31
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Pattern: Session handoff
@@ -38,6 +38,18 @@ Beads — the pattern is the entire product thesis: *"Work survives the agent; t
 - [[beads-prime]] — restores workflow rules **and** persistent memories at `SessionStart`, sized to the detected context budget. Where [[mp-handoff]] compacts a *conversation* and [[gstack-context-restore]] replays one, beads restores standing knowledge and leaves the work state to the graph — a fresh agent needs no narrative, only [[beads-ready]].
 - [[beads-remember]] — the durable half of what `prime` hands back.
 
+pstack — **the first framework here to page the suspension half as its own procedure**:
+
+- [[pstack-poteto-mode]] — ships *Session pickup* (resume or take over a prior agent's in-flight work from a transcript, cloud-agent URL, or pushed branch) and *Pause safely* (suspend cleanly on an explicit pause, going offline, a restart, or imminent context compaction) as an explicitly paired complement.
+- [[pstack-recall]] — reconstructs working context from **two records**: your own chat history for what you did and decided, and the shared organizational record for what happened around the same code under other names. *"A feature with a long bug tail keeps most of its story there, so don't reconstruct it from your transcripts alone."* Output is a strict capsule / tagged threads / recurring problems / one next move brief.
+- [[pstack-show-me-your-work]] — the append-only trail a resumed run reads back → [[artifact-decision-log]].
+
+builder-skills:
+
+- [[builder-stay-within-limits]] — the wake prompt as a handoff to the agent's own future turn (remaining plan, threshold rule, usage command, previous block ID, next wave's packets).
+- [[builder-factory-recover]] — resume an interrupted unattended run only while its authorization and worktree are still valid.
+- [[builder-plow-ahead]] — the blocked-state handoff: what was done, what blocks progress, the exact input needed, the next command.
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) carries working context across a *run* boundary without a handoff document — the runtime itself is the persistence:
@@ -66,6 +78,7 @@ The [state layer](../store/index.md) is where this pattern stops being a documen
 The distinction worth keeping from the process-layer roster above: [[mp-handoff]] and [[gstack-context-save]] preserve a **conversation**, and a store preserves **work state**. The second is cheaper, survives a crash rather than only an orderly exit, and is the reason this layer exists at all.
 
 ## See Also
+- [[pattern-idempotent-operations]] — resumption is cheap when re-running the last step is free.
 - [[artifact-handoff-doc]] — Matt's materialized handoff.
 - [[pattern-fresh-context-subagents]] — the complementary GSD technique for staying within context.
 - [[pattern-knowledge-compounding]] — carries *lessons* across iterations, versus this pattern's *working context* across a boundary.

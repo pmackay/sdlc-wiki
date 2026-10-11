@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Execute", matt-pocock-skills: "implement / TDD / prototype / merge-conflicts", addy-agent-skills: "Build (+ Verify: debugging)", openspec: "apply", speckit: "implement", bmad: "Implementation (dev-story / quick-dev)", compound-engineering: "work (+ worktree / debug / polish)", gstack: "Build (design-html / investigate) + guardrails + context", bm-skills: "design-system", superpowers: "subagent-driven / executing-plans (+ TDD / debugging / worktrees / parallel-agents)" }
-sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+aka: { gsd: "Execute", matt-pocock-skills: "implement / implement-spec / TDD / prototype", addy-agent-skills: "Build (+ Verify: debugging)", openspec: "apply", speckit: "implement", bmad: "Implementation (dev-story / quick-dev)", compound-engineering: "work (+ worktree / debug / polish)", gstack: "Build (design-html / investigate) + guardrails + context", bm-skills: "design-system", superpowers: "subagent-driven / executing-plans (+ TDD / debugging / worktrees / parallel-agents)", pstack: "tdd / recall / typescript-best-practices", builder-skills: "read-the-damn-docs / visual-edit" }
+sources: "Synthesized from GSD + Matt Pocock + Addy Osmani + OpenSpec + Spec Kit + BMAD + Compound Engineering + gstack + Superpowers + pstack + Builder Skills (2026)"
+updated: 2026-10-11
 ---
 
 # Stage: Implement
@@ -22,10 +22,11 @@ GSD:
 Matt Pocock — Skills for Real Engineers:
 
 - [[mp-implement]] — build the work from a spec/tickets, TDD at seams, then code-review → [[artifact-atomic-commit]] (v1.1; MP's first first-class execute skill).
+- [[mp-implement-spec]] — implement a whole spec in one run: tickets read as a task graph, implementer subagents in their own worktrees across the ready **frontier**, merged onto one integration branch, one closing code-review (v1.3.0; [[pattern-wave-parallelism]] + [[pattern-worktree-isolation]]).
 - [[mp-tdd]] — test-first red → green loop (v1.1: refactor moved to [[mp-code-review]]) ([[pattern-test-driven-development]]).
 - [[mp-prototype]] — throwaway prototypes ([[pattern-throwaway-prototype]]).
 - [[mp-diagnosing-bugs]] — structured debugging loop ([[pattern-systematic-debugging]]).
-- [[mp-resolving-merge-conflicts]] — resolve merge/rebase conflicts from each side's primary-source intent (v1.1; [[pattern-trunk-based-development]]).
+- ~~[[mp-resolving-merge-conflicts]]~~ — resolve merge/rebase conflicts from each side's primary-source intent (v1.1; [[pattern-trunk-based-development]]). **Removed in v1.3.0**: "nothing replaces it"; integration conflicts are treated as default agent competence.
 
 Addy Osmani — Agent Skills (its whole Build phase, plus debugging which it files under Verify):
 
@@ -84,12 +85,24 @@ Superpowers (the densest implement roster here — execution engines + the TDD/d
 - [[sp-using-git-worktrees]] — ensure an isolated workspace (native-tool-first, git fallback, clean-baseline check) ([[pattern-worktree-isolation]]).
 - [[sp-dispatching-parallel-agents]] — one focused subagent per independent problem domain, dispatched concurrently ([[pattern-fresh-context-subagents]], [[pattern-wave-parallelism]]).
 
+pstack (no execution engine of its own — the mode skill's playbooks drive the work, and these are the disciplines that run inside them):
+
+- [[pstack-tdd]] — failing test first where the path is cheap, with an explicit doctrine for when to skip and a definition of a bad test ([[pattern-test-driven-development]]).
+- [[pstack-recall]] — rebuild working context before resuming, from your own chats **and** the shared organizational record ([[pattern-session-handoff]]).
+- [[pstack-typescript-best-practices]] — the framework's only `paths:`-attached skill; grounds type-system discipline in syntax → [[artifact-standards]].
+- [[pstack-benny-reproduce-and-fix]] — unattended repro through the real UI, then a **bounded draft PR** only after before-and-after proof ([[pattern-autonomous-loop]], [[pattern-systematic-debugging]]).
+
+builder-skills:
+
+- [[builder-read-the-damn-docs]] — read the docs before coding against any external contract; a counterpart of [[addy-source-driven-development]] ([[pattern-source-grounding]]).
+- [[builder-visual-edit]] — source-backed UI editing of a running local app through a hosted design canvas.
+
 ## Cross-framework equivalents
 The capability-level clusters landing here now span all eight frameworks:
 
 - **Debugging:** GSD's [[gsd-debugger]] ↔ Matt's [[mp-diagnosing-bugs]] ↔ Addy's [[addy-debugging]] ↔ Compound Engineering's [[ce-debug]] ↔ gstack's [[gstack-investigate]] ↔ Superpowers' [[sp-systematic-debugging]] (`equivalent_to`), all applying [[pattern-systematic-debugging]]. (Addy categorizes debugging under its *Verify* phase, but it is the same activity, so it clusters here; CE adds an explicit prediction-confirmation step; gstack and Superpowers share an **Iron-Law "no fix without investigation"** and a stop-after-3-fixes rule.)
 - **Test-first:** Matt's [[mp-tdd]] ↔ Addy's [[addy-tdd]] ↔ GSD's [[gsd-plan-phase]] `--tdd` ↔ Spec Kit's [[speckit-implement]] (TDD "NON-NEGOTIABLE") ↔ BMAD's [[bmad-dev-story]] (Amelia is "disciplined in Kent Beck's TDD") ↔ Superpowers' [[sp-test-driven-development]], clustered at [[pattern-test-driven-development]] — Spec Kit mandates it via the [[artifact-constitution]]; Superpowers matches its non-negotiability through rhetoric (delete-and-restart any code written before its test).
-- **Execute loop (now eight frameworks):** OpenSpec's [[openspec-apply]] ↔ Addy's [[addy-incremental-implementation]] ↔ GSD's [[gsd-execute-phase]] ↔ Spec Kit's [[speckit-implement]] ↔ BMAD's [[bmad-dev-story]] ↔ Compound Engineering's [[ce-work]] ↔ Matt Pocock's [[mp-implement]] ↔ **Superpowers' [[sp-executing-plans]] / [[sp-subagent-driven-development]]** — walk the plan/tickets unit-by-unit. They differ in mechanics: GSD parallelizes into [[pattern-wave-parallelism]] waves, Addy cuts thin [[pattern-vertical-slice]]s, OpenSpec runs a plain resumable sequential pass, Spec Kit drives test-first per the constitution, BMAD drives from a single fully-contexted [[artifact-story|story]] per fresh context, CE bounds execution with plan **guardrails** in [[pattern-worktree-isolation|worktree isolation]], MP drives [[mp-tdd]] at pre-agreed seams, and Superpowers offers **two modes** — continuous same-session [[pattern-fresh-context-subagents|fresh-subagent-per-task]] with a two-stage review ([[sp-subagent-driven-development]], clustering with [[gsd-execute-phase]] / [[bmad-dev-story]]) or checkpointed batch execution ([[sp-executing-plans]]).
+- **Execute loop (now eight frameworks):** OpenSpec's [[openspec-apply]] ↔ Addy's [[addy-incremental-implementation]] ↔ GSD's [[gsd-execute-phase]] ↔ Spec Kit's [[speckit-implement]] ↔ BMAD's [[bmad-dev-story]] ↔ Compound Engineering's [[ce-work]] ↔ Matt Pocock's [[mp-implement]] / [[mp-implement-spec]] ↔ **Superpowers' [[sp-executing-plans]] / [[sp-subagent-driven-development]]** — walk the plan/tickets unit-by-unit. They differ in mechanics: GSD parallelizes into [[pattern-wave-parallelism]] waves, Addy cuts thin [[pattern-vertical-slice]]s, OpenSpec runs a plain resumable sequential pass, Spec Kit drives test-first per the constitution, BMAD drives from a single fully-contexted [[artifact-story|story]] per fresh context, CE bounds execution with plan **guardrails** in [[pattern-worktree-isolation|worktree isolation]], MP drives [[mp-tdd]] at pre-agreed seams, and Superpowers offers **two modes** — continuous same-session [[pattern-fresh-context-subagents|fresh-subagent-per-task]] with a two-stage review ([[sp-subagent-driven-development]], clustering with [[gsd-execute-phase]] / [[bmad-dev-story]]) or checkpointed batch execution ([[sp-executing-plans]]).
 - **Worktree isolation:** Compound Engineering's [[ce-worktree]] ↔ Superpowers' [[sp-using-git-worktrees]] — both make an isolated git worktree a first-class execution step ([[pattern-worktree-isolation]]).
 - **Interface design:** Addy's [[addy-api-design]] ↔ Matt's [[mp-codebase-design]] — deep modules / stable contracts (Spec Kit authors its `contracts/` upstream in [[speckit-plan]]).
 

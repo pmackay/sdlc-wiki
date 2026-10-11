@@ -1,7 +1,7 @@
 ---
 type: artifact
-sources: "Open GSD docs (2026); GitHub/spec-kit (2026); Builder Methods — BM Skills (2026); tao-hpu/nano-spec (2025); jayminwest/seeds (2026)"
-updated: 2026-08-31
+sources: "Open GSD docs (2026); GitHub/spec-kit (2026); Builder Methods — BM Skills (2026); tao-hpu/nano-spec (2025); jayminwest/seeds (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Artifact: PLAN.md (executable plan)
@@ -40,6 +40,15 @@ Builder Methods — BM Skills:
 nano-spec:
 
 - [[nano-spec-create]] — the pack's `todo.md`: research/implementation/verification checklists + Must/Nice/Out acceptance criteria (part of the [[artifact-nano-spec-pack]]).
+
+pstack — one entry, and a reluctant one (*"i don't believe in planning. the best spec is code"*):
+
+- [[pstack-figure-it-out]] — the designed phase list, written down explicitly because *that list is what the human reviews*. Produced only when no bundled playbook fits, and paired with an [[artifact-decision-log]] rather than standing alone.
+
+builder-skills:
+
+- [[builder-plan-arbiter]] — the arbitrated execution plan, with *Borrowed From Other Plans*, *Rejected*, and *Executor Recommendation* sections.
+- [[builder-visual-plan]] — the plan as a commentable MDX review surface with diagrams, file maps, and an optional wireframe or prototype.
 
 ## See Also
 - [[artifact-plan-record]] — the direct contrast: [[seeds]] refuses a markdown plan outright (*"No markdown plan documents anywhere in the artifact path"*) and emits a schema-validated JSONL row instead, gaining enforceability and machine-consumption at the cost of a plan a human can read as prose.

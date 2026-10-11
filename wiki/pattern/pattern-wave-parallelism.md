@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Open GSD docs (2026); obra/superpowers (2026); mattpocock/sandcastle (2026); sipyourdrink-ltd/bernstein (2026); gastownhall/beads (2026)"
-updated: 2026-08-31
+sources: "Open GSD docs (2026); obra/superpowers (2026); mattpocock/sandcastle (2026); sipyourdrink-ltd/bernstein (2026); gastownhall/beads (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Wave parallelism
@@ -23,6 +23,28 @@ Beads — the wave *declared* as data, with the batching left to whoever coordin
 
 - [[beads-swarm]] — validate an epic's DAG and mint a swarm molecule that *"can be picked up by any coordinator agent"*; beads marks the coordinator slot and spawns nothing, because its charter assigns *"task assignment strategy"* to the layer above.
 - [[beads-mol]] — a poured molecule's unblocked steps *are* the current wave, by construction of [[beads-ready]].
+
+pstack — **the framework whose whole thesis is that rigor is what makes parallelism safe**: *"when you can go deep on one agent and trust it to write good, verifiable code, you can truly parallelize with confidence."*
+
+- [[pstack-swarm]] — N workers across slices or races, **cloud-default** (`environment: "cloud"`), each brief standing alone, one aggregated report.
+- [[pstack-arena]] — N candidates at the same artifact, then base selection and grafting ([[pattern-candidate-grafting]]).
+- [[pstack-how]] — two to four exploration angles spawned in a single message, then one synthesizer.
+- [[pstack-reflect]] — three review lenses in parallel, then a synthesizer.
+- [[pstack-maintain-verification-skill]] — one read-only source subagent per feature file, launched concurrently.
+- [[pstack-recall]] · [[pstack-automate-me]] — parallel miners across slices of transcript history.
+
+Tessl:
+
+- [[tessl-change-verify]] — fans LLM-judge verifiers across changed files at a default concurrency of 48, capped by a call ceiling that refuses broad runs outright.
+
+builder-skills:
+
+- [[builder-stay-within-limits]] — bounded waves (at most 3 parallel subagents by default) with a usage check between waves; in-flight subagents are never interrupted to save budget.
+- [[builder-efficient-frontier]] — parallel slices with clear file ownership, and *"do not ask multiple agents to edit the same files at the same time."*
+
+Matt Pocock — Skills for Real Engineers:
+
+- [[mp-implement-spec]] — implementer subagents launched across the ready **frontier** of a ticket task graph; each merge that unblocks tickets launches more ("maximum concurrency"). A frontier rather than pre-computed waves (v1.3.0).
 
 ## Enabled by (infrastructure)
 

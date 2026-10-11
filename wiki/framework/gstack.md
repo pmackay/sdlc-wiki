@@ -4,7 +4,7 @@ source_url: "https://github.com/garrytan/gstack"
 runs_on: ["[[claude-code]]", "[[opencode]]", "[[factory-droid]]"]
 sources: "Garry Tan — gstack (github.com/garrytan/gstack), MIT (2026); README, AGENTS.md, ETHOS.md, ARCHITECTURE.md"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-08-02
+updated: 2026-09-11
 ---
 
 # gstack
@@ -157,6 +157,7 @@ flowchart TB
 - [[pattern-scale-adaptive-planning]] — smart review routing sizes the review ceremony to the change (CEO skips infra, design skips backend).
 
 ## See Also
+- [[pstack]] — the persona-rejecting counterpole. Both ship a router, cross-model review, and knowledge compounding, but [[pstack-interrogate]] states the counter-position outright (*"the adversarial signal comes from model diversity, not assigned personas"*) and pstack has no deploy arc at all. [[gstack-codex]] ↔ [[pstack-interrogate]]; [[gstack-skillify]] ↔ [[pstack-reflect]]; [[gstack-context-restore]] ↔ [[pstack-recall]]; [[gstack-investigate]] ↔ [[pstack-principle-fix-root-causes]]; and [[gstack-browse]] ↔ [[pstack-create-verification-skill]] — a shipped browser daemon versus a harness generated per repository.
 - [[bmad]] — the other fully **persona-oriented** framework; both center named expert specialists ([[pattern-persona-agents]]). gstack's [[gstack-retro]] ↔ BMAD's [[bmad-retrospective]] (the team-retro flavor of [[stage-learn]]).
 - [[compound-engineering]] — shares [[pattern-knowledge-compounding]] ([[gstack-learn]] ↔ [[ce-compound]]), [[pattern-cross-model-review]], [[pattern-autonomous-loop]] ([[gstack-qa]] ↔ [[ce-dogfood]]), and the persona-review fan-out.
 - [[addy-agent-skills]] — the other lifecycle-broad pack; both split **Review** from **Test/Verify** as distinct phases (together they promoted [[stage-review]] out of [[stage-validate]]); [[gstack-router]] ↔ [[addy-using-agent-skills]]; [[gstack-cso]] ↔ [[addy-security-auditor]]; [[gstack-benchmark]] ↔ [[addy-web-performance-auditor]]; [[gstack-ship]] ↔ [[addy-shipping]].

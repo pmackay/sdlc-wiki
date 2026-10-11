@@ -1,8 +1,8 @@
 ---
 type: artifact
-sources: "Agent OS v3.0.0 — Builder Methods (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
+sources: "Agent OS v3.0.0 — Builder Methods (2026); jayminwest/seeds (2026); gastownhall/beads (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026)"
 raw: ["../../raw/agent-os/2026-08-05-agent-os.md"]
-updated: 2026-08-31
+updated: 2026-10-11
 ---
 
 # Artifact: Standards (externalized coding conventions)
@@ -20,6 +20,7 @@ Related but distinct externalized-convention artifacts:
 
 Agent OS:
 
+- [[mp-retro]] — Matt Pocock: proposes `CODING_STANDARDS.md` rules from a session retrospective, but only for **judgement calls**; mechanical violations become a linter rule, hook, or CI job instead. Standards are read at *review*, not implementation, because the reviewer has the least context pressure.
 - [[agent-os-discover-standards]] — mines the codebase into new standards files (with "why" rationale).
 - [[agent-os-index-standards]] — maintains the `index.yml` matcher over the corpus.
 
@@ -31,6 +32,17 @@ Beads:
 
 - [[beads-setup]] — thirteen per-harness recipes that write beads' workflow rules into whichever file that harness reads, plus its hooks. The [store layer](../store/index.md)'s reason for touching this artifact is blunter than Agent OS's: a tool an agent does not know about gets ignored in favour of a markdown TODO list.
 - [[beads-rules]] — the only capability in the wiki that *mechanically* maintains the guide layer, auditing `.claude/rules/` for contradictions by similarity threshold and merging near-duplicates into composites. Compare [[ce-compound-refresh]], which asks an LLM to do the same curation.
+
+pstack:
+
+- [[pstack-typescript-best-practices]] — a TypeScript rule table attached automatically by `paths:` on any `.ts` or `.tsx` file; the language binding for [[pstack-principle-type-system-discipline]].
+- [[pstack-setup-pstack]] — an always-applied `~/.cursor/rules/pstack-models.mdc` mapping each role to a model, rewritten whole on every run so re-runs stay idempotent.
+- [[pstack-technical-writing]] — the layered prose standard; [[pstack-unslop]] is the always-on floor beneath it, with **stable rule ids that sibling skills cite by number**.
+
+Tessl:
+
+- [[tessl-review]] — the review rubric is **forkable**: an organization forks the default to encode its own bar and applies it to every review, *"much like static analysis for code"*. Standards as a versioned artifact rather than a document, and the closest thing in the wiki to [[artifact-constitution]] enforced from outside any framework.
+- [[tessl-workspace]] — **required skills** push a mandated capability set into every workspace.
 
 ## See Also
 - [[agent-os-inject-standards]] — deploys standards into the working context (reference vs embedded snapshot).

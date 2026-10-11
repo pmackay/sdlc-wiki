@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); Addy Osmani — Agent Skills (2026); EveryInc/compound-engineering-plugin (2026); Matt Pocock — Skills for Real Engineers (2026); obra/superpowers (2026); Martin Fowler — 'Harness Engineering' (2026); sipyourdrink-ltd/bernstein (2026); mattpocock/sandcastle (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); github/gh-aw (2026)"
-updated: 2026-09-01
+sources: "gstack — Garry Tan (2026); Addy Osmani — Agent Skills (2026); EveryInc/compound-engineering-plugin (2026); Matt Pocock — Skills for Real Engineers (2026); obra/superpowers (2026); Martin Fowler — 'Harness Engineering' (2026); sipyourdrink-ltd/bernstein (2026); mattpocock/sandcastle (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Deterministic gates (let a program decide, not a model)
@@ -39,6 +39,7 @@ Compound Engineering:
 Matt Pocock — Skills for Real Engineers:
 
 - [[mp-implement]] — runs typechecking and single test files continuously during the build, with the full suite once at the end.
+- [[mp-retro]] — turns harvested lessons *into* gates: a mechanical coding-standards violation "gets a deterministic check, full stop" (linter rule, pre-commit hook, CI job), and a repo with no guardrail is itself a finding (v1.3.0).
 
 Superpowers:
 
@@ -57,6 +58,29 @@ Beads — four program-decided checks, each with an exit code and no model invol
 - [[beads-lint]] — the unusual one: a linter for the *content of work items*, flagging beads whose template sections are empty before someone claims them.
 - [[beads-preflight]] — a pre-PR checklist over the working tree, `--check` to run it.
 
+pstack:
+
+- [[pstack-reflect]] — a **structural-enforcement check** that re-reads its own synthesizer's Accepted list and demotes to Backlog any learning better served by a lint rule, script, metadata flag, or runtime check. A gate on the framework's own growth.
+- [[pstack-no-comments]] — offers the cheapest in-scope type, runtime, test, or CI lint that makes a claimed constraint enforceable, then **encodes it and deletes the comment**.
+- [[pstack-swarm]] — workers report `PASS`, `ISSUES`, or `BLOCKED` with evidence, and the race selection rule is declared **before spawning**, not after reading the results.
+- [[pstack-maintain-verification-skill]] — a run declares one of **clean / changed / blocked** up front.
+- [[pstack-principle-encode-lessons-in-structure]] — the principle: encode the rule as a check, not as more text.
+
+Tessl — the [supply layer](../registry/index.md)'s gates, several of them metered because the judge costs money:
+
+- [[tessl-review]] — `--threshold` fails the build when a skill scores below the bar, so substandard skills never merge.
+- [[tessl-review-security]] — fails CI on a high or critical finding.
+- [[tessl-change-verify]] — LLM-judge verifiers over changed files, with a **call ceiling that refuses broad runs** (default 300), deterministic sampling, verdict caching, and a dry-run that spends no judge calls. What a deterministic gate looks like when the "program" deciding it is a model.
+- [[tessl-change-risk]] — exits non-zero when human review is required.
+- [[tessl-code-review]] — versioned, pinnable review **lenses** as a PR gate.
+- [[tessl-workspace]] — install and publish policies, and required skills, enforced across every workspace.
+
+builder-skills (gates bound to the live head):
+
+- [[builder-factory-babysit-pr]] — evidence tied to the exact current head, conditional merge only when the host can guarantee it, and a **soak**, an unchanged interval that *"missing history does not satisfy."*
+- [[builder-factory-review-prs]] — re-read the exact head immediately before approval or merge, and restart the soak on any change.
+- [[builder-factory-ship]] — configured formatter, tests, and release checks, with a head-match guard on merge. See [[pattern-action-gating]] for the per-action authority layer these gates sit under.
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) is where this pattern stops being a skill an agent may forget and becomes a condition of merging:
@@ -73,7 +97,12 @@ The [execution layer](../runtime/index.md) is where this pattern stops being a s
 
 Distinct from the infrastructure roster: a runtime gates the *work* before it merges, a store gates *its own state* — cycles, dangling edges, under-specified beads, drifted config.
 
+## Supplied by (registry)
+
+- [[tessl]] — the [supply layer](../registry/index.md) makes the gate a property of **distribution**: a skill cannot be published without a review score, cannot be installed against policy, and cannot merge below a threshold. The enforcement point is the index rather than a step in anyone's workflow, which is what makes it hold across an organization that has not agreed on a methodology.
+
 ## See Also
+- [[pattern-tooling-leverage]] — the lever a lesson becomes once it is worth enforcing mechanically.
 - [[pattern-shift-left]] — *when* to run the gate (as early as possible); this pattern is *what kind* of gate it is.
 - [[pattern-evidence-before-claims]] — the honesty discipline whose proof is usually a deterministic gate's output; distinct in what failure means.
 - [[pattern-test-driven-development]] — a deterministic gate placed at the earliest possible point, plus a red-green ordering rule.
@@ -83,3 +112,5 @@ Distinct from the infrastructure roster: a runtime gates the *work* before it me
 - [[topic-harness-engineering]] — Fowler's computational/inferential control split, and the *"prefer a computational control when one exists"* rule this pattern states.
 - [[stage-validate]] · [[stage-review]] — the stages these gates most often police.
 - [[bernstein]] · [[sandcastle]] — the runtimes that provide the gate as substrate.
+
+- [[pattern-action-gating]] — the authority layer above these gates; a passing gate is necessary for an action, never sufficient.

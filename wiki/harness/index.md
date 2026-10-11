@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-08-31
+updated: 2026-09-26
 ---
 
 # Harness
@@ -69,6 +69,7 @@ Which harnesses each framework **officially documents** support for (its own doc
 | [[superpowers]] | **claude-code** · **opencode** · **pi** · **factory-droid** · Antigravity · Codex (App/CLI) · Cursor · Copilot CLI · Kimi Code |
 | [[nano-spec]] | **claude-code** · **opencode** · Codex · Gemini CLI · Antigravity · Cline · Cursor · Windsurf · Trae · Copilot |
 | [[agent-os]] | **claude-code** *(primary — slash commands)* · Cursor · Windsurf · Codex · Antigravity *("any AI assistant that reads markdown")* |
+| [[builder-skills]] | **claude-code** · **pi** · **opencode** · Codex · Cursor · GitHub Copilot / VS Code · Claude Cowork *(shared `.agents` path plus Claude Code's native skills path; Claude Code and Cowork plugin marketplaces)* |
 
 Claude Code is the universal target; **opencode** is the most broadly officially-supported *second* harness (6 frameworks); **factory-droid** is named by the three individual-author cross-harness frameworks ([[compound-engineering]], [[gstack]], [[superpowers]]); **pi** by two of them (Compound Engineering, Superpowers). Two frameworks are effectively Claude-Code-only in what they name: [[bm-skills]] (a CC plugin marketplace) and [[matt-pocock-skills]] (soft "any agent" claim, no others named).
 
@@ -86,6 +87,22 @@ The [state layer](../store/index.md) points at harnesses too, but for a differen
 Two observations. **Claude Code is the universal target for this layer too** — both stores integrate with it, and it is the only harness both name. And the mechanism a store depends on is **hooks, not skills**: `bd setup claude` wires [[beads-prime]] into `SessionStart` so context injection is automatic, which is why [[beads-prime]] ships a `--hook-json` envelope. A harness without a hook system can still host a store, but the agent has to remember to prime itself — the difference between a convention and a guarantee.
 
 `pi` is the one paged harness [[beads]] does not name, and `opencode` is one [[seeds]] reaches only through the `AGENTS.md` convention rather than by name.
+
+## Registry support (the other `integrates_with:` inverse)
+
+The [supply layer](../registry/index.md) points at harnesses for a third distinct reason. A framework `runs_on:` a harness because its skills are written in that harness's format; a store integrates so the agent **knows it exists**; a registry integrates so that capabilities it distributes **land and load** — it has to write config, link files into the right directories, and expose the installed context to the agent at run time.
+
+| Registry | Harnesses it ships an integration for |
+|---|---|
+| [[tessl]] | **claude-code** · **opencode** · cursor · codex · gemini-cli · antigravity · github-copilot-cli · github-copilot-vscode · openclaw — seven auto-detected and configured by `tessl init`, plus documented manual recipes for opencode and openclaw ([[tessl-init]], [[tessl-mcp]]) |
+
+**Bold** = has a page here and carries a stored `integrates_with:` edge; plain = documented but not yet paged, per the [support-scope rule](../CONVENTIONS.md#the-harness-layer).
+
+Three things follow. **The mechanism is MCP, not a per-harness format** — [[tessl-mcp]]'s `mcp start` is one stdio server written into every agent's config, and installed context reaches the agent as *tools*. That is why this layer reaches nine harnesses where the broadest framework reaches six: it targets the one extension surface they all share. MCP appears elsewhere on this page as a per-harness capability row; the supply layer treats it as the **portability substrate**.
+
+**A registry install can extend the harness itself.** A [[artifact-capability-bundle]] carries not only skills and rules but MCP servers and **hooks** bound to `PreToolUse`, `PostToolUse`, `UserPromptSubmit`, `SessionStart`, and `Stop`. So installing from a registry changes the harness's execution primitives, not just the agent's prompt — the first case here of an external product shipping *into* the hook surface rather than reading the files it produces.
+
+**And the gap this exposes is `cursor`.** It is auto-configured by Tessl, it is the harness [[pstack]] is built natively on, it is named by [[beads]]' setup recipes, and [[builder-skills]] (2026-09-26) targets it through the shared `.agents` path. That makes four independent sources, and still no page. That is the wiki's most-referenced unpaged harness by some margin.
 
 ## The broader category
 

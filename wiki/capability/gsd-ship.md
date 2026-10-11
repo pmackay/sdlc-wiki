@@ -6,10 +6,10 @@ implements: "[[stage-release]]"
 delegates_to: []
 produces: "[[artifact-pull-request]]"
 applies: "[[pattern-spec-driven-development]]"
-equivalent_to: ["[[addy-shipping]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]"]
-sources: "Open GSD docs — workflow-commands (2026)"
+equivalent_to: ["[[addy-shipping]]", "[[openspec-archive]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[sp-finishing-a-development-branch]]", "[[builder-factory-ship]]", "[[mp-pr]]"]
+sources: "Open GSD docs — workflow-commands (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/gsd/2026-06-27-gsd-core-framework.md"]
-updated: 2026-07-04
+updated: 2026-10-11
 ---
 
 # /gsd-ship
@@ -25,3 +25,4 @@ updated: 2026-07-04
 - [[addy-shipping]] — Addy's shipping skill; same PR-and-merge release step.
 - [[openspec-archive]] — OpenSpec's finalize step; closes the iteration via spec-merge + archive rather than a PR.
 - [[stage-release]] — the canonical stage this implements.
+- [[mp-pr]] — Matt Pocock: shapes the PR body only; does not push or track the merge.

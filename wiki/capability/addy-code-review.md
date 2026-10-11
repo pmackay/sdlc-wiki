@@ -6,10 +6,10 @@ implements: "[[stage-review]]"
 delegates_to: ["[[addy-code-reviewer]]"]
 produces: ["[[artifact-review-report]]"]
 applies: ["[[pattern-anti-rationalization]]"]
-equivalent_to: ["[[bmad-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]"]
-sources: "Addy Osmani — Agent Skills (2026)"
+equivalent_to: ["[[bmad-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]", "[[builder-factory-review-prs]]"]
+sources: "Addy Osmani — Agent Skills (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
-updated: 2026-07-09
+updated: 2026-09-26
 ---
 
 # Code Review & Quality

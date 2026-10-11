@@ -1,7 +1,7 @@
 ---
 type: artifact
-sources: "Matt Pocock — Skills for Real Engineers (2026); GitHub/spec-kit (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
-updated: 2026-08-31
+sources: "Matt Pocock — Skills for Real Engineers (2026); GitHub/spec-kit (2026); jayminwest/seeds (2026); gastownhall/beads (2026); pstack v0.15.2 — Lauren Tan (2026)"
+updated: 2026-10-11
 ---
 
 # Artifact: Tracker issue
@@ -15,7 +15,7 @@ An issue on the tracker (GitHub, Linear, or local files) materialised from a pla
 
 ## Produced by (backlinks)
 - [[mp-to-tickets]] — decomposes plans/specs into tracer-bullet vertical-slice tickets with blocking edges.
-- [[mp-wayfinder]] — writes investigation tickets as a shared map for oversized work.
+- [[mp-wayfinder]] — writes **decision tickets** (v1.2.0; formerly "investigation tickets") as a shared map for oversized work.
 - [[mp-triage]] — writes agent-ready briefs onto triaged issues/PRs.
 - [[speckit-taskstoissues]] — exports the Spec Kit task list to GitHub issues.
 - [[gstack-spec]] — files a deduped GitHub issue from the spec (auto-closed by /ship on merge).
@@ -26,6 +26,10 @@ An issue on the tracker (GitHub, Linear, or local files) materialised from a pla
 - [[beads-create]] — files a bead (with `bd q` for quick capture and `bd batch` for one transaction).
 - [[beads-mol]] — pours a formula template into a whole graph of dependency-ordered beads at once.
 - [[beads-todo]] — the deliberately-cheap wrapper, so a throwaway TODO is still a tracked issue.
+
+pstack:
+
+- [[pstack-benny-triage]] — a tracker issue created only for a clear, new bug, after evidence review, cause-aware routing, and dedupe; **fails closed** and writes nothing if its configuration is missing or incomplete.
 
 ## See Also
 - [[artifact-prd]] — common upstream source.

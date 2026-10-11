@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026)"
-updated: 2026-08-31
+sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); Tessl docs (2026)"
+updated: 2026-09-12
 ---
 
 # Pattern: Parallel persona review (fan-out / merge)
@@ -29,6 +29,10 @@ gstack:
 
 - [[gstack-autoplan]] — runs the CEO / design / eng / DX plan-review persona panel with smart review routing.
 - [[gstack-plan-ceo-review]] · [[gstack-plan-eng-review]] · [[gstack-plan-design-review]] · [[gstack-plan-devex-review]] — the four plan-review personas.
+
+Tessl — the pattern rebuilt as **installable units**:
+
+- [[tessl-code-review]] — review perspectives ship as named, versioned **lenses** that replace the default set and are pinned by version in a repository profile. Where [[gstack]] and [[ce-code-review]] hard-code their reviewer roster and [[pstack-interrogate]] replaces personas with model diversity, a registry makes the roster a dependency you install, pin, and update.
 
 ## See Also
 - [[pattern-persona-agents]] — the broader BMAD substrate: named personas across the whole lifecycle, of which this review fan-out is one use.

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); Agent OS — Builder Methods (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026)"
-updated: 2026-08-31
+sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); Agent OS — Builder Methods (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-10-11
 ---
 
 # Pattern: Context engineering (right context, right time)
@@ -51,6 +51,33 @@ Beads — a ~109-command store that budgets its own footprint:
 - [[beads-list]] — every read command narrows (filters, limits, `--json`), because with a store this large what an agent pulls in is a budget decision.
 - [[beads-setup]] · [[beads-rules]] — write into and then mechanically *compact* the harness's guide layer, merging near-duplicate rules above a similarity threshold.
 
+pstack — enforced at every fan-out boundary, and stated as a principle:
+
+- [[pstack-principle-guard-the-context-window]] — route bulk to subagents, keep summaries in the main thread, not raw payloads.
+- [[pstack-how]] — raw exploration stays in the explorers; only findings reach the explainer.
+- [[pstack-recall]] — *"the raw transcripts stay in the subagents. the main thread gets only their findings."*
+- [[pstack-swarm]] — ***do not paste raw worker dumps***; the parent returns a compact table, one-line evidenced issues, and explicit gaps.
+- [[pstack-poteto-mode]] — every `Task` call defaults to file pointers rather than inlined context.
+
+Tessl — context budgeting as product architecture rather than as advice:
+
+- [[tessl-install]] · [[tessl-plugin]] — the **two kinds of context** model: *rules* apply always (team standards on every task), *skills* load when relevant (procedural workflows matched by description). What loads when is a property of the packaging.
+- [[tessl-mcp]] — installed context reaches the agent as **MCP tools** rather than as files, which is what makes one capability portable across seven harnesses.
+- [[tessl-init]] — writes the rules files and MCP entries into each detected agent.
+
+builder-skills:
+
+- [[builder-rewind]] — find the right moment coarse to fine, then read only the smallest relevant range of local screen memory.
+- [[builder-quick-recap]] — installed as a managed `AGENTS.md` / `CLAUDE.md` block because *"this convention is only automatic when it is present in project or user instructions."*
+- [[builder-visual-recap]] — summarizes a diff *"at a higher altitude than line-by-line review"* so the reviewer's attention goes to the change's overall shape first.
+
+Matt Pocock — Skills for Real Engineers:
+
+- [[mp-writing-for-agents]] — the toolkit's explicit theory of it: **context pointers** whose wording decides when material is reached, the **two loads** (context vs cognitive), progressive disclosure, leading words, and the environment as a source of truth that docs should not cache (v1.2.0).
+- [[mp-implement-spec]] — subagent communication by context pointers to spec, tickets, research notes and commits, never restated content (v1.3.0).
+- [[mp-retro]] — keeps `CLAUDE.md`/`AGENTS.md` to navigation pointers and moves rules to review-time standards or checks (v1.3.0).
+- [[mp-wait-what]] — a three-line skill steered entirely by one leading word (v1.2.0).
+
 ## Enabled by (infrastructure)
 
 The [execution layer](../runtime/index.md) decides what is in the window when an agent is spawned, and what crosses between agents:
@@ -72,6 +99,10 @@ The [harness layer](../harness/index.md) supplies the context-assembly machinery
 - [[seeds]] — five output formats over one query, and `sd prime --compact`, so the caller pays only for what it needs ([[seeds-list]], [[seeds-prime]]).
 
 The state-side insight is that a store that never forgets eventually costs more context than it saves, so forgetting has to be designed. Beads is the only tool in the wiki that treats that as a first-class problem.
+
+## Supplied by (registry)
+
+- [[tessl]] — the supply-side realization: **what loads, and when, becomes a packaging decision**. Rules ship as always-on, skills ship as description-matched, and both travel in a versioned bundle that also carries MCP servers and hooks. [[tessl-observability]] then closes the loop by measuring which ones actually *activate* in real sessions, which is the only way to find context that is installed everywhere and firing nowhere.
 
 ## See Also
 - [[pattern-fresh-context-subagents]] — resetting context per task; the story file is what makes a fresh dev context safe.

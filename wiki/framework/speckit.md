@@ -5,7 +5,7 @@ source_url: "https://github.com/github/spec-kit"
 docs_url: "https://github.github.com/spec-kit/"
 sources: "GitHub/spec-kit README + docs (github.github.com/spec-kit) + spec-driven.md (2026)"
 raw: ["../../raw/speckit/2026-07-04-speckit-framework.md"]
-updated: 2026-07-04
+updated: 2026-09-11
 ---
 
 # Spec Kit
@@ -91,6 +91,7 @@ Each phase produces a Markdown artifact that feeds the next ("structured context
 | `specify bundle search/install` | Install role-based bundles |
 
 ## See Also
+- [[pstack]] — the sharpest contrast to the spec-driven pole. Spec Kit gates every plan against an immutable written constitution and treats TDD as non-negotiable; pstack ships **no specify stage at all** on the stated principle that *"the best spec is code"*, carries its 23 principles as individually-loadable skills audited through a citation requirement rather than as one document, and makes TDD explicitly conditional ([[pstack-tdd]]).
 - [[compound-engineering]] — Every's compounding loop; [[speckit-plan]]/[[speckit-tasks]] ↔ [[ce-plan]], [[speckit-implement]] ↔ [[ce-work]], [[speckit-analyze]] ↔ [[ce-doc-review]]. SpecKit's [[artifact-constitution]] is the code-governance analogue of CE's product-strategy [[artifact-strategy-md]] (both parked on the `stage-govern` candidate). Like SpecKit, CE's core loop is spec/plan-first; unlike it, CE adds release + the [[stage-learn]] stage.
 - [[stage-align]], [[stage-specify]], [[stage-plan]], [[stage-implement]], [[stage-validate]] — the canonical lifecycle this framework implements.
 - [[openspec]] — sibling SDD framework; [[speckit-specify]] ↔ [[openspec-propose]], [[speckit-implement]] ↔ [[openspec-apply]]. OpenSpec keeps one *living* spec via deltas; Spec Kit keeps per-feature specs and adds a governing constitution.

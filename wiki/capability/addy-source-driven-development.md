@@ -6,10 +6,10 @@ implements: "[[stage-implement]]"
 delegates_to: []
 produces: []
 applies: ["[[pattern-source-grounding]]"]
-equivalent_to: []
-sources: "Addy Osmani — Agent Skills (2026)"
+equivalent_to: ["[[builder-read-the-damn-docs]]"]
+sources: "Addy Osmani — Agent Skills (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/addy-agent-skills/2026-07-04-agent-skills.md"]
-updated: 2026-07-04
+updated: 2026-09-26
 ---
 
 # Source-Driven Development

@@ -5,11 +5,11 @@ belongs_to: "[[gsd]]"
 implements: "[[stage-plan]]"
 delegates_to: []
 produces: "[[artifact-plan-md]]"
-applies: ["[[pattern-fresh-context-subagents]]", "[[pattern-spec-driven-development]]"]
+applies: ["[[pattern-fresh-context-subagents]]", "[[pattern-spec-driven-development]]", "[[pattern-model-tiering]]"]
 equivalent_to: []
-sources: "Open GSD docs — agents (2026)"
+sources: "Open GSD docs — agents (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/gsd/2026-06-27-gsd-core-framework.md"]
-updated: 2026-06-27
+updated: 2026-09-26
 ---
 
 # gsd-planner

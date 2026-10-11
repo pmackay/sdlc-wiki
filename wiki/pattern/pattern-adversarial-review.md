@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026)"
-updated: 2026-08-31
+sources: "Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Pattern: Adversarial fresh-context review
@@ -40,6 +40,21 @@ Superpowers:
 - [[sp-subagent-driven-development]] — a two-stage task review (spec compliance ∥ code quality) after every task, with a rule against pre-judging findings ("do not flag X" is forbidden).
 
 In Fowler's *harness engineering* terms this is the archetypal **inferential sensor** (LLM-as-judge) — a semantic feedback control for the judgments no deterministic linter can make; use it where a **computational sensor** can't reach. See [[topic-harness-engineering]].
+
+pstack:
+
+- [[pstack-interrogate]] — *"tear this apart"*; every reviewer gets the same prompt and rubric and differs only by model, and the deliverable is a synthesized verdict that **does not auto-apply changes**.
+- [[pstack-comment-sicko]] — a single-axis adversarial sweep whose keep-list is short and whose ambiguity resolves against the comment.
+- [[pstack-blast-radius]] — adversarial against *its own writeup*: refuses to hand back the analysis as the product and demands the one safety fact be proven by running code.
+
+Tessl:
+
+- [[tessl-code-review]] — agentic PR review with configurable, versioned **lenses**, as a GitHub App or in CI.
+- [[tessl-review]] — the same instinct aimed at a skill rather than a diff, scored across validation, description, and content.
+
+builder-skills:
+
+- [[builder-agent-watchdog]] — *"Anchoring is the failure mode: reading their work first and nodding along."* An independent second investigation is the countermeasure.
 
 ## See Also
 - [[pattern-parallel-persona-review]] — BMAD implements this by fanning several adversarial layers out in parallel.

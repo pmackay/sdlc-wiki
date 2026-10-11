@@ -6,10 +6,10 @@ implements: "[[stage-learn]]"
 delegates_to: ["[[ce-session-historian]]", "[[ce-pattern-recognition-specialist]]", "[[ce-security-sentinel]]", "[[ce-performance-oracle]]", "[[ce-best-practices-researcher]]", "[[ce-framework-docs-researcher]]", "[[ce-data-integrity-guardian]]"]
 produces: ["[[artifact-solution-doc]]"]
 applies: ["[[pattern-knowledge-compounding]]", "[[pattern-fresh-context-subagents]]"]
-equivalent_to: []
+equivalent_to: ["[[mp-retro]]"]
 sources: "Compound Engineering — EveryInc/compound-engineering-plugin (2026)"
 raw: ["../../raw/compound-engineering/2026-07-04-compound-engineering-every.md", "../../raw/compound-engineering/2026-07-04-compound-engineering-plugin.md"]
-updated: 2026-07-04
+updated: 2026-10-11
 ---
 
 # /ce-compound
@@ -26,3 +26,4 @@ Learning-capture cluster: `ce-compound` ↔ [[bmad-retrospective]] — both harv
 - [[ce-compound-refresh]] — keeps the corpus this produces healthy over time.
 - [[pattern-knowledge-compounding]] — the signature technique; [[artifact-solution-doc]] — the output.
 - [[stage-learn]] — the canonical stage this implements (and promoted).
+- [[mp-retro]] — Matt Pocock: compounds into the environment (checks, standards, pointers) rather than a solutions corpus.

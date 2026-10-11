@@ -6,10 +6,10 @@ implements: "[[stage-implement]]"
 delegates_to: ["[[sp-test-driven-development]]", "[[sp-requesting-code-review]]", "[[sp-finishing-a-development-branch]]"]
 produces: ["[[artifact-atomic-commit]]"]
 applies: ["[[pattern-fresh-context-subagents]]", "[[pattern-adversarial-review]]"]
-equivalent_to: ["[[gsd-execute-phase]]", "[[bmad-dev-story]]"]
+equivalent_to: ["[[gsd-execute-phase]]", "[[bmad-dev-story]]", "[[mp-implement-spec]]"]
 sources: "Superpowers v6.1.1 (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-10-11
 ---
 
 # subagent-driven-development
@@ -29,3 +29,4 @@ Sharp operational discipline distinguishes it: **explicit model selection** per 
 - [[gsd-execute-phase]] · [[bmad-dev-story]] — the fresh-context execute cluster.
 - [[pattern-fresh-context-subagents]] · [[pattern-adversarial-review]] — the techniques applied.
 - [[stage-implement]] — the canonical stage this implements.
+- [[mp-implement-spec]] — Matt Pocock: an implementer subagent per ticket in its own worktree, one code-review over the integration branch.

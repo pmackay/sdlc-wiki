@@ -1,7 +1,7 @@
 ---
 type: index
 sources: "Synthesized from gastownhall/beads + jayminwest/seeds (2026)"
-updated: 2026-08-31
+updated: 2026-09-12
 ---
 
 # Store
@@ -68,6 +68,7 @@ Two instances, so the shared dimensions live here as a matrix rather than as the
 **Three axes only one instance has.** Ephemerality, async gates, and a first-class memory surface are beads-only; a schema-validated plan gate is seeds-only. With two members it is too early to say whether those are the layer's real dimensions or one project's ideas — which is exactly why they are matrix rows and not nodes.
 
 ## See Also
+- [Registry layer](../registry/index.md) — the nearest neighbour, minted 2026-09-12. Both layers are durable, agent-facing, and perform no stage; they sit on opposite sides of the run. A **store** holds what a run *produced* (the work graph, the memory corpus) and is read back afterwards. A **registry** holds what a run is *provisioned from* (the capabilities themselves, versioned and vouched for) and is read before it starts. The pair completes the wiki's account of what persists between sessions: the work, and the tools.
 
 - [CONVENTIONS](../CONVENTIONS.md#the-state-layer-stores) — the schema: node type, subtypes, edges, and the ingest procedure.
 - [[warren]] — the runtime that consumes a store (dispatching from `.seeds/`) and bundles two `memory`-subtype candidates.

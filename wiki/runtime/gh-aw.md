@@ -3,10 +3,10 @@ type: runtime
 subtype: platform
 source_url: "https://github.com/github/gh-aw"
 runs: ["[[claude-code]]", "[[pi]]"]
-enables: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-edit-guardrails]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]"]
-sources: "GitHub — github/gh-aw (MIT, v0.87.10, technical preview; Don Syme & Peli de Halleux announcement 2026-02-13)"
+enables: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-edit-guardrails]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-action-gating]]"]
+sources: "GitHub — github/gh-aw (MIT, v0.87.10, technical preview; Don Syme & Peli de Halleux announcement 2026-02-13); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/runtime/2026-09-01-gh-aw.md"]
-updated: 2026-09-01
+updated: 2026-09-26
 ---
 
 # gh-aw
@@ -77,6 +77,7 @@ Its second contribution is occupying the quadrant [[topic-software-factory]]'s g
 - [[pattern-edit-guardrails]] — the third shape in the wiki, after the harness's *preventive hooks* and sssf's *detect-and-revert*: **structural prevention** — the agent job never possesses a write token, so the boundary is the job topology itself.
 - [[pattern-deterministic-gates]] — compile-time scanners that refuse to emit an unsafe lock file, and the threat-detection verdict job that hard-blocks every safe-output write behind it.
 - [[pattern-knowledge-compounding]] — `cache-memory` and `repo-memory` give recurring workflows substrate-provided cross-run state, integrity-scoped so trusted runs never inherit untrusted memory.
+- [[pattern-action-gating]] — safe outputs are the **structural** form of per-action authority. Each kind of write is a separate typed channel applied by its own minimally scoped job, and the agent job holds no write permission. [[builder-skills]]' Factory reaches the same decomposition as prose policy the agent must obey. Here it is compiled into the job graph.
 
 ## See Also
 - [[warren]] · [[bernstein]] · [[sssf]] · [[sandcastle]] — the other four runtimes; gh-aw inverts Warren most sharply (strongest mid-run steering vs none; deployed service vs compiled artifact).
@@ -84,3 +85,5 @@ Its second contribution is occupying the quadrant [[topic-software-factory]]'s g
 - [[claude-code]] · [[pi]] — the two paged harnesses among its five engines.
 - [[pattern-edit-guardrails]] — where its structural write-gating joins the preventive/detective spectrum.
 - Companion projects, prose-only: the **Agent Workflow Firewall** and **MCP Gateway** (isolation infrastructure), and the ~73-page agent-prompt corpus behind its `llms.txt` — including a `loop` page on *"loop-engineering workflow patterns"*, the same external frame captured for [[topic-software-factory]].
+
+- [[builder-skills]] — the process-layer counterpart. Its Factory decomposes authority per action as **prose policy** the agent must obey, where gh-aw compiles the same decomposition into safe-output jobs. Together they define the two ends of [[pattern-action-gating]].

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); disler/super-simple-software-factory (2026); github/gh-aw (2026)"
-updated: 2026-09-01
+sources: "gstack — Garry Tan (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); disler/super-simple-software-factory (2026); github/gh-aw (2026); Builder.io — BuilderIO/skills (2026)"
+updated: 2026-09-26
 ---
 
 # Pattern: Edit guardrails (gate the agent's power to destroy or stray)
@@ -50,3 +50,5 @@ The [harness layer](../harness/index.md) supplies the mutation-gating substrate 
 - [[gstack]] — the framework this pattern is signature to.
 - [[sssf]] — the runtime that enforces the boundary *after* the write rather than before it, by diffing the repo around every agent call and rolling back what that agent was not allowed to touch.
 - [[claude-code]] · [[opencode]] · [[factory-droid]] — the harnesses whose hooks + permission frameworks provide the enforcement substrate (pi omits it from core).
+
+- [[pattern-action-gating]] — the neighbour that limits **external actions** (reply, approve, merge, deploy, notify) one at a time, where this pattern limits workspace writes.

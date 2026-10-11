@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { matt-pocock-skills: "code-review + architecture audit", addy-agent-skills: "Review (/review, /code-simplify, /webperf, /ship personas)", bmad: "code-review (adversarial) + TEA", compound-engineering: "Simplify (step 4) + Review (step 5) + optimize", gstack: "Review (code/design/DX/security)", superpowers: "requesting-code-review + receiving-code-review" }
-sources: "Synthesized from Matt Pocock + Addy Osmani + BMAD + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+aka: { matt-pocock-skills: "code-review + architecture audit", addy-agent-skills: "Review (/review, /code-simplify, /webperf, /ship personas)", bmad: "code-review (adversarial) + TEA", compound-engineering: "Simplify (step 4) + Review (step 5) + optimize", gstack: "Review (code/design/DX/security)", superpowers: "requesting-code-review + receiving-code-review", pstack: "interrogate / blast-radius / no-comments" , tessl: "code review / change risk / change verify (registry)", builder-skills: "factory-review-prs / agent-watchdog / visual-recap" }
+sources: "Synthesized from Matt Pocock + Addy Osmani + BMAD + Compound Engineering + gstack + Superpowers + pstack + Tessl + Builder Skills (2026)"
+updated: 2026-09-26
 ---
 
 # Stage: Review
@@ -65,6 +65,25 @@ Superpowers (review as a dispatched fresh-context gate + the reception disciplin
 - [[sp-requesting-code-review]] — dispatch a fresh-context code-reviewer subagent (never the controller's history); act on findings by severity → [[artifact-review-report]] ([[pattern-adversarial-review]], [[pattern-fresh-context-subagents]]). Wired into the execution loop (a review between every task).
 - [[sp-receiving-code-review]] — how to *respond* to review: technical evaluation over performative agreement ("You're absolutely right!" is forbidden), verify before implementing, push back with reasoning ([[pattern-anti-rationalization]]). **Novel — the review-reception side no other framework here pages.**
 
+pstack (the densest review roster relative to framework size, and the one that rejects the persona mechanism):
+
+- [[pstack-interrogate]] — one reviewer per configured model, identical prompt and rubric; *"the adversarial signal comes from model diversity, not assigned personas"* → [[artifact-review-report]] ([[pattern-cross-model-review]], [[pattern-adversarial-review]]).
+- [[pstack-blast-radius]] — what a small-looking change breaks elsewhere; find the one fact it is safe because of and prove it by running code, grading every claim on a five-rung evidence ladder ([[pattern-evidence-before-claims]], [[pattern-tooling-leverage]]).
+- [[pstack-no-comments]] — acts on Comment Sicko's findings: smallest root-cause fix in scope, and an encoding offer (type, runtime, test, or CI lint) for any claimed constraint before the comment is deleted.
+- [[pstack-comment-sicko]] — the read-only comment reviewer (sub-agent); flags a comment on our own code as `MUST KILL` on the guilty *symbol*, converting prose into a reshape task ([[pattern-persona-agents]]).
+
+Tessl — a [registry](../registry/index.md), not a framework, and the only non-process layer with a real presence in this stage (see [how to weight it](#a-note-on-the-registry-entries) below):
+
+- [[tessl-code-review]] — agentic PR review with versioned, pinnable **lenses** → [[artifact-review-report]] ([[pattern-parallel-persona-review]] rebuilt as installable units).
+- [[tessl-change-risk]] — assess a diff and exit non-zero only when human review is required; reviewer attention allocated by measured blast radius ([[pattern-scale-adaptive-planning]]).
+- [[tessl-change-verify]] — LLM-judge verifiers over changed files, cached, sampled, and capped by a call ceiling that refuses broad runs ([[pattern-deterministic-gates]]).
+
+builder-skills:
+
+- [[builder-factory-review-prs]] — a scheduled sweep of a filtered queue of **other people's** PRs, with findings kept apart from reply, approval, and merge gates → [[artifact-review-report]]. It joins the code-review cluster.
+- [[builder-agent-watchdog]] — reviews another *agent's* whole run by investigating the same problem independently and diffing the two → [[artifact-review-report]] ([[pattern-cross-model-review]], [[pattern-adversarial-review]]).
+- [[builder-visual-recap]] — a reviewer's aid rather than a reviewer: the diff as an interactive recap at a higher altitude than line-by-line → [[artifact-explainer]].
+
 ## Cross-framework equivalents
 
 The quality-review clusters span the six frameworks that ship a review capability:
@@ -78,6 +97,12 @@ The quality-review clusters span the six frameworks that ship a review capabilit
 - **Design / DX review** is a gstack specialty ([[gstack-design-review]], [[gstack-devex-review]], [[gstack-ios-design-review]]) with no cross-framework counterpart — a lens the other frameworks leave to general code review.
 
 Note **GSD, OpenSpec, and Spec Kit ship no review capability** — they validate functionally ([[gsd-verify-work]], [[openspec-verify]], [[speckit-converge]]) but do not treat quality review as a step. Their absence here is what makes review and [[stage-validate]] cleanly separable.
+
+## A note on the registry entries
+
+Three of the capabilities above belong to [[tessl]], which is a [registry](../registry/index.md) rather than a framework. They are listed because they genuinely perform this stage, but they should not be read as a framework's stage coverage: a registry's command surface is overwhelmingly off-stage by construction, and these are the product growing sideways into the lifecycle it was built to supply. The [conventions](../CONVENTIONS.md#the-supply-layer-registries) call this out as the expected shape for the layer.
+
+What they *do* add is a distinct **posture**. The framework-side review capabilities optimize one engineer's rigor — [[pstack-blast-radius]] demands a safety fact be proven by running code, [[gstack-review]] reads like a staff engineer. The registry-side ones optimize an organization's throughput: a risk verdict as an exit code, a judge budget with a hard ceiling, a review roster you pin like a dependency. Same stage, different scaling problem, and the contrast is the reason to keep them on the page.
 
 ## See Also
 - [[stage-validate]] — the sibling it was split from: validate confirms the software **works**, review confirms it is **good**. Both gate [[stage-release]].

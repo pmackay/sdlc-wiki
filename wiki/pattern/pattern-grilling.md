@@ -1,7 +1,7 @@
 ---
 type: pattern
 sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); GitHub/spec-kit (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); Agent OS — Builder Methods (2026)"
-updated: 2026-08-05
+updated: 2026-10-11
 ---
 
 # Pattern: Grilling (elicitation interview loop)
@@ -15,6 +15,7 @@ Matt Pocock — Skills for Real Engineers:
 - [[mp-grilling]] — the canonical reusable loop.
 - [[mp-grill-me]] — interview on a plan/design.
 - [[mp-grill-with-docs]] — grilling that also writes docs.
+- [[mp-to-questionnaire]] — grills the user about the *send* (recipient, what is needed back), not the subject, then writes the subject questions for someone else to answer (v1.2.0).
 
 GSD:
 

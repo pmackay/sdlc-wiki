@@ -1,8 +1,8 @@
 ---
 type: sdlc-stage
-aka: { gsd: "Ship", addy-agent-skills: "Ship", openspec: "sync + archive", compound-engineering: "commit-push-pr / promote", gstack: "Ship + land-and-deploy + canary", superpowers: "finishing-a-development-branch" }
-sources: "Synthesized from GSD + Addy Osmani + OpenSpec + Compound Engineering + gstack + Superpowers (2026)"
-updated: 2026-07-17
+aka: { gsd: "Ship", addy-agent-skills: "Ship", openspec: "sync + archive", compound-engineering: "commit-push-pr / promote", gstack: "Ship + land-and-deploy + canary", superpowers: "finishing-a-development-branch", builder-skills: "factory-ship / factory-babysit-pr", matt-pocock-skills: "pr (PR body only)" }
+sources: "Synthesized from GSD + Addy Osmani + OpenSpec + Compound Engineering + gstack + Superpowers + Builder Skills + Matt Pocock (2026)"
+updated: 2026-10-11
 ---
 
 # Stage: Release
@@ -57,6 +57,15 @@ Superpowers (ship-to-prod flavor; stops at PR/merge — no deploy):
 
 - [[sp-finishing-a-development-branch]] — verify tests → detect the workspace → present **exactly four options** (merge locally / push+PR / keep / discard) → execute → clean up the worktree per choice → [[artifact-pull-request]] ([[pattern-trunk-based-development]]). Distinctive for the **decision menu** — it doesn't assume ship-to-prod, it asks.
 
+builder-skills (ship-to-prod flavor, every sub-step separately authorized):
+
+- [[builder-factory-ship]] — verify, publish, merge under a head-match guard, then **verify deployment as a separate proof point** (*"a merge is not live proof"*) → [[artifact-pull-request]]. Joins the finalize cluster.
+- [[builder-factory-babysit-pr]] — follows one authorized PR through checks and review over many passes, fixing in-scope findings under six separate gates including a **soak** → [[artifact-pull-request]]. The pre-merge-resolution counterpart of [[ce-resolve-pr-feedback]].
+
+Matt Pocock — Skills for Real Engineers (write-up only; added 2026-10-11):
+
+- [[mp-pr]] — the **shape of a PR body**, model-invoked whenever the agent writes one: smallest-visual Summary, before/after Evidence, and a Merge Danger call (one-/two-way door + blast radius) → [[artifact-pull-request]] (v1.3.0). It does **not** commit, push, open, or merge; [[mp-implement-spec]] opens a draft PR when the tracker closes work through PRs. That makes MP 🟡 partial here: it finalizes the *description* of a change, not its delivery.
+
 ## Cross-framework equivalents
 The **finalize / close-out** cluster spans five frameworks: OpenSpec's [[openspec-archive]] ↔ Addy's [[addy-shipping]] ↔ GSD's [[gsd-ship]] ↔ Compound Engineering's [[ce-commit-push-pr]] ↔ Superpowers' [[sp-finishing-a-development-branch]] — each closes the iteration on a completed unit, but finalizes *different things*: GSD opens and tracks a PR, Addy fans out parallel review personas for a go/no-go launch, Compound Engineering goes working-changes→PR and (with [[ce-promote]]) announces the launch, OpenSpec merges the spec delta and archives the change, and Superpowers presents a **merge/PR/keep/discard decision menu** and cleans up its worktree accordingly (like GSD and OpenSpec, it stops at PR/merge with **no deploy step**). Addy's other five capabilities (versioning, CI/CD, observability, docs, deprecation) still have **no counterpart** in GSD, MP, OpenSpec, Spec Kit, or BMAD; OpenSpec's spec-maintenance is unique. Compound Engineering is the closest match to the GSD/Addy ship-to-prod flavor. (These are *not* set as `equivalent_to` edges: the terminal acts differ too much to cluster as counterparts.) The former **learning close-out** flavor ([[bmad-retrospective]]) now lives in [[stage-learn]], alongside Compound Engineering's [[ce-compound]].
 
@@ -71,6 +80,7 @@ The **finalize / close-out** cluster spans five frameworks: OpenSpec's [[openspe
   - Compound Engineering adds post-release monitoring ([[ce-product-pulse]]).
   - **gstack (2026-07-05) is the first to give deploy its own command** ([[gstack-land-and-deploy]]) *separate from* ship, plus a dedicated post-deploy monitor ([[gstack-canary]]) and deploy config ([[gstack-setup-deploy]]) — a genuine deploy→operate arc. But gstack still nests these under the release/ship end of its sprint rather than naming a standalone *Operate* phase.
   - So deploy+operate is now a **dedicated capability in three frameworks** (Addy, CE, gstack) but a distinct *phase* in none.
+  - **builder-skills (2026-09-26) adds a fourth framework at the capability level, from the other end.** [[builder-factory-ship]] treats deploy verification as a **separate proof point from merge** (*"a merge is not live proof"*), and the Factory's intake ([[builder-factory-collect]]) and retrospective ([[builder-factory-lookback]]) read **production telemetry and runtime errors** as their input. That is the *monitor* half of operate turned into the front door of the next iteration. Like gstack, though, it names no standalone *Operate* phase: deploy verification sits inside ship, and signal intake is filed under [[stage-align]] and [[stage-learn]]. The bar is not cleared, but the evidence now covers both halves of the arc (deploy→verify in gstack, production signal→fix in builder-skills).
 - **Decisive trigger:** a framework that treats **operate/deploy as its own lifecycle phase** distinct from release (or a second framework separating deploy into its own command + phase) → clears the bar → split into `stage-operate`. Watch closely — gstack has brought this from one framework to three at the capability level.
 
 ## See Also

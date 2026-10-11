@@ -6,10 +6,10 @@ implements: "[[stage-learn]]"
 delegates_to: []
 produces: "[[artifact-retrospective]]"
 applies: ["[[pattern-knowledge-compounding]]"]
-equivalent_to: ["[[bmad-retrospective]]"]
+equivalent_to: ["[[bmad-retrospective]]", "[[mp-retro]]"]
 sources: "gstack — Garry Tan (2026)"
 raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-07-05
+updated: 2026-10-11
 ---
 
 # /retro
@@ -23,3 +23,4 @@ gstack's **team-process** flavor of [[stage-learn]] — the direct counterpart t
 - [[bmad-retrospective]] — the cross-framework team-retrospective counterpart.
 - [[ce-compound]] — Compound Engineering's agent-grounding learn step.
 - [[stage-learn]] — the canonical stage this implements.
+- [[mp-retro]] — Matt Pocock: a per-session, environment-focused retrospective rather than a weekly team one.

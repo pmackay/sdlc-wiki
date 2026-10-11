@@ -6,10 +6,10 @@ implements: "[[stage-review]]"
 delegates_to: []
 produces: ["[[artifact-review-report]]"]
 applies: ["[[pattern-adversarial-review]]", "[[pattern-parallel-persona-review]]", "[[pattern-fresh-context-subagents]]"]
-equivalent_to: ["[[addy-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]"]
-sources: "bmad-code-org/BMAD-METHOD — bmad-code-review (2026)"
+equivalent_to: ["[[addy-code-review]]", "[[ce-code-review]]", "[[mp-code-review]]", "[[gstack-review]]", "[[sp-requesting-code-review]]", "[[builder-factory-review-prs]]"]
+sources: "bmad-code-org/BMAD-METHOD — bmad-code-review (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/bmad/2026-07-04-bmad-method-framework.md"]
-updated: 2026-07-09
+updated: 2026-09-26
 ---
 
 # bmad-code-review

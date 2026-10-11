@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); jayminwest/seeds (2026); gastownhall/beads (2026)"
-updated: 2026-08-31
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); Addy Osmani — Agent Skills (2026); bmad-code-org/BMAD-METHOD (2026); obra/superpowers (2026); jayminwest/seeds (2026); gastownhall/beads (2026); pstack v0.15.2 — Lauren Tan (2026)"
+updated: 2026-09-11
 ---
 
 # Pattern: Vertical slice
@@ -44,6 +44,11 @@ Seeds:
 Beads:
 
 - [[beads-mol]] — a poured molecule is a set of independently-claimable, dependency-ordered beads, one per formula step; the slicing is inherited from the template rather than reasoned out per task.
+
+pstack:
+
+- [[pstack-principle-sequence-verifiable-units]] — break work into small units that each end in a verifiable state, check each before the next, and **order delivery so the sequence proves itself to a reviewer**. That third clause treats sequencing as a review affordance rather than only an execution tactic, and it governs how commits and PRs are stacked as well as how work is decomposed.
+- [[pstack-figure-it-out]] — decompose into atomic, independently-landable units, sequenced riskiest-unknown-first, each run as an experiment with a verdict before the next begins.
 
 ## See Also
 - [[artifact-issue]] — how Matt's skills materialize a slice.

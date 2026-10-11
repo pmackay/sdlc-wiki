@@ -6,10 +6,10 @@ implements: "[[stage-release]]"
 delegates_to: []
 produces: ["[[artifact-pull-request]]"]
 applies: ["[[pattern-trunk-based-development]]"]
-equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[openspec-archive]]"]
-sources: "Superpowers v6.1.1 (2026)"
+equivalent_to: ["[[gsd-ship]]", "[[addy-shipping]]", "[[ce-commit-push-pr]]", "[[gstack-ship]]", "[[openspec-archive]]", "[[builder-factory-ship]]"]
+sources: "Superpowers v6.1.1 (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
-updated: 2026-07-17
+updated: 2026-09-26
 ---
 
 # finishing-a-development-branch
