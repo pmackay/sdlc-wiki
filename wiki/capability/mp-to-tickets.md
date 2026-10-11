@@ -8,9 +8,9 @@ produces: ["[[artifact-issue]]"]
 applies: ["[[pattern-vertical-slice]]"]
 equivalent_to: ["[[addy-planning]]", "[[speckit-tasks]]", "[[speckit-taskstoissues]]", "[[bmad-create-epics-and-stories]]", "[[sp-writing-plans]]", "[[seeds-plan-submit]]"]
 docs_url: "https://www.aihero.dev/skills-to-tickets"
-sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
-raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-08-31
+sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026); v1.2.0 (2026-08-05)"
+raw: ["../../raw/matt-pocock-skills/2026-10-04-skills-v1.3.1-update.md", "../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
+updated: 2026-10-11
 ---
 
 # to-tickets
@@ -23,6 +23,8 @@ updated: 2026-08-31
 
 MP's member of the cross-framework **decompose** cluster: it slices work into dependency-ordered, independently-shippable units, like [[addy-planning]], [[speckit-tasks]], and BMAD's [[bmad-create-epics-and-stories]]; [[speckit-taskstoissues]] is the export half Spec Kit splits into a second command. Fed by [[mp-to-spec]]; its tickets are then built by [[mp-implement]].
 
+> **v1.2.0 (2026-08-05): one file per ticket locally.** On the local-markdown tracker, tickets are now one file each under `.scratch/<feature>/issues/<NN>-<slug>.md` (never a combined `tickets.md`), and the spec file is `spec.md`, not `PRD.md`. Its blocking edges are what [[mp-implement-spec]] (v1.3.0) reads as a **task graph** to schedule parallel implementers off the ready frontier.
+
 ## See Also
 - [[seeds-plan-submit]] — the same decomposition run by a program: an AJV-validated plan whose steps spawn the tickets and whose `blocks` indices become real dependency edges, into a JSONL store in the repo rather than a hosted tracker.
 - [[mp-to-spec]] — produces the spec this slices.
@@ -30,3 +32,4 @@ MP's member of the cross-framework **decompose** cluster: it slices work into de
 - [[mp-wayfinder]] — the sibling for work too big to decompose in one session (investigation-ticket map).
 - [[addy-planning]] · [[speckit-tasks]] · [[bmad-create-epics-and-stories]] — decompose-cluster counterparts.
 - [[stage-plan]] — the canonical stage this implements.
+- [[mp-implement-spec]] — consumes the tickets as a task graph (v1.3.0).

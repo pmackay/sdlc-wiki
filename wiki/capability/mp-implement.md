@@ -8,9 +8,9 @@ produces: ["[[artifact-atomic-commit]]"]
 applies: ["[[pattern-test-driven-development]]", "[[pattern-vertical-slice]]", "[[pattern-deterministic-gates]]"]
 equivalent_to: ["[[gsd-execute-phase]]", "[[openspec-apply]]", "[[speckit-implement]]", "[[addy-incremental-implementation]]", "[[bmad-dev-story]]", "[[ce-work]]", "[[sp-executing-plans]]"]
 docs_url: "https://www.aihero.dev/skills-implement"
-sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
-raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-08-31
+sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026); v1.3.0 (2026-10-04)"
+raw: ["../../raw/matt-pocock-skills/2026-10-04-skills-v1.3.1-update.md", "../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
+updated: 2026-10-11
 ---
 
 # implement
@@ -19,6 +19,8 @@ updated: 2026-08-31
 
 **New in v1.1 (2026-07-09).** This is the first time Matt Pocock's toolkit has a first-class *execute* skill — previously "building" was only the test-first [[mp-tdd]] and throwaway [[mp-prototype]]. `implement` makes MP a full member of the cross-framework **execute** cluster: walk the plan/tickets unit-by-unit, test-driven — alongside [[gsd-execute-phase]], [[openspec-apply]], [[speckit-implement]], [[addy-incremental-implementation]], [[bmad-dev-story]], and [[ce-work]]. It is the tail of MP's main flow: `idea → grill → to-spec → to-tickets → implement (per ticket, fresh context) → code-review`.
 
+> **v1.3.0 (2026-10-04): a parallel sibling.** [[mp-implement-spec]] now offers the whole-spec alternative: implementer subagents across the ready frontier, landing on one integration branch, with one [[mp-code-review]] at the end. `/implement` stays the per-ticket path (one ticket per fresh context, tdd + code-review each time), and the in-place path for work too small for a spec. When the work goes up as a PR, [[mp-pr]] shapes the body; [[mp-retro]] follows as the main flow's last step.
+
 ## See Also
 - [[mp-to-tickets]] — produces the tickets this builds (one per fresh context window).
 - [[mp-tdd]] — the red-green engine this drives at seams.
@@ -26,3 +28,4 @@ updated: 2026-08-31
 - [[pattern-deterministic-gates]] — the continuous typecheck/test discipline it runs while building.
 - [[gsd-execute-phase]] · [[speckit-implement]] · [[ce-work]] · [[bmad-dev-story]] — execute-cluster counterparts.
 - [[stage-implement]] — the canonical stage this implements.
+- [[mp-implement-spec]] — the parallel, whole-spec sibling (v1.3.0).

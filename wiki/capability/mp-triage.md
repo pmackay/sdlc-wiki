@@ -6,11 +6,11 @@ implements: "[[stage-align]]"
 delegates_to: []
 produces: ["[[artifact-issue]]"]
 applies: ["[[pattern-grilling]]"]
-equivalent_to: ["[[seeds-issue-workflow]]"]
+equivalent_to: ["[[seeds-issue-workflow]]", "[[builder-factory-collect]]"]
 docs_url: "https://www.aihero.dev/skills-triage"
-sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026)"
+sources: "Matt Pocock — Skills for Real Engineers v1.1 (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md"]
-updated: 2026-08-31
+updated: 2026-09-26
 ---
 
 # triage
