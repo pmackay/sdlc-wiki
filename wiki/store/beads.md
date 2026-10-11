@@ -3,11 +3,12 @@ type: store
 subtype: work
 integrates_with: ["[[claude-code]]", "[[factory-droid]]", "[[opencode]]"]
 enables: ["[[pattern-session-handoff]]", "[[pattern-knowledge-compounding]]", "[[pattern-context-engineering]]", "[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-deterministic-gates]]", "[[pattern-wave-parallelism]]"]
+conforms_to: ["[[std-agents-md]]", "[[std-mcp]]"]
 source_url: "https://github.com/gastownhall/beads"
 docs_url: "https://beads.gascity.com/"
 sources: "Steve Yegge / gastownhall — beads README + docs.beads.gascity.com core-concepts, workflows, multi-agent + engdocs/PROJECT_CHARTER.md (MIT, 2026)"
 raw: ["../../raw/beads/2026-08-31-beads.md"]
-updated: 2026-08-31
+updated: 2026-10-11
 ---
 
 # Beads
@@ -203,3 +204,4 @@ Fifty-one capability pages covering all ~109 top-level commands, grouped by fami
 - [[artifact-issue]] — what a bead is, in the wiki's artifact vocabulary.
 - [[artifact-plan-record]] — [[seeds]]' validated plan row; beads' `formula` → `proto` → `molecule` pipeline is the reusable-template generalization of the same idea.
 - [[topic-harness-engineering]] — [[beads-rules]] and [[beads-setup]] both operate on the guide layer that topic describes.
+- [[std-agents-md]] · [[std-mcp]] — the file `bd init` writes and the protocol `beads-mcp` speaks.

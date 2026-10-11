@@ -4,9 +4,10 @@ subtype: platform
 source_url: "https://github.com/github/gh-aw"
 runs: ["[[claude-code]]", "[[pi]]"]
 enables: ["[[pattern-autonomous-loop]]", "[[pattern-worktree-isolation]]", "[[pattern-edit-guardrails]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-action-gating]]"]
+conforms_to: ["[[std-mcp]]"]
 sources: "GitHub — github/gh-aw (MIT, v0.87.10, technical preview; Don Syme & Peli de Halleux announcement 2026-02-13); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/runtime/2026-09-01-gh-aw.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # gh-aw
@@ -87,3 +88,4 @@ Its second contribution is occupying the quadrant [[topic-software-factory]]'s g
 - Companion projects, prose-only: the **Agent Workflow Firewall** and **MCP Gateway** (isolation infrastructure), and the ~73-page agent-prompt corpus behind its `llms.txt` — including a `loop` page on *"loop-engineering workflow patterns"*, the same external frame captured for [[topic-software-factory]].
 
 - [[builder-skills]] — the process-layer counterpart. Its Factory decomposes authority per action as **prose policy** the agent must obey, where gh-aw compiles the same decomposition into safe-output jobs. Together they define the two ends of [[pattern-action-gating]].
+- [[std-mcp]] — the protocol its MCP Gateway isolates and routes.

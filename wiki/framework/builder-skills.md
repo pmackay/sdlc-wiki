@@ -2,9 +2,10 @@
 type: framework
 source_url: "https://github.com/BuilderIO/skills"
 runs_on: ["[[claude-code]]", "[[pi]]", "[[opencode]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-agents-md]]"]
 sources: "Builder.io — BuilderIO/skills (github.com/BuilderIO/skills), MIT, commit a74a3a0 (2026-09-25); README.md, docs/factory/README.md, docs/factory/configuration.md, 24 SKILL.md files, plugin manifests"
 raw: ["../../raw/builder-skills/2026-09-26-builder-skills.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # builder-skills

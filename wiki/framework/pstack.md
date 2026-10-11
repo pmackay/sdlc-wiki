@@ -2,9 +2,10 @@
 type: framework
 source_url: "https://github.com/cursor/plugins/tree/main/pstack"
 runs_on: []
+conforms_to: ["[[std-agent-skills]]"]
 sources: "Lauren Tan (poteto) — pstack v0.15.2, cursor/plugins (github.com/cursor/plugins/tree/main/pstack), MIT (2026); README.md, plugin.json, poteto-mode SKILL.md, 48 skill/agent frontmatters, benny automation pack"
 raw: ["../../raw/pstack/2026-09-11-pstack-plugin.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # pstack

@@ -1,6 +1,7 @@
 ---
 type: framework
 runs_on: ["[[claude-code]]"]
+conforms_to: ["[[std-agent-skills]]"]
 source_url: "https://github.com/mattpocock/skills"
 sources: "Matt Pocock — Skills for Real Engineers, mattpocock/skills v1.3.1 (2026-10-04)"
 raw: ["../../raw/matt-pocock-skills/2026-10-04-skills-v1.3.1-update.md", "../../raw/matt-pocock-skills/2026-07-09-skills-v1.1-update.md", "../../raw/matt-pocock-skills/2026-06-28-skills-for-real-engineers.md"]

@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # Harness
@@ -35,6 +35,7 @@ The harness layer's analogue of the SDLC-stage synthesis: the dimensions harness
 | Permissions & guardrails | modes (default/plan/acceptEdits/bypass) + plan mode | permissions/policies + Plan vs Build | **not in core** — sandbox/extension | autonomy levels off/low/medium/high (`--auto`) + read-only review + approval workflows |
 | Model access | **Anthropic only**; Fast mode | **model-agnostic** — many providers + Zen | **model-agnostic** — many providers; mid-session switch | **multi-model routing** — Anthropic/OpenAI/Google/open-weight, mid-session, complexity-tiered, BYOK, free Droid Core |
 | Memory & context files | `CLAUDE.md` + memory · auto-compaction | `AGENTS.md` · session undo/redo | `AGENTS.md`+`SYSTEM.md` · compaction | `AGENTS.md` (git-root discovery + `~/.factory/`) |
+| Open standards ([`conforms_to:`](../standard/index.md)) | [[std-agent-skills]] · [[std-mcp]] — **not** [[std-agents-md]] (reads `CLAUDE.md`) | [[std-agent-skills]] · [[std-agents-md]] · [[std-mcp]] | [[std-agent-skills]] · [[std-agents-md]] — MCP extension-only | [[std-agent-skills]] · [[std-agents-md]] · [[std-mcp]] |
 | Interaction surface | terminal · desktop · web · VS Code/JetBrains | terminal TUI · desktop · IDE ext | terminal TUI · print/JSON · RPC · SDK | terminal TUI · headless `droid exec` (CI) · IDE · web · Sessions API |
 | Distribution / license | Anthropic, **proprietary** | Anomaly, **MIT** | Earendil, **MIT** | Factory.ai, **proprietary** (free Droid Core tier) |
 

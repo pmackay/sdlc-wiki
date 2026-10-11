@@ -10,34 +10,37 @@ Published at **https://pmackay.github.io/sdlc-wiki**.
 
 Two top-level directories, per the skill this vault was built with (see [Provenance](#provenance)):
 
-- **`raw/`** — immutable source material, one directory per framework, files named `YYYY-MM-DD-slug.md` with a `source_urls` / `collected` / `published` header. Never edited after capture. 23 sources across 15 directories.
+- **`raw/`** — immutable source material, one directory per framework, files named `YYYY-MM-DD-slug.md` with a `source_urls` / `collected` / `published` header. Never edited after capture. 37 sources across 21 directories.
 - **`wiki/`** — compiled articles. Everything here is written by an agent and rewritten freely.
 
 Inside `wiki/`, one level of directories, each mapping to a node type in the ontology:
 
 | Directory | Pages | What it holds |
 |---|---:|---|
-| `framework/` | 12 | A complete SDLC agent toolkit or methodology |
-| `capability/` | 230 | One unit of work a framework exposes — a command, skill, or sub-agent. **The hub**: every process-layer edge originates here |
-| `sdlc-stage/` | 9 | The canonical lifecycle stages. **Derived** — a stage page's body is synthesised from the capabilities that `implements:` it |
-| `artifact/` | 37 | A concrete output a capability produces (a spec, a plan, a commit) |
-| `pattern/` | 31 | A reusable technique a capability applies. Also the seam where the two substrate layers attach |
-| `harness/` | 5 | The agent program itself — Claude Code, pi, opencode, Factory Droid |
-| `runtime/` | 3 | The execution substrate that spawns harnesses — sandboxes, parallelism, autonomy |
-| `topic/` | 2 | Curated cross-cutting overlays (Maps of Content). **Not** ontology nodes — they store no edges |
+| `framework/` | 14 | A complete SDLC agent toolkit or methodology |
+| `capability/` | 422 | One unit of work a framework exposes — a command, skill, or sub-agent. **The hub**: every process-layer edge originates here |
+| `sdlc-stage/` | 8 | The canonical lifecycle stages. **Derived** — a stage page's body is synthesised from the capabilities that `implements:` it |
+| `artifact/` | 41 | A concrete output a capability produces (a spec, a plan, a commit) |
+| `pattern/` | 39 | A reusable technique a capability applies. Also the seam where the substrate layers attach |
+| `harness/` | 4 | The agent program itself — Claude Code, pi, opencode, Factory Droid |
+| `runtime/` | 5 | The execution substrate that spawns harnesses — sandboxes, parallelism, autonomy |
+| `store/` | 2 | Durable work graphs and memory that outlive a run — Beads, Seeds |
+| `registry/` | 1 | The versioned supply capabilities are installed from — Tessl |
+| `standard/` | 3 | Open specs every other layer conforms to — Agent Skills, `AGENTS.md`, MCP |
+| `topic/` | 5 | Curated cross-cutting overlays (Maps of Content). **Not** ontology nodes — they store no edges |
 
-Page counts are a snapshot (2026-08-31) and drift with every ingest; `wiki/catalogue.md` is always current.
+Page counts (excluding each directory's `index.md`) are a snapshot (2026-10-11) and drift with every ingest; `wiki/catalogue.md` is always current.
 
 Plus four files at the root of `wiki/`:
 
-- **`CONVENTIONS.md`** — the schema layer. Node types, the nine relationship edges, frontmatter format, naming rules, the ingest workflow, and the discipline for when a new abstraction is allowed to exist. **Read this before any ingest.**
+- **`CONVENTIONS.md`** — the schema layer. Node types, the thirteen relationship edges, frontmatter format, naming rules, the ingest workflow, and the discipline for when a new abstraction is allowed to exist. **Read this before any ingest.**
 - **`index.md`** — the authored landing page.
 - **`catalogue.md`** — the exhaustive per-namespace catalogue (split out of `index.md` in August 2026).
 - **`log.md`** — append-only operation log. Every ingest, schema change, stage rename, and structural decision, with reasoning. It is the closest thing to a design history.
 
 ### How the pieces connect
 
-Relationships live in each page's YAML frontmatter as `[[wikilinks]]`. A `capability` page carries most of them (`belongs_to`, `implements`, `produces`, `applies`, `delegates_to`, `equivalent_to`); `framework`, `harness` and `runtime` each carry one or two forward edges. Every other view is a **backlink** view — an artifact page's "Produced by" list is a hand-maintained reflection of the `produces:` edges pointing at it.
+Relationships live in each page's YAML frontmatter as `[[wikilinks]]`. A `capability` page carries most of them (`belongs_to`, `implements`, `produces`, `applies`, `delegates_to`, `equivalent_to`); `framework`, `harness`, `runtime`, `store`, `registry` and `standard` each carry one to three forward edges, and `conforms_to` points from adopters at the open standards they follow. Every other view is a **backlink** view — an artifact page's "Produced by" list is a hand-maintained reflection of the `produces:` edges pointing at it.
 
 Two rules matter more than the rest, because breaking them silently corrupts the synthesis:
 
@@ -56,7 +59,7 @@ This vault was built and is maintained with the **`karpathy-llm-wiki`** skill �
 
 **What is local invention**, layered on top:
 
-- The entire ontology — seven node types, nine edges, the derived `sdlc-stage` projection, and the `topic/` overlay — defined in `CONVENTIONS.md`. The skill knows only "topic subdirectories".
+- The entire ontology — ten node types, thirteen edges, the derived `sdlc-stage` projection, and the `topic/` overlay — defined in `CONVENTIONS.md`. The skill knows only "topic subdirectories".
 - The log vocabulary grew beyond the skill's `ingest` / `query` / `lint` to include `init`, `docs`, `edit`, `schema`, `refactor`, `topic`, `fix`, `build`.
 - `index.md` was split into an authored landing page plus `catalogue.md`, deliberately departing from the skill's "index.md is the global index" rule. `CONVENTIONS.md` was updated so future ingests write to the right file.
 - Quartz publishing (below), which the skill knows nothing about.

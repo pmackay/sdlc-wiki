@@ -4,9 +4,10 @@ subtype: platform
 source_url: "https://bernstein.readthedocs.io/en/latest/"
 runs: ["[[claude-code]]", "[[opencode]]", "[[pi]]", "[[factory-droid]]"]
 enables: ["[[pattern-worktree-isolation]]", "[[pattern-wave-parallelism]]", "[[pattern-autonomous-loop]]", "[[pattern-evidence-before-claims]]", "[[pattern-deterministic-gates]]", "[[pattern-cross-model-review]]", "[[pattern-fresh-context-subagents]]", "[[pattern-knowledge-compounding]]", "[[pattern-session-handoff]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-mcp]]"]
 sources: "Alex Chernysh — sipyourdrink-ltd/bernstein, bernstein.readthedocs.io (Apache-2.0, PyPI 3.18.2, 2026)"
 raw: ["../../raw/runtime/2026-08-31-bernstein.md"]
-updated: 2026-08-31
+updated: 2026-10-11
 ---
 
 # bernstein
@@ -131,3 +132,4 @@ The trade-off worth recording: this is by far the **heaviest** runtime documente
 - [[pattern-evidence-before-claims]] · [[pattern-cross-model-review]] · [[pattern-fresh-context-subagents]] — patterns this runtime is the **first** to supply as infrastructure rather than instruction.
 - [[stage-validate]] — the stage whose concerns the janitor and review gate pull down into the execution layer.
 - [[topic-harness-engineering]] — the deterministic scheduler and the janitor are both *sensors and governors* in that framing: computational checks placed where an inferential system would otherwise be trusted.
+- [[std-agent-skills]] · [[std-mcp]] — its role packs follow the skill format, and its `load_skill` MCP tool serves them on demand.

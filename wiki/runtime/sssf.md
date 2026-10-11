@@ -4,10 +4,11 @@ subtype: library
 source_url: "https://github.com/disler/super-simple-software-factory"
 runs: ["[[pi]]"]
 enables: ["[[pattern-deterministic-gates]]", "[[pattern-evidence-before-claims]]", "[[pattern-contract-first]]", "[[pattern-context-engineering]]", "[[pattern-session-handoff]]", "[[pattern-edit-guardrails]]", "[[pattern-autonomous-loop]]"]
+conforms_to: ["[[std-agent-skills]]"]
 # --- karpathy bookkeeping ---
 sources: "IndyDevDan — disler/super-simple-software-factory (MIT, main @ de31374, 2026-08-02)"
 raw: ["../../raw/runtime/2026-08-31-super-simple-software-factory.md"]
-updated: 2026-08-31
+updated: 2026-10-11
 ---
 
 # sssf
@@ -221,3 +222,4 @@ The scope answer is equally direct: *"Is this overkill for a one-off feature? Ye
 - [[topic-harness-engineering]] — the same computational-over-inferential rule this runtime states as a cost argument; `quality.py`, `gates.py`, and `permissions.py` are sensors, and the ADW script is the steering loop.
 - [[stage-validate]] — the stage whose concerns the gates and the `kind="code"` test phases pull down into the execution layer, the recurring move of this layer.
 - [The store layer](../store/index.md) — the counter-example by omission: sssf keeps *no* state across runs, which is precisely the gap [[beads]] and [[seeds]] exist to fill. Its `sssf.db` is a trace of what happened, not a work graph an agent reads back.
+- [[std-agent-skills]] — the format the runtime itself is packaged in.

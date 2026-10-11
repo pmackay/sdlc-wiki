@@ -3,9 +3,10 @@ type: harness
 subtype: terminal
 source_url: "https://docs.claude.com/en/docs/claude-code"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-mcp]]"]
 sources: "Anthropic — Claude Code docs (docs.claude.com/en/docs/claude-code) + Claude Agent SDK (2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/harness/2026-07-31-claude-code.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # claude-code
@@ -87,3 +88,4 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 - [[sandcastle]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the execution-layer runtimes that spawn this harness (one layer down).
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns this harness provides as primitives.
 - [[superpowers]] · [[gstack]] — frameworks whose skills run on this harness.
+- [[std-agent-skills]] · [[std-mcp]] — the open standards it conforms to ([adoption matrix](../standard/index.md)). It reads `CLAUDE.md` rather than [[std-agents-md]], which every other paged harness reads.

@@ -3,9 +3,10 @@ type: harness
 subtype: terminal
 source_url: "https://github.com/earendil-works/pi"
 enables: ["[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-agents-md]]"]
 sources: "pi.dev/docs + github.com/earendil-works/pi (Mario Zechner / Earendil Inc., formerly badlogic/pi-mono; MIT, 2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/harness/2026-07-31-pi.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # pi
@@ -67,3 +68,4 @@ sssf is worth reading as an argument about *why* a minimal harness is the right 
 - [[sandcastle]] · [[warren]] · [[bernstein]] · [[sssf]] · [[gh-aw]] — the runtimes that spawn this harness; sssf spawns nothing else.
 - [[pattern-session-handoff]] · [[pattern-context-engineering]] — the two patterns pi provides as core primitives.
 - [[nano-spec]] — the process-layer minimalist, pi's spiritual counterpart one layer up.
+- [[std-agent-skills]] · [[std-agents-md]] — the open standards it conforms to ([adoption matrix](../standard/index.md)). [[std-mcp]] is deliberately extension-only.

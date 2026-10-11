@@ -5,9 +5,10 @@ source_url: "https://docs.tessl.io/"
 integrates_with: ["[[claude-code]]", "[[opencode]]"]
 distributes: []
 enables: ["[[pattern-capability-evals]]", "[[pattern-supply-chain-scanning]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-evidence-before-claims]]", "[[pattern-context-engineering]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-mcp]]"]
 sources: "Tessl — docs.tessl.io (CLI v0.108.0, 2026); overview, core concepts, glossary, supported platforms, creating/improving/distributing guides, full CLI reference. Company facts (funding, founding, the 2025 Framework pivot) from public reporting, recorded separately in the raw capture."
 raw: ["../../raw/tessl/2026-09-12-tessl-platform.md"]
-updated: 2026-09-12
+updated: 2026-10-11
 ---
 
 # Tessl
@@ -118,3 +119,4 @@ It is filed as a `registry` under the [harness/runtime boundary rule](../CONVENT
 - [[topic-ai-native-sdlc]] — the governance frame Tessl implements commercially, including the config-evals instrument that page recorded as unshipped.
 - [[topic-software-factory]] — where the product says it is heading.
 - [[bm-skills]] — a marketplace filed as a `framework` for want of anywhere better; see the layer page for why it stays there.
+- [[std-agent-skills]] · [[std-mcp]] — the spec its skill review validates against, and the protocol its harness integration is built on.
