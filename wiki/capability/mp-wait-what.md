@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `/wait-what` — a user-invoked productivity skill, "Stop. That last message did not land: re-pitch it." Its whole body is one instruction: re-pitch with a little context, in **ASD-STE100 Simplified Technical English**, using the ubiquitous language from `GLOSSARY.md` (following `GLOSSARY-MAP.md` to the right one in a multi-context repo).
 
-**New in v1.2.0 (2026-08-05).** It is a "one-word corrective for model verbosity", usable mid-conversation and inside any other skill.
+It is a "one-word corrective for model verbosity", usable mid-conversation and inside any other skill.
 
 ## The mechanism is the name
 
@@ -31,3 +31,7 @@ Off-stage. It repairs one message and does not prevent the next. The upfront cur
 - [[mp-domain-modeling]] · [[artifact-domain-model]] — the `GLOSSARY.md` it re-pitches in.
 - [[mp-writing-for-agents]] — the leading-word theory it is a three-line instance of.
 - [[mp-ask-matt]] — routes it under Standalone.
+
+## Version history
+- **v1.3.0 (2026-10-04):** follows `GLOSSARY-MAP.md` to the right `GLOSSARY.md` in a multi-context repo; the domain doc it reads was renamed from `CONTEXT.md` to `GLOSSARY.md`.
+- **v1.2.0 (2026-08-05):** added, user-invoked, three lines long.

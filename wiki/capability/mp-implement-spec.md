@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `/implement-spec` — a user-invoked engineering skill that **implements a whole spec in one run**: "Implement the result of /to-spec and /to-tickets in code." It is the parallel alternative to running [[mp-implement]] once per ticket.
 
-**New in v1.3.0 (2026-10-04), graduated from `in-progress/`.** Before this, the toolkit's only execute path was the sequential one: one [[mp-implement]] per ticket, `/clear`ing context between each. `implement-spec` adds an orchestrated path. Per [[mp-ask-matt]]: reach for it "when you'd rather orchestrate the build than drive each ticket yourself."
+It is the toolkit's orchestrated execute path; the sequential one is one [[mp-implement]] per ticket, `/clear`ing context between each. Per [[mp-ask-matt]]: reach for it "when you'd rather orchestrate the build than drive each ticket yourself."
 
 ## How it works
 
@@ -46,3 +46,7 @@ It joins the **parallel-execute** sub-cluster of [[stage-implement]]. Like [[gsd
 - [[sandcastle]] — Matt Pocock's own runtime library for the same shape (sandboxed agents on branches, merged back) one layer down.
 - [[gsd-execute-phase]] · [[sp-subagent-driven-development]] · [[pstack-swarm]] — parallel-execute counterparts.
 - [[stage-implement]] — the canonical stage this implements.
+
+## Version history
+
+- **Added in v1.3.0 (2026-10-04)**, graduated from `in-progress/` into `engineering/`. Before this, the only execute path was the sequential one: one [[mp-implement]] per ticket. Ahead of graduating, the goal became the integration branch rather than a PR, it points at the configured issue tracker instead of defaulting to `gh`, and each implementer confirms its worktree base, builds with [[mp-tdd]], and merges the integration tip before reporting done.

@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `/retro` — a user-invoked engineering skill: "Conduct a retrospective on a coding session." It suggests improvements to the coding agent's **environment**, not the code, so that future runs go better.
 
-**New in v1.3.0 (2026-10-04), graduated from `in-progress/`.** [[mp-ask-matt]] now routes it as **step 4, the last step of the main flow**, after [[mp-code-review]]: "`/retro` closes the loop." In v1.3.1 it also became the follow-up to [[mp-diagnosing-bugs]]: once a fix is in, run `/retro` in the same session to ask what would have prevented the bug. This is the toolkit's **first [[stage-learn]] capability**, which the wiki previously listed as a gap.
+[[mp-ask-matt]] routes it as **step 4, the last step of the main flow**, after [[mp-code-review]]: "`/retro` closes the loop." It is also the follow-up to [[mp-diagnosing-bugs]]: once a fix is in, run `/retro` in the same session to ask what would have prevented the bug. It is the toolkit's only [[stage-learn]] capability.
 
 ## Steps
 
@@ -45,6 +45,10 @@ Of the [[stage-learn]] flavors, `retro` is **environment compounding**. It is no
 ## See Also
 - [[mp-code-review]] — the step it follows; the standards it tunes are the ones code-review enforces.
 - [[mp-writing-for-agents]] — the style guide it loads before writing any steering change.
-- [[mp-diagnosing-bugs]] — v1.3.1 routes a post-fix `/retro` from it.
+- [[mp-diagnosing-bugs]] — routes a post-fix `/retro` from it.
 - [[pstack-reflect]] · [[ce-compound]] · [[gstack-retro]] — stage-learn counterparts.
 - [[stage-learn]] — the canonical stage this implements.
+
+## Version history
+- **v1.3.1 (2026-10-04):** [[mp-ask-matt]] routes [[mp-diagnosing-bugs]] to `/retro` once a fix is in, replacing the stale post-mortem hand-off to [[mp-improve-codebase-architecture]].
+- **v1.3.0 (2026-10-04):** graduated from `in-progress/` into `engineering/`, routed as the last step of the main flow. The toolkit's first [[stage-learn]] capability, closing a gap the wiki had listed since the initial ingest.

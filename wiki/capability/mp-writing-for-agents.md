@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `writing-for-agents` — a **model-invoked** productivity skill: "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md." It is the reference for writing *any* document an agent consumes: a skill, an `AGENTS.md` / `CLAUDE.md`, or a doc reached by a pointer. "The packaging differs; the writing does not."
 
-**Renamed and restructured in v1.2.0 (2026-08-05)** from `writing-great-skills` (breaking, no alias). The scope widened from skills to all agent-facing documents, the separate `GLOSSARY.md` was merged into `SKILL.md`, and skill-only mechanics (frontmatter, user- vs model-invoked, router skills) moved to a disclosed `SKILL-MECHANICS.md`. It is now model-invoked, so it fires whenever skills or steering files are edited, and [[mp-retro]] loads it before proposing any steering change.
+Its definitions live in one `SKILL.md`, with skill-only mechanics (frontmatter, user- vs model-invoked, router skills) disclosed to a separate `SKILL-MECHANICS.md`. Being model-invoked, it fires whenever skills or steering files are edited, and [[mp-retro]] loads it before proposing any steering change.
 
 ## The vocabulary
 
@@ -39,3 +39,8 @@ Off-stage, as a writing reference rather than a lifecycle step, but it is the st
 - [[mp-wait-what]] — a three-line skill built on its leading-word theory.
 - [[sp-writing-skills]] · [[pstack-reflect]] — other frameworks' skill-authoring disciplines.
 - [[artifact-skill-doc]] — what it governs the writing of.
+
+## Version history
+- **v1.2.2 (2026-08-05):** made model-invokable in Codex again (dropped `policy.allow_implicit_invocation: false`; updated Codex display metadata that still named `writing-great-skills`), and moved to the Model-invoked lists in the READMEs.
+- **v1.2.0 (2026-08-05):** renamed from `writing-great-skills` (breaking, no alias) and restructured. The scope widened from skills to all agent-facing documents, the separate `GLOSSARY.md` was merged into `SKILL.md`, skill-only mechanics moved to `SKILL-MECHANICS.md`, it became model-invoked, and the pruning section gained **cache**.
+- **Initial ingest (2026-06-28):** catalogued (not paged) as `writing-great-skills`, a reference for authoring skills well.

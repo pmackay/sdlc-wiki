@@ -17,10 +17,14 @@ updated: 2026-10-11
 
 `/handoff` — a user-invoked productivity skill that **compacts a conversation into a handoff document** ([[artifact-handoff-doc]]) so a fresh agent (or session) can pick up without losing context. Applies [[pattern-session-handoff]].
 
-Cross-cutting: it serves any lifecycle stage rather than one, so it carries no `implements:` edge. GSD addresses the same need structurally with `STATE.md` / `CONTEXT.md` persistence and `pause-work` / `resume-work` — clustered at [[pattern-session-handoff]].
+It is for when something must **travel**: a new harness, a new directory (e.g. the [[mp-prototype]] detour), a colleague, or a side task forked mid-phase. "What it buys is portability." [[mp-ask-matt]]'s phase-boundary tree places it third of five options. Within the same harness and directory, prefer *continue*, `/clear`, a subagent, or `/compact` (the default).
 
-> **Narrowed in v1.2.0 (2026-08-05).** [[mp-ask-matt]]'s new phase-boundary tree says `/handoff` "was oversold" as the general bridge between context windows. It is for when something must **travel**: a new harness, a new directory (e.g. the [[mp-prototype]] detour), a colleague, or a side task forked mid-phase. "What it buys is portability." Within the same harness and directory, prefer *continue*, `/clear`, a subagent, or `/compact` (the default).
+Cross-cutting: it serves any lifecycle stage rather than one, so it carries no `implements:` edge. GSD addresses the same need structurally with `STATE.md` / `CONTEXT.md` persistence and `pause-work` / `resume-work` — clustered at [[pattern-session-handoff]].
 
 ## See Also
 - [[gsd]] — GSD's built-in session-handoff mechanism.
 - [[pattern-session-handoff]] — the shared technique.
+
+## Version history
+- **v1.2.0 (2026-08-05):** narrowed. [[mp-ask-matt]]'s new phase-boundary tree said `/handoff` "was oversold" as the general bridge between context windows, and limited it to cases where context must travel.
+- **Initial ingest (2026-06-28):** documented as the general tool for compacting a conversation across agent transitions.

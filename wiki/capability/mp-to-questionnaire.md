@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `/to-questionnaire` — a user-invoked productivity skill: "Turn a decision you can't fully answer into a questionnaire for someone else to fill in." The output is a Markdown file (`to-questionnaire-<slug>.md`) handed to **one person** to fill in async, or worked through together in a meeting.
 
-**New in v1.2.0 (2026-08-05), graduated from `in-progress/`.** [[mp-ask-matt]] frames it as "the inverse of `/grill-me`": mine someone else, not yourself.
+[[mp-ask-matt]] routes it under Standalone and frames it as "the inverse of `/grill-me`": mine someone else, not yourself.
 
 ## The defining move: grill the send, not the subject
 
@@ -33,10 +33,13 @@ A **discovery questionnaire**: Purpose / From–To / How your answers will be us
 
 ## Where it sits
 
-This is a new flavor of [[stage-align]], **delegated elicitation**. Every other align capability in the wiki interviews the person at the keyboard (the grilling cluster) or processes incoming reports (the intake cluster). `to-questionnaire` targets a **third party** who holds the missing knowledge. What comes back feeds [[mp-grill-with-docs]] or [[mp-to-spec]]. No other framework pages an equivalent yet.
+This is a distinct flavor of [[stage-align]], **delegated elicitation**. Every other align capability in the wiki interviews the person at the keyboard (the grilling cluster) or processes incoming reports (the intake cluster). `to-questionnaire` targets a **third party** who holds the missing knowledge. What comes back feeds [[mp-grill-with-docs]] or [[mp-to-spec]]. No other framework pages an equivalent yet.
 
 ## See Also
 - [[mp-grill-me]] · [[mp-grilling]] — the self-interview it inverts.
 - [[mp-grill-with-docs]] · [[mp-to-spec]] — where the answers go next.
 - [[pattern-grilling]] — the elicitation pattern, here pointed at the send.
 - [[stage-align]] — the canonical stage this implements.
+
+## Version history
+- **v1.2.0 (2026-08-05):** graduated from `in-progress/` into `productivity/`; shipped in the plugin and routed by [[mp-ask-matt]] as the inverse of `/grill-me`.

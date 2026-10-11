@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `pr` — a **model-invoked** engineering skill whose whole description is "Use when writing a PR body." It is the **shape a pull request body should take** → [[artifact-pull-request]]. Being model-invoked, the agent reaches for it whenever it writes a PR, with no slash command needed.
 
-**New in v1.3.0 (2026-10-04), graduated from `in-progress/`.** It is Matt Pocock's first capability on [[stage-release]], but only the *write-up* part of it: it does not commit, push, open, or merge anything. Those stay with the agent or with [[mp-implement-spec]], which opens a draft PR when the tracker works that way.
+It is Matt Pocock's only capability on [[stage-release]], and covers only the *write-up* part of it: it does not commit, push, open, or merge anything. Those stay with the agent or with [[mp-implement-spec]], which opens a draft PR when the tracker works that way.
 
 ## The template
 
@@ -37,3 +37,6 @@ Most release-cluster capabilities (e.g. [[ce-commit-push-pr]], [[gsd-ship]], [[g
 - [[ce-commit-push-pr]] · [[gsd-ship]] — release-cluster counterparts that also open the PR.
 - [[artifact-pull-request]] — what it shapes.
 - [[stage-release]] — the canonical stage this (partially) implements.
+
+## Version history
+- **v1.3.0 (2026-10-04):** graduated from `in-progress/` into `engineering/`; shipped in the Claude Code plugin and routed by [[mp-ask-matt]] as the PR-body close-out. The toolkit's first [[stage-release]] capability.

@@ -19,8 +19,13 @@ updated: 2026-10-11
 
 `/resolving-merge-conflicts` was a model-invoked engineering skill for resolving an **in-progress git merge/rebase conflict**. It read the current merge/rebase state and found the **primary sources** for each conflicting change (commit messages, PRs, original issues) to understand each side's intent. It then resolved every hunk, preserving both intents where possible or picking the one that matched the merge's stated goal and noting the trade-off. It never invented new behaviour and never ran `--abort`. Finally it ran the project's automated checks (typecheck → tests → format), fixed anything the merge broke, and finished the merge/rebase with a commit.
 
-**Added in v1.1 (2026-07-09).** It was an integration-time implementation skill: understanding change intent from primary sources ([[pattern-source-grounding]]) to keep a shared trunk mergeable ([[pattern-trunk-based-development]]). It had no cross-framework counterpart. The retirement itself is evidence: integration conflict handling was judged to be default agent competence, not a discipline worth a skill. In v1.3.0 its nearest successor in spirit is [[mp-implement-spec]], which avoids most conflicts by design (each implementer merges the integration tip into its own branch first, so every merge is a fast-forward).
+It was an integration-time implementation skill: understanding change intent from primary sources ([[pattern-source-grounding]]) to keep a shared trunk mergeable ([[pattern-trunk-based-development]]). It had no cross-framework counterpart. The retirement itself is evidence: integration conflict handling was judged to be default agent competence, not a discipline worth a skill. Its nearest successor in spirit is [[mp-implement-spec]], which avoids most conflicts by design (each implementer merges the integration tip into its own branch first, so every merge is a fast-forward).
 
 ## See Also
 - [[mp-implement]] · [[mp-implement-spec]] — the build skills whose work this integrated.
 - [[stage-implement]] — the canonical stage this implemented.
+
+## Version history
+- **v1.3.0 (2026-10-04):** removed from the repo, the Claude Code plugin, the README, and the [[mp-ask-matt]] router; nothing replaces it. Its docs page stays up, marked archived.
+- **v1.2.0 (2026-08-05):** added to the [[mp-ask-matt]] router, from which it had been missing.
+- **v1.1.0 (2026-07-08; ingested 2026-07-09):** added as a model-invoked engineering skill.

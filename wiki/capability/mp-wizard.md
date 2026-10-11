@@ -17,7 +17,7 @@ updated: 2026-10-11
 
 `wizard` — a **model-invoked** engineering skill that "generate[s] an interactive bash wizard that walks a human through steps only they can perform". The four trigger branches are provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, and a one-off migration or cutover. It has an explicit non-trigger: "Don't invoke this for steps the agent can perform itself."
 
-**New in v1.2.0 (2026-08-05), graduated from `in-progress/` and made model-invoked.** Model invocation is the point. The agent can reach for it "the moment it hits a step only a human can perform, instead of dumping numbered instructions into the chat and hoping you follow them." v1.2.3 dropped the time-remaining estimate (progress is counted in stages).
+Model invocation is the point. The agent can reach for it "the moment it hits a step only a human can perform, instead of dumping numbered instructions into the chat and hoping you follow them." Progress is counted in stages, with no time estimate.
 
 ## How it works
 
@@ -38,3 +38,7 @@ It advances no lifecycle step itself. It is the **human-in-the-loop escape hatch
 - [[mp-ask-matt]] — routes it under Standalone, "for the steps only a human can take".
 - [[pattern-idempotent-operations]] — the re-runnable `.env` upsert discipline the template builds in.
 - [[topic-harness-engineering]] — a wizard is a human-facing guide that the agent generates.
+
+## Version history
+- **v1.2.3 (2026-08-06):** removed the time estimate. The template dropped `TOTAL_MINUTES` and the time-remaining display; `stage` takes a name only.
+- **v1.2.0 (2026-08-05):** graduated from `in-progress/` into `engineering/` and made model-invoked; routed by [[mp-ask-matt]] under Standalone.
