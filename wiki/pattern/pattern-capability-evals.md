@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "Tessl docs (2026); Anthropic — The AI-Native SDLC playbook (2026)"
-raw: ["../../raw/tessl/2026-09-12-tessl-platform.md", "../../raw/reference/2026-08-21-ai-native-sdlc-playbook.md"]
-updated: 2026-09-12
+sources: "Tessl docs (2026); Anthropic — The AI-Native SDLC playbook (2026); Warp — Warp Factories docs (2026)"
+raw: ["../../raw/tessl/2026-09-12-tessl-platform.md", "../../raw/reference/2026-08-21-ai-native-sdlc-playbook.md", "../../raw/runtime/2026-10-24-warp-factories.md"]
+updated: 2026-10-24
 ---
 
 # Pattern: Capability evals (prove the instructions changed the behavior)
@@ -22,6 +22,10 @@ That makes it the first pattern in the wiki whose subject is a `capability` page
 **The scenarios become a regression suite.** *"The scenarios are saved with the skill, so anyone who changes it later can re-run the same scenarios and confirm it still behaves as expected."* This is the mechanism that makes a shared skill corpus safe to edit — the failure mode it addresses is a team that will not touch a skill because nobody can tell what a change would break → [[artifact-eval-suite]].
 
 **It has a cheap sibling it should not be confused with.** Tessl runs both, and names the distinction: a **review** is fast, structural, and automatic on publish (*is it well written?*); an **eval** is slow, task-based, and deliberate (*does it work?*). Reach for the eval before publishing something others will use in agents you never see.
+
+## Enabled by (infrastructure)
+
+- [[warp-factories]] (platform) — the same discipline with a different unit under test: an **agent's configuration** (model, harness, runner) rather than one skill. A benchmark suite runs fixed tasks for one agent under up to six configurations with repetitions; each task pins its repositories to full commit SHAs, carries *correctness criteria* for a built-in judge, and can be created from a real completed run, so the suite is drawn from the team's own work. *"The run keeps those inputs, so later changes to the suite do not change its past results."* Scorers then sample production runs against a rubric to check the adopted configuration holds up. The with-and-without-a-skill A/B that defines this pattern is not something a suite expresses directly; a skill change is evaluated through the scorers and the self-improvement pull requests instead.
 
 ## Supplied by (registry)
 

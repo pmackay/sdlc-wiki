@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "Builder.io — BuilderIO/skills (2026); pstack v0.15.2 — Lauren Tan (2026); GSD docs (2026); Factory.ai — Droid docs (2026)"
-raw: ["../../raw/builder-skills/2026-09-26-builder-skills.md"]
-updated: 2026-09-26
+sources: "Builder.io — BuilderIO/skills (2026); pstack v0.15.2 — Lauren Tan (2026); GSD docs (2026); Factory.ai — Droid docs (2026); Warp — Warp Factories docs (2026)"
+raw: ["../../raw/builder-skills/2026-09-26-builder-skills.md", "../../raw/runtime/2026-10-24-warp-factories.md"]
+updated: 2026-10-24
 ---
 
 # Pattern: Model tiering (expensive model for judgment, cheap models for bounded work)
@@ -29,6 +29,10 @@ pstack:
 GSD:
 
 - [[gsd-planner]] runs on an **Opus-tier** model, while execution goes to other agents. This is the earliest example in the wiki, implicit in which model each sub-agent runs on.
+
+## Enabled by (infrastructure)
+
+- [[warp-factories]] (platform) — tiering by **role and by router**. Each factory agent has its own model or harness, chosen by *"what each agent has to do well"* (orchestration and long conversations for the foreman, research for triage, coding strength for implement). Factory-owned **model routers** go one level finer: a `complexity` router maps easy, medium, and hard tasks to concrete models, and a `prompt` router picks a model from an ordered list of task descriptions (*"Routine documentation changes"* → a small model; *"Complex implementation or debugging"* → a large one). **Benchmarks** price the trade on the team's own tasks before a change is adopted. The re-verification step this pattern requires is left to the agents' prompts.
 
 ## Provided by (harness)
 

@@ -1,7 +1,7 @@
 ---
 type: index
 sources: "Synthesized from Agent Skills (agentskills.io), AGENTS.md (agents.md), and the Model Context Protocol specification 2026-07-28, read against the wiki's paged nodes"
-updated: 2026-10-11
+updated: 2026-10-24
 ---
 
 # Standard
@@ -37,6 +37,7 @@ Each page records the spec as published and its **adoption roster**: the `confor
 | [[sssf]] | runtime | ✅ is a skill | | |
 | [[gh-aw]] | runtime | | | ✅ MCP Gateway |
 | [[warren]] | runtime | | | ◽ roadmap |
+| [[warp-factories]] | runtime | ✅ factory skills | | ✅ Factory MCP |
 | [[superpowers]] | framework | ✅ cites the spec | | |
 | [[addy-agent-skills]] | framework | ✅ | | ◽ consumer |
 | [[bmad]] | framework | ✅ | | |
@@ -52,7 +53,7 @@ Frameworks absent from the matrix ([[gsd]], [[speckit]], [[openspec]], [[agent-o
 
 ## What the matrix shows
 
-**Agent Skills is the closest thing to a universal format in the wiki.** All four paged harnesses, nine of fourteen frameworks, two runtimes, and the one registry conform. That is the "framework is coming apart" observation from the [registry layer](../registry/index.md) with its precondition made explicit: a capability can only become an independently installable unit because there is a shared format for one.
+**Agent Skills is the closest thing to a universal format in the wiki.** All four paged harnesses, nine of fourteen frameworks, three runtimes, and the one registry conform. That is the "framework is coming apart" observation from the [registry layer](../registry/index.md) with its precondition made explicit: a capability can only become an independently installable unit because there is a shared format for one.
 
 **`AGENTS.md` has one conspicuous hole, and the rest of the wiki works around it.** Claude Code reads `CLAUDE.md` instead, and it is the harness almost every framework targets first. So the tools that write context files write **both** ([[builder-skills]], [[bm-skills]], [[seeds]]), [[matt-pocock-skills]] symlinks one to the other, and [[factory-droid]] calls its `AGENTS.md` `CLAUDE.md`-compatible. A standard everyone else adopted, minus the market leader, produces exactly this dual-file tax.
 

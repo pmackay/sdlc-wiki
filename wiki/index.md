@@ -8,7 +8,7 @@ A wave of open-source "agent frameworks" appeared through 2026: GSD, Spec Kit, B
 
 This wiki reads them side by side. Every framework is decomposed into its individual capabilities, each capability is tagged with the lifecycle stage it performs and the techniques it applies, and matching capabilities across frameworks are linked to one another. What emerges from those links — rather than from anyone's opinion — is a **canonical eight-stage lifecycle** and a set of recurring **patterns** that most frameworks independently converged on.
 
-It currently covers **14 frameworks**, **422 capabilities**, **41 artifacts**, **39 patterns**, **4 agent harnesses**, **5 execution runtimes**, **2 state stores**, **1 capability registry**, and **3 open standards**.
+It currently covers **14 frameworks**, **422 capabilities**, **41 artifacts**, **40 patterns**, **4 agent harnesses**, **6 execution runtimes**, **2 state stores**, **1 capability registry**, and **3 open standards**.
 
 ## How it is organised
 

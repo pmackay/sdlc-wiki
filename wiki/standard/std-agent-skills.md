@@ -7,7 +7,7 @@ spec_version: "unversioned"
 enables: ["[[pattern-context-engineering]]"]
 sources: "Agent Skills — agentskills.io overview and specification (captured 2026-10-11)"
 raw: ["../../raw/standard/2026-10-11-agent-skills-specification.md"]
-updated: 2026-10-11
+updated: 2026-10-24
 ---
 
 # Agent Skills (SKILL.md)
@@ -83,6 +83,7 @@ The agentskills.io client showcase lists **46** adopting products. Every paged h
 
 - [[bernstein]] — role prompts are *"progressive-disclosure capability packs"*: a directory with `SKILL.md` plus optional `references/`, `scripts/`, `assets/`, with only the name+description index injected at spawn.
 - [[sssf]] — the runtime *is* a skill directory: `SKILL.md` holds the hard rules and routing, with `references/` and `scripts/` beside it.
+- [[warp-factories]] — factory skills are `SKILL.md` directories in the factory definition, shared under `skills/` or scoped to one agent under `agents/<name>/skills/`; the Warp Agent harness reads the same layout from `.agents/skills/` and the other vendors' skill directories.
 
 **Registries:**
 

@@ -1,8 +1,8 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
-raw: ["../../raw/gstack/2026-07-05-gstack-framework.md"]
-updated: 2026-09-26
+sources: "EveryInc/compound-engineering-plugin — /lfg, /ce-dogfood (2026); gstack — Garry Tan (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026); Warp — Warp Factories docs (2026)"
+raw: ["../../raw/gstack/2026-07-05-gstack-framework.md", "../../raw/runtime/2026-10-24-warp-factories.md"]
+updated: 2026-10-24
 ---
 
 # Pattern: Autonomous loop (hands-off pipeline to a terminal success gate)
@@ -66,6 +66,7 @@ The process-layer loops above are *skills that instruct an agent*; the [executio
 - [[sssf]] (library) — the **bounded, single-shot** end of the range: an ADW chain runs to a two-part terminal gate — every phase green **and** the script's own `run.finish(accepted=…)` criterion — with self-repair inside it. `adw_simple_sdlc` loops the builder against the suite's verbatim output (`MAX_FIX_LOOPS`), then against the reviewer's blocking findings (`MAX_REVISION_LOOPS`), re-runs the suite when a revision invalidated a green result, and commits only once both came back clean. No daemon, no cron, no CI watch: the loop is a Python `for` statement, which is the point (*"code owns sequencing, retries, and acceptance"*). The acceptance split is the transferable idea — *"a test phase that ran a red suite did its job perfectly"*, so phases passing and the run being acceptable are asked as separate questions.
 - [[bernstein]] (platform) — a goal goes in and merged code comes out: an orchestrator **tick loop** over a task DAG, with adaptive timeouts sized from history, bounded retries that **escalate to a more capable model** on failure, a purpose-constraint circuit breaker, token/cost kill-switches, and **quiescence self-stop** (with heartbeat-renewed *hold* leases so an external HITL workflow can keep an idle-looking orchestrator alive).
 - [[gh-aw]] (platform) — the **event-driven** end of the range: the loop's trigger is the repo's own event stream (an opened issue, a failed `workflow_run`, a deploy in error state, cron or fuzzy schedules like *"daily around 14:00"*), and its bounds are declared as frontmatter data rather than scripted — `max-turns`, per-run and daily AI-credit budgets, `cooldown`, `user-rate-limit`, and `stop-after: "+7d"` (a loop that disables its own trigger at a deadline). The announcement names the operating shape "continuous": triage, documentation, simplification, test improvement, quality hygiene, reporting.
+- [[warp-factories]] (platform) — the **agent-team** end of the range: standing automations route events, signed webhooks, and schedules to a **foreman agent**, which runs each work item through triage, spec, implement, and review to a PR hand-off, stopping only where its policy names a human (spec approval, ambiguous findings). The loop does not end at the hand-off: the work item completes on a later merge notification, and a CI failure on the delivered PR, once an automation routes it back in, goes to the implement agent that wrote it.
 
 ## Persisted by (store)
 
