@@ -7,7 +7,7 @@ spec_version: "2026-07-28"
 enables: ["[[pattern-context-engineering]]"]
 sources: "Model Context Protocol — specification 2026-07-28, key changes, and governance (captured 2026-10-11)"
 raw: ["../../raw/standard/2026-07-28-model-context-protocol-spec.md"]
-updated: 2026-10-11
+updated: 2026-10-24
 ---
 
 # Model Context Protocol (MCP)
@@ -63,6 +63,7 @@ Edges here require an **endpoint** — a client or a server. Tools that only cal
 
 - [[bernstein]] — runs an MCP server (`bernstein.mcp.server`) whose `load_skill` tool serves skill bodies on demand, injects MCP config into spawned Claude Code agents, and lists MCP in `core/protocols/` beside A2A and ACP.
 - [[gh-aw]] — runs each declared MCP server (`mcp-servers:` in workflow frontmatter) in an isolated container behind an MCP Gateway, and reaches GitHub through the GitHub MCP server.
+- [[warp-factories]] — ships the **Factory MCP**, a remote streamable-HTTP server (`https://app.warp.dev/api/v1/mcp/factory`, OAuth browser sign-in or an agent API key) through which any MCP client sends work to a factory, pulls a task down to work locally, messages its foreman, and validates factory definitions; factory agents also take MCP servers from the definition (`mcpServers`, by Warp ID, stdio command, or URL). The docs flag the scope: *"Factory MCP has no read-only or per-factory scopes."*
 
 **The absence: pi.** [[pi]] deliberately keeps MCP **out of core**; it is available only through a TypeScript extension. It is the one paged harness without an edge, by design rather than by lag, and it is the clearest statement in the wiki that a harness can treat a widely adopted standard as optional.
 

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026)"
-updated: 2026-10-11
+sources: "EveryInc/compound-engineering-plugin — /ce-worktree, /ce-work (2026); obra/superpowers — using-git-worktrees (2026); mattpocock/sandcastle (2026); jayminwest/warren (2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); github/gh-aw (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026); Builder.io — BuilderIO/skills (2026); Warp — Warp Factories docs (2026)"
+updated: 2026-10-24
 ---
 
 # Pattern: Worktree isolation (each unit of work in its own git worktree)
@@ -65,6 +65,7 @@ The [execution layer](../runtime/index.md) provides this pattern as *substrate* 
 - [[warren]] (platform) — the same "never corrupt the trunk" intent realized at the OS level: a fresh `bwrap`-isolated workspace per run (`local`) or a dedicated pod per run (`k8s`), rather than a git worktree.
 - [[bernstein]] (platform) — a git worktree per spawned agent is the default sandbox, *"so multiple agents running against the same repository cannot stomp on each other's files, processes, or secrets"*; the choice is pluggable behind a `SandboxBackend` protocol with seven heavier first-party backends (docker, e2b microVMs, modal, daytona, blaxel, runloop, vercel) and an entry-point group for third parties.
 - [[gh-aw]] (platform) — the isolation is the CI substrate itself: every run gets an ephemeral GitHub Actions runner, optionally hardened by the Agent Workflow Firewall (the engine in a Docker container behind a Squid proxy enforcing a domain allowlist — *"All traffic routed through proxy enforcing the domain allowlist"*), with gVisor or KVM-microVM runtimes as stronger substrates. The distinctive addition is **egress** isolation: the other runtimes here bound what the agent may *write*; the firewall bounds what it may *reach*.
+- [[warp-factories]] (platform) — a fresh sandbox per run on Warp-hosted compute (a Docker container on Linux, a fresh VM on macOS or Windows). On a self-hosted worker the backend chooses: a container, a Kubernetes Job, or a Direct-backend workspace that setup and teardown hooks turn into **one git worktree per task** over a shared monorepo clone, so concurrent agents share the object store but not the branch or working files. The docs are explicit about that last option's limit: *"Worktrees isolate working files and branches, not the host OS."*
 
 ## Persisted by (store)
 

@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026)"
-updated: 2026-09-26
+sources: "Matt Pocock — Skills for Real Engineers (2026); Open GSD docs (2026); gstack — Garry Tan (2026); tao-hpu/nano-spec (2025); mattpocock/sandcastle (2026); jayminwest/warren (2026); Anthropic — Claude Code (2026); opencode.ai (Anomaly, 2026); pi.dev (Earendil, 2026); sipyourdrink-ltd/bernstein (2026); jayminwest/seeds (2026); gastownhall/beads (2026); disler/super-simple-software-factory (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026); Warp — Warp Factories docs (2026)"
+updated: 2026-10-24
 ---
 
 # Pattern: Session handoff
@@ -58,6 +58,7 @@ The [execution layer](../runtime/index.md) carries working context across a *run
 - [[warren]] (platform) — `.mulch/` priming on spawn, mid-run **steering**, and the persisted NDJSON event log let a run pick up (and be redirected on) prior state.
 - [[sssf]] (library) — `agent_map.json` records agent → coding-agent session id → model per run id, so a second ADW invoked with the same `--adw-id` has each agent **resume its own existing context window** rather than starting cold (`adw_plan.py` then `adw_build.py --adw-id a1b2c3d4`). The map stores the model each session was created with and starts a *fresh* session if config drift changed it — *"never a bad resume."* The same mechanism serves within-phase corrections: because [[pi]] treats `--session-id` as create-or-continue, a failed envelope parse or gate violation re-prompts the live session instead of restarting it, since *"a cold restart throws away everything the agent learned. A correction costs one message."*
 - [[bernstein]] (platform) — `bernstein handoff emit` / `claim` moves a **live** session between surfaces (terminal → web dashboard → chat bridge) on a short-lived single-use token, alongside durable suspend/resume, fork-from-step, and a `session_memory` compaction tier that distils a completed session into a durable cross-session summary.
+- [[warp-factories]] (platform) — handoff **between a factory and a person's local agent**, in both directions, over the Factory MCP. `get_task` with `start_working=true` returns the task's status, run history, and the git commands for a local worktree; the developer works with their own tools; `send_task` returns the pushed branch and a note to the same task, and the foreman decides the next step. Inside the factory, finished subagent sessions stay open (`idleTimeoutMinutes`, up to 60) so follow-ups reach the agent that already holds the context. The docs name the gap: picking up a task *"doesn't claim, lock, or pause it"*, so duplicate work is possible.
 
 ## Provided by (harness)
 

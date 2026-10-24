@@ -1,7 +1,7 @@
 ---
 type: pattern
-sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026); sipyourdrink-ltd/bernstein (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026)"
-updated: 2026-09-26
+sources: "gstack — Garry Tan (2026); EveryInc/compound-engineering-plugin (2026); sipyourdrink-ltd/bernstein (2026); pstack v0.15.2 — Lauren Tan (2026); Builder.io — BuilderIO/skills (2026); Warp — Warp Factories docs (2026)"
+updated: 2026-10-24
 ---
 
 # Pattern: Cross-model review (an independent second opinion from another model)
@@ -42,6 +42,7 @@ builder-skills (cross-*agent*, typically Codex ↔ Claude Code):
 ## Enabled by (infrastructure)
 
 - [[bernstein]] (platform) — the **review gate** makes a distinct-model reviewer a *configuration* property rather than a convention: `ModelSelection` is one of `SameModelOk` / `DifferentModelPreferred` / `DifferentModelRequired`, and the last raises `EvalGateConfigError` when it cannot be satisfied. The reviewer sees only `(spec, diff, test_output)` and returns a three-valued structured verdict — pass · fail · questions — that drives auto-merge. An optional **cross-model verifier** additionally runs the diff past a second provider's model for A/B review (shipped, disabled by default). The runtime's rationale matches this pattern's: *"Same-model self-critique is empirically weak at catching the implementer's own blind spots."*
+- [[warp-factories]] (platform) — makes the pattern **default configuration** rather than an enforced property. Every agent picks its own model and harness, and the configuration guide's rule for the review agent is *"a different model or harness from the implement agent, so the two don't share blind spots."* The shipped default agents follow it (a GPT-family reviewer, an `auto-genius` implementer). Unlike [[bernstein]], nothing raises an error if a team sets both to the same model, and the review verdict is advisory.
 
 ## See Also
 - [[pattern-candidate-grafting]] — several models each producing a *whole* artifact, rather than several models reviewing one.

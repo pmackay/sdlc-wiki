@@ -6,9 +6,9 @@ runs: ["[[pi]]"]
 enables: ["[[pattern-deterministic-gates]]", "[[pattern-evidence-before-claims]]", "[[pattern-contract-first]]", "[[pattern-context-engineering]]", "[[pattern-session-handoff]]", "[[pattern-edit-guardrails]]", "[[pattern-autonomous-loop]]"]
 conforms_to: ["[[std-agent-skills]]"]
 # --- karpathy bookkeeping ---
-sources: "IndyDevDan — disler/super-simple-software-factory (MIT, main @ de31374, 2026-08-02)"
-raw: ["../../raw/runtime/2026-08-31-super-simple-software-factory.md"]
-updated: 2026-10-11
+sources: "IndyDevDan — disler/super-simple-software-factory (MIT, main @ de31374, 2026-08-02); Dru Knox — 'Context-Driven Factories' (Tessl blog, 2026-09-15)"
+raw: ["../../raw/runtime/2026-08-31-super-simple-software-factory.md", "../../raw/tessl/2026-09-15-context-driven-factories.md"]
+updated: 2026-10-24
 ---
 
 # sssf
@@ -63,6 +63,8 @@ The second, sharper claim is about **when not to use an agent at all**, and it i
 > Code costs nothing. It runs at the speed of light. You can change it in a second. And you actually own it, which is not true of any model you are renting by the token. So when the invocation is already known, write it down. `bun test` is not a judgement call. Neither is `ruff check`. An agent rediscovering your test runner burns a context window to learn what a subprocess already knows […] Worse, it puts a passing test suite into a context window, which buys you nothing at all.
 
 This is a hard rule of the skill, not an aside (*"A known command is code, not an agent"*), and it is why the shipped roster has **no tester agent**. It is also, in a different vocabulary, [[topic-harness-engineering]]'s rule that a computational control beats an inferential one wherever a computational one exists — arrived at here from cost and repeatability rather than from control theory.
+
+**A disagreement, recorded on both pages (2026-10-24).** [[tessl]]'s *"Context-Driven Factories"* (Dru Knox, 2026-09-15) argues the opposite about the outer loop. Its first claimed failure mode is *"Workflows defined in code are brittle and cannot improve as stronger models ship"*: a coded ticket-to-PR pipeline *"quickly becomes a mess of exceptions and special cases"*, and *"guardrails that were prudent for one model generation become an invisible straitjacket for the next."* Its prescription is that code *"does not sit in the outer loop deciding how the agent progresses through the task"*, which is exactly the position sssf exists to reverse. The two agree more than the headline suggests on the inner loop: Tessl still wants *"efficiency and determinism from the tools it calls"* (scripts, CLIs, MCP tools), which is sssf's *"a known command is code, not an agent"* seen from the agent's side. The live disagreement is narrower and sharper: who decides the next step and what counts as done. sssf answers code, for repeatability and a named acceptance criterion; Tessl answers the model reading a skill, for adaptability across exceptions and model generations. Neither source has evidence that settles it, and the wiki does not adjudicate it. See [the factory thesis](../registry/tessl.md#the-factory-thesis-context-driven-factories) and [[topic-software-factory]].
 
 ## The phase primitive: three lanes, one context manager
 
@@ -223,3 +225,4 @@ The scope answer is equally direct: *"Is this overkill for a one-off feature? Ye
 - [[stage-validate]] — the stage whose concerns the gates and the `kind="code"` test phases pull down into the execution layer, the recurring move of this layer.
 - [The store layer](../store/index.md) — the counter-example by omission: sssf keeps *no* state across runs, which is precisely the gap [[beads]] and [[seeds]] exist to fill. Its `sssf.db` is a trace of what happened, not a work graph an agent reads back.
 - [[std-agent-skills]] — the format the runtime itself is packaged in.
+- [[tessl]] — the context-driven factory thesis, which argues the outer loop belongs in skills rather than code; the disagreement is recorded above.

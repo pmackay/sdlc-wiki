@@ -21,9 +21,9 @@ Inside `wiki/`, one level of directories, each mapping to a node type in the ont
 | `capability/` | 422 | One unit of work a framework exposes — a command, skill, or sub-agent. **The hub**: every process-layer edge originates here |
 | `sdlc-stage/` | 8 | The canonical lifecycle stages. **Derived** — a stage page's body is synthesised from the capabilities that `implements:` it |
 | `artifact/` | 41 | A concrete output a capability produces (a spec, a plan, a commit) |
-| `pattern/` | 39 | A reusable technique a capability applies. Also the seam where the substrate layers attach |
+| `pattern/` | 40 | A reusable technique a capability applies. Also the seam where the substrate layers attach |
 | `harness/` | 4 | The agent program itself — Claude Code, pi, opencode, Factory Droid |
-| `runtime/` | 5 | The execution substrate that spawns harnesses — sandboxes, parallelism, autonomy |
+| `runtime/` | 6 | The execution substrate that spawns harnesses — sandboxes, parallelism, autonomy |
 | `store/` | 2 | Durable work graphs and memory that outlive a run — Beads, Seeds |
 | `registry/` | 1 | The versioned supply capabilities are installed from — Tessl |
 | `standard/` | 3 | Open specs every other layer conforms to — Agent Skills, `AGENTS.md`, MCP |

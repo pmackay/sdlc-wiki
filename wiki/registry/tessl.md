@@ -4,11 +4,11 @@ subtype: platform
 source_url: "https://docs.tessl.io/"
 integrates_with: ["[[claude-code]]", "[[opencode]]"]
 distributes: []
-enables: ["[[pattern-capability-evals]]", "[[pattern-supply-chain-scanning]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-evidence-before-claims]]", "[[pattern-context-engineering]]"]
+enables: ["[[pattern-capability-evals]]", "[[pattern-supply-chain-scanning]]", "[[pattern-deterministic-gates]]", "[[pattern-knowledge-compounding]]", "[[pattern-evidence-before-claims]]", "[[pattern-context-engineering]]", "[[pattern-factory-as-code]]"]
 conforms_to: ["[[std-agent-skills]]", "[[std-mcp]]"]
-sources: "Tessl — docs.tessl.io (CLI v0.108.0, 2026); overview, core concepts, glossary, supported platforms, creating/improving/distributing guides, full CLI reference. Company facts (funding, founding, the 2025 Framework pivot) from public reporting, recorded separately in the raw capture."
-raw: ["../../raw/tessl/2026-09-12-tessl-platform.md"]
-updated: 2026-10-11
+sources: "Tessl — docs.tessl.io (CLI v0.108.0, 2026); overview, core concepts, glossary, supported platforms, creating/improving/distributing guides, full CLI reference. Company facts (funding, founding, the 2025 Framework pivot) from public reporting, recorded separately in the raw capture. Dru Knox — 'Context-Driven Factories' (Tessl blog, 2026-09-15); Tessl docs — Automations and Schedules (captured 2026-10-24)."
+raw: ["../../raw/tessl/2026-09-12-tessl-platform.md", "../../raw/tessl/2026-09-15-context-driven-factories.md"]
+updated: 2026-10-24
 ---
 
 # Tessl
@@ -93,9 +93,34 @@ flowchart LR
 
 ### Execution surface (runtime-adjacent — see the boundary note below)
 - [[tessl-launch]] — launch a coding agent, or run an installed skill locally or **in the cloud** against a repo.
-- [[tessl-schedule]] — cron schedules that run a registry plugin against a repo on an interval, with pause, resume, and manual trigger.
+- [[tessl-schedule]] — schedules that run a plugin against a repo on a cron, declared in the repo's `tessl.json` and synced from the default branch, or created from the CLI or web app.
 - [[tessl-agent]] — the conversational platform agent, with its own MCP server management.
 - [[tessl-mcp]] — `mcp start` (the integration every harness connects to) and `mcp proxy` (a workspace MCP gateway).
+
+## The factory thesis: context-driven factories
+
+Tessl's account of what a software factory should be is a post by its head of product, Dru Knox, *"Context-Driven Factories"* (2026-09-15). It is a design argument more than a product page, and it takes a side in the question the [execution layer](../runtime/index.md) is organised around: where the control plane lives.
+
+> Our answer is context-driven factories, a method centered on defining your team's workflows and standards in plain files that run on simple, transparent infra.
+
+**Two principles.**
+
+- **Workflow definition lives in context, not code.** *"The agent reads a description of the job and what good looks like, has the tools it needs, and decides what to do next. Code is still present, as scripts, CLIs, and MCP tools the agent can call, but it does not sit in the outer loop deciding how the agent progresses through the task or what it is allowed to see."* In the ticket-to-PR example *"there is no extra logic or magic routing"*: an agent starts with a `triage-issue` skill that names the sibling skills to move to next, and a `pr-shepherd` plugin takes over once a PR exists (*"resolve CI, address review, merge when the criteria are met"*).
+- **Every workflow and standard lives in a plugin.** *"Those plugins are checked into your repos and shared between projects with a context registry. Read a plugin and you know how the factory works. Change a plugin and you have changed the factory."* Standards owned by other teams (a design system, brand guidelines, a "company brain") are registry **dependencies** pinned by semver range in `tessl.json`, not copies in the repo.
+
+**The shape on disk** (from the post's diagrams): a `factory/` directory of plugins (`issue-handling/`, `pr-shepherd/`, `code-review/`, `automations/…`), each a `skills/` folder plus `scripts/`, `hooks/`, and `mcp.json`; and a `tessl.json` holding `dependencies`, `schedules`, and `triggers` that bind an event (`linear:issue.delegated`, `github:pull_request.opened`, `github:pull_request.ready_for_review`) or a cron to an entry skill. Below it sits infrastructure the post calls *"invisible, because it carries no logic"*: sandboxes, secrets, webhooks, a scheduler.
+
+**The adoption path** is a slogan: *"from skills, to loops, to factory."* A **skill** is a written-down workflow run by hand until the team trusts it; a **loop** is *"a skill you have deployed to run automatically, one that improves over time as it runs"*; a **factory** *"composes skills and loops into a full agentic SDLC."* *"Automation is the payoff at the end of the effort, not the starting point."*
+
+**Three claimed failure modes of the alternative**, each an argument against a code-owned control plane:
+
+- *"Workflows defined in code are brittle and cannot improve as stronger models ship."* A ticket-to-PR pipeline *"quickly becomes a mess of exceptions and special cases"* (multi-repo features, stacked PRs, a copy fix that deserves lighter review), and *"guardrails that were prudent for one model generation become an invisible straitjacket for the next."*
+- *"Knowledge is siloed and improvements in one workflow don't benefit others."* Tools with private memory improve themselves, not the work: *"A review tool that has learned your preferences reviews better, but your PRs do not arrive any cleaner."* Because review, generation, and maintenance read the same plugin files, *"review improved generation without anyone wiring the two together, because they were reading the same file all along."*
+- *"Tooling comes before process design, so the team never buys in."* Decisions end up *"trapped in configuration screens, or hidden in glue code only half the team understands."*
+
+**What the docs back, and what they do not yet.** The repo-defined `schedules` and `actions` blocks are documented ([[tessl-schedule]]): declare a schedule in `tessl.json`, validate it with `tessl schedule validate`, push to the default branch, and Tessl applies the block as a whole or not at all. The `triggers` block shown in the post (Linear and GitHub events starting a skill) and the `dependencies` block for registry-owned standards appear in the post's diagrams only; neither had a docs page in the index on 2026-10-24. Treat event triggers as announced, not documented.
+
+**Where it sits against the rest of the wiki.** The thesis is the 🧩 **skill-pack pole** of [[topic-software-factory]], stated by a vendor that also sells the hosting for it: control plane in the prompt, workflow as plugins, infrastructure deliberately empty of policy. It is the direct opposite of [[sssf]]'s *"moving the control plane out of the prompt and into Python"* and [[bernstein]]'s zero-LLM scheduler (see the disagreement note on [[sssf]]). It is closer to [[warp-factories]], which also keeps path choice in a prompt and the factory in reviewed files, but differs on authority: Warp Factories puts access in platform configuration and a foreman agent in front of the role agents, where the post wants *"no extra logic or magic routing"* and would let a `pr-shepherd` skill *"merge when the criteria are met."* Its compounding claim (one standards file read by review, generation, and maintenance) is a sharper statement of [[pattern-knowledge-compounding]] than most framework pages make: the lesson compounds because there is only one place for it to live.
 
 ## The layer boundary, honestly
 
@@ -104,6 +129,8 @@ Tessl is not *only* a registry, and the wiki should say so rather than tidy it a
 It is filed as a `registry` under the [harness/runtime boundary rule](../CONVENTIONS.md#the-harness-layer) applied one layer over: **page the product's center of gravity, record the second act as prose.** The centre of gravity is unambiguous — the docs, the CLI's bulk, the funding thesis, and the pivot away from Framework all point at governing the supply of capabilities. The launch and schedule surface exists so that a *registry plugin* can be run, which serves the registry rather than replacing it.
 
 **This is a re-ingest trigger, not a settled fact.** If the execution surface grows past prose — a real scheduler, fleet control, steering — Tessl becomes a genuine two-layer product and this page needs splitting. The same watch applies to the whole layer: a supply platform that can also run what it distributes is one product decision away from being a factory.
+
+**Re-checked 2026-10-24, against the context-driven factories post and the Automations docs: still a `registry`.** The execution surface is larger than the original call assumed: schedules are repo-defined and synced from `tessl.json`, and the post shows event triggers and names sandboxes, secrets, webhooks, and a scheduler as the infrastructure. But the test that separates a runtime is *a runtime owns coordination policy*, and the post's whole argument is that the infrastructure should own none (*"the infrastructure that remains… is invisible, because it carries no logic"*). There is still no fan-out, queue, or mid-run steering, and a schedule skips a tick rather than queueing it when the previous run is still active. So the call holds on Tessl's own stated design, not just on missing features. **Next trigger:** if documented event triggers ship with any routing, retry, or concurrency policy of their own, re-check again, and page the execution surface as a `runtime` if they do.
 
 ## Artifacts produced
 - [[artifact-capability-bundle]] — **new** — the versioned plugin: skills, rules, MCP servers, and hooks installed and updated as one unit.
@@ -117,6 +144,19 @@ It is filed as a `registry` under the [harness/runtime boundary rule](../CONVENT
 - [[beads]] · [[seeds]] — the [state layer](../store/index.md), the nearest neighbour. A store holds what a run *produced*; a registry holds what a run is *provisioned from*. Both are durable, agent-facing, and off-stage; they sit on opposite sides of the run.
 - [[claude-code]] · [[opencode]] — the paged harnesses it ships an integration for.
 - [[topic-ai-native-sdlc]] — the governance frame Tessl implements commercially, including the config-evals instrument that page recorded as unshipped.
-- [[topic-software-factory]] — where the product says it is heading.
+- [[topic-software-factory]] — where the product says it is heading; the context-driven thesis is its 🧩 skill-pack pole.
+- [[warp-factories]] — the nearest runtime: also prompt-coordinated and defined in reviewed files, but with a foreman agent and authority held in configuration.
+- [[sssf]] — the code-owned control plane the context-driven thesis argues against.
 - [[bm-skills]] — a marketplace filed as a `framework` for want of anywhere better; see the layer page for why it stays there.
 - [[std-agent-skills]] · [[std-mcp]] — the spec its skill review validates against, and the protocol its harness integration is built on.
+
+## Version history
+
+### Docs and blog as of 2026-10-24 (ingested 2026-10-24)
+- Added the factory thesis from *"Context-Driven Factories"* (2026-09-15): workflows as plugins, control plane in context, *"skills, to loops, to factory."*
+- Schedules are now declared in `tessl.json` (`schedules` and `actions` blocks), validated with `tessl schedule validate`, and synced from the default branch; CLI and web-app creation is the older path. Event `triggers` and registry `dependencies` in `tessl.json` appear in the post's diagrams but are not yet documented.
+- New `enables:` edge to [[pattern-factory-as-code]].
+- Layer boundary re-checked; still a registry.
+
+### Initial ingest (2026-09-12)
+- Documented at CLI v0.108.0: registry and package manager, governance, evals, observability, inventory, Tessl Agent; launch and schedule recorded as a runtime-adjacent surface.

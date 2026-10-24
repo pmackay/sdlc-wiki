@@ -6,7 +6,7 @@ enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", 
 conforms_to: ["[[std-agent-skills]]", "[[std-mcp]]"]
 sources: "Anthropic — Claude Code docs (docs.claude.com/en/docs/claude-code) + Claude Agent SDK (2026); disler/super-simple-software-factory (2026)"
 raw: ["../../raw/harness/2026-07-31-claude-code.md"]
-updated: 2026-10-11
+updated: 2026-10-24
 ---
 
 # claude-code
@@ -79,13 +79,13 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 - **Frameworks that `runs_on:` it** — **thirteen of the fourteen** documented frameworks officially support Claude Code: [[gsd]] · [[matt-pocock-skills]] · [[addy-agent-skills]] · [[openspec]] · [[speckit]] · [[bmad]] · [[compound-engineering]] · [[gstack]] · [[bm-skills]] · [[superpowers]] · [[nano-spec]] · [[agent-os]] · [[builder-skills]]. The exception is [[pstack]], which is Cursor-native. It is the universal target of the process layer (see the [framework-support matrix](index.md#framework-support-the-runs_on-inverse)).
 - **Stores that `integrates_with:` it** — [[beads]] · [[seeds]], i.e. **both** documented members of the [state layer](../store/index.md). They target this harness differently from a framework: not by shipping skills it loads, but by getting themselves *mentioned* in the files and hooks it reads. [[beads-setup]] `claude` installs hooks and settings and wires [[beads-prime]] into `SessionStart` (with a `--hook-json` envelope built for exactly this); [[seeds-onboard]] writes a section into `CLAUDE.md`, and seeds ships `.claude/commands/` in its own repo. Claude Code's hook system is what makes a store's context injection automatic rather than something an agent must remember to run.
 - **Registries that `integrates_with:` it** — [[tessl]], the [supply layer](../registry/index.md)'s paged member. `tessl init` **auto-detects and configures** this harness: an MCP server entry (`tessl mcp start`) plus written rules files, after which installed [[artifact-capability-bundle|bundles]] reach the agent as MCP tools. A bundle can also carry **hooks** bound to `PreToolUse`, `PostToolUse`, `UserPromptSubmit`, `SessionStart`, and `Stop` — so a registry install extends this harness's own primitives, not just its prompt. The first case in the wiki of an external product shipping *into* the hook surface rather than merely reading the files it produces.
-- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option) · [[bernstein]] (the `claude` adapter, its top-reasoning default) · [[gh-aw]] (the `claude` engine, `ANTHROPIC_API_KEY` or Anthropic WIF, auto-installed on the Actions runner).
+- **Runtimes that `runs:` it** — [[sandcastle]] (agent provider) · [[warren]] (harness option) · [[bernstein]] (the `claude` adapter, its top-reasoning default) · [[gh-aw]] (the `claude` engine, `ANTHROPIC_API_KEY` or Anthropic WIF, auto-installed on the Actions runner) · [[warp-factories]] (a per-agent harness choice beside the Warp Agent and Codex, authenticated with a team-owned auth secret; a Claude Code foreman can still dispatch other factory agents as its children).
 - **Not an edge, but the inverse of one** — [[sssf]] is a runtime *delivered as a Claude Code skill*: `/sssf install` stamps its Python control plane into the repo, and Claude Code then plays **operator** (launch an ADW, read the trace database, retune the roster) while the runtime spawns [[pi]] to do the work. So this harness sits **above** that runtime rather than being spawned by it, which is why there is no `runs:` edge; the skill polices the split explicitly — *"You run the system, observe the system, and help the user interact with it. You do no ADW work yourself."* The first documented case of a harness hosting the *operator* of a runtime rather than its worker.
 
 ## See Also
 - [[tessl]] — the registry that installs capabilities into this harness (one layer up: what runs here came from somewhere).
 - [[opencode]] · [[pi]] — the other terminal harnesses: claude-code is the proprietary/Anthropic-models pole, opencode the open/model-agnostic pole, pi the minimal-core pole. Cross-harness comparison: [harness/index.md](index.md).
-- [[sandcastle]] · [[warren]] · [[bernstein]] · [[gh-aw]] — the execution-layer runtimes that spawn this harness (one layer down).
+- [[sandcastle]] · [[warren]] · [[bernstein]] · [[gh-aw]] · [[warp-factories]] — the execution-layer runtimes that spawn this harness (one layer down).
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns this harness provides as primitives.
 - [[superpowers]] · [[gstack]] — frameworks whose skills run on this harness.
 - [[std-agent-skills]] · [[std-mcp]] — the open standards it conforms to ([adoption matrix](../standard/index.md)). It reads `CLAUDE.md` rather than [[std-agents-md]], which every other paged harness reads.
