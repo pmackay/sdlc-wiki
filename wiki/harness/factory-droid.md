@@ -3,9 +3,10 @@ type: harness
 subtype: terminal
 source_url: "https://docs.factory.ai/cli/getting-started/overview"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]", "[[pattern-model-tiering]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-agents-md]]", "[[std-mcp]]"]
 sources: "Factory.ai — Droid CLI docs (docs.factory.ai/cli) + factory.ai/product/droids (2026); Builder.io — BuilderIO/skills (2026)"
 raw: ["../../raw/harness/2026-08-02-factory-droid.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # factory-droid
@@ -91,3 +92,4 @@ The harness supplies these patterns as *primitives* — they exist whether or no
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns this harness provides as primitives.
 - [[compound-engineering]] · [[gstack]] · [[superpowers]] — frameworks whose skills officially run on this harness.
 - [[bernstein]] — the execution-layer runtime that spawns this harness (one layer down).
+- [[std-agent-skills]] · [[std-agents-md]] · [[std-mcp]] — the open standards it conforms to ([adoption matrix](../standard/index.md)); Factory is one of `AGENTS.md`'s named originators.

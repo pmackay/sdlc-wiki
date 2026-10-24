@@ -3,9 +3,10 @@ type: harness
 subtype: terminal
 source_url: "https://github.com/anomalyco/opencode"
 enables: ["[[pattern-fresh-context-subagents]]", "[[pattern-edit-guardrails]]", "[[pattern-session-handoff]]", "[[pattern-context-engineering]]"]
+conforms_to: ["[[std-agent-skills]]", "[[std-agents-md]]", "[[std-mcp]]"]
 sources: "opencode.ai/docs + github.com/anomalyco/opencode (formerly sst/opencode; Anomaly, MIT, 2026)"
 raw: ["../../raw/harness/2026-07-31-opencode.md"]
-updated: 2026-09-26
+updated: 2026-10-11
 ---
 
 # opencode
@@ -67,3 +68,4 @@ opencode is the wiki's **model-agnostic, open-source** terminal harness — the 
 - [[claude-code]] · [[pi]] — the other terminal harnesses; claude-code is the proprietary/Anthropic-models pole, pi the minimal-core pole, opencode the model-agnostic/batteries-included pole. Cross-harness comparison: [harness/index.md](index.md).
 - [[sandcastle]] · [[bernstein]] — the runtimes that spawn this harness.
 - [[pattern-fresh-context-subagents]] · [[pattern-edit-guardrails]] · [[pattern-session-handoff]] · [[pattern-context-engineering]] — the patterns it provides as primitives.
+- [[std-agent-skills]] · [[std-agents-md]] · [[std-mcp]] — the open standards it conforms to ([adoption matrix](../standard/index.md)).

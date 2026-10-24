@@ -1,7 +1,7 @@
 ---
 type: index
 sources: "Synthesized from Tessl docs (2026); unpaged instances from public documentation — JFrog, Google Cloud, ClawHub, Agensi"
-updated: 2026-09-12
+updated: 2026-10-11
 ---
 
 # Registry
@@ -33,7 +33,7 @@ One instance paged. The node was minted on one because the **category** is unamb
 | **ClawHub** | `index` | Community registry with vector search over skills and gateway plugins — the discovery-only pole, and the evidence that made `index` a subtype rather than an edge case. |
 | **Agensi** | `index` | Marketplace for `SKILL.md` skills and MCP servers with curation, security scanning, and a creator revenue split. The commercial-marketplace shape. |
 
-Parked deliberately: **agentskills.io** and the AgentSkills format itself are a *standard*, not a registry, and belong in `topic/` if captured at all. **Smithery** is a registry of **MCP servers** — tools rather than capabilities — which is the adjacent-artifact case the [conventions](../CONVENTIONS.md#the-supply-layer-registries) tell you to record rather than blur.
+Not a registry: the **AgentSkills format** that JFrog and Tessl both claim is a *standard*, paged in the [contract layer](../standard/index.md) as [[std-agent-skills]]; the agentskills.io client showcase is a list of its adopters, not an install index. **Smithery** is a registry of **MCP servers** — tools rather than capabilities — which is the adjacent-artifact case the [conventions](../CONVENTIONS.md#the-supply-layer-registries) tell you to record rather than blur.
 
 ## The boundary test
 

@@ -1,5 +1,6 @@
 ---
 type: artifact
+conforms_to: ["[[std-agent-skills]]"]
 sources: "obra/superpowers — skills/writing-skills (2026); pstack v0.15.2 — Lauren Tan (2026); Tessl docs (2026)"
 raw: ["../../raw/superpowers/2026-07-17-superpowers.md"]
 updated: 2026-10-11
@@ -7,7 +8,7 @@ updated: 2026-10-11
 
 # Artifact: skill doc (SKILL.md)
 
-A reusable **skill definition** — a `SKILL.md` file (plus any supporting reference files, scripts, or prompt templates in its directory) that captures a proven technique, pattern, or reference so future agents can discover and apply it. Written by [[sp-writing-skills]] via its TDD-for-documentation loop: YAML frontmatter with `name` + a *when-to-use-only* `description`, then a body optimized for discovery (keyword coverage, cross-references, flowcharts only where a decision is non-obvious).
+A reusable **skill definition** — a `SKILL.md` file (plus any supporting reference files, scripts, or prompt templates in its directory), laid out to the open Agent Skills format ([[std-agent-skills]]), that captures a proven technique, pattern, or reference so future agents can discover and apply it. Written by [[sp-writing-skills]] via its TDD-for-documentation loop: YAML frontmatter with `name` + a *when-to-use-only* `description`, then a body optimized for discovery (keyword coverage, cross-references, flowcharts only where a decision is non-obvious).
 
 What makes it distinctive is that it is **executable process knowledge**: unlike a [[artifact-solution-doc]] (a lesson agents *read* as grounding) or an [[artifact-adr]] (a one-time decision record), a skill doc *changes what the agent can do* — once in the library it triggers automatically (via [[sp-using-superpowers]]) and is followed as a gated procedure. It is the unit that makes the [[superpowers]] library **grow itself**, the [[pattern-knowledge-compounding|capability- compounding]] output of [[stage-learn]].
 
@@ -37,3 +38,4 @@ A registry changes what the artifact *is*: it acquires a version, an owner, a vi
 - [[artifact-explainer]] · [[artifact-retrospective]] — the other [[stage-learn]] outputs (human-facing knowledge).
 - [[pattern-knowledge-compounding]] — the technique this artifact realizes (capability-compounding form).
 - [[stage-learn]] — the stage this artifact is an output of.
+- [[std-agent-skills]] — the open format this artifact follows.
