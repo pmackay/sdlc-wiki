@@ -74,6 +74,11 @@ jobs:
         working-directory: quartz-build
         run: npx quartz plugin install
 
+      # Sidebar labels mix lowercase slugs and title-cased pages; this TS-only
+      # override capitalises the first character of each Explorer label.
+      - name: Apply quartz.ts override (Explorer label casing)
+        run: cp .github/quartz/quartz.ts quartz-build/quartz.ts
+
       - name: Build site
         working-directory: quartz-build
         run: npx quartz build
